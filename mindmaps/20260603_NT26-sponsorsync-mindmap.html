@@ -1,0 +1,366 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+<title>Markmap</title>
+<style>
+* {
+  margin: 0;
+  padding: 0;
+}
+html {
+  font-family: ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji',
+    'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+}
+#mindmap {
+  display: block;
+  width: 100vw;
+  height: 100vh;
+}
+.markmap-dark {
+  background: #27272a;
+  color: white;
+}
+</style>
+
+</head>
+<body>
+<svg id="mindmap"></svg>
+<script src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js"></script><script src="https://cdn.jsdelivr.net/npm/markmap-view@0.18.12/dist/browser/index.js"></script><script>((getMarkmap, getOptions, root2, jsonOptions) => {
+              const markmap = getMarkmap();
+              window.mm = markmap.Markmap.create(
+                "svg#mindmap",
+                (getOptions || markmap.deriveOptions)(jsonOptions),
+                root2
+              );
+              if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+                document.documentElement.classList.add("markmap-dark");
+              }
+            })(() => window.markmap,null,{"content":"2026-06-03&#xff5c;NT26 &#x30b9;&#x30dd;&#x30f3;&#x30b5;&#x30fc;&#x9663;&#x5f62;&#x30fb;LT&#x914d;&#x7f6e;&#x6c7a;&#x5b9a;&#x4f1a;&#x8b70;","children":[{"content":"&#x4f1a;&#x8b70;&#x6982;&#x8981;","children":[{"content":"&#x30a4;&#x30d9;&#x30f3;&#x30c8;&#xff1a;Google Cloud &#x30d1;&#x30d6;&#x30ea;&#x30c3;&#x30af;&#x30bb;&#x30af;&#x30bf;&#x30fc;&#x5411;&#x3051;&#x7279;&#x5225;&#x30bb;&#x30c3;&#x30b7;&#x30e7;&#x30f3;&#xff08;NT26&#xff09;","children":[],"payload":{"tag":"li","lines":"3,4"}},{"content":"&#x9332;&#x97f3;&#x6642;&#x9593;&#xff1a;46&#x5206;55&#x79d2;&#xff0f;&#x6587;&#x5b57;&#x6570;&#xff1a;14,259&#x6587;&#x5b57;","children":[],"payload":{"tag":"li","lines":"4,5"}},{"content":"&#x76ee;&#x7684;&#xff1a;&#x30b9;&#x30dd;&#x30f3;&#x30b5;&#x30fc;&#x72b6;&#x6cc1;&#x306e;&#x540c;&#x671f;&#x30fb;LT&#x5272;&#x308a;&#x5f53;&#x3066;&#x65b9;&#x91dd;&#x30fb;&#x30d7;&#x30ed;&#x30b0;&#x30e9;&#x30e0;&#x30ac;&#x30a4;&#x30c9;&#x5bfe;&#x5fdc;&#x306e;&#x6c7a;&#x5b9a;","children":[],"payload":{"tag":"li","lines":"5,7"}}],"payload":{"tag":"h2","lines":"2,3"}},{"content":"&#x95a2;&#x4fc2;&#x8005;","children":[{"content":"&#x8a71;&#x8005;2&#xff1a;&#x30d5;&#x30a1;&#x30b7;&#x30ea;&#x30c6;&#x30fc;&#x30bf;&#x30fc;&#xff08;Google Cloud Pub-sec&#x62c5;&#x5f53;&#xff09;","children":[],"payload":{"tag":"li","lines":"8,9"}},{"content":"Toyota&#xff1a;&#x30b9;&#x30dd;&#x30f3;&#x30b5;&#x30fc;&#x55b6;&#x696d;&#x62c5;&#x5f53;","children":[],"payload":{"tag":"li","lines":"9,10"}},{"content":"Suzuki Takaomi&#xff1a;&#x30af;&#x30e9;&#x30a6;&#x30c9;&#x30de;&#x30fc;&#x30b1;&#x30fb;&#x30ea;&#x30fc;&#x30d5;&#x30ec;&#x30c3;&#x30c8;&#x62c5;&#x5f53;","children":[],"payload":{"tag":"li","lines":"10,11"}},{"content":"&#x8a71;&#x8005;6&#xff1a;&#x65b9;&#x91dd;&#x63d0;&#x6848;&#x62c5;&#x5f53;&#xff08;Google Cloud&#x30e1;&#x30f3;&#x30d0;&#x30fc;&#xff09;","children":[],"payload":{"tag":"li","lines":"11,12"}},{"content":"&#x8a71;&#x8005;1&#xff1a;Pub-sec&#x652f;&#x63f4;&#x30fb;&#x53d7;&#x4ed8;&#x904b;&#x55b6;&#x62c5;&#x5f53;","children":[],"payload":{"tag":"li","lines":"12,14"}}],"payload":{"tag":"h2","lines":"7,8"}},{"content":"&#x30b9;&#x30dd;&#x30f3;&#x30b5;&#x30fc;&#x72b6;&#x6cc1;","children":[{"content":"&#x30d5;&#x30eb;&#x30d1;&#x30c3;&#x30b1;&#x30fc;&#x30b8;&#xff08;3&#x793e;&#xff09;","children":[{"content":"Tanaka System Support &#x2192; <strong>&#x78ba;&#x5b9a;&#x6e08;&#x307f;</strong>","children":[],"payload":{"tag":"li","lines":"17,18"}},{"content":"Deloitte &#x2192; &#x691c;&#x8a0e;&#x4e2d;&#x30fb;&#x6700;&#x7d42;&#x5224;&#x65ad;&#x5f85;&#x3061;&#xff08;Toyota &#x304c;&#x4eca;&#x9031;&#x524d;&#x534a;&#x306b;&#x78ba;&#x5b9a;&#xff09;","children":[],"payload":{"tag":"li","lines":"18,19"}},{"content":"Cloud Ace &#x2192; &#x6700;&#x7d42;&#x5224;&#x65ad;&#x5f85;&#x3061;&#xff08;Toyota &#x304c;&#x4eca;&#x9031;&#x524d;&#x534a;&#x306b;&#x78ba;&#x5b9a;&#xff09;","children":[],"payload":{"tag":"li","lines":"19,21"}}],"payload":{"tag":"h3","lines":"16,17"}},{"content":"&#x30bb;&#x30c3;&#x30b7;&#x30e7;&#x30f3;&#x30b9;&#x30dd;&#x30f3;&#x30b5;&#x30fc;&#xff08;3&#x793e;&#x30fb;&#x78ba;&#x5b9a;&#xff09;","children":[{"content":"MBK&#xff08;Mitsui Bussan &#x30b0;&#x30eb;&#x30fc;&#x30d7;&#xff09;","children":[],"payload":{"tag":"li","lines":"22,23"}},{"content":"NIC39&#xff08;&#x65e5;&#x672c;&#x60c5;&#x5831;&#x901a;&#x4fe1;&#xff09;","children":[],"payload":{"tag":"li","lines":"23,24"}},{"content":"NTT &#x2192; &#x30bb;&#x30c3;&#x30b7;&#x30e7;&#x30f3;&#x306e;&#x307f;","children":[],"payload":{"tag":"li","lines":"24,26"}}],"payload":{"tag":"h3","lines":"21,22"}},{"content":"&#x30ed;&#x30b4;&#x30b9;&#x30dd;&#x30f3;&#x30b5;&#x30fc;&#xff08;&#x4ea4;&#x6e09;&#x4e2d;&#xff09;","children":[{"content":"NEC &#x2192; &#x30bb;&#x30c3;&#x30b7;&#x30e7;&#x30f3;&#x53c2;&#x52a0;&#x306e;&#x53ef;&#x80fd;&#x6027;&#x3042;&#x308a;&#x30fb;PDM&#x7d99;&#x7d9a;&#x4ea4;&#x6e09;&#x4e2d;","children":[],"payload":{"tag":"li","lines":"27,28"}},{"content":"Fujitsu &#x2192; PDM&#x7d99;&#x7d9a;&#x4ea4;&#x6e09;&#x4e2d;&#x30fb;&#x6765;&#x9031;&#x524d;&#x534a;&#x306b;&#x78ba;&#x5b9a;&#x4e88;&#x5b9a;","children":[],"payload":{"tag":"li","lines":"28,30"}}],"payload":{"tag":"h3","lines":"26,27"}},{"content":"&#x4e0a;&#x9650;&#x65b9;&#x91dd;","children":[{"content":"&#x539f;&#x5247;8&#x793e;&#x6253;&#x3061;&#x6b62;&#x3081;","children":[],"payload":{"tag":"li","lines":"31,32"}},{"content":"NEC&#x30fb;Fujitsu &#x304c;&#x52a0;&#x308f;&#x308b;&#x5834;&#x5408;&#x306f;9&#x793e;&#x3082;&#x5bb9;&#x8a8d;&#x30fb;&#x500b;&#x5225;&#x5224;&#x65ad;","children":[],"payload":{"tag":"li","lines":"32,34"}}],"payload":{"tag":"h3","lines":"30,31"}}],"payload":{"tag":"h2","lines":"14,15"}},{"content":"&#x30e9;&#x30a4;&#x30c8;&#x30cb;&#x30f3;&#x30b0;&#x30c8;&#x30fc;&#x30af;&#xff08;LT&#xff09;","children":[{"content":"&#x67a0;&#x306e;&#x8a2d;&#x8a08;","children":[{"content":"&#x5404;&#x30bb;&#x30c3;&#x30b7;&#x30e7;&#x30f3;&#x9593;&#x30a4;&#x30f3;&#x30bf;&#x30fc;&#x30d0;&#x30eb;&#xff08;45&#x5206;&#xff09;&#x306b;5&#x5206;&#x9593;&#x5b9f;&#x65bd;","children":[],"payload":{"tag":"li","lines":"37,38"}},{"content":"2&#x65e5;&#x9593; &#xd7; 4&#x30bb;&#x30c3;&#x30b7;&#x30e7;&#x30f3; = <strong>&#x8a08;8&#x67a0;</strong>","children":[],"payload":{"tag":"li","lines":"38,39"}},{"content":"&#x5404;&#x793e;1&#x67a0;&#xff08;5&#x5206;&#xff09;&#x305a;&#x3064;","children":[],"payload":{"tag":"li","lines":"39,41"}}],"payload":{"tag":"h3","lines":"36,37"}},{"content":"&#x5272;&#x308a;&#x5f53;&#x3066;&#x65b9;&#x91dd;&#xff08;&#x6c7a;&#x5b9a;&#xff09;","children":[{"content":"&#x5e0c;&#x671b;&#x306f;&#x805e;&#x304b;&#x306a;&#x3044; &#x2192; &#x904b;&#x55b6;&#x5074;&#x304c;&#x6c7a;&#x5b9a;&#x3057;&#x3066;&#x901a;&#x77e5;","children":[],"payload":{"tag":"li","lines":"42,43"}},{"content":"&#x696d;&#x754c;&#x30c9;&#x30e1;&#x30a4;&#x30f3;&#x3068;&#x30bb;&#x30c3;&#x30b7;&#x30e7;&#x30f3;&#x8074;&#x8846;&#x306e;&#x95a2;&#x9023;&#x6027;&#x3092;&#x8003;&#x616e;&#x3057;&#x3066;&#x914d;&#x7f6e;","children":[],"payload":{"tag":"li","lines":"43,44"}},{"content":"&#x300c;&#x62bd;&#x9078;&#x300d;&#x3068;&#x3044;&#x3046;&#x8aac;&#x660e;&#x3082;&#x6709;&#x52b9;","children":[],"payload":{"tag":"li","lines":"44,46"}}],"payload":{"tag":"h3","lines":"41,42"}},{"content":"&#x8074;&#x8846;&#x306e;&#x5165;&#x308c;&#x66ff;&#x308f;&#x308a;&#x69cb;&#x9020;&#xff08;LT&#x914d;&#x7f6e;&#x306e;&#x8003;&#x3048;&#x65b9;&#xff09;","children":[{"content":"&#x30d6;&#x30ed;&#x30c3;&#x30af;A&#xff1a;&#x4e2d;&#x592e;&#x7701;&#x5e81;&#x30fb;&#x5730;&#x65b9;&#x81ea;&#x6cbb;&#x4f53;&#xff08;&#x7d04;50%&#x304c;&#x9023;&#x7d9a;&#x53d7;&#x8b1b;&#xff09;","children":[],"payload":{"tag":"li","lines":"47,48"}},{"content":"&#x30d6;&#x30ed;&#x30c3;&#x30af;B&#xff1a;&#x30e9;&#x30a4;&#x30d5;&#x30b5;&#x30a4;&#x30a8;&#x30f3;&#x30b9;&#x30fb;&#x30d8;&#x30eb;&#x30b9;&#x30b1;&#x30a2;&#xff08;&#x72ec;&#x7acb;&#x3057;&#x305f;&#x8074;&#x8846;&#x5c64;&#xff09;","children":[],"payload":{"tag":"li","lines":"48,49"}},{"content":"&#x30d6;&#x30ed;&#x30c3;&#x30af;C&#xff1a;&#x6559;&#x80b2;&#x30fb;&#x7814;&#x7a76;&#x6a5f;&#x95a2;&#xff08;&#x72ec;&#x7acb;&#x3057;&#x305f;&#x8074;&#x8846;&#x5c64;&#xff09;","children":[],"payload":{"tag":"li","lines":"49,50"}},{"content":"&#x30bb;&#x30c3;&#x30b7;&#x30e7;&#x30f3;&#x7d42;&#x4e86;&#x76f4;&#x5f8c;&#x306b;&#x5b9f;&#x65bd;&#xff08;&#x5e30;&#x308a;&#x3057;&#x306a;&#x306b;&#x805e;&#x3044;&#x3066;&#x3082;&#x3089;&#x3046;&#x8a2d;&#x8a08;&#xff09;","children":[],"payload":{"tag":"li","lines":"50,51"}},{"content":"&#x30d6;&#x30fc;&#x30b9;&#x6848;&#x5185;&#x3068;&#x7d44;&#x307f;&#x5408;&#x308f;&#x305b;&#x3066;&#x6b8b;&#x7559;&#x3092;&#x4fc3;&#x3059;","children":[],"payload":{"tag":"li","lines":"51,53"}}],"payload":{"tag":"h3","lines":"46,47"}}],"payload":{"tag":"h2","lines":"34,35"}},{"content":"&#x30d7;&#x30ed;&#x30b0;&#x30e9;&#x30e0;&#x30ac;&#x30a4;&#x30c9;","children":[{"content":"&#x63b2;&#x8f09;&#x5185;&#x5bb9;&#xff08;&#x6c7a;&#x5b9a;&#xff09;","children":[{"content":"&#x30d5;&#x30eb;&#x30d1;&#x30c3;&#x30b1;&#x30fc;&#x30b8;&#xff0b;&#x30bb;&#x30c3;&#x30b7;&#x30e7;&#x30f3;&#x30b9;&#x30dd;&#x30f3;&#x30b5;&#x30fc;&#x306e;&#x30ed;&#x30b4;&#x3092;&#x63b2;&#x8f09;","children":[],"payload":{"tag":"li","lines":"56,57"}},{"content":"&#x30ed;&#x30b4;&#x30b9;&#x30dd;&#x30f3;&#x30b5;&#x30fc;&#x306e;&#x307f;&#x306f;&#x5bfe;&#x8c61;&#x5916;&#xff08;&#x30b9;&#x30dd;&#x30f3;&#x30b5;&#x30fc;&#x30dc;&#x30fc;&#x30c9;&#x306b;&#x306f;&#x5225;&#x9014;&#x63b2;&#x8f09;&#xff09;","children":[],"payload":{"tag":"li","lines":"57,58"}},{"content":"&#x5404;&#x30bb;&#x30c3;&#x30b7;&#x30e7;&#x30f3;&#x4e0b;&#x90e8;&#x306b;&#x30b9;&#x30dd;&#x30f3;&#x30b5;&#x30fc;&#x4f01;&#x696d;&#x540d;&#xff08;&#x793e;&#x540d;&#x6587;&#x5b57;&#x5217;&#xff09;&#x3092;&#x8ffd;&#x8a18;","children":[],"payload":{"tag":"li","lines":"58,60"}}],"payload":{"tag":"h3","lines":"55,56"}},{"content":"&#x7de0;&#x5207;&#x30fb;&#x5bfe;&#x5fdc;","children":[{"content":"&#x4eca;&#x9031;&#x4e2d;&#x304c;&#x7de0;&#x5207; &#x2192; Nakayama &#x306b;&#x5ef6;&#x9577;&#x4ea4;&#x6e09;&#x304c;&#x5fc5;&#x8981;","children":[],"payload":{"tag":"li","lines":"61,62"}},{"content":"&#x7269;&#x7406;&#x5370;&#x5237;&#x306f;6&#x6708;&#x5f8c;&#x534a;&#x307e;&#x3067;&#x5f85;&#x3066;&#x308b;&#x898b;&#x8fbc;&#x307f;","children":[],"payload":{"tag":"li","lines":"62,63"}},{"content":"&#x6570;&#x793e;&#x306e;&#x6700;&#x7d42;&#x5224;&#x65ad;&#x3092;&#x5f85;&#x3063;&#x3066;&#x304b;&#x3089;&#x6700;&#x7d42;&#x6c7a;&#x5b9a;","children":[],"payload":{"tag":"li","lines":"63,65"}}],"payload":{"tag":"h3","lines":"60,61"}}],"payload":{"tag":"h2","lines":"53,54"}},{"content":"3&#x3064;&#x6298;&#x308a;&#x30ea;&#x30fc;&#x30d5;&#x30ec;&#x30c3;&#x30c8;","children":[{"content":"&#x8ab2;&#x984c;","children":[{"content":"A4&#x4e09;&#x3064;&#x6298;&#x308a;&#x306f;&#x9762;&#x7a4d;&#x304c;&#x72ed;&#x3044;","children":[],"payload":{"tag":"li","lines":"68,69"}},{"content":"&#x767b;&#x58c7;&#x8005;&#x540d;&#x30fb;&#x7701;&#x5e81;&#x540d;&#x304c;&#x30d1;&#x30f3;&#x30d1;&#x30f3;&#x306b;&#x306a;&#x308b;&#x61f8;&#x5ff5;","children":[],"payload":{"tag":"li","lines":"69,71"}}],"payload":{"tag":"h3","lines":"67,68"}},{"content":"&#x65b9;&#x91dd;","children":[{"content":"Suzuki Takaomi &#x304c;&#x60c5;&#x5831;&#x6574;&#x7406;&#x30fb;&#x30e9;&#x30d5;&#x6848;&#x4f5c;&#x6210;&#x62c5;&#x5f53;","children":[],"payload":{"tag":"li","lines":"72,73"}},{"content":"16&#x6642;&#x9803;&#x306b;&#x30c7;&#x30b6;&#x30a4;&#x30f3;&#x30e9;&#x30d5;&#x6848;&#x53d7;&#x9818;&#x4e88;&#x5b9a;&#xff08;Brand &#x30c1;&#x30fc;&#x30e0;&#x3088;&#x308a;&#xff09;","children":[],"payload":{"tag":"li","lines":"73,74"}},{"content":"&#x904e;&#x53bb;&#x306e;&#x30d1;&#x30d6;&#x30bb;&#x30af;&#x30a4;&#x30d9;&#x30f3;&#x30c8;&#x30ea;&#x30fc;&#x30d5;&#x30ec;&#x30c3;&#x30c8;&#x3092;&#x53c2;&#x8003;&#x306b;&#x5224;&#x65ad;","children":[],"payload":{"tag":"li","lines":"74,75"}},{"content":"&#x914d;&#x5e03;&#x5834;&#x6240;&#xff1a;&#x30e1;&#x30a4;&#x30f3;&#x4f1a;&#x5834;&#xff08;&#x5357;&#x5c55;&#x793a;&#x68df;&#xff09;","children":[],"payload":{"tag":"li","lines":"75,77"}}],"payload":{"tag":"h3","lines":"71,72"}}],"payload":{"tag":"h2","lines":"65,66"}},{"content":"&#x53d7;&#x4ed8;&#x30fb;&#x904b;&#x55b6;&#x4f53;&#x5236;","children":[{"content":"&#x53d7;&#x4ed8;&#x8a2d;&#x8a08;","children":[{"content":"&#x6700;&#x5c0f;2&#x540d;&#x4f53;&#x5236;","children":[{"content":"And Company &#x304b;&#x3089;1&#x540d;","children":[],"payload":{"tag":"li","lines":"81,82"}},{"content":"&#x30b9;&#x30dd;&#x30f3;&#x30b5;&#x30fc;&#x4e8b;&#x52d9;&#x5c40;&#x304b;&#x3089;1&#x540d;","children":[],"payload":{"tag":"li","lines":"82,83"}}],"payload":{"tag":"li","lines":"80,83"}},{"content":"&#x6a5f;&#x80fd;&#xff1a;&#x30b9;&#x30d4;&#x30fc;&#x30ab;&#x30fc;&#x53d7;&#x4ed8;&#xff08;T-&#x30b7;&#x30e3;&#x30c4;&#x30fb;&#x30d0;&#x30c3;&#x30b8;&#x914d;&#x5e03;&#xff09;&#xff0b;&#x30a4;&#x30f3;&#x30d5;&#x30a9;&#x30e1;&#x30fc;&#x30b7;&#x30e7;&#x30f3;","children":[],"payload":{"tag":"li","lines":"83,84"}},{"content":"&#x8a2d;&#x7f6e;&#x5834;&#x6240;&#xff1a;&#x30a8;&#x30b9;&#x30ab;&#x30ec;&#x30fc;&#x30bf;&#x30fc;&#x4e0a;&#x304c;&#x3063;&#x305f;&#x5148;&#xff08;&#x53c2;&#x52a0;&#x8005;&#x304c;&#x81ea;&#x7136;&#x306b;&#x5bc4;&#x308b;&#x4f4d;&#x7f6e;&#xff09;","children":[],"payload":{"tag":"li","lines":"84,85"}},{"content":"&#x30c7;&#x30b9;&#x30af;&#x898f;&#x6a21;&#xff1a;&#x5e45;200cm&#x7a0b;&#x5ea6;&#x306e;&#x30b3;&#x30f3;&#x30d1;&#x30af;&#x30c8;&#x306a;&#x3082;&#x306e;","children":[],"payload":{"tag":"li","lines":"85,87"}}],"payload":{"tag":"h3","lines":"79,80"}},{"content":"&#x30b9;&#x30b1;&#x30b8;&#x30e5;&#x30fc;&#x30e9;&#x30fc;&#x5bfe;&#x5fdc;","children":[{"content":"&#x975e;&#x516c;&#x958b;&#x30b3;&#x30f3;&#x30c6;&#x30f3;&#x30c4;&#x542b;&#x3081;&#x5168;&#x3066;&#x30a4;&#x30d9;&#x30f3;&#x30c8;&#x30b9;&#x30b1;&#x30b8;&#x30e5;&#x30fc;&#x30e9;&#x30fc;&#x306b;&#x5165;&#x529b;","children":[],"payload":{"tag":"li","lines":"88,90"}}],"payload":{"tag":"h3","lines":"87,88"}}],"payload":{"tag":"h2","lines":"77,78"}},{"content":"&#x30a2;&#x30af;&#x30b7;&#x30e7;&#x30f3;&#x30a2;&#x30a4;&#x30c6;&#x30e0;","children":[{"content":"Toyota &#x62c5;&#x5f53;","children":[{"content":"Cloud Ace&#x30fb;Deloitte &#x306e;&#x6700;&#x7d42;&#x5224;&#x65ad;&#x78ba;&#x5b9a; &#x2192; <strong>&#x4eca;&#x9031;&#x524d;&#x534a;</strong>","children":[],"payload":{"tag":"li","lines":"93,94"}},{"content":"NEC&#x30fb;Fujitsu &#x306e;&#x30bb;&#x30c3;&#x30b7;&#x30e7;&#x30f3;&#x53c2;&#x52a0;&#x53ef;&#x5426;&#x78ba;&#x5b9a; &#x2192; <strong>&#x6765;&#x9031;&#x524d;&#x534a;</strong>","children":[],"payload":{"tag":"li","lines":"94,96"}}],"payload":{"tag":"h3","lines":"92,93"}},{"content":"Suzuki Takaomi &#x62c5;&#x5f53;","children":[{"content":"3&#x3064;&#x6298;&#x308a;&#x30ea;&#x30fc;&#x30d5;&#x30ec;&#x30c3;&#x30c8;&#x60c5;&#x5831;&#x6574;&#x7406;&#x30fb;&#x30c7;&#x30b6;&#x30a4;&#x30f3;&#x30e9;&#x30d5;&#x78ba;&#x8a8d; &#x2192; <strong>&#x672c;&#x65e5;16&#x6642;</strong>","children":[],"payload":{"tag":"li","lines":"97,99"}}],"payload":{"tag":"h3","lines":"96,97"}},{"content":"&#x62c5;&#x5f53;&#x8005;","children":[{"content":"Nakayama &#x3078;&#x30d7;&#x30ed;&#x30b0;&#x30e9;&#x30e0;&#x30ac;&#x30a4;&#x30c9;&#x7de0;&#x5207;&#x5ef6;&#x9577;&#x3092;&#x4ea4;&#x6e09; &#x2192; <strong>&#x672c;&#x65e5;&#x4e2d;</strong>","children":[],"payload":{"tag":"li","lines":"100,102"}}],"payload":{"tag":"h3","lines":"99,100"}},{"content":"&#x55b6;&#x696d;&#x30c1;&#x30fc;&#x30e0;","children":[{"content":"NTT&#x6771;&#x897f;&#x7b49;&#x3078;&#x306e;&#x8ffd;&#x52a0;&#x30ed;&#x30b4;&#x30b9;&#x30dd;&#x30f3;&#x30b5;&#x30fc;&#x30a2;&#x30d7;&#x30ed;&#x30fc;&#x30c1; &#x2192; <strong>&#x968f;&#x6642;</strong>","children":[],"payload":{"tag":"li","lines":"103,105"}}],"payload":{"tag":"h3","lines":"102,103"}},{"content":"&#x904b;&#x55b6;","children":[{"content":"LT 8&#x793e;&#x3078;&#x306e;&#x5272;&#x308a;&#x5f53;&#x3066;&#x901a;&#x77e5; &#x2192; <strong>&#x30b9;&#x30dd;&#x30f3;&#x30b5;&#x30fc;&#x78ba;&#x5b9a;&#x5f8c;</strong>","children":[],"payload":{"tag":"li","lines":"106,107"}}],"payload":{"tag":"h3","lines":"105,106"}}],"payload":{"tag":"h2","lines":"90,91"}}],"payload":{"tag":"h1","lines":"0,1"}},null)</script>
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/markmap-toolbar@0.18.10/dist/style.css"
+    />
+
+    <script src="https://cdn.jsdelivr.net/npm/markmap-toolbar@0.18.10/dist/index.js"></script>
+    <script>
+      ((r) => {
+          setTimeout(r);
+      })(() => {
+          const { markmap, mm } = window;
+          const toolbar = new markmap.Toolbar();
+          toolbar.attach(mm);
+          const el = toolbar.render();
+          el.setAttribute(
+              "style",
+              "position:absolute;bottom:20px;right:20px"
+          );
+          document.body.append(el);
+          
+          // Ensure the mind map fits the current view
+          setTimeout(() => {
+            if (mm && typeof mm.fit === 'function') {
+              mm.fit();
+            }
+          }, 1200);
+      });
+    </script>
+  
+
+    <!-- Add html-to-image library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html-to-image/1.11.11/html-to-image.min.js"></script>
+
+    <!-- Hidden element to store original Markdown content -->
+    <textarea id="original-markdown" style="display:none;"># 2026-06-03｜NT26 スポンサー陣形・LT配置決定会議
+
+## 会議概要
+- イベント：Google Cloud パブリックセクター向け特別セッション（NT26）
+- 録音時間：46分55秒／文字数：14,259文字
+- 目的：スポンサー状況の同期・LT割り当て方針・プログラムガイド対応の決定
+
+## 関係者
+- 話者2：ファシリテーター（Google Cloud Pub-sec担当）
+- Toyota：スポンサー営業担当
+- Suzuki Takaomi：クラウドマーケ・リーフレット担当
+- 話者6：方針提案担当（Google Cloudメンバー）
+- 話者1：Pub-sec支援・受付運営担当
+
+## スポンサー状況
+
+### フルパッケージ（3社）
+- Tanaka System Support → **確定済み**
+- Deloitte → 検討中・最終判断待ち（Toyota が今週前半に確定）
+- Cloud Ace → 最終判断待ち（Toyota が今週前半に確定）
+
+### セッションスポンサー（3社・確定）
+- MBK（Mitsui Bussan グループ）
+- NIC39（日本情報通信）
+- NTT → セッションのみ
+
+### ロゴスポンサー（交渉中）
+- NEC → セッション参加の可能性あり・PDM継続交渉中
+- Fujitsu → PDM継続交渉中・来週前半に確定予定
+
+### 上限方針
+- 原則8社打ち止め
+- NEC・Fujitsu が加わる場合は9社も容認・個別判断
+
+## ライトニングトーク（LT）
+
+### 枠の設計
+- 各セッション間インターバル（45分）に5分間実施
+- 2日間 × 4セッション = **計8枠**
+- 各社1枠（5分）ずつ
+
+### 割り当て方針（決定）
+- 希望は聞かない → 運営側が決定して通知
+- 業界ドメインとセッション聴衆の関連性を考慮して配置
+- 「抽選」という説明も有効
+
+### 聴衆の入れ替わり構造（LT配置の考え方）
+- ブロックA：中央省庁・地方自治体（約50%が連続受講）
+- ブロックB：ライフサイエンス・ヘルスケア（独立した聴衆層）
+- ブロックC：教育・研究機関（独立した聴衆層）
+- セッション終了直後に実施（帰りしなに聞いてもらう設計）
+- ブース案内と組み合わせて残留を促す
+
+## プログラムガイド
+
+### 掲載内容（決定）
+- フルパッケージ＋セッションスポンサーのロゴを掲載
+- ロゴスポンサーのみは対象外（スポンサーボードには別途掲載）
+- 各セッション下部にスポンサー企業名（社名文字列）を追記
+
+### 締切・対応
+- 今週中が締切 → Nakayama に延長交渉が必要
+- 物理印刷は6月後半まで待てる見込み
+- 数社の最終判断を待ってから最終決定
+
+## 3つ折りリーフレット
+
+### 課題
+- A4三つ折りは面積が狭い
+- 登壇者名・省庁名がパンパンになる懸念
+
+### 方針
+- Suzuki Takaomi が情報整理・ラフ案作成担当
+- 16時頃にデザインラフ案受領予定（Brand チームより）
+- 過去のパブセクイベントリーフレットを参考に判断
+- 配布場所：メイン会場（南展示棟）
+
+## 受付・運営体制
+
+### 受付設計
+- 最小2名体制
+  - And Company から1名
+  - スポンサー事務局から1名
+- 機能：スピーカー受付（T-シャツ・バッジ配布）＋インフォメーション
+- 設置場所：エスカレーター上がった先（参加者が自然に寄る位置）
+- デスク規模：幅200cm程度のコンパクトなもの
+
+### スケジューラー対応
+- 非公開コンテンツ含め全てイベントスケジューラーに入力
+
+## アクションアイテム
+
+### Toyota 担当
+- Cloud Ace・Deloitte の最終判断確定 → **今週前半**
+- NEC・Fujitsu のセッション参加可否確定 → **来週前半**
+
+### Suzuki Takaomi 担当
+- 3つ折りリーフレット情報整理・デザインラフ確認 → **本日16時**
+
+### 担当者
+- Nakayama へプログラムガイド締切延長を交渉 → **本日中**
+
+### 営業チーム
+- NTT東西等への追加ロゴスポンサーアプローチ → **随時**
+
+### 運営
+- LT 8社への割り当て通知 → **スポンサー確定後**</textarea>
+
+    <style>
+      /* Export toolbar styles */
+      .mm-export-toolbar {
+        position: fixed;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 1000;
+        background: rgba(255, 255, 255, 0.9);
+        border-radius: 8px;
+        padding: 8px 16px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        display: flex;
+        gap: 10px;
+      }
+      .mm-export-btn {
+        padding: 6px 12px;
+        border: none;
+        border-radius: 4px;
+        background-color: #3498db;
+        color: white;
+        cursor: pointer;
+        font-size: 14px;
+        transition: background-color 0.3s;
+      }
+      .mm-export-btn:hover {
+        background-color: #2980b9;
+      }
+      .mm-copy-btn {
+        background-color: #27ae60;
+      }
+      .mm-copy-btn:hover {
+        background-color: #219653;
+      }
+      @media print {
+        .mm-export-toolbar { display: none !important; }
+        .mm-toolbar { display: none !important; }
+        svg.markmap, svg#mindmap, #mindmap svg { 
+          display: block !important;
+          visibility: visible !important; 
+          opacity: 1 !important;
+          height: 100vh !important;
+          width: 100% !important;
+          max-width: 100% !important;
+          max-height: 100vh !important;
+          overflow: visible !important;
+          page-break-inside: avoid !important;
+        }
+        body, html {
+          height: 100% !important;
+          width: 100% !important;
+          margin: 0 !important;
+          padding: 0 !important;
+          overflow: visible !important;
+        }
+      }
+    </style>
+
+    <script>
+      (function() {
+        // Create bottom export toolbar
+        const exportToolbar = document.createElement('div');
+        exportToolbar.className = 'mm-export-toolbar';
+        document.body.appendChild(exportToolbar);
+        
+        // Export as PNG image
+        const pngBtn = document.createElement('button');
+        pngBtn.className = 'mm-export-btn png-export';
+        pngBtn.innerHTML = 'Export PNG';
+        pngBtn.title = 'Export as PNG image';
+        pngBtn.onclick = () => {
+          exportToImage('png');
+        };
+        exportToolbar.appendChild(pngBtn);
+
+        // Export as JPG image
+        const jpgBtn = document.createElement('button');
+        jpgBtn.className = 'mm-export-btn jpg-export';
+        jpgBtn.innerHTML = 'Export JPG';
+        jpgBtn.title = 'Export as JPG image';
+        jpgBtn.onclick = () => {
+          exportToImage('jpeg');
+        };
+        exportToolbar.appendChild(jpgBtn);
+        
+        // Export as SVG image
+        const svgBtn = document.createElement('button');
+        svgBtn.className = 'mm-export-btn svg-export';
+        svgBtn.innerHTML = 'Export SVG';
+        svgBtn.title = 'Export as SVG image';
+        svgBtn.onclick = () => {
+          exportToImage('svg');
+        };
+        exportToolbar.appendChild(svgBtn);
+
+        // Copy original Markdown button
+        const copyBtn = document.createElement('button');
+        copyBtn.className = 'mm-export-btn mm-copy-btn copy-markdown';
+        copyBtn.innerHTML = 'Copy Markdown';
+        copyBtn.title = 'Copy original Markdown content';
+        copyBtn.onclick = copyOriginalMarkdown;
+        exportToolbar.appendChild(copyBtn);
+
+        // Function to copy original Markdown content
+        function copyOriginalMarkdown() {
+          try {
+            const markdownElement = document.getElementById('original-markdown');
+            if (!markdownElement) {
+              throw new Error('Original Markdown content not found');
+            }
+            
+            const markdownContent = markdownElement.value;
+            
+            // Copy to clipboard
+            navigator.clipboard.writeText(markdownContent)
+              .then(() => {
+                const originalText = copyBtn.innerHTML;
+                copyBtn.innerHTML = '✓ Copied';
+                copyBtn.style.backgroundColor = '#2ecc71';
+                
+                setTimeout(() => {
+                  copyBtn.innerHTML = originalText;
+                  copyBtn.style.backgroundColor = '';
+                }, 2000);
+              })
+              .catch(err => {
+                console.error('Copy failed:', err);
+                alert('Failed to copy to clipboard, please check browser permissions');
+              });
+          } catch (e) {
+            console.error('Error copying Markdown:', e);
+            alert('Unable to copy Markdown: ' + e.message);
+          }
+        }
+
+        // Function to export image
+        function exportToImage(format) {
+          try {
+            const node = window.mm.svg._groups[0][0];
+            
+            if (!node) {
+              throw new Error('Cannot find mind map SVG element');
+            }
+
+            window.mm.fit().then(() => {
+              const options = {
+                backgroundColor: "#ffffff", 
+                quality: 1.0,
+                width: node.getBoundingClientRect().width,
+                height: node.getBoundingClientRect().height
+              };
+              
+              const exportPromise = format === 'svg' 
+                ? htmlToImage.toSvg(node, options)
+                : format === 'jpeg' 
+                  ? htmlToImage.toJpeg(node, options) 
+                  : htmlToImage.toPng(node, options);
+              
+              exportPromise
+                .then((dataUrl) => {
+                  const link = document.createElement('a');
+                  const timestamp = new Date().toISOString().slice(0, 10);
+                  link.download = `markmap-${timestamp}.${format === 'jpeg' ? 'jpg' : format === 'svg' ? 'svg' : 'png'}`;
+                  link.href = dataUrl;
+                  link.click();
+                })
+                .catch((err) => console.error("Export failed:", err));
+            })
+            .catch((err) => {
+                throw err;
+            });
+              
+          } catch (e) {
+            console.error('Error exporting image:', e);
+            alert('Image export failed: ' + e.message);
+          }
+        }
+      })();
+    </script>
+  
+</body>
+</html>
