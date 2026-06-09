@@ -4,9 +4,334 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-<title>Markmap - Itinerary</title>
+<title>Markmap</title>
+<style>
+* {
+  margin: 0;
+  padding: 0;
+}
+html {
+  font-family: ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji',
+    'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+}
+#mindmap {
+  display: block;
+  width: 100vw;
+  height: 100vh;
+}
+.markmap-dark {
+  background: #27272a;
+  color: white;
+}
+</style>
+
 </head>
 <body>
-<p>See local file for full content</p>
+<svg id="mindmap"></svg>
+<script src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js"></script><script src="https://cdn.jsdelivr.net/npm/markmap-view@0.18.12/dist/browser/index.js"></script><script>((getMarkmap, getOptions, root2, jsonOptions) => {
+              const markmap = getMarkmap();
+              window.mm = markmap.Markmap.create(
+                "svg#mindmap",
+                (getOptions || markmap.deriveOptions)(jsonOptions),
+                root2
+              );
+              if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+                document.documentElement.classList.add("markmap-dark");
+              }
+            })(() => window.markmap,null,{"content":"Itinerary&#xff08;&#x30a2;&#x30a4;&#x30c6;&#x30a3;&#x30ca;&#x30e9;&#x30ea;&#x30fc;&#xff09;","children":[{"content":"&#x6982;&#x8981;","children":[{"content":"&#x76ee;&#x7684;","children":[{"content":"&#x30a8;&#x30b0;&#x30bc;&#x30af;&#x30c6;&#x30a3;&#x30d6;&#x306e;&#x4e88;&#x5b9a;&#x7ba1;&#x7406;&#x306b;&#x7279;&#x5316;&#x3057;&#x305f;&#x30c4;&#x30fc;&#x30eb;","children":[],"payload":{"tag":"li","lines":"3,4"}},{"content":"&#x30b9;&#x30b1;&#x30b8;&#x30e5;&#x30fc;&#x30e9;&#x30fc;&#x3068;&#x81ea;&#x52d5;&#x9023;&#x643a;&#x3059;&#x308b;&#x96c6;&#x7d04;&#x30cf;&#x30d6;","children":[],"payload":{"tag":"li","lines":"4,5"}}],"payload":{"tag":"h3","lines":"2,3"}},{"content":"3&#x3064;&#x306e;&#x4e3b;&#x8981;&#x6a5f;&#x80fd;","children":[{"content":"&#x30a8;&#x30b0;&#x30bc;&#x30af;&#x30c6;&#x30a3;&#x30d6;&#x306e;&#x4e88;&#x5b9a;&#x78ba;&#x8a8d;","children":[],"payload":{"tag":"li","lines":"6,7"}},{"content":"&#x30b5;&#x30dd;&#x30fc;&#x30c8;&#x62c5;&#x5f53;&#x8005;&#x306e;&#x660e;&#x78ba;&#x5316;","children":[],"payload":{"tag":"li","lines":"7,8"}},{"content":"Google&#x30ab;&#x30ec;&#x30f3;&#x30c0;&#x30fc;&#x3068;&#x306e;&#x81ea;&#x52d5;&#x9023;&#x643a;","children":[],"payload":{"tag":"li","lines":"8,9"}}],"payload":{"tag":"h3","lines":"5,6"}}],"payload":{"tag":"h2","lines":"1,2"}},{"content":"&#x30a2;&#x30af;&#x30bb;&#x30b9;&#x6a29;&#x9650;","children":[{"content":"6&#x3064;&#x306e;&#x7279;&#x5b9a;&#x30d7;&#x30ed;&#x30b0;&#x30e9;&#x30e0;&#x62c5;&#x5f53;&#x8005;&#x306e;&#x307f;&#x7de8;&#x96c6;&#x53ef;&#x80fd;","children":[],"payload":{"tag":"li","lines":"10,11"}},{"content":"&#x6765;&#x65e5;&#x30a8;&#x30b0;&#x30bc;&#x30af;&#x30c6;&#x30a3;&#x30d6;&#x306e;&#x62c5;&#x5f53;&#x8005;","children":[],"payload":{"tag":"li","lines":"11,12"}},{"content":"&#x6a29;&#x9650;&#x8ffd;&#x52a0;&#x306f;&#x4e8b;&#x524d;&#x306b;&#x590f;&#x6728;&#x3055;&#x3093;&#x3078;&#x76f8;&#x8ac7;","children":[],"payload":{"tag":"li","lines":"12,13"}}],"payload":{"tag":"h2","lines":"9,10"}},{"content":"&#x30b7;&#x30fc;&#x30c8;&#x69cb;&#x6210;","children":[{"content":"&#x8d64;&#x30b7;&#x30fc;&#x30c8;&#xff08;&#x30aa;&#x30fc;&#x30eb;&#x30a4;&#x30f3;&#x30d7;&#x30c3;&#x30c8;&#xff09;","children":[{"content":"&#x552f;&#x4e00;&#x306e;&#x7de8;&#x96c6;&#x53ef;&#x80fd;&#x30b7;&#x30fc;&#x30c8;","children":[],"payload":{"tag":"li","lines":"15,16"}},{"content":"&#x3059;&#x3079;&#x3066;&#x306e;&#x5165;&#x529b;&#x4f5c;&#x696d;&#x306f;&#x3053;&#x3053;&#x3067;&#x884c;&#x3046;","children":[],"payload":{"tag":"li","lines":"16,17"}}],"payload":{"tag":"h3","lines":"14,15"}},{"content":"&#x9752;&#x30b7;&#x30fc;&#x30c8;&#xff08;VIP&#x4e88;&#x5b9a;&#x4e00;&#x89a7;&#x8868;&#xff09;","children":[{"content":"5&#x5206;&#x523b;&#x307f;&#x3067;&#x5168;&#x30a8;&#x30b0;&#x30bc;&#x30af;&#x30c6;&#x30a3;&#x30d6;&#x4e88;&#x5b9a;&#x8868;&#x793a;","children":[],"payload":{"tag":"li","lines":"18,19"}},{"content":"7&#x6642;&#x301c;21&#x6642;&#x3092;&#x30ab;&#x30d0;&#x30fc;","children":[],"payload":{"tag":"li","lines":"19,20"}},{"content":"&#x30b5;&#x30dd;&#x30fc;&#x30c8;&#x62c5;&#x5f53;&#x8005;&#x540d;&#x3092;&#x9ec4;&#x8272;&#x5217;&#x306b;&#x8a18;&#x5165;","children":[],"payload":{"tag":"li","lines":"20,21"}}],"payload":{"tag":"h3","lines":"17,18"}},{"content":"&#x7dd1;&#x30b7;&#x30fc;&#x30c8;&#xff08;&#x500b;&#x4eba;&#x30b7;&#x30fc;&#x30c8;&#xff09;","children":[{"content":"&#x5404;&#x30a8;&#x30b0;&#x30bc;&#x30af;&#x30c6;&#x30a3;&#x30d6;&#x5225;&#x306e;&#x4e88;&#x5b9a;&#x8868;&#x793a;","children":[],"payload":{"tag":"li","lines":"22,23"}},{"content":"&#x95a2;&#x6570;&#x3067;&#x81ea;&#x52d5;&#x53cd;&#x6620;","children":[],"payload":{"tag":"li","lines":"23,24"}},{"content":"&#x30de;&#x30f3;&#x30c0;&#x30c8;&#x30ea;&#x30fc;&#x5217;&#x306e;&#x60c5;&#x5831;&#x306e;&#x307f;&#x62bd;&#x51fa;","children":[],"payload":{"tag":"li","lines":"24,25"}}],"payload":{"tag":"h3","lines":"21,22"}},{"content":"&#x9ec4;&#x30b7;&#x30fc;&#x30c8;&#xff08;&#x30b9;&#x30b1;&#x30b8;&#x30e5;&#x30fc;&#x30e9;&#x30fc;&#x9023;&#x643a;&#xff09;","children":[{"content":"&#x81ea;&#x52d5;&#x4e88;&#x5b9a;&#x767b;&#x9332;&#x7528;&#xff08;&#x53c2;&#x7167;&#x306e;&#x307f;&#xff09;","children":[],"payload":{"tag":"li","lines":"26,27"}}],"payload":{"tag":"h3","lines":"25,26"}}],"payload":{"tag":"h2","lines":"13,14"}},{"content":"&#x4e88;&#x5b9a;&#x5165;&#x529b;&#x30eb;&#x30fc;&#x30eb;","children":[{"content":"&#x5165;&#x529b;&#x9805;&#x76ee;","children":[{"content":"&#x30a4;&#x30f3;&#x30d7;&#x30c3;&#x30bf;&#x30fc;&#xff1a;&#x30d7;&#x30eb;&#x30c0;&#x30a6;&#x30f3;&#x3067;&#x62c5;&#x5f53;&#x8005;&#x540d;&#x3092;&#x9078;&#x629e;","children":[],"payload":{"tag":"li","lines":"29,30"}},{"content":"&#x65e5;&#x4ed8;&#x30fb;&#x6642;&#x9593;&#xff1a;5&#x5206;&#x5358;&#x4f4d;&#x3067;&#x8a18;&#x5165;","children":[],"payload":{"tag":"li","lines":"30,31"}},{"content":"&#x30bf;&#x30a4;&#x30c8;&#x30eb;&#xff1a;&#xff08;&#x30d7;&#x30ed;&#x30b0;&#x30e9;&#x30e0;&#x540d;&#xff09;&#x5185;&#x5bb9;&#x306e;&#x5f62;&#x5f0f;&#x3000;&#x4f8b;&#xff1a;&#xff08;&#x30ad;&#x30fc;&#x30ce;&#x30fc;&#x30c8;&#xff09;&#x30ea;&#x30cf;&#x30fc;&#x30b5;&#x30eb;","children":[],"payload":{"tag":"li","lines":"31,32"}},{"content":"&#x53c2;&#x52a0;&#x8005;&#x30fb;&#x5fc5;&#x9808;&#xff1a;&#x30ab;&#x30f3;&#x30de;&#x533a;&#x5207;&#x308a;&#x30fb;&#x672b;&#x5c3e;&#x30ab;&#x30f3;&#x30de;&#x524a;&#x9664;","children":[],"payload":{"tag":"li","lines":"32,33"}},{"content":"&#x53c2;&#x52a0;&#x8005;&#x30fb;&#x30aa;&#x30d7;&#x30b7;&#x30e7;&#x30ca;&#x30eb;&#xff1a;&#x4efb;&#x610f;&#x30fb;&#x91cd;&#x8907;&#x30c1;&#x30a7;&#x30c3;&#x30af;&#x5bfe;&#x8c61;&#x5916;","children":[],"payload":{"tag":"li","lines":"33,34"}},{"content":"&#x30eb;&#x30fc;&#x30e0;&#xff1a;&#x30d7;&#x30eb;&#x30c0;&#x30a6;&#x30f3;&#x304b;&#x3089;&#x9078;&#x629e;","children":[],"payload":{"tag":"li","lines":"34,35"}},{"content":"&#x30c7;&#x30a3;&#x30b9;&#x30af;&#x30ea;&#x30d7;&#x30b7;&#x30e7;&#x30f3;&#xff1a;URL&#x306f;&#x30b7;&#x30e7;&#x30fc;&#x30c8;&#x30ea;&#x30f3;&#x30af;&#x63a8;&#x5968;&#x30fb;&#x30b9;&#x30de;&#x30fc;&#x30c8;&#x30c1;&#x30c3;&#x30d7;&#x4e0d;&#x53ef;","children":[],"payload":{"tag":"li","lines":"35,36"}}],"payload":{"tag":"h3","lines":"28,29"}},{"content":"&#x91cd;&#x8907;&#x30c1;&#x30a7;&#x30c3;&#x30af;&#x6a5f;&#x80fd;","children":[{"content":"&#x30b9;&#x30bf;&#x30fc;&#x30c8;&#x6642;&#x9593;&#x91cd;&#x8907; &#x2192; &#x9ec4;&#x7dd1;&#x8272;&#x8868;&#x793a;","children":[],"payload":{"tag":"li","lines":"37,38"}},{"content":"&#x30a8;&#x30f3;&#x30c9;&#x6642;&#x9593;&#x91cd;&#x8907; &#x2192; &#x6c34;&#x8272;&#x8868;&#x793a;","children":[],"payload":{"tag":"li","lines":"38,39"}},{"content":"&#x90e8;&#x5206;&#x7684;&#x91cd;&#x8907;&#x306f;&#x691c;&#x51fa;&#x4e0d;&#x53ef; &#x2192; &#x5b9a;&#x671f;&#x7684;&#x30bd;&#x30fc;&#x30c8;&#x78ba;&#x8a8d;&#x304c;&#x5fc5;&#x8981;","children":[],"payload":{"tag":"li","lines":"39,40"}}],"payload":{"tag":"h3","lines":"36,37"}},{"content":"&#x30b7;&#x30fc;&#x30c8;&#x64cd;&#x4f5c;&#x30eb;&#x30fc;&#x30eb;","children":[{"content":"&#x30d5;&#x30a3;&#x30eb;&#x30bf;&#x30fc;&#x306f;&#x500b;&#x4eba;&#x306e;&#x30d5;&#x30a3;&#x30eb;&#x30bf;&#x30d3;&#x30e5;&#x30fc;&#x3092;&#x4f7f;&#x7528;","children":[],"payload":{"tag":"li","lines":"41,42"}},{"content":"&#x4e88;&#x5b9a;&#x5909;&#x66f4;&#x306f;&#x76f4;&#x63a5;&#x7de8;&#x96c6;&#x3067;OK","children":[],"payload":{"tag":"li","lines":"42,43"}},{"content":"&#x4e88;&#x5b9a;&#x524a;&#x9664;&#x306f;&#x8a72;&#x5f53;&#x884c;&#x3092;&#x524a;&#x9664;&#x3059;&#x308b;&#x3060;&#x3051;&#x3067;OK","children":[],"payload":{"tag":"li","lines":"43,44"}}],"payload":{"tag":"h3","lines":"40,41"}}],"payload":{"tag":"h2","lines":"27,28"}},{"content":"&#x5f79;&#x5272;&#x5206;&#x62c5;","children":[{"content":"&#x30d7;&#x30ed;&#x30b0;&#x30e9;&#x30e0;&#x95a2;&#x9023;&#x4e88;&#x5b9a;","children":[{"content":"&#x5404;&#x30d7;&#x30ed;&#x30b0;&#x30e9;&#x30e0;&#x62c5;&#x5f53;&#x8005;&#x304c;&#x5165;&#x529b;","children":[],"payload":{"tag":"li","lines":"46,47"}},{"content":"&#x57fa;&#x8abf;&#x8b1b;&#x6f14;&#xff1a;&#x5f93;&#x6765;&#x901a;&#x308a;&#x306e;&#x62c5;&#x5f53;&#x8005;&#x304c;&#x7d99;&#x7d9a;","children":[],"payload":{"tag":"li","lines":"47,48"}},{"content":"LC&#x95a2;&#x9023;&#xff1a;&#x81ea;&#x52d5;&#x767b;&#x9332;&#x5bfe;&#x8c61;&#x5916;&#x306b;&#x8a2d;&#x5b9a;&#x6e08;&#x307f;","children":[],"payload":{"tag":"li","lines":"48,49"}}],"payload":{"tag":"h3","lines":"45,46"}},{"content":"&#x30d7;&#x30ed;&#x30b0;&#x30e9;&#x30e0;&#x5916;&#x4e88;&#x5b9a;","children":[{"content":"&#x500b;&#x5225;&#x30b5;&#x30dd;&#x30fc;&#x30c8;&#x62c5;&#x5f53;&#x8005;&#x304c;&#x5165;&#x529b;","children":[],"payload":{"tag":"li","lines":"50,51"}},{"content":"&#x79fb;&#x52d5;&#x6642;&#x9593;&#xff1a;&#x5404;&#x62c5;&#x5f53;&#x8005;&#x304c;&#x524d;&#x5f8c;&#x78ba;&#x8a8d;&#x3057;&#x3066;&#x8a2d;&#x5b9a;","children":[],"payload":{"tag":"li","lines":"51,52"}},{"content":"&#x30e9;&#x30f3;&#x30c1;&#x7b49;&#xff1a;LC&#x5074;&#x624b;&#x914d;&#x5206;&#x306f;&#x62c5;&#x5f53;&#x8005;&#x304c;&#x5165;&#x529b;","children":[],"payload":{"tag":"li","lines":"52,53"}}],"payload":{"tag":"h3","lines":"49,50"}}],"payload":{"tag":"h2","lines":"44,45"}},{"content":"&#x81ea;&#x52d5;&#x53cd;&#x6620;&#x30b9;&#x30b1;&#x30b8;&#x30e5;&#x30fc;&#x30eb;&#xff08;1&#x65e5;4&#x56de;&#xff09;","children":[{"content":"7:00&#x301c;8:00","children":[],"payload":{"tag":"li","lines":"54,55"}},{"content":"12:00&#x301c;13:00 &#x2190; &#x63a8;&#x5968;&#xff1a;11&#x6642;&#x524d;&#x307e;&#x3067;&#x306b;&#x5165;&#x529b;","children":[],"payload":{"tag":"li","lines":"55,56"}},{"content":"18:00&#x301c;19:00 &#x2190; &#x63a8;&#x5968;&#xff1a;17&#x6642;&#x524d;&#x307e;&#x3067;&#x306b;&#x5165;&#x529b;","children":[],"payload":{"tag":"li","lines":"56,57"}},{"content":"&#x6df1;&#x591c;","children":[],"payload":{"tag":"li","lines":"57,58"}}],"payload":{"tag":"h2","lines":"53,54"}},{"content":"&#x5bfe;&#x5fdc;&#x4e8b;&#x9805;","children":[{"content":"&#x5404;&#x30d7;&#x30ed;&#x30b0;&#x30e9;&#x30e0;&#x62c5;&#x5f53;&#x8005; &#x2192; &#x30a8;&#x30b0;&#x30bc;&#x30af;&#x30c6;&#x30a3;&#x30d6;&#x95a2;&#x9023;&#x4e88;&#x5b9a;&#x306e;&#x5165;&#x529b;&#x958b;&#x59cb;","children":[],"payload":{"tag":"li","lines":"59,60"}},{"content":"&#x500b;&#x5225;&#x30b5;&#x30dd;&#x30fc;&#x30c8;&#x62c5;&#x5f53;&#x8005; &#x2192; &#x30d7;&#x30ed;&#x30b0;&#x30e9;&#x30e0;&#x5916;&#x4e88;&#x5b9a;&#x3068;&#x79fb;&#x52d5;&#x6642;&#x9593;&#x3092;&#x8a2d;&#x5b9a;","children":[],"payload":{"tag":"li","lines":"60,61"}},{"content":"&#x590f;&#x6728;&#x3055;&#x3093; &#x2192; &#x4e0d;&#x660e;&#x70b9;&#x30fb;&#x6280;&#x8853;&#x7684;&#x554f;&#x984c;&#x306e;&#x5bfe;&#x5fdc;&#x7a93;&#x53e3;","children":[],"payload":{"tag":"li","lines":"61,62"}},{"content":"&#x8ecd;&#x4e8b;&#x3055;&#x3093; &#x2192; &#x30d7;&#x30ed;&#x30b0;&#x30e9;&#x30e0;&#x30ac;&#x30a4;&#x30c9;&#x5370;&#x5237;&#x306e;&#x6700;&#x7d42;&#x6c7a;&#x5b9a;&#x3068;&#x767a;&#x6ce8;","children":[],"payload":{"tag":"li","lines":"62,63"}}],"payload":{"tag":"h2","lines":"58,59"}},{"content":"&#x30d7;&#x30ed;&#x30b0;&#x30e9;&#x30e0;&#x30ac;&#x30a4;&#x30c9;&#x5370;&#x5237;&#x898b;&#x7a4d;&#x3082;&#x308a;","children":[{"content":"&#x4e95;&#x6751;&#x3055;&#x3093;&#xff08;&#x63a8;&#x5968;&#xff09;","children":[{"content":"&#x30c7;&#x30b6;&#x30a4;&#x30f3;&#x6599;&#xff1a;&#x8868;&#x9762;10&#x4e07;&#xff0b;&#x88cf;&#x9762;10&#x4e07;&#xff1d;20&#x4e07;&#x5186;","children":[],"payload":{"tag":"li","lines":"65,66"}},{"content":"&#x5370;&#x5237;&#x8cbb;&#xff1a;&#x7d04;10&#x4e07;&#x5186;","children":[],"payload":{"tag":"li","lines":"66,67"}},{"content":"&#x7dcf;&#x984d;&#xff1a;&#x7d04;30&#x4e07;&#x5186;","children":[],"payload":{"tag":"li","lines":"67,68"}},{"content":"&#x30e1;&#x30ea;&#x30c3;&#x30c8;&#xff1a;&#x5168;&#x4f53;&#x628a;&#x63e1;&#x30fb;&#x624b;&#x539a;&#x3044;&#x30b5;&#x30dd;&#x30fc;&#x30c8;&#x30fb;&#x30c1;&#x30e3;&#x30c3;&#x30c8;&#x5bfe;&#x5fdc;&#x53ef;","children":[],"payload":{"tag":"li","lines":"68,69"}}],"payload":{"tag":"h3","lines":"64,65"}},{"content":"&#x91d1;&#x525b;&#x5bfa;&#x3055;&#x3093;&#xff08;&#x7c21;&#x6613;&#x7248;&#xff09;","children":[{"content":"&#x30c7;&#x30b6;&#x30a4;&#x30f3;&#x6599;&#xff1a;&#x4e21;&#x9762;8&#x4e07;&#xff0f;&#x7247;&#x9762;4&#x4e07;","children":[],"payload":{"tag":"li","lines":"70,71"}},{"content":"&#x5370;&#x5237;&#x4ee3;&#xff1a;&#x7d04;12&#x4e07;&#x5186;","children":[],"payload":{"tag":"li","lines":"71,72"}},{"content":"&#x7dcf;&#x984d;&#xff1a;&#x7d04;20&#x4e07;&#x5186;","children":[],"payload":{"tag":"li","lines":"72,73"}},{"content":"&#x6700;&#x4f4e;&#x30e9;&#x30a4;&#x30f3;&#x306e;&#x54c1;&#x8cea;","children":[],"payload":{"tag":"li","lines":"73,74"}}],"payload":{"tag":"h3","lines":"69,70"}},{"content":"&#x30b0;&#x30e9;&#x30d5;&#x30a3;&#x30c3;&#x30af;&#x793e;","children":[{"content":"&#x30c7;&#x30b6;&#x30a4;&#x30f3;&#x6599;&#xff1a;&#x4e21;&#x9762;&#x7d04;9&#x4e07;6000&#x5186;","children":[],"payload":{"tag":"li","lines":"75,76"}},{"content":"&#x5370;&#x5237;&#x8cbb;&#xff1a;&#x7d04;12&#x4e07;&#x5186;","children":[],"payload":{"tag":"li","lines":"76,77"}},{"content":"&#x54c1;&#x8cea;&#x3068;&#x30b5;&#x30dd;&#x30fc;&#x30c8;&#x9762;&#x3067;&#x61f8;&#x5ff5;&#x3042;&#x308a;","children":[],"payload":{"tag":"li","lines":"77,78"}}],"payload":{"tag":"h3","lines":"74,75"}}],"payload":{"tag":"h2","lines":"63,64"}}],"payload":{"tag":"h1","lines":"0,1"}},null)</script>
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/markmap-toolbar@0.18.10/dist/style.css"
+    />
+
+    <script src="https://cdn.jsdelivr.net/npm/markmap-toolbar@0.18.10/dist/index.js"></script>
+    <script>
+      ((r) => {
+          setTimeout(r);
+      })(() => {
+          const { markmap, mm } = window;
+          const toolbar = new markmap.Toolbar();
+          toolbar.attach(mm);
+          const el = toolbar.render();
+          el.setAttribute(
+              "style",
+              "position:absolute;bottom:20px;right:20px"
+          );
+          document.body.append(el);
+          
+          // Ensure the mind map fits the current view
+          setTimeout(() => {
+            if (mm && typeof mm.fit === 'function') {
+              mm.fit();
+            }
+          }, 1200);
+      });
+    </script>
+  
+
+    <!-- Add html-to-image library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html-to-image/1.11.11/html-to-image.min.js"></script>
+
+    <!-- Hidden element to store original Markdown content -->
+    <textarea id="original-markdown" style="display:none;"># Itinerary（アイティナラリー）
+## 概要
+### 目的
+- エグゼクティブの予定管理に特化したツール
+- スケジューラーと自動連携する集約ハブ
+### 3つの主要機能
+- エグゼクティブの予定確認
+- サポート担当者の明確化
+- Googleカレンダーとの自動連携
+## アクセス権限
+- 6つの特定プログラム担当者のみ編集可能
+- 来日エグゼクティブの担当者
+- 権限追加は事前に夏木さんへ相談
+## シート構成
+### 赤シート（オールインプット）
+- 唯一の編集可能シート
+- すべての入力作業はここで行う
+### 青シート（VIP予定一覧表）
+- 5分刻みで全エグゼクティブ予定表示
+- 7時〜21時をカバー
+- サポート担当者名を黄色列に記入
+### 緑シート（個人シート）
+- 各エグゼクティブ別の予定表示
+- 関数で自動反映
+- マンダトリー列の情報のみ抽出
+### 黄シート（スケジューラー連携）
+- 自動予定登録用（参照のみ）
+## 予定入力ルール
+### 入力項目
+- インプッター：プルダウンで担当者名を選択
+- 日付・時間：5分単位で記入
+- タイトル：（プログラム名）内容の形式　例：（キーノート）リハーサル
+- 参加者・必須：カンマ区切り・末尾カンマ削除
+- 参加者・オプショナル：任意・重複チェック対象外
+- ルーム：プルダウンから選択
+- ディスクリプション：URLはショートリンク推奨・スマートチップ不可
+### 重複チェック機能
+- スタート時間重複 → 黄緑色表示
+- エンド時間重複 → 水色表示
+- 部分的重複は検出不可 → 定期的ソート確認が必要
+### シート操作ルール
+- フィルターは個人のフィルタビューを使用
+- 予定変更は直接編集でOK
+- 予定削除は該当行を削除するだけでOK
+## 役割分担
+### プログラム関連予定
+- 各プログラム担当者が入力
+- 基調講演：従来通りの担当者が継続
+- LC関連：自動登録対象外に設定済み
+### プログラム外予定
+- 個別サポート担当者が入力
+- 移動時間：各担当者が前後確認して設定
+- ランチ等：LC側手配分は担当者が入力
+## 自動反映スケジュール（1日4回）
+- 7:00〜8:00
+- 12:00〜13:00 ← 推奨：11時前までに入力
+- 18:00〜19:00 ← 推奨：17時前までに入力
+- 深夜
+## 対応事項
+- 各プログラム担当者 → エグゼクティブ関連予定の入力開始
+- 個別サポート担当者 → プログラム外予定と移動時間を設定
+- 夏木さん → 不明点・技術的問題の対応窓口
+- 軍事さん → プログラムガイド印刷の最終決定と発注
+## プログラムガイド印刷見積もり
+### 井村さん（推奨）
+- デザイン料：表面10万＋裏面10万＝20万円
+- 印刷費：約10万円
+- 総額：約30万円
+- メリット：全体把握・手厚いサポート・チャット対応可
+### 金剛寺さん（簡易版）
+- デザイン料：両面8万／片面4万
+- 印刷代：約12万円
+- 総額：約20万円
+- 最低ラインの品質
+### グラフィック社
+- デザイン料：両面約9万6000円
+- 印刷費：約12万円
+- 品質とサポート面で懸念あり</textarea>
+
+    <style>
+      /* Export toolbar styles */
+      .mm-export-toolbar {
+        position: fixed;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 1000;
+        background: rgba(255, 255, 255, 0.9);
+        border-radius: 8px;
+        padding: 8px 16px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        display: flex;
+        gap: 10px;
+      }
+      .mm-export-btn {
+        padding: 6px 12px;
+        border: none;
+        border-radius: 4px;
+        background-color: #3498db;
+        color: white;
+        cursor: pointer;
+        font-size: 14px;
+        transition: background-color 0.3s;
+      }
+      .mm-export-btn:hover {
+        background-color: #2980b9;
+      }
+      .mm-copy-btn {
+        background-color: #27ae60;
+      }
+      .mm-copy-btn:hover {
+        background-color: #219653;
+      }
+      @media print {
+        .mm-export-toolbar { display: none !important; }
+        .mm-toolbar { display: none !important; }
+        svg.markmap, svg#mindmap, #mindmap svg { 
+          display: block !important;
+          visibility: visible !important; 
+          opacity: 1 !important;
+          height: 100vh !important;
+          width: 100% !important;
+          max-width: 100% !important;
+          max-height: 100vh !important;
+          overflow: visible !important;
+          page-break-inside: avoid !important;
+        }
+        body, html {
+          height: 100% !important;
+          width: 100% !important;
+          margin: 0 !important;
+          padding: 0 !important;
+          overflow: visible !important;
+        }
+      }
+    </style>
+
+    <script>
+      (function() {
+        // Create bottom export toolbar
+        const exportToolbar = document.createElement('div');
+        exportToolbar.className = 'mm-export-toolbar';
+        document.body.appendChild(exportToolbar);
+        
+        // Export as PNG image
+        const pngBtn = document.createElement('button');
+        pngBtn.className = 'mm-export-btn png-export';
+        pngBtn.innerHTML = 'Export PNG';
+        pngBtn.title = 'Export as PNG image';
+        pngBtn.onclick = () => {
+          exportToImage('png');
+        };
+        exportToolbar.appendChild(pngBtn);
+
+        // Export as JPG image
+        const jpgBtn = document.createElement('button');
+        jpgBtn.className = 'mm-export-btn jpg-export';
+        jpgBtn.innerHTML = 'Export JPG';
+        jpgBtn.title = 'Export as JPG image';
+        jpgBtn.onclick = () => {
+          exportToImage('jpeg');
+        };
+        exportToolbar.appendChild(jpgBtn);
+        
+        // Export as SVG image
+        const svgBtn = document.createElement('button');
+        svgBtn.className = 'mm-export-btn svg-export';
+        svgBtn.innerHTML = 'Export SVG';
+        svgBtn.title = 'Export as SVG image';
+        svgBtn.onclick = () => {
+          exportToImage('svg');
+        };
+        exportToolbar.appendChild(svgBtn);
+
+        // Copy original Markdown button
+        const copyBtn = document.createElement('button');
+        copyBtn.className = 'mm-export-btn mm-copy-btn copy-markdown';
+        copyBtn.innerHTML = 'Copy Markdown';
+        copyBtn.title = 'Copy original Markdown content';
+        copyBtn.onclick = copyOriginalMarkdown;
+        exportToolbar.appendChild(copyBtn);
+
+        // Function to copy original Markdown content
+        function copyOriginalMarkdown() {
+          try {
+            const markdownElement = document.getElementById('original-markdown');
+            if (!markdownElement) {
+              throw new Error('Original Markdown content not found');
+            }
+            
+            const markdownContent = markdownElement.value;
+            
+            // Copy to clipboard
+            navigator.clipboard.writeText(markdownContent)
+              .then(() => {
+                const originalText = copyBtn.innerHTML;
+                copyBtn.innerHTML = '✓ Copied';
+                copyBtn.style.backgroundColor = '#2ecc71';
+                
+                setTimeout(() => {
+                  copyBtn.innerHTML = originalText;
+                  copyBtn.style.backgroundColor = '';
+                }, 2000);
+              })
+              .catch(err => {
+                console.error('Copy failed:', err);
+                alert('Failed to copy to clipboard, please check browser permissions');
+              });
+          } catch (e) {
+            console.error('Error copying Markdown:', e);
+            alert('Unable to copy Markdown: ' + e.message);
+          }
+        }
+
+        // Function to export image
+        function exportToImage(format) {
+          try {
+            const node = window.mm.svg._groups[0][0];
+            
+            if (!node) {
+              throw new Error('Cannot find mind map SVG element');
+            }
+
+            window.mm.fit().then(() => {
+              const options = {
+                backgroundColor: "#ffffff", 
+                quality: 1.0,
+                width: node.getBoundingClientRect().width,
+                height: node.getBoundingClientRect().height
+              };
+              
+              const exportPromise = format === 'svg' 
+                ? htmlToImage.toSvg(node, options)
+                : format === 'jpeg' 
+                  ? htmlToImage.toJpeg(node, options) 
+                  : htmlToImage.toPng(node, options);
+              
+              exportPromise
+                .then((dataUrl) => {
+                  const link = document.createElement('a');
+                  const timestamp = new Date().toISOString().slice(0, 10);
+                  link.download = `markmap-${timestamp}.${format === 'jpeg' ? 'jpg' : format === 'svg' ? 'svg' : 'png'}`;
+                  link.href = dataUrl;
+                  link.click();
+                })
+                .catch((err) => console.error("Export failed:", err));
+            })
+            .catch((err) => {
+                throw err;
+            });
+              
+          } catch (e) {
+            console.error('Error exporting image:', e);
+            alert('Image export failed: ' + e.message);
+          }
+        }
+      })();
+    </script>
+  
 </body>
 </html>
