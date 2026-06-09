@@ -4,9 +4,339 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-<title>Markmap - Scheduler</title>
+<title>Markmap</title>
+<style>
+* {
+  margin: 0;
+  padding: 0;
+}
+html {
+  font-family: ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji',
+    'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+}
+#mindmap {
+  display: block;
+  width: 100vw;
+  height: 100vh;
+}
+.markmap-dark {
+  background: #27272a;
+  color: white;
+}
+</style>
+
 </head>
 <body>
-<p>See local file for full content</p>
+<svg id="mindmap"></svg>
+<script src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js"></script><script src="https://cdn.jsdelivr.net/npm/markmap-view@0.18.12/dist/browser/index.js"></script><script>((getMarkmap, getOptions, root2, jsonOptions) => {
+              const markmap = getMarkmap();
+              window.mm = markmap.Markmap.create(
+                "svg#mindmap",
+                (getOptions || markmap.deriveOptions)(jsonOptions),
+                root2
+              );
+              if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+                document.documentElement.classList.add("markmap-dark");
+              }
+            })(() => window.markmap,null,{"content":"Scheduler&#xff08;&#x30b9;&#x30b1;&#x30b8;&#x30e5;&#x30fc;&#x30e9;&#x30fc;&#xff09;","children":[{"content":"&#x6982;&#x8981;","children":[{"content":"&#x76ee;&#x7684;","children":[{"content":"Google&#x30ab;&#x30ec;&#x30f3;&#x30c0;&#x30fc;&#x3078;&#x306e;&#x4e88;&#x5b9a;&#x4e00;&#x62ec;&#x767b;&#x9332;&#x30c4;&#x30fc;&#x30eb;","children":[],"payload":{"tag":"li","lines":"3,4"}},{"content":"&#x4ed6;&#x30d7;&#x30ed;&#x30b0;&#x30e9;&#x30e0;&#x3068;&#x306e;&#x4e88;&#x5b9a;&#x91cd;&#x8907;&#x30c1;&#x30a7;&#x30c3;&#x30af;&#x6a5f;&#x80fd;","children":[],"payload":{"tag":"li","lines":"4,5"}}],"payload":{"tag":"h3","lines":"2,3"}},{"content":"&#x30a2;&#x30a4;&#x30c6;&#x30a3;&#x30ca;&#x30e9;&#x30ea;&#x30fc;&#x3068;&#x306e;&#x3059;&#x307f;&#x5206;&#x3051;","children":[{"content":"&#x30b9;&#x30b1;&#x30b8;&#x30e5;&#x30fc;&#x30e9;&#x30fc; &#x2192; VP&#x3092;&#x542b;&#x3080;&#x5168;&#x4e88;&#x5b9a;&#x3092;&#x767b;&#x9332;","children":[],"payload":{"tag":"li","lines":"6,7"}},{"content":"&#x30a2;&#x30a4;&#x30c6;&#x30a3;&#x30ca;&#x30e9;&#x30ea;&#x30fc; &#x2192; VP&#x306e;&#x4e88;&#x5b9a;&#x306e;&#x307f;&#x53cd;&#x6620;","children":[],"payload":{"tag":"li","lines":"7,8"}}],"payload":{"tag":"h3","lines":"5,6"}}],"payload":{"tag":"h2","lines":"1,2"}},{"content":"&#x30a2;&#x30ab;&#x30a6;&#x30f3;&#x30c8;&#x8a2d;&#x5b9a;","children":[{"content":"&#x30a2;&#x30ab;&#x30a6;&#x30f3;&#x30c8;&#x7ba1;&#x7406;","children":[{"content":"&#x30d7;&#x30ed;&#x30b0;&#x30e9;&#x30e0;&#x5358;&#x4f4d;&#x3067;&#x5c02;&#x7528;&#x30a2;&#x30ab;&#x30a6;&#x30f3;&#x30c8;&#x3092;&#x4f5c;&#x6210;","children":[],"payload":{"tag":"li","lines":"10,11"}},{"content":"&#x500b;&#x4eba;&#x306e;Google&#x30a2;&#x30ab;&#x30a6;&#x30f3;&#x30c8;&#x306f;&#x4f7f;&#x7528;&#x4e0d;&#x53ef;","children":[],"payload":{"tag":"li","lines":"11,12"}}],"payload":{"tag":"h3","lines":"9,10"}},{"content":"&#x521d;&#x56de;&#x8a8d;&#x8a3c;&#x30d7;&#x30ed;&#x30bb;&#x30b9;","children":[{"content":"&#x30d7;&#x30ed;&#x30b0;&#x30e9;&#x30e0;&#x5c02;&#x7528;&#x30a2;&#x30ab;&#x30a6;&#x30f3;&#x30c8;&#x3067;&#x30ed;&#x30b0;&#x30a4;&#x30f3;","children":[],"payload":{"tag":"li","lines":"13,14"}},{"content":"&#x30c8;&#x30ea;&#x30c3;&#x30af;&#x30b9;&#x306e;&#x30b9;&#x30b1;&#x30b8;&#x30e5;&#x30fc;&#x30e9;&#x30fc;2026&#x30bf;&#x30d6;&#x306b;&#x30a2;&#x30af;&#x30bb;&#x30b9;","children":[],"payload":{"tag":"li","lines":"14,15"}},{"content":"&#x30c1;&#x30a7;&#x30c3;&#x30af;&#x30ab;&#x30ec;&#x30f3;&#x30b7;&#x30fc;&#x30c8;&#x3092;&#x30af;&#x30ea;&#x30c3;&#x30af;","children":[],"payload":{"tag":"li","lines":"15,16"}},{"content":"&#x300c;&#x3059;&#x3079;&#x3066;&#x3092;&#x9078;&#x629e;&#x300d;&#x306b;&#x30c1;&#x30a7;&#x30c3;&#x30af;&#x3057;&#x3066;&#x7d9a;&#x884c;","children":[],"payload":{"tag":"li","lines":"16,17"}}],"payload":{"tag":"h3","lines":"12,13"}}],"payload":{"tag":"h2","lines":"8,9"}},{"content":"&#x4e88;&#x5b9a;&#x767b;&#x9332;&#x306e;3&#x30b9;&#x30c6;&#x30c3;&#x30d7;","children":[{"content":"Step1&#xff1a;&#x9001;&#x4fe1;&#x7528;&#x30b7;&#x30fc;&#x30c8;&#x306b;&#x4e88;&#x5b9a;&#x3092;&#x8a18;&#x5165;","children":[],"payload":{"tag":"li","lines":"18,19"}},{"content":"Step2&#xff1a;&#x30c1;&#x30a7;&#x30c3;&#x30af;&#x30ab;&#x30ec;&#x30f3;&#x30b7;&#x30fc;&#x30c8;&#x3067;&#x30a8;&#x30e9;&#x30fc;&#x30c1;&#x30a7;&#x30c3;&#x30af;","children":[],"payload":{"tag":"li","lines":"19,20"}},{"content":"Step3&#xff1a;&#x81ea;&#x52d5;&#x9001;&#x4fe1;&#x5f8c;&#x3001;&#x30ab;&#x30ec;&#x30f3;&#x30c0;&#x30fc;&#x53cd;&#x6620;&#x3092;&#x78ba;&#x8a8d;","children":[],"payload":{"tag":"li","lines":"20,21"}}],"payload":{"tag":"h2","lines":"17,18"}},{"content":"&#x5165;&#x529b;&#x30d5;&#x30a9;&#x30fc;&#x30de;&#x30c3;&#x30c8;","children":[{"content":"&#x5fc5;&#x9808;&#x9805;&#x76ee;&#xff08;C&#x5217;&#x301c;&#x30eb;&#x30fc;&#x30e0;&#x5217;&#xff09;","children":[{"content":"&#x65e5;&#x4ed8;&#xff1a;&#x6307;&#x5b9a;&#x66f8;&#x5f0f;&#x3092;&#x53b3;&#x5b88;","children":[],"payload":{"tag":"li","lines":"23,24"}},{"content":"&#x30bf;&#x30a4;&#x30c8;&#x30eb;&#xff1a;&#x30d7;&#x30ed;&#x30b0;&#x30e9;&#x30e0;&#x540d;&#x3092;&#x542b;&#x3081;&#x308b;","children":[],"payload":{"tag":"li","lines":"24,25"}},{"content":"&#x30d1;&#x30fc;&#x30bd;&#x30f3;&#xff08;&#x5fc5;&#x9808;&#xff09;&#xff1a;&#x5de6;&#x5217;&#x30fb;&#x91cd;&#x8907;&#x30c1;&#x30a7;&#x30c3;&#x30af;&#x5bfe;&#x8c61;","children":[],"payload":{"tag":"li","lines":"25,26"}},{"content":"&#x30d1;&#x30fc;&#x30bd;&#x30f3;&#xff08;&#x30aa;&#x30d7;&#x30b7;&#x30e7;&#x30ca;&#x30eb;&#xff09;&#xff1a;&#x53f3;&#x5217;&#x30fb;&#x91cd;&#x8907;&#x30c1;&#x30a7;&#x30c3;&#x30af;&#x5bfe;&#x8c61;&#x5916;","children":[],"payload":{"tag":"li","lines":"26,27"}},{"content":"&#x30eb;&#x30fc;&#x30e0;&#xff1a;&#x30d7;&#x30eb;&#x30c0;&#x30a6;&#x30f3;&#x304b;&#x3089;&#x9078;&#x629e;","children":[],"payload":{"tag":"li","lines":"27,28"}}],"payload":{"tag":"h3","lines":"22,23"}},{"content":"&#x4efb;&#x610f;&#x9805;&#x76ee;","children":[{"content":"&#x30c7;&#x30a3;&#x30b9;&#x30af;&#x30ea;&#x30d7;&#x30b7;&#x30e7;&#x30f3;&#xff1a;URL&#x306f;&#x305d;&#x306e;&#x307e;&#x307e;&#x8a18;&#x8f09;&#xff08;&#x30b9;&#x30de;&#x30fc;&#x30c8;&#x30c1;&#x30c3;&#x30d7;&#x4e0d;&#x53ef;&#xff09;","children":[],"payload":{"tag":"li","lines":"29,30"}},{"content":"&#x958b;&#x696d;&#x306f;&#x53cd;&#x6620;&#x3055;&#x308c;&#x308b;","children":[],"payload":{"tag":"li","lines":"30,31"}}],"payload":{"tag":"h3","lines":"28,29"}},{"content":"&#x5165;&#x529b;&#x5236;&#x9650;","children":[{"content":"&#x65e5;&#x672c;&#x8a9e;&#x306e;&#x307f;&#x5bfe;&#x5fdc;&#xff08;&#x82f1;&#x8a9e;&#x4e0d;&#x53ef;&#xff09;","children":[],"payload":{"tag":"li","lines":"32,33"}},{"content":"A&#x5217;&#xff08;&#x30a4;&#x30d9;&#x30f3;&#x30c8;ID&#xff09;&#x306f;&#x89e6;&#x3089;&#x306a;&#x3044;","children":[],"payload":{"tag":"li","lines":"33,34"}}],"payload":{"tag":"h3","lines":"31,32"}}],"payload":{"tag":"h2","lines":"21,22"}},{"content":"&#x30a8;&#x30e9;&#x30fc;&#x30c1;&#x30a7;&#x30c3;&#x30af;","children":[{"content":"&#x30a8;&#x30e9;&#x30fc;&#x306e;&#x7a2e;&#x985e;","children":[{"content":"&#x4e88;&#x5b9a;&#x91cd;&#x8907;","children":[],"payload":{"tag":"li","lines":"36,37"}},{"content":"&#x30d1;&#x30fc;&#x30bd;&#x30f3;&#x30fb;&#x30eb;&#x30fc;&#x30e0;&#x30ea;&#x30b9;&#x30c8;&#x306b;&#x306a;&#x3044;&#x60c5;&#x5831;","children":[],"payload":{"tag":"li","lines":"37,38"}},{"content":"&#x5fc5;&#x9808;&#x9805;&#x76ee;&#x306e;&#x8a18;&#x5165;&#x6f0f;&#x308c;","children":[],"payload":{"tag":"li","lines":"38,39"}}],"payload":{"tag":"h3","lines":"35,36"}},{"content":"&#x5bfe;&#x51e6;&#x65b9;&#x6cd5;","children":[{"content":"&#x30d4;&#x30f3;&#x30af;&#x30cf;&#x30a4;&#x30e9;&#x30a4;&#x30c8;&#x7b87;&#x6240;&#x3092;&#x5fc5;&#x305a;&#x4fee;&#x6b63;","children":[],"payload":{"tag":"li","lines":"40,41"}},{"content":"&#x30c1;&#x30a7;&#x30c3;&#x30af;&#x5f8c;&#x306f;&#x30a8;&#x30e9;&#x30fc;&#x30c1;&#x30a7;&#x30c3;&#x30af;&#x30b7;&#x30fc;&#x30c8;&#x3092;&#x30b3;&#x30d4;&#x30fc;&#x3057;&#x3066;&#x4fdd;&#x5b58;","children":[],"payload":{"tag":"li","lines":"41,42"}}],"payload":{"tag":"h3","lines":"39,40"}},{"content":"&#x30ea;&#x30b9;&#x30c8;&#x8ffd;&#x52a0;&#x65b9;&#x6cd5;","children":[{"content":"&#x30d1;&#x30fc;&#x30bd;&#x30f3;&#x30ea;&#x30b9;&#x30c8; &#x2192; &#x30d0;&#x30c3;&#x30c1;&#x5370;&#x5237;&#x7528;&#x95a2;&#x4fc2;&#x8005;&#x30ea;&#x30b9;&#x30c8;&#x306b;&#x540d;&#x524d;&#x8a18;&#x5165;","children":[],"payload":{"tag":"li","lines":"43,44"}},{"content":"&#x30eb;&#x30fc;&#x30e0;&#x30ea;&#x30b9;&#x30c8; &#x2192; &#x590f;&#x6728;&#x3055;&#x3093;&#x306b;&#x9023;&#x7d61;","children":[],"payload":{"tag":"li","lines":"44,45"}}],"payload":{"tag":"h3","lines":"42,43"}}],"payload":{"tag":"h2","lines":"34,35"}},{"content":"&#x9001;&#x4fe1;&#x30bf;&#x30a4;&#x30df;&#x30f3;&#x30b0;","children":[{"content":"&#x5b9a;&#x671f;&#x81ea;&#x52d5;&#x9001;&#x4fe1;&#xff08;1&#x65e5;4&#x56de;&#xff09;","children":[{"content":"7:00&#x301c;8:00","children":[],"payload":{"tag":"li","lines":"47,48"}},{"content":"12:00&#x301c;13:00&#xff08;&#x4e3b;&#x8981;&#xff09;&#x2190; 11&#x6642;&#x524d;&#x307e;&#x3067;&#x306b;&#x5165;&#x529b;&#x63a8;&#x5968;","children":[],"payload":{"tag":"li","lines":"48,49"}},{"content":"18:00&#x301c;19:00&#xff08;&#x4e3b;&#x8981;&#xff09;&#x2190; 17&#x6642;&#x524d;&#x307e;&#x3067;&#x306b;&#x5165;&#x529b;&#x63a8;&#x5968;","children":[],"payload":{"tag":"li","lines":"49,50"}},{"content":"&#x6df1;&#x591c;","children":[],"payload":{"tag":"li","lines":"50,51"}}],"payload":{"tag":"h3","lines":"46,47"}},{"content":"&#x7dca;&#x6025;&#x5bfe;&#x5fdc;","children":[{"content":"&#x590f;&#x6728;&#x3055;&#x3093;&#x306b;&#x500b;&#x5225;&#x76f8;&#x8ac7;","children":[],"payload":{"tag":"li","lines":"52,53"}}],"payload":{"tag":"h3","lines":"51,52"}}],"payload":{"tag":"h2","lines":"45,46"}},{"content":"&#x66f4;&#x65b0;&#x30fb;&#x524a;&#x9664;&#x30eb;&#x30fc;&#x30eb;","children":[{"content":"&#x66f4;&#x65b0;","children":[{"content":"&#x8a72;&#x5f53;&#x9805;&#x76ee;&#x3092;&#x76f4;&#x63a5;&#x7de8;&#x96c6;","children":[],"payload":{"tag":"li","lines":"55,56"}}],"payload":{"tag":"h3","lines":"54,55"}},{"content":"&#x524a;&#x9664;","children":[{"content":"Delete&#x5217;&#xff08;&#x8d64;&#x3044;&#x5217;&#xff09;&#x306b;&#x300c;1&#x300d;&#x3092;&#x5165;&#x529b;","children":[],"payload":{"tag":"li","lines":"57,58"}},{"content":"&#x30ab;&#x30ec;&#x30f3;&#x30c0;&#x30fc;&#x4e88;&#x5b9a;&#x3082;&#x81ea;&#x52d5;&#x524a;&#x9664;&#x3055;&#x308c;&#x308b;","children":[],"payload":{"tag":"li","lines":"58,59"}}],"payload":{"tag":"h3","lines":"56,57"}},{"content":"&#x7d76;&#x5bfe;&#x7981;&#x6b62;&#x4e8b;&#x9805;","children":[{"content":"&#x884c;&#x524a;&#x9664;&#x306f;&#x7d76;&#x5bfe;&#x7981;&#x6b62;&#xff08;&#x30ab;&#x30ec;&#x30f3;&#x30c0;&#x30fc;&#x4e88;&#x5b9a;&#x304c;&#x6d88;&#x3048;&#x306a;&#x3044;&#xff09;","children":[],"payload":{"tag":"li","lines":"60,61"}},{"content":"&#x884c;&#x306e;&#x975e;&#x8868;&#x793a;&#x3082;&#x7981;&#x6b62;","children":[],"payload":{"tag":"li","lines":"61,62"}},{"content":"&#x30d5;&#x30a3;&#x30eb;&#x30bf;&#x30fc;&#x4f7f;&#x7528;&#x3082;&#x7981;&#x6b62;","children":[],"payload":{"tag":"li","lines":"62,63"}},{"content":"Ctrl+Z&#xff08;&#x5143;&#x306b;&#x623b;&#x3059;&#xff09;&#x306f;&#x4f7f;&#x7528;&#x7981;&#x6b62;","children":[],"payload":{"tag":"li","lines":"63,64"}}],"payload":{"tag":"h3","lines":"59,60"}}],"payload":{"tag":"h2","lines":"53,54"}},{"content":"&#x4f5c;&#x696d;&#x4e0a;&#x306e;&#x6ce8;&#x610f;&#x4e8b;&#x9805;","children":[{"content":"&#x9001;&#x4fe1;&#x7528;&#x30b7;&#x30fc;&#x30c8;&#x3078;&#x306e;&#x76f4;&#x63a5;&#x7de8;&#x96c6;&#x7981;&#x6b62;","children":[],"payload":{"tag":"li","lines":"65,66"}},{"content":"&#x5404;&#x30d7;&#x30ed;&#x30b0;&#x30e9;&#x30e0;&#x30b7;&#x30fc;&#x30c8;&#x3067;&#x6574;&#x3048;&#x3066;&#x304b;&#x3089;&#x8cbc;&#x308a;&#x4ed8;&#x3051;","children":[],"payload":{"tag":"li","lines":"66,67"}},{"content":"&#x9001;&#x4fe1;&#x7528;&#x30b7;&#x30fc;&#x30c8;&#x3067;&#x306e;&#x4e26;&#x3073;&#x66ff;&#x3048;&#x30fb;&#x7f6e;&#x63db;&#x306f;&#x7981;&#x6b62;","children":[],"payload":{"tag":"li","lines":"67,68"}},{"content":"&#x30a2;&#x30c9;&#x30df;&#x30f3;&#x30dc;&#x30bf;&#x30f3;&#x306f;&#x62bc;&#x3055;&#x306a;&#x3044;","children":[],"payload":{"tag":"li","lines":"68,69"}},{"content":"&#x30ab;&#x30ec;&#x30f3;&#x30c0;&#x30fc;&#x4e0a;&#x3067;&#x306e;&#x76f4;&#x63a5;&#x7de8;&#x96c6;&#x4e0d;&#x53ef;","children":[],"payload":{"tag":"li","lines":"69,70"}},{"content":"&#x4e88;&#x5b9a;&#x767b;&#x9332;&#x306e;&#x901a;&#x77e5;&#x306f;&#x51fa;&#x306a;&#x3044;&#xff08;&#x30c7;&#x30d5;&#x30a9;&#x30eb;&#x30c8;&#x30b5;&#x30a4;&#x30ec;&#x30f3;&#x30c8;&#xff09;","children":[],"payload":{"tag":"li","lines":"70,71"}}],"payload":{"tag":"h2","lines":"64,65"}},{"content":"VP&#x4e88;&#x5b9a;&#x78ba;&#x8a8d;&#x65b9;&#x6cd5;","children":[{"content":"&#x5c02;&#x7528;&#x30a2;&#x30ab;&#x30a6;&#x30f3;&#x30c8;&#x306e;&#x30ab;&#x30ec;&#x30f3;&#x30c0;&#x30fc;&#x3092;&#x958b;&#x304f;","children":[],"payload":{"tag":"li","lines":"72,73"}},{"content":"&#x300c;&#x4ed6;&#x306e;&#x30ab;&#x30ec;&#x30f3;&#x30c0;&#x30fc;&#x300d;&#x304b;&#x3089;&#x30a8;&#x30b0;&#x30bc;&#x30af;&#x30c6;&#x30a3;&#x30d6;&#x306e;&#x30e1;&#x30fc;&#x30eb;&#x30a2;&#x30c9;&#x30ec;&#x30b9;&#x3092;&#x8ffd;&#x52a0;","children":[],"payload":{"tag":"li","lines":"73,74"}},{"content":"@g-next.tokyo&#x306e;&#x30a2;&#x30ab;&#x30a6;&#x30f3;&#x30c8;&#x3092;&#x767b;&#x9332;","children":[],"payload":{"tag":"li","lines":"74,75"}}],"payload":{"tag":"h2","lines":"71,72"}},{"content":"&#x5bfe;&#x8c61;&#x671f;&#x9593;","children":[{"content":"7&#x6708;25&#x65e5;&#x301c;8&#x6708;1&#x65e5;&#xff08;&#x79fb;&#x52d5;&#x30b9;&#x30b1;&#x30b8;&#x30e5;&#x30fc;&#x30eb;&#x542b;&#x3080;&#xff09;","children":[],"payload":{"tag":"li","lines":"76,77"}}],"payload":{"tag":"h2","lines":"75,76"}},{"content":"&#x5bfe;&#x5fdc;&#x4e8b;&#x9805;","children":[{"content":"&#x5404;&#x30d7;&#x30ed;&#x30b0;&#x30e9;&#x30e0;&#x62c5;&#x5f53;&#x8005; &#x2192; &#x30a2;&#x30ab;&#x30a6;&#x30f3;&#x30c8;&#x8a8d;&#x8a3c;&#x306e;&#x5b8c;&#x4e86;","children":[],"payload":{"tag":"li","lines":"78,79"}},{"content":"&#x6749;&#x6c5f;&#x3055;&#x3093; &#x2192; &#x30ad;&#x30fc;&#x30ce;&#x30fc;&#x30c8;&#x30a2;&#x30ab;&#x30a6;&#x30f3;&#x30c8;&#x306e;&#x524a;&#x9664;&#x554f;&#x984c;&#x3092;&#x8abf;&#x67fb;&#x30fb;&#x89e3;&#x6c7a;","children":[],"payload":{"tag":"li","lines":"79,80"}},{"content":"&#x5404;&#x30d7;&#x30ed;&#x30b0;&#x30e9;&#x30e0;&#x62c5;&#x5f53;&#x8005; &#x2192; &#x30d0;&#x30c3;&#x30c1;&#x5370;&#x5237;&#x7528;&#x95a2;&#x4fc2;&#x8005;&#x30ea;&#x30b9;&#x30c8;&#x306b;&#x540d;&#x524d;&#x8a18;&#x5165;","children":[],"payload":{"tag":"li","lines":"80,81"}},{"content":"&#x5404;&#x30d7;&#x30ed;&#x30b0;&#x30e9;&#x30e0;&#x62c5;&#x5f53;&#x8005; &#x2192; &#x30a8;&#x30b0;&#x30bc;&#x30af;&#x30c6;&#x30a3;&#x30d6;&#x30e1;&#x30fc;&#x30eb;&#x30a2;&#x30c9;&#x30ec;&#x30b9;&#x3092;&#x30ab;&#x30ec;&#x30f3;&#x30c0;&#x30fc;&#x306b;&#x767b;&#x9332;","children":[],"payload":{"tag":"li","lines":"81,82"}},{"content":"&#x6749;&#x6c5f;&#x3055;&#x3093; &#x2192; &#x30b9;&#x30b1;&#x30b8;&#x30e5;&#x30fc;&#x30eb;&#x95a2;&#x9023;&#x30c1;&#x30e3;&#x30c3;&#x30c8;&#x30b0;&#x30eb;&#x30fc;&#x30d7;&#x306e;&#x4f5c;&#x6210;","children":[],"payload":{"tag":"li","lines":"82,83"}}],"payload":{"tag":"h2","lines":"77,78"}}],"payload":{"tag":"h1","lines":"0,1"}},null)</script>
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/markmap-toolbar@0.18.10/dist/style.css"
+    />
+
+    <script src="https://cdn.jsdelivr.net/npm/markmap-toolbar@0.18.10/dist/index.js"></script>
+    <script>
+      ((r) => {
+          setTimeout(r);
+      })(() => {
+          const { markmap, mm } = window;
+          const toolbar = new markmap.Toolbar();
+          toolbar.attach(mm);
+          const el = toolbar.render();
+          el.setAttribute(
+              "style",
+              "position:absolute;bottom:20px;right:20px"
+          );
+          document.body.append(el);
+          
+          // Ensure the mind map fits the current view
+          setTimeout(() => {
+            if (mm && typeof mm.fit === 'function') {
+              mm.fit();
+            }
+          }, 1200);
+      });
+    </script>
+  
+
+    <!-- Add html-to-image library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html-to-image/1.11.11/html-to-image.min.js"></script>
+
+    <!-- Hidden element to store original Markdown content -->
+    <textarea id="original-markdown" style="display:none;"># Scheduler（スケジューラー）
+## 概要
+### 目的
+- Googleカレンダーへの予定一括登録ツール
+- 他プログラムとの予定重複チェック機能
+### アイティナラリーとのすみ分け
+- スケジューラー → VPを含む全予定を登録
+- アイティナラリー → VPの予定のみ反映
+## アカウント設定
+### アカウント管理
+- プログラム単位で専用アカウントを作成
+- 個人のGoogleアカウントは使用不可
+### 初回認証プロセス
+- プログラム専用アカウントでログイン
+- トリックスのスケジューラー2026タブにアクセス
+- チェックカレンシートをクリック
+- 「すべてを選択」にチェックして続行
+## 予定登録の3ステップ
+- Step1：送信用シートに予定を記入
+- Step2：チェックカレンシートでエラーチェック
+- Step3：自動送信後、カレンダー反映を確認
+## 入力フォーマット
+### 必須項目（C列〜ルーム列）
+- 日付：指定書式を厳守
+- タイトル：プログラム名を含める
+- パーソン（必須）：左列・重複チェック対象
+- パーソン（オプショナル）：右列・重複チェック対象外
+- ルーム：プルダウンから選択
+### 任意項目
+- ディスクリプション：URLはそのまま記載（スマートチップ不可）
+- 開業は反映される
+### 入力制限
+- 日本語のみ対応（英語不可）
+- A列（イベントID）は触らない
+## エラーチェック
+### エラーの種類
+- 予定重複
+- パーソン・ルームリストにない情報
+- 必須項目の記入漏れ
+### 対処方法
+- ピンクハイライト箇所を必ず修正
+- チェック後はエラーチェックシートをコピーして保存
+### リスト追加方法
+- パーソンリスト → バッチ印刷用関係者リストに名前記入
+- ルームリスト → 夏木さんに連絡
+## 送信タイミング
+### 定期自動送信（1日4回）
+- 7:00〜8:00
+- 12:00〜13:00（主要）← 11時前までに入力推奨
+- 18:00〜19:00（主要）← 17時前までに入力推奨
+- 深夜
+### 緊急対応
+- 夏木さんに個別相談
+## 更新・削除ルール
+### 更新
+- 該当項目を直接編集
+### 削除
+- Delete列（赤い列）に「1」を入力
+- カレンダー予定も自動削除される
+### 絶対禁止事項
+- 行削除は絶対禁止（カレンダー予定が消えない）
+- 行の非表示も禁止
+- フィルター使用も禁止
+- Ctrl+Z（元に戻す）は使用禁止
+## 作業上の注意事項
+- 送信用シートへの直接編集禁止
+- 各プログラムシートで整えてから貼り付け
+- 送信用シートでの並び替え・置換は禁止
+- アドミンボタンは押さない
+- カレンダー上での直接編集不可
+- 予定登録の通知は出ない（デフォルトサイレント）
+## VP予定確認方法
+- 専用アカウントのカレンダーを開く
+- 「他のカレンダー」からエグゼクティブのメールアドレスを追加
+- @g-next.tokyoのアカウントを登録
+## 対象期間
+- 7月25日〜8月1日（移動スケジュール含む）
+## 対応事項
+- 各プログラム担当者 → アカウント認証の完了
+- 杉江さん → キーノートアカウントの削除問題を調査・解決
+- 各プログラム担当者 → バッチ印刷用関係者リストに名前記入
+- 各プログラム担当者 → エグゼクティブメールアドレスをカレンダーに登録
+- 杉江さん → スケジュール関連チャットグループの作成</textarea>
+
+    <style>
+      /* Export toolbar styles */
+      .mm-export-toolbar {
+        position: fixed;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 1000;
+        background: rgba(255, 255, 255, 0.9);
+        border-radius: 8px;
+        padding: 8px 16px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        display: flex;
+        gap: 10px;
+      }
+      .mm-export-btn {
+        padding: 6px 12px;
+        border: none;
+        border-radius: 4px;
+        background-color: #3498db;
+        color: white;
+        cursor: pointer;
+        font-size: 14px;
+        transition: background-color 0.3s;
+      }
+      .mm-export-btn:hover {
+        background-color: #2980b9;
+      }
+      .mm-copy-btn {
+        background-color: #27ae60;
+      }
+      .mm-copy-btn:hover {
+        background-color: #219653;
+      }
+      @media print {
+        .mm-export-toolbar { display: none !important; }
+        .mm-toolbar { display: none !important; }
+        svg.markmap, svg#mindmap, #mindmap svg { 
+          display: block !important;
+          visibility: visible !important; 
+          opacity: 1 !important;
+          height: 100vh !important;
+          width: 100% !important;
+          max-width: 100% !important;
+          max-height: 100vh !important;
+          overflow: visible !important;
+          page-break-inside: avoid !important;
+        }
+        body, html {
+          height: 100% !important;
+          width: 100% !important;
+          margin: 0 !important;
+          padding: 0 !important;
+          overflow: visible !important;
+        }
+      }
+    </style>
+
+    <script>
+      (function() {
+        // Create bottom export toolbar
+        const exportToolbar = document.createElement('div');
+        exportToolbar.className = 'mm-export-toolbar';
+        document.body.appendChild(exportToolbar);
+        
+        // Export as PNG image
+        const pngBtn = document.createElement('button');
+        pngBtn.className = 'mm-export-btn png-export';
+        pngBtn.innerHTML = 'Export PNG';
+        pngBtn.title = 'Export as PNG image';
+        pngBtn.onclick = () => {
+          exportToImage('png');
+        };
+        exportToolbar.appendChild(pngBtn);
+
+        // Export as JPG image
+        const jpgBtn = document.createElement('button');
+        jpgBtn.className = 'mm-export-btn jpg-export';
+        jpgBtn.innerHTML = 'Export JPG';
+        jpgBtn.title = 'Export as JPG image';
+        jpgBtn.onclick = () => {
+          exportToImage('jpeg');
+        };
+        exportToolbar.appendChild(jpgBtn);
+        
+        // Export as SVG image
+        const svgBtn = document.createElement('button');
+        svgBtn.className = 'mm-export-btn svg-export';
+        svgBtn.innerHTML = 'Export SVG';
+        svgBtn.title = 'Export as SVG image';
+        svgBtn.onclick = () => {
+          exportToImage('svg');
+        };
+        exportToolbar.appendChild(svgBtn);
+
+        // Copy original Markdown button
+        const copyBtn = document.createElement('button');
+        copyBtn.className = 'mm-export-btn mm-copy-btn copy-markdown';
+        copyBtn.innerHTML = 'Copy Markdown';
+        copyBtn.title = 'Copy original Markdown content';
+        copyBtn.onclick = copyOriginalMarkdown;
+        exportToolbar.appendChild(copyBtn);
+
+        // Function to copy original Markdown content
+        function copyOriginalMarkdown() {
+          try {
+            const markdownElement = document.getElementById('original-markdown');
+            if (!markdownElement) {
+              throw new Error('Original Markdown content not found');
+            }
+            
+            const markdownContent = markdownElement.value;
+            
+            // Copy to clipboard
+            navigator.clipboard.writeText(markdownContent)
+              .then(() => {
+                const originalText = copyBtn.innerHTML;
+                copyBtn.innerHTML = '✓ Copied';
+                copyBtn.style.backgroundColor = '#2ecc71';
+                
+                setTimeout(() => {
+                  copyBtn.innerHTML = originalText;
+                  copyBtn.style.backgroundColor = '';
+                }, 2000);
+              })
+              .catch(err => {
+                console.error('Copy failed:', err);
+                alert('Failed to copy to clipboard, please check browser permissions');
+              });
+          } catch (e) {
+            console.error('Error copying Markdown:', e);
+            alert('Unable to copy Markdown: ' + e.message);
+          }
+        }
+
+        // Function to export image
+        function exportToImage(format) {
+          try {
+            const node = window.mm.svg._groups[0][0];
+            
+            if (!node) {
+              throw new Error('Cannot find mind map SVG element');
+            }
+
+            window.mm.fit().then(() => {
+              const options = {
+                backgroundColor: "#ffffff", 
+                quality: 1.0,
+                width: node.getBoundingClientRect().width,
+                height: node.getBoundingClientRect().height
+              };
+              
+              const exportPromise = format === 'svg' 
+                ? htmlToImage.toSvg(node, options)
+                : format === 'jpeg' 
+                  ? htmlToImage.toJpeg(node, options) 
+                  : htmlToImage.toPng(node, options);
+              
+              exportPromise
+                .then((dataUrl) => {
+                  const link = document.createElement('a');
+                  const timestamp = new Date().toISOString().slice(0, 10);
+                  link.download = `markmap-${timestamp}.${format === 'jpeg' ? 'jpg' : format === 'svg' ? 'svg' : 'png'}`;
+                  link.href = dataUrl;
+                  link.click();
+                })
+                .catch((err) => console.error("Export failed:", err));
+            })
+            .catch((err) => {
+                throw err;
+            });
+              
+          } catch (e) {
+            console.error('Error exporting image:', e);
+            alert('Image export failed: ' + e.message);
+          }
+        }
+      })();
+    </script>
+  
 </body>
 </html>
