@@ -1,0 +1,338 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+<title>Markmap</title>
+<style>
+* {
+  margin: 0;
+  padding: 0;
+}
+html {
+  font-family: ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji',
+    'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+}
+#mindmap {
+  display: block;
+  width: 100vw;
+  height: 100vh;
+}
+.markmap-dark {
+  background: #27272a;
+  color: white;
+}
+</style>
+
+</head>
+<body>
+<svg id="mindmap"></svg>
+<script src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js"></script><script src="https://cdn.jsdelivr.net/npm/markmap-view@0.18.12/dist/browser/index.js"></script><script>((getMarkmap, getOptions, root2, jsonOptions) => {
+              const markmap = getMarkmap();
+              window.mm = markmap.Markmap.create(
+                "svg#mindmap",
+                (getOptions || markmap.deriveOptions)(jsonOptions),
+                root2
+              );
+              if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+                document.documentElement.classList.add("markmap-dark");
+              }
+            })(() => window.markmap,null,{"content":"&#x30b5;&#x30fc;&#x30d0;&#x30fc;&#x63a5;&#x7d9a;&#x30a8;&#x30e9;&#x30fc; 192.168.11.35 &#x5bfe;&#x51e6;&#x30de;&#x30c3;&#x30d7;","children":[{"content":"&#x30a8;&#x30e9;&#x30fc;&#x306e;&#x539f;&#x56e0;&#x5019;&#x88dc;","children":[{"content":"&#x30b5;&#x30fc;&#x30d0;&#x30fc;&#x304c;&#x5b58;&#x5728;&#x3057;&#x306a;&#x3044;","children":[{"content":"IP&#x30a2;&#x30c9;&#x30ec;&#x30b9;&#x304c;&#x9593;&#x9055;&#x3063;&#x3066;&#x3044;&#x308b;","children":[],"payload":{"tag":"li","lines":"4,5"}},{"content":"&#x30b5;&#x30fc;&#x30d0;&#x30fc;&#x81ea;&#x4f53;&#x304c;&#x5ec3;&#x6b62;&#x30fb;&#x79fb;&#x8a2d;&#x3055;&#x308c;&#x305f;","children":[],"payload":{"tag":"li","lines":"5,6"}},{"content":"DNS&#x540d;&#x524d;&#x89e3;&#x6c7a;&#x306e;&#x5931;&#x6557;","children":[],"payload":{"tag":"li","lines":"6,7"}}],"payload":{"tag":"h3","lines":"3,4"}},{"content":"&#x30cd;&#x30c3;&#x30c8;&#x30ef;&#x30fc;&#x30af;&#x554f;&#x984c;","children":[{"content":"LAN&#x30b1;&#x30fc;&#x30d6;&#x30eb;&#x65ad;&#x7dda;&#x30fb;WiFi&#x5207;&#x65ad;","children":[],"payload":{"tag":"li","lines":"8,9"}},{"content":"&#x30eb;&#x30fc;&#x30bf;&#x30fc;&#x30fb;&#x30b9;&#x30a4;&#x30c3;&#x30c1;&#x306e;&#x969c;&#x5bb3;","children":[],"payload":{"tag":"li","lines":"9,10"}},{"content":"&#x30d5;&#x30a1;&#x30a4;&#x30a2;&#x30a6;&#x30a9;&#x30fc;&#x30eb;&#x306b;&#x3088;&#x308b;&#x30d6;&#x30ed;&#x30c3;&#x30af;","children":[],"payload":{"tag":"li","lines":"10,11"}},{"content":"VPN&#x63a5;&#x7d9a;&#x306e;&#x5207;&#x65ad;","children":[],"payload":{"tag":"li","lines":"11,12"}}],"payload":{"tag":"h3","lines":"7,8"}},{"content":"&#x30b5;&#x30fc;&#x30d3;&#x30b9;&#x505c;&#x6b62;","children":[{"content":"&#x30b5;&#x30fc;&#x30d0;&#x30fc;OS&#x304c;&#x30af;&#x30e9;&#x30c3;&#x30b7;&#x30e5;","children":[],"payload":{"tag":"li","lines":"13,14"}},{"content":"&#x5bfe;&#x8c61;&#x30b5;&#x30fc;&#x30d3;&#x30b9;&#xff08;SMB/AFP/NFS&#xff09;&#x304c;&#x505c;&#x6b62;","children":[],"payload":{"tag":"li","lines":"14,15"}},{"content":"&#x30b5;&#x30fc;&#x30d0;&#x30fc;&#x306e;&#x96fb;&#x6e90;OFF&#x30fb;&#x30b9;&#x30ea;&#x30fc;&#x30d7;","children":[],"payload":{"tag":"li","lines":"15,16"}}],"payload":{"tag":"h3","lines":"12,13"}},{"content":"&#x8a2d;&#x5b9a;&#x30df;&#x30b9;","children":[{"content":"IP&#x30a2;&#x30c9;&#x30ec;&#x30b9;&#x306e;&#x5165;&#x529b;&#x30df;&#x30b9;","children":[],"payload":{"tag":"li","lines":"17,18"}},{"content":"&#x30dd;&#x30fc;&#x30c8;&#x756a;&#x53f7;&#x306e;&#x8aa4;&#x308a;","children":[],"payload":{"tag":"li","lines":"18,19"}},{"content":"&#x8a8d;&#x8a3c;&#x60c5;&#x5831;&#x306e;&#x671f;&#x9650;&#x5207;&#x308c;","children":[],"payload":{"tag":"li","lines":"19,21"}}],"payload":{"tag":"h3","lines":"16,17"}}],"payload":{"tag":"h2","lines":"2,3"}},{"content":"&#x78ba;&#x8a8d;&#x30fb;&#x5bfe;&#x51e6;&#x30b9;&#x30c6;&#x30c3;&#x30d7;","children":[{"content":"Step 1: &#x30cd;&#x30c3;&#x30c8;&#x30ef;&#x30fc;&#x30af;&#x758e;&#x901a;&#x78ba;&#x8a8d;","children":[{"content":"ping 192.168.11.35 &#x3092;&#x5b9f;&#x884c;","children":[],"payload":{"tag":"li","lines":"23,24"}},{"content":"&#x30bf;&#x30a4;&#x30e0;&#x30a2;&#x30a6;&#x30c8;&#x306a;&#x3089;&#x7269;&#x7406;&#x63a5;&#x7d9a;&#x3092;&#x78ba;&#x8a8d;","children":[],"payload":{"tag":"li","lines":"24,25"}},{"content":"&#x5fdc;&#x7b54;&#x3042;&#x308b;&#x306a;&#x3089;&#x6b21;&#x30b9;&#x30c6;&#x30c3;&#x30d7;&#x3078;","children":[],"payload":{"tag":"li","lines":"25,26"}}],"payload":{"tag":"h3","lines":"22,23"}},{"content":"Step 2: IP&#x30a2;&#x30c9;&#x30ec;&#x30b9;&#x78ba;&#x8a8d;","children":[{"content":"&#x30b5;&#x30fc;&#x30d0;&#x30fc;&#x306e;&#x5b9f;&#x969b;&#x306e;IP&#x3092;&#x78ba;&#x8a8d;","children":[],"payload":{"tag":"li","lines":"27,28"}},{"content":"DHCP&#x5272;&#x308a;&#x5f53;&#x3066;&#x5909;&#x66f4;&#x306e;&#x53ef;&#x80fd;&#x6027;&#x3092;&#x78ba;&#x8a8d;","children":[],"payload":{"tag":"li","lines":"28,29"}},{"content":"&#x30eb;&#x30fc;&#x30bf;&#x30fc;&#x306e;DHCP&#x30ea;&#x30fc;&#x30b9;&#x8868;&#x3092;&#x78ba;&#x8a8d;","children":[],"payload":{"tag":"li","lines":"29,30"}}],"payload":{"tag":"h3","lines":"26,27"}},{"content":"Step 3: &#x30b5;&#x30fc;&#x30d3;&#x30b9;&#x72b6;&#x614b;&#x78ba;&#x8a8d;","children":[{"content":"&#x30b5;&#x30fc;&#x30d0;&#x30fc;&#x306b;&#x30ed;&#x30b0;&#x30a4;&#x30f3;&#x3057;&#x3066;&#x8d77;&#x52d5;&#x78ba;&#x8a8d;","children":[],"payload":{"tag":"li","lines":"31,32"}},{"content":"SMB/AFP/NFS&#x30b5;&#x30fc;&#x30d3;&#x30b9;&#x306e;&#x7a3c;&#x50cd;&#x78ba;&#x8a8d;","children":[],"payload":{"tag":"li","lines":"32,33"}},{"content":"&#x30d5;&#x30a1;&#x30a4;&#x30a2;&#x30a6;&#x30a9;&#x30fc;&#x30eb;&#x8a2d;&#x5b9a;&#x3092;&#x78ba;&#x8a8d;","children":[],"payload":{"tag":"li","lines":"33,34"}}],"payload":{"tag":"h3","lines":"30,31"}},{"content":"Step 4: Mac&#x306e;&#x8a2d;&#x5b9a;&#x78ba;&#x8a8d;","children":[{"content":"&#x30b7;&#x30b9;&#x30c6;&#x30e0;&#x74b0;&#x5883;&#x8a2d;&#x5b9a; &gt; &#x30cd;&#x30c3;&#x30c8;&#x30ef;&#x30fc;&#x30af;&#x78ba;&#x8a8d;","children":[],"payload":{"tag":"li","lines":"35,36"}},{"content":"Finder &gt; &#x30b5;&#x30fc;&#x30d0;&#x3078;&#x63a5;&#x7d9a; &#x3067;&#x518d;&#x8a66;&#x884c;","children":[],"payload":{"tag":"li","lines":"36,37"}},{"content":"Keychain&#x306e;&#x30d1;&#x30b9;&#x30ef;&#x30fc;&#x30c9;&#x3092;&#x30ea;&#x30bb;&#x30c3;&#x30c8;","children":[],"payload":{"tag":"li","lines":"37,38"}}],"payload":{"tag":"h3","lines":"34,35"}},{"content":"Step 5: &#x30b5;&#x30fc;&#x30d0;&#x30fc;&#x518d;&#x8d77;&#x52d5;","children":[{"content":"&#x30b5;&#x30fc;&#x30d3;&#x30b9;&#x306e;&#x307f;&#x518d;&#x8d77;&#x52d5;","children":[],"payload":{"tag":"li","lines":"39,40"}},{"content":"OS&#x30ec;&#x30d9;&#x30eb;&#x306e;&#x518d;&#x8d77;&#x52d5;","children":[],"payload":{"tag":"li","lines":"40,41"}},{"content":"&#x96fb;&#x6e90;ON/OFF&#x306b;&#x3088;&#x308b;&#x5b8c;&#x5168;&#x30ea;&#x30bb;&#x30c3;&#x30c8;","children":[],"payload":{"tag":"li","lines":"41,43"}}],"payload":{"tag":"h3","lines":"38,39"}}],"payload":{"tag":"h2","lines":"21,22"}},{"content":"&#x6839;&#x672c;&#x539f;&#x56e0;&#x306e;&#x5206;&#x985e;","children":[{"content":"&#x30cf;&#x30fc;&#x30c9;&#x30a6;&#x30a7;&#x30a2;&#x8d77;&#x56e0;","children":[{"content":"NIC&#x306e;&#x6545;&#x969c;","children":[],"payload":{"tag":"li","lines":"45,46"}},{"content":"LAN&#x30b1;&#x30fc;&#x30d6;&#x30eb;&#x306e;&#x65ad;&#x7dda;","children":[],"payload":{"tag":"li","lines":"46,47"}},{"content":"&#x30b9;&#x30a4;&#x30c3;&#x30c1;&#x30fb;&#x30eb;&#x30fc;&#x30bf;&#x30fc;&#x306e;&#x6545;&#x969c;","children":[],"payload":{"tag":"li","lines":"47,48"}},{"content":"&#x30b5;&#x30fc;&#x30d0;&#x30fc;&#x306e;&#x96fb;&#x6e90;&#x30e6;&#x30cb;&#x30c3;&#x30c8;&#x6545;&#x969c;","children":[],"payload":{"tag":"li","lines":"48,49"}}],"payload":{"tag":"h3","lines":"44,45"}},{"content":"&#x30bd;&#x30d5;&#x30c8;&#x30a6;&#x30a7;&#x30a2;&#x8d77;&#x56e0;","children":[{"content":"OS&#x30fb;&#x30b5;&#x30fc;&#x30d3;&#x30b9;&#x306e;&#x30af;&#x30e9;&#x30c3;&#x30b7;&#x30e5;","children":[],"payload":{"tag":"li","lines":"50,51"}},{"content":"&#x30c9;&#x30e9;&#x30a4;&#x30d0;&#x30fc;&#x306e;&#x4e0d;&#x5177;&#x5408;","children":[],"payload":{"tag":"li","lines":"51,52"}},{"content":"&#x30bd;&#x30d5;&#x30c8;&#x30a6;&#x30a7;&#x30a2;&#x30a2;&#x30c3;&#x30d7;&#x30c7;&#x30fc;&#x30c8;&#x5f8c;&#x306e;&#x4e0d;&#x5177;&#x5408;","children":[],"payload":{"tag":"li","lines":"52,53"}}],"payload":{"tag":"h3","lines":"49,50"}},{"content":"&#x8a2d;&#x5b9a;&#x30df;&#x30b9;","children":[{"content":"IP&#x30a2;&#x30c9;&#x30ec;&#x30b9;&#x306e;&#x5909;&#x66f4;&#x672a;&#x53cd;&#x6620;","children":[],"payload":{"tag":"li","lines":"54,55"}},{"content":"&#x30d5;&#x30a1;&#x30a4;&#x30a2;&#x30a6;&#x30a9;&#x30fc;&#x30eb;&#x30eb;&#x30fc;&#x30eb;&#x306e;&#x8aa4;&#x8a2d;&#x5b9a;","children":[],"payload":{"tag":"li","lines":"55,56"}},{"content":"&#x5171;&#x6709;&#x8a2d;&#x5b9a;&#x306e;&#x7121;&#x52b9;&#x5316;","children":[],"payload":{"tag":"li","lines":"56,57"}}],"payload":{"tag":"h3","lines":"53,54"}},{"content":"&#x5916;&#x90e8;&#x8981;&#x56e0;","children":[{"content":"ISP&#x306e;&#x969c;&#x5bb3;&#xff08;&#x30ea;&#x30e2;&#x30fc;&#x30c8;&#x30b5;&#x30fc;&#x30d0;&#x30fc;&#x306e;&#x5834;&#x5408;&#xff09;","children":[],"payload":{"tag":"li","lines":"58,59"}},{"content":"&#x505c;&#x96fb;&#x30fb;UPS&#x969c;&#x5bb3;","children":[],"payload":{"tag":"li","lines":"59,60"}},{"content":"&#x30bb;&#x30ad;&#x30e5;&#x30ea;&#x30c6;&#x30a3;&#x30a4;&#x30f3;&#x30b7;&#x30c7;&#x30f3;&#x30c8;","children":[],"payload":{"tag":"li","lines":"60,62"}}],"payload":{"tag":"h3","lines":"57,58"}}],"payload":{"tag":"h2","lines":"43,44"}},{"content":"&#x518d;&#x767a;&#x9632;&#x6b62;&#x7b56;","children":[{"content":"&#x76e3;&#x8996;&#x30fb;&#x30a2;&#x30e9;&#x30fc;&#x30c8;","children":[{"content":"&#x30b5;&#x30fc;&#x30d0;&#x30fc;&#x6b7b;&#x6d3b;&#x76e3;&#x8996;&#x30c4;&#x30fc;&#x30eb;&#x306e;&#x5c0e;&#x5165;","children":[],"payload":{"tag":"li","lines":"64,65"}},{"content":"ping&#x30a6;&#x30a9;&#x30c3;&#x30c1;&#x30e3;&#x30fc;&#x3067;&#x81ea;&#x52d5;&#x691c;&#x77e5;","children":[],"payload":{"tag":"li","lines":"65,66"}},{"content":"&#x30e1;&#x30fc;&#x30eb;&#x30fb;Slack&#x901a;&#x77e5;&#x306e;&#x8a2d;&#x5b9a;","children":[],"payload":{"tag":"li","lines":"66,67"}}],"payload":{"tag":"h3","lines":"63,64"}},{"content":"&#x30c9;&#x30ad;&#x30e5;&#x30e1;&#x30f3;&#x30c8;&#x6574;&#x5099;","children":[{"content":"&#x30b5;&#x30fc;&#x30d0;&#x30fc;&#x69cb;&#x6210;&#x56f3;&#x306e;&#x4f5c;&#x6210;&#x30fb;&#x66f4;&#x65b0;","children":[],"payload":{"tag":"li","lines":"68,69"}},{"content":"IP&#x30a2;&#x30c9;&#x30ec;&#x30b9;&#x53f0;&#x5e33;&#x306e;&#x7ba1;&#x7406;","children":[],"payload":{"tag":"li","lines":"69,70"}},{"content":"&#x5909;&#x66f4;&#x5c65;&#x6b74;&#x30ed;&#x30b0;&#x306e;&#x904b;&#x7528;","children":[],"payload":{"tag":"li","lines":"70,71"}}],"payload":{"tag":"h3","lines":"67,68"}},{"content":"&#x30a4;&#x30f3;&#x30d5;&#x30e9;&#x5b89;&#x5b9a;&#x5316;","children":[{"content":"&#x9759;&#x7684;IP&#x30a2;&#x30c9;&#x30ec;&#x30b9;&#x306e;&#x5272;&#x308a;&#x5f53;&#x3066;","children":[],"payload":{"tag":"li","lines":"72,73"}},{"content":"UPS&#xff08;&#x7121;&#x505c;&#x96fb;&#x96fb;&#x6e90;&#x88c5;&#x7f6e;&#xff09;&#x306e;&#x8a2d;&#x7f6e;","children":[],"payload":{"tag":"li","lines":"73,74"}},{"content":"&#x5197;&#x9577;&#x5316;&#x69cb;&#x6210;&#x306e;&#x691c;&#x8a0e;","children":[],"payload":{"tag":"li","lines":"74,75"}}],"payload":{"tag":"h3","lines":"71,72"}},{"content":"&#x904b;&#x7528;&#x30eb;&#x30fc;&#x30eb;","children":[{"content":"&#x5b9a;&#x671f;&#x7684;&#x306a;&#x63a5;&#x7d9a;&#x78ba;&#x8a8d;&#x30c6;&#x30b9;&#x30c8;","children":[],"payload":{"tag":"li","lines":"76,77"}},{"content":"&#x30b5;&#x30fc;&#x30d0;&#x30fc;&#x5909;&#x66f4;&#x6642;&#x306e;&#x4e8b;&#x524d;&#x5468;&#x77e5;","children":[],"payload":{"tag":"li","lines":"77,78"}},{"content":"&#x30d0;&#x30c3;&#x30af;&#x30a2;&#x30c3;&#x30d7;&#x624b;&#x9806;&#x306e;&#x6574;&#x5099;","children":[],"payload":{"tag":"li","lines":"78,79"}}],"payload":{"tag":"h3","lines":"75,76"}}],"payload":{"tag":"h2","lines":"62,63"}}],"payload":{"tag":"h1","lines":"0,1"}},null)</script>
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/markmap-toolbar@0.18.10/dist/style.css"
+    />
+
+    <script src="https://cdn.jsdelivr.net/npm/markmap-toolbar@0.18.10/dist/index.js"></script>
+    <script>
+      ((r) => {
+          setTimeout(r);
+      })(() => {
+          const { markmap, mm } = window;
+          const toolbar = new markmap.Toolbar();
+          toolbar.attach(mm);
+          const el = toolbar.render();
+          el.setAttribute(
+              "style",
+              "position:absolute;bottom:20px;right:20px"
+          );
+          document.body.append(el);
+          
+          // Ensure the mind map fits the current view
+          setTimeout(() => {
+            if (mm && typeof mm.fit === 'function') {
+              mm.fit();
+            }
+          }, 1200);
+      });
+    </script>
+  
+
+    <!-- Add html-to-image library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html-to-image/1.11.11/html-to-image.min.js"></script>
+
+    <!-- Hidden element to store original Markdown content -->
+    <textarea id="original-markdown" style="display:none;"># サーバー接続エラー 192.168.11.35 対処マップ
+
+## エラーの原因候補
+### サーバーが存在しない
+- IPアドレスが間違っている
+- サーバー自体が廃止・移設された
+- DNS名前解決の失敗
+### ネットワーク問題
+- LANケーブル断線・WiFi切断
+- ルーター・スイッチの障害
+- ファイアウォールによるブロック
+- VPN接続の切断
+### サービス停止
+- サーバーOSがクラッシュ
+- 対象サービス（SMB/AFP/NFS）が停止
+- サーバーの電源OFF・スリープ
+### 設定ミス
+- IPアドレスの入力ミス
+- ポート番号の誤り
+- 認証情報の期限切れ
+
+## 確認・対処ステップ
+### Step 1: ネットワーク疎通確認
+- ping 192.168.11.35 を実行
+- タイムアウトなら物理接続を確認
+- 応答あるなら次ステップへ
+### Step 2: IPアドレス確認
+- サーバーの実際のIPを確認
+- DHCP割り当て変更の可能性を確認
+- ルーターのDHCPリース表を確認
+### Step 3: サービス状態確認
+- サーバーにログインして起動確認
+- SMB/AFP/NFSサービスの稼働確認
+- ファイアウォール設定を確認
+### Step 4: Macの設定確認
+- システム環境設定 > ネットワーク確認
+- Finder > サーバへ接続 で再試行
+- Keychainのパスワードをリセット
+### Step 5: サーバー再起動
+- サービスのみ再起動
+- OSレベルの再起動
+- 電源ON/OFFによる完全リセット
+
+## 根本原因の分類
+### ハードウェア起因
+- NICの故障
+- LANケーブルの断線
+- スイッチ・ルーターの故障
+- サーバーの電源ユニット故障
+### ソフトウェア起因
+- OS・サービスのクラッシュ
+- ドライバーの不具合
+- ソフトウェアアップデート後の不具合
+### 設定ミス
+- IPアドレスの変更未反映
+- ファイアウォールルールの誤設定
+- 共有設定の無効化
+### 外部要因
+- ISPの障害（リモートサーバーの場合）
+- 停電・UPS障害
+- セキュリティインシデント
+
+## 再発防止策
+### 監視・アラート
+- サーバー死活監視ツールの導入
+- pingウォッチャーで自動検知
+- メール・Slack通知の設定
+### ドキュメント整備
+- サーバー構成図の作成・更新
+- IPアドレス台帳の管理
+- 変更履歴ログの運用
+### インフラ安定化
+- 静的IPアドレスの割り当て
+- UPS（無停電電源装置）の設置
+- 冗長化構成の検討
+### 運用ルール
+- 定期的な接続確認テスト
+- サーバー変更時の事前周知
+- バックアップ手順の整備</textarea>
+
+    <style>
+      /* Export toolbar styles */
+      .mm-export-toolbar {
+        position: fixed;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 1000;
+        background: rgba(255, 255, 255, 0.9);
+        border-radius: 8px;
+        padding: 8px 16px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        display: flex;
+        gap: 10px;
+      }
+      .mm-export-btn {
+        padding: 6px 12px;
+        border: none;
+        border-radius: 4px;
+        background-color: #3498db;
+        color: white;
+        cursor: pointer;
+        font-size: 14px;
+        transition: background-color 0.3s;
+      }
+      .mm-export-btn:hover {
+        background-color: #2980b9;
+      }
+      .mm-copy-btn {
+        background-color: #27ae60;
+      }
+      .mm-copy-btn:hover {
+        background-color: #219653;
+      }
+      @media print {
+        .mm-export-toolbar { display: none !important; }
+        .mm-toolbar { display: none !important; }
+        svg.markmap, svg#mindmap, #mindmap svg { 
+          display: block !important;
+          visibility: visible !important; 
+          opacity: 1 !important;
+          height: 100vh !important;
+          width: 100% !important;
+          max-width: 100% !important;
+          max-height: 100vh !important;
+          overflow: visible !important;
+          page-break-inside: avoid !important;
+        }
+        body, html {
+          height: 100% !important;
+          width: 100% !important;
+          margin: 0 !important;
+          padding: 0 !important;
+          overflow: visible !important;
+        }
+      }
+    </style>
+
+    <script>
+      (function() {
+        // Create bottom export toolbar
+        const exportToolbar = document.createElement('div');
+        exportToolbar.className = 'mm-export-toolbar';
+        document.body.appendChild(exportToolbar);
+        
+        // Export as PNG image
+        const pngBtn = document.createElement('button');
+        pngBtn.className = 'mm-export-btn png-export';
+        pngBtn.innerHTML = 'Export PNG';
+        pngBtn.title = 'Export as PNG image';
+        pngBtn.onclick = () => {
+          exportToImage('png');
+        };
+        exportToolbar.appendChild(pngBtn);
+
+        // Export as JPG image
+        const jpgBtn = document.createElement('button');
+        jpgBtn.className = 'mm-export-btn jpg-export';
+        jpgBtn.innerHTML = 'Export JPG';
+        jpgBtn.title = 'Export as JPG image';
+        jpgBtn.onclick = () => {
+          exportToImage('jpeg');
+        };
+        exportToolbar.appendChild(jpgBtn);
+        
+        // Export as SVG image
+        const svgBtn = document.createElement('button');
+        svgBtn.className = 'mm-export-btn svg-export';
+        svgBtn.innerHTML = 'Export SVG';
+        svgBtn.title = 'Export as SVG image';
+        svgBtn.onclick = () => {
+          exportToImage('svg');
+        };
+        exportToolbar.appendChild(svgBtn);
+
+        // Copy original Markdown button
+        const copyBtn = document.createElement('button');
+        copyBtn.className = 'mm-export-btn mm-copy-btn copy-markdown';
+        copyBtn.innerHTML = 'Copy Markdown';
+        copyBtn.title = 'Copy original Markdown content';
+        copyBtn.onclick = copyOriginalMarkdown;
+        exportToolbar.appendChild(copyBtn);
+
+        // Function to copy original Markdown content
+        function copyOriginalMarkdown() {
+          try {
+            const markdownElement = document.getElementById('original-markdown');
+            if (!markdownElement) {
+              throw new Error('Original Markdown content not found');
+            }
+            
+            const markdownContent = markdownElement.value;
+            
+            // Copy to clipboard
+            navigator.clipboard.writeText(markdownContent)
+              .then(() => {
+                const originalText = copyBtn.innerHTML;
+                copyBtn.innerHTML = '✓ Copied';
+                copyBtn.style.backgroundColor = '#2ecc71';
+                
+                setTimeout(() => {
+                  copyBtn.innerHTML = originalText;
+                  copyBtn.style.backgroundColor = '';
+                }, 2000);
+              })
+              .catch(err => {
+                console.error('Copy failed:', err);
+                alert('Failed to copy to clipboard, please check browser permissions');
+              });
+          } catch (e) {
+            console.error('Error copying Markdown:', e);
+            alert('Unable to copy Markdown: ' + e.message);
+          }
+        }
+
+        // Function to export image
+        function exportToImage(format) {
+          try {
+            const node = window.mm.svg._groups[0][0];
+            
+            if (!node) {
+              throw new Error('Cannot find mind map SVG element');
+            }
+
+            window.mm.fit().then(() => {
+              const options = {
+                backgroundColor: "#ffffff", 
+                quality: 1.0,
+                width: node.getBoundingClientRect().width,
+                height: node.getBoundingClientRect().height
+              };
+              
+              const exportPromise = format === 'svg' 
+                ? htmlToImage.toSvg(node, options)
+                : format === 'jpeg' 
+                  ? htmlToImage.toJpeg(node, options) 
+                  : htmlToImage.toPng(node, options);
+              
+              exportPromise
+                .then((dataUrl) => {
+                  const link = document.createElement('a');
+                  const timestamp = new Date().toISOString().slice(0, 10);
+                  link.download = `markmap-${timestamp}.${format === 'jpeg' ? 'jpg' : format === 'svg' ? 'svg' : 'png'}`;
+                  link.href = dataUrl;
+                  link.click();
+                })
+                .catch((err) => console.error("Export failed:", err));
+            })
+            .catch((err) => {
+                throw err;
+            });
+              
+          } catch (e) {
+            console.error('Error exporting image:', e);
+            alert('Image export failed: ' + e.message);
+          }
+        }
+      })();
+    </script>
+  
+</body>
+</html>
