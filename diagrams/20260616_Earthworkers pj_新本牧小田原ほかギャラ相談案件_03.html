@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { width: 1400px; height: 900px; overflow: hidden; background: #EEF2FF; font-family: 'Hiragino Sans', 'Yu Gothic UI', sans-serif; }
+  .title-bar { background: #4361EE; color: white; padding: 18px 36px; font-size: 22px; font-weight: bold; letter-spacing: 0.05em; display: flex; align-items: center; gap: 12px; }
+  .title-bar span { font-size: 14px; opacity: 0.75; font-weight: normal; }
+  svg { position: absolute; top: 70px; left: 0; width: 1400px; height: 830px; }
+</style>
+</head>
+<body>
+<div class="title-bar">収益構造マップ ── Suzu相談事項と意思決定ノード <span>ギャラ計算式・前提条件・リスク整理</span></div>
+<svg viewBox="0 0 1400 830">
+  <defs>
+    <marker id="arr" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="#94A3B8"/></marker>
+    <marker id="arr-blue" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="#4361EE"/></marker>
+    <filter id="shadow"><feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#00000020"/></filter>
+    <filter id="glow"><feDropShadow dx="0" dy="0" stdDeviation="6" flood-color="#4361EE" flood-opacity="0.4"/></filter>
+  </defs>
+  <ellipse cx="700" cy="110" rx="160" ry="54" fill="#4361EE" filter="url(#glow)"/>
+  <text x="700" y="103" text-anchor="middle" fill="white" font-size="17" font-weight="bold">請負金額</text>
+  <text x="700" y="125" text-anchor="middle" fill="white" font-size="13" opacity="0.85">新本牧・小田原案件</text>
+  <line x1="700" y1="166" x2="280" y2="310" stroke="#94A3B8" stroke-width="2" marker-end="url(#arr)"/>
+  <line x1="700" y1="166" x2="700" y2="290" stroke="#94A3B8" stroke-width="2" marker-end="url(#arr)"/>
+  <line x1="700" y1="166" x2="1120" y2="310" stroke="#94A3B8" stroke-width="2" marker-end="url(#arr)"/>
+  <text x="430" y="235" fill="#94A3B8" font-size="12">差し引き①</text>
+  <text x="700" y="248" text-anchor="middle" fill="#94A3B8" font-size="12">差し引き②</text>
+  <text x="960" y="235" fill="#94A3B8" font-size="12">差し引き③</text>
+  <rect x="140" y="312" rx="14" ry="14" width="280" height="120" fill="white" stroke="#FDA4AF" stroke-width="2" filter="url(#shadow)"/>
+  <text x="280" y="348" text-anchor="middle" fill="#BE123C" font-size="14" font-weight="bold">制作コスト</text>
+  <text x="280" y="373" text-anchor="middle" fill="#64748B" font-size="12">①：Kudo実働費 含む</text>
+  <text x="280" y="393" text-anchor="middle" fill="#64748B" font-size="12">②：Kudo実働費 なし</text>
+  <text x="280" y="413" text-anchor="middle" fill="#94A3B8" font-size="11">※ケースにより変動</text>
+  <rect x="560" y="292" rx="14" ry="14" width="280" height="100" fill="white" stroke="#FDA4AF" stroke-width="2" filter="url(#shadow)"/>
+  <text x="700" y="328" text-anchor="middle" fill="#BE123C" font-size="14" font-weight="bold">一般管理費</text>
+  <text x="700" y="353" text-anchor="middle" fill="#64748B" font-size="12">共通コスト・固定費</text>
+  <text x="700" y="373" text-anchor="middle" fill="#94A3B8" font-size="11">両ケース共通で差し引き</text>
+  <rect x="980" y="312" rx="14" ry="14" width="280" height="120" fill="white" stroke="#FCA5A5" stroke-width="2" filter="url(#shadow)"/>
+  <text x="1120" y="348" text-anchor="middle" fill="#DC2626" font-size="14" font-weight="bold">Kudo 実働費</text>
+  <text x="1120" y="373" text-anchor="middle" fill="#64748B" font-size="12">①の場合：現場工数増=コスト増</text>
+  <text x="1120" y="393" text-anchor="middle" fill="#64748B" font-size="12">②の場合：なし（補填あり）</text>
+  <text x="1120" y="413" text-anchor="middle" fill="#94A3B8" font-size="11">※ケースで大きく変わる変数</text>
+  <line x1="280" y1="434" x2="430" y2="520" stroke="#94A3B8" stroke-width="2" marker-end="url(#arr)"/>
+  <line x1="700" y1="394" x2="640" y2="520" stroke="#94A3B8" stroke-width="2" marker-end="url(#arr)"/>
+  <line x1="1120" y1="434" x2="860" y2="520" stroke="#94A3B8" stroke-width="2" marker-end="url(#arr)"/>
+  <ellipse cx="650" cy="570" rx="180" ry="58" fill="#F1F5F9" stroke="#94A3B8" stroke-width="2" filter="url(#shadow)"/>
+  <text x="650" y="560" text-anchor="middle" fill="#475569" font-size="15" font-weight="bold">分配可能額</text>
+  <text x="650" y="582" text-anchor="middle" fill="#64748B" font-size="13">（請負 − 制作費 − 管理費）</text>
+  <text x="650" y="600" text-anchor="middle" fill="#94A3B8" font-size="12">÷ 2 で折半</text>
+  <line x1="520" y1="600" x2="300" y2="700" stroke="#4361EE" stroke-width="2.5" marker-end="url(#arr-blue)"/>
+  <line x1="780" y1="600" x2="1020" y2="700" stroke="#4361EE" stroke-width="2.5" marker-end="url(#arr-blue)"/>
+  <rect x="140" y="700" rx="14" ry="14" width="310" height="100" fill="white" stroke="#93C5FD" stroke-width="2" filter="url(#shadow)"/>
+  <text x="295" y="735" text-anchor="middle" fill="#1E40AF" font-size="14" font-weight="bold">Kudo 経営費</text>
+  <text x="295" y="758" text-anchor="middle" fill="#3B82F6" font-size="12">現場・制作実行費相当</text>
+  <text x="295" y="778" text-anchor="middle" fill="#94A3B8" font-size="11">50%分</text>
+  <rect x="1010" y="700" rx="14" ry="14" width="310" height="100" fill="white" stroke="#C4B5FD" stroke-width="2" filter="url(#shadow)"/>
+  <text x="1165" y="735" text-anchor="middle" fill="#5B21B6" font-size="14" font-weight="bold">鈴木 マーケ費</text>
+  <text x="1165" y="758" text-anchor="middle" fill="#7C3AED" font-size="12">営業・マーケティング費相当</text>
+  <text x="1165" y="778" text-anchor="middle" fill="#94A3B8" font-size="11">50%分</text>
+  <rect x="470" y="700" rx="18" ry="18" width="380" height="110" fill="#FEF3C7" stroke="#F59E0B" stroke-width="2.5" filter="url(#shadow)"/>
+  <text x="660" y="730" text-anchor="middle" fill="#B45309" font-size="15" font-weight="bold">⚠️ Suzu への相談事項</text>
+  <text x="660" y="756" text-anchor="middle" fill="#92400E" font-size="12">①の場合 → レベニュー型・成果主義</text>
+  <text x="660" y="776" text-anchor="middle" fill="#92400E" font-size="12">本社営業を委ねる前に合意が必要</text>
+  <text x="660" y="796" text-anchor="middle" fill="#B45309" font-size="11" font-weight="bold">「それでも大丈夫か」を先に確認</text>
+  <rect x="80" y="568" rx="10" ry="10" width="254" height="36" fill="#EDE9FE" stroke="#C4B5FD" stroke-width="1.5"/>
+  <text x="207" y="591" text-anchor="middle" fill="#5B21B6" font-size="12">📌 年間売上目標 30%以上確保で受注判断</text>
+</svg>
+</body>
+</html>

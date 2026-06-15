@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    width: 1400px; height: 900px; overflow: hidden;
+    background: #EEF2FF;
+    font-family: 'Hiragino Sans', 'Yu Gothic UI', sans-serif;
+  }
+  .title-bar {
+    background: #4361EE;
+    color: white;
+    padding: 18px 36px;
+    font-size: 22px;
+    font-weight: bold;
+    letter-spacing: 0.05em;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .title-bar span { font-size: 14px; opacity: 0.75; font-weight: normal; }
+  svg {
+    position: absolute;
+    top: 70px; left: 0;
+    width: 1400px; height: 830px;
+  }
+</style>
+</head>
+<body>
+<div class="title-bar">新本牧・小田原案件 ── 分岐シナリオ図 <span>Asaga-san の反応パターン別 対応方針</span></div>
+<svg viewBox="0 0 1400 830">
+  <defs>
+    <marker id="arr" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="#94A3B8"/></marker>
+    <marker id="arr-blue" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="#4361EE"/></marker>
+    <marker id="arr-green" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="#10B981"/></marker>
+    <marker id="arr-amber" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="#F59E0B"/></marker>
+    <filter id="shadow"><feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#00000020"/></filter>
+  </defs>
+  <ellipse cx="220" cy="415" rx="140" ry="58" fill="#4361EE" filter="url(#shadow)"/>
+  <text x="220" y="405" text-anchor="middle" fill="white" font-size="16" font-weight="bold">新本牧・小田原</text>
+  <text x="220" y="428" text-anchor="middle" fill="white" font-size="13" opacity="0.85">前年度テイで進める</text>
+  <ellipse cx="500" cy="415" rx="110" ry="48" fill="white" stroke="#CBD5E1" stroke-width="2" filter="url(#shadow)"/>
+  <text x="500" y="408" text-anchor="middle" fill="#475569" font-size="14" font-weight="bold">高見積もり提示</text>
+  <text x="500" y="428" text-anchor="middle" fill="#94A3B8" font-size="12">Asaga-san へ</text>
+  <line x1="362" y1="415" x2="388" y2="415" stroke="#94A3B8" stroke-width="2.5" marker-end="url(#arr)"/>
+  <line x1="612" y1="390" x2="700" y2="270" stroke="#F59E0B" stroke-width="2.5" marker-end="url(#arr-amber)"/>
+  <line x1="612" y1="440" x2="700" y2="565" stroke="#10B981" stroke-width="2.5" marker-end="url(#arr-green)"/>
+  <text x="640" y="310" fill="#D97706" font-size="13" font-weight="bold">① 値切り交渉</text>
+  <text x="640" y="490" fill="#059669" font-size="13" font-weight="bold">② 広報・本社補填</text>
+  <rect x="710" y="215" rx="14" ry="14" width="200" height="100" fill="white" stroke="#FCD34D" stroke-width="2.5" filter="url(#shadow)"/>
+  <text x="810" y="248" text-anchor="middle" fill="#B45309" font-size="13" font-weight="bold">可能な範囲で受注</text>
+  <text x="810" y="268" text-anchor="middle" fill="#92400E" font-size="11">現場実働量が増加</text>
+  <text x="810" y="285" text-anchor="middle" fill="#92400E" font-size="11">営業活動が疎かになるリスク</text>
+  <line x1="912" y1="260" x2="970" y2="200" stroke="#F59E0B" stroke-width="2" marker-end="url(#arr-amber)"/>
+  <line x1="912" y1="270" x2="970" y2="320" stroke="#F59E0B" stroke-width="2" marker-end="url(#arr-amber)"/>
+  <ellipse cx="1060" cy="188" rx="110" ry="48" fill="white" stroke="#FCD34D" stroke-width="2" filter="url(#shadow)"/>
+  <text x="1060" y="181" text-anchor="middle" fill="#B45309" font-size="13" font-weight="bold">Suzu が本社営業</text>
+  <text x="1060" y="201" text-anchor="middle" fill="#92400E" font-size="11">要：ギャラ合意（要相談）</text>
+  <rect x="968" y="298" rx="14" ry="14" width="300" height="100" fill="#FFFBEB" stroke="#FCD34D" stroke-width="2" filter="url(#shadow)"/>
+  <text x="1118" y="325" text-anchor="middle" fill="#92400E" font-size="12" font-weight="bold">ギャラ①</text>
+  <text x="1118" y="348" text-anchor="middle" fill="#78350F" font-size="11">（請負 − 制作費 − 管理費）÷ 2</text>
+  <text x="1118" y="366" text-anchor="middle" fill="#78350F" font-size="11">※Kudo実働費含む</text>
+  <text x="1118" y="382" text-anchor="middle" fill="#B45309" font-size="11">→ レベニュー型・成果主義</text>
+  <rect x="978" y="418" rx="20" ry="20" width="270" height="44" fill="#F59E0B"/>
+  <text x="1113" y="445" text-anchor="middle" fill="white" font-size="13" font-weight="bold">受注条件：年間売上目標の30%以上</text>
+  <rect x="710" y="510" rx="14" ry="14" width="200" height="100" fill="white" stroke="#6EE7B7" stroke-width="2.5" filter="url(#shadow)"/>
+  <text x="810" y="548" text-anchor="middle" fill="#065F46" font-size="13" font-weight="bold">理想価格で受注</text>
+  <text x="810" y="568" text-anchor="middle" fill="#047857" font-size="11">Kudo 制作実働費なし</text>
+  <text x="810" y="585" text-anchor="middle" fill="#047857" font-size="11">余裕ある体制で進行</text>
+  <line x1="912" y1="560" x2="968" y2="560" stroke="#10B981" stroke-width="2" marker-end="url(#arr-green)"/>
+  <rect x="968" y="512" rx="14" ry="14" width="300" height="100" fill="#ECFDF5" stroke="#6EE7B7" stroke-width="2" filter="url(#shadow)"/>
+  <text x="1118" y="540" text-anchor="middle" fill="#065F46" font-size="12" font-weight="bold">ギャラ②</text>
+  <text x="1118" y="562" text-anchor="middle" fill="#047857" font-size="11">（請負 − 制作費 − 管理費）÷ 2</text>
+  <text x="1118" y="580" text-anchor="middle" fill="#047857" font-size="11">※Kudo実働費なし</text>
+  <text x="1118" y="596" text-anchor="middle" fill="#065F46" font-size="11">→ 安定報酬・最良シナリオ</text>
+  <rect x="978" y="630" rx="20" ry="20" width="230" height="44" fill="#10B981"/>
+  <text x="1093" y="657" text-anchor="middle" fill="white" font-size="13" font-weight="bold">理想的だが実現確率は低め</text>
+  <ellipse cx="420" cy="720" rx="160" ry="44" fill="white" stroke="#C7D2FE" stroke-width="2" filter="url(#shadow)"/>
+  <text x="420" y="713" text-anchor="middle" fill="#4361EE" font-size="13" font-weight="bold">分配比率（共通）</text>
+  <text x="420" y="733" text-anchor="middle" fill="#3730A3" font-size="12">Kudo経営費 ： 鈴木マーケ費 ＝ 1:1</text>
+  <rect x="30" y="730" rx="10" ry="10" width="300" height="80" fill="white" stroke="#E2E8F0" stroke-width="1.5"/>
+  <text x="50" y="755" fill="#64748B" font-size="12" font-weight="bold">凡例</text>
+  <rect x="50" y="767" width="14" height="14" rx="3" fill="#F59E0B"/>
+  <text x="72" y="779" fill="#64748B" font-size="11">① 値切り交渉パス（可能性高）</text>
+  <rect x="50" y="787" width="14" height="14" rx="3" fill="#10B981"/>
+  <text x="72" y="799" fill="#64748B" font-size="11">② 広報補填パス（理想的）</text>
+</svg>
+</body>
+</html>

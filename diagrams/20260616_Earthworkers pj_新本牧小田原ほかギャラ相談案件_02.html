@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { width: 1400px; height: 900px; overflow: hidden; background: #EEF2FF; font-family: 'Hiragino Sans', 'Yu Gothic UI', sans-serif; }
+  .title-bar { background: #4361EE; color: white; padding: 18px 36px; font-size: 22px; font-weight: bold; letter-spacing: 0.05em; display: flex; align-items: center; gap: 12px; }
+  .title-bar span { font-size: 14px; opacity: 0.75; font-weight: normal; }
+  svg { position: absolute; top: 70px; left: 0; width: 1400px; height: 830px; }
+</style>
+</head>
+<body>
+<div class="title-bar">7〜8月 営業ロードマップ ── ドット図 <span>Earth Workers 成果2本で次フェーズへ</span></div>
+<svg viewBox="0 0 1400 830">
+  <defs>
+    <marker id="arr" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="#94A3B8"/></marker>
+    <marker id="arr-blue" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="#4361EE"/></marker>
+    <marker id="arr-green" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="#10B981"/></marker>
+    <marker id="arr-purple" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="#8B5CF6"/></marker>
+    <filter id="shadow"><feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#00000020"/></filter>
+  </defs>
+  <line x1="80" y1="430" x2="1340" y2="430" stroke="#CBD5E1" stroke-width="3"/>
+  <text x="180" y="470" text-anchor="middle" fill="#64748B" font-size="18" font-weight="bold">7月</text>
+  <text x="480" y="470" text-anchor="middle" fill="#64748B" font-size="18" font-weight="bold">8月</text>
+  <text x="800" y="470" text-anchor="middle" fill="#64748B" font-size="18" font-weight="bold">成果確認</text>
+  <text x="1100" y="470" text-anchor="middle" fill="#64748B" font-size="18" font-weight="bold">次フェーズ</text>
+  <line x1="330" y1="390" x2="330" y2="450" stroke="#CBD5E1" stroke-width="1.5" stroke-dasharray="5,4"/>
+  <line x1="640" y1="390" x2="640" y2="450" stroke="#CBD5E1" stroke-width="1.5" stroke-dasharray="5,4"/>
+  <line x1="950" y1="390" x2="950" y2="450" stroke="#CBD5E1" stroke-width="1.5" stroke-dasharray="5,4"/>
+  <ellipse cx="180" cy="300" rx="130" ry="52" fill="#4361EE" filter="url(#shadow)"/>
+  <text x="180" y="291" text-anchor="middle" fill="white" font-size="15" font-weight="bold">FLOWCON</text>
+  <text x="180" y="311" text-anchor="middle" fill="white" font-size="12" opacity="0.85">CG制作費 前払い</text>
+  <text x="180" y="327" text-anchor="middle" fill="white" font-size="12" opacity="0.85">7月〜 横槍なし</text>
+  <line x1="180" y1="354" x2="180" y2="428" stroke="#4361EE" stroke-width="2.5" marker-end="url(#arr-blue)"/>
+  <rect x="88" y="140" rx="12" ry="12" width="184" height="40" fill="#DBEAFE" stroke="#93C5FD" stroke-width="1.5"/>
+  <text x="180" y="165" text-anchor="middle" fill="#1E40AF" font-size="12" font-weight="bold">▶ 1年の余裕を確保する基盤</text>
+  <ellipse cx="420" cy="250" rx="130" ry="52" fill="white" stroke="#4361EE" stroke-width="2.5" filter="url(#shadow)"/>
+  <text x="420" y="238" text-anchor="middle" fill="#1E3A8A" font-size="14" font-weight="bold">スーパーゼネコン営業</text>
+  <text x="420" y="258" text-anchor="middle" fill="#3B82F6" font-size="12">大成建設 等</text>
+  <text x="420" y="274" text-anchor="middle" fill="#64748B" font-size="11">7〜8月 集中</text>
+  <line x1="420" y1="304" x2="420" y2="428" stroke="#94A3B8" stroke-width="2" stroke-dasharray="6,4" marker-end="url(#arr)"/>
+  <ellipse cx="540" cy="560" rx="130" ry="52" fill="white" stroke="#0EA5E9" stroke-width="2.5" filter="url(#shadow)"/>
+  <text x="540" y="548" text-anchor="middle" fill="#0C4A6E" font-size="14" font-weight="bold">マリコン営業</text>
+  <text x="540" y="568" text-anchor="middle" fill="#0284C7" font-size="12">五洋建設 等</text>
+  <text x="540" y="584" text-anchor="middle" fill="#64748B" font-size="11">7〜8月 並行</text>
+  <line x1="540" y1="508" x2="540" y2="432" stroke="#94A3B8" stroke-width="2" stroke-dasharray="6,4" marker-end="url(#arr)"/>
+  <ellipse cx="800" cy="300" rx="110" ry="50" fill="#10B981" filter="url(#shadow)"/>
+  <text x="800" y="290" text-anchor="middle" fill="white" font-size="14" font-weight="bold">成果 1本</text>
+  <text x="800" y="310" text-anchor="middle" fill="white" font-size="12" opacity="0.85">お互いに余裕が生まれる</text>
+  <line x1="800" y1="352" x2="800" y2="428" stroke="#10B981" stroke-width="2.5" marker-end="url(#arr-green)"/>
+  <ellipse cx="800" cy="580" rx="110" ry="50" fill="#8B5CF6" filter="url(#shadow)"/>
+  <text x="800" y="570" text-anchor="middle" fill="white" font-size="14" font-weight="bold">成果 2本</text>
+  <text x="800" y="590" text-anchor="middle" fill="white" font-size="12" opacity="0.85">次フェーズ選択へ</text>
+  <line x1="800" y1="530" x2="800" y2="432" stroke="#8B5CF6" stroke-width="2.5" marker-end="url(#arr-purple)"/>
+  <rect x="1000" y="175" rx="14" ry="14" width="250" height="110" fill="white" stroke="#8B5CF6" stroke-width="2" filter="url(#shadow)"/>
+  <text x="1125" y="210" text-anchor="middle" fill="#5B21B6" font-size="14" font-weight="bold">Earthオウンドメディア</text>
+  <text x="1125" y="233" text-anchor="middle" fill="#6D28D9" font-size="12">コンテンツ戦略フェーズへ</text>
+  <text x="1125" y="253" text-anchor="middle" fill="#94A3B8" font-size="11">2本取れたら検討</text>
+  <text x="1125" y="271" text-anchor="middle" fill="#C4B5FD" font-size="12" font-weight="bold">OR</text>
+  <rect x="1000" y="520" rx="14" ry="14" width="250" height="110" fill="white" stroke="#8B5CF6" stroke-width="2" filter="url(#shadow)"/>
+  <text x="1125" y="558" text-anchor="middle" fill="#5B21B6" font-size="14" font-weight="bold">陸上土木 Earth 営業</text>
+  <text x="1125" y="581" text-anchor="middle" fill="#6D28D9" font-size="12">市場拡大フェーズへ</text>
+  <text x="1125" y="601" text-anchor="middle" fill="#94A3B8" font-size="11">2本取れたら注力</text>
+  <line x1="912" y1="565" x2="996" y2="440" stroke="#8B5CF6" stroke-width="1.8" stroke-dasharray="6,4" marker-end="url(#arr-purple)"/>
+  <line x1="912" y1="590" x2="996" y2="575" stroke="#8B5CF6" stroke-width="1.8" stroke-dasharray="6,4" marker-end="url(#arr-purple)"/>
+  <rect x="60" y="640" rx="14" ry="14" width="200" height="80" fill="white" stroke="#E2E8F0" stroke-width="2" filter="url(#shadow)"/>
+  <text x="160" y="668" text-anchor="middle" fill="#94A3B8" font-size="13" font-weight="bold">Small 従来マーケ</text>
+  <text x="160" y="690" text-anchor="middle" fill="#CBD5E1" font-size="11">空き時間で改善</text>
+  <text x="160" y="706" text-anchor="middle" fill="#CBD5E1" font-size="11">優先度：低</text>
+  <rect x="320" y="690" rx="14" ry="14" width="220" height="80" fill="#FFFBEB" stroke="#FCD34D" stroke-width="2" filter="url(#shadow)"/>
+  <text x="430" y="718" text-anchor="middle" fill="#92400E" font-size="13" font-weight="bold">映像業界の追い風</text>
+  <text x="430" y="738" text-anchor="middle" fill="#B45309" font-size="11">広告費を使う企業が増加傾向</text>
+  <text x="430" y="754" text-anchor="middle" fill="#B45309" font-size="11">細かい仕事が流入する可能性</text>
+  <rect x="562" y="700" rx="12" ry="12" width="220" height="44" fill="#FEE2E2" stroke="#FCA5A5" stroke-width="1.5"/>
+  <text x="672" y="727" text-anchor="middle" fill="#991B1B" font-size="12">⚠️ いくらやっても儲からない構造</text>
+  <rect x="1060" y="700" rx="10" ry="10" width="280" height="100" fill="white" stroke="#E2E8F0" stroke-width="1.5"/>
+  <text x="1080" y="724" fill="#64748B" font-size="12" font-weight="bold">優先度</text>
+  <circle cx="1090" cy="745" r="7" fill="#4361EE"/>
+  <text x="1104" y="749" fill="#64748B" font-size="11">最優先（FLOWCON）</text>
+  <circle cx="1090" cy="765" r="7" fill="#10B981"/>
+  <text x="1104" y="769" fill="#64748B" font-size="11">高（ゼネコン・マリコン営業）</text>
+  <circle cx="1090" cy="785" r="7" fill="#CBD5E1"/>
+  <text x="1104" y="789" fill="#64748B" font-size="11">低（従来Small）</text>
+</svg>
+</body>
+</html>
