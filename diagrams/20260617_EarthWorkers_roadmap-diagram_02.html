@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    width: 1400px; height: 900px; overflow: hidden;
+    background: #EEF2FF;
+    font-family: 'Hiragino Sans', 'Yu Gothic UI', 'Noto Sans JP', sans-serif;
+  }
+  .header {
+    background: #4361EE;
+    color: white;
+    padding: 16px 36px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  .badge {
+    background: rgba(255,255,255,0.2);
+    border-radius: 20px;
+    padding: 4px 14px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    white-space: nowrap;
+  }
+  .header h1 { font-size: 21px; font-weight: 800; letter-spacing: 0.04em; }
+  .header .sub { font-size: 12px; opacity: 0.8; margin-top: 3px; }
+  .canvas { width: 1400px; height: 838px; position: relative; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="badge">EARTHWORKERS</div>
+  <div>
+    <h1>3年ロードマップ ── 種を撒く → 育てる → 収穫する</h1>
+    <div class="sub">2026年6月スタート ｜ 鈴木（ストーリーマーケ） × Kudo（映像制作） 2人チーム</div>
+  </div>
+</div>
+
+<div class="canvas">
+<svg viewBox="0 0 1400 838" width="1400" height="838">
+  <defs>
+    <filter id="sh">
+      <feDropShadow dx="0" dy="3" stdDeviation="7" flood-color="#4361EE1A"/>
+    </filter>
+    <marker id="ma" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0,10 3.5,0 7" fill="#4361EE"/>
+    </marker>
+  </defs>
+
+  <!-- ===== TIMELINE AXIS ===== -->
+  <line x1="60" y1="160" x2="1370" y2="160" stroke="#C7D2FE" stroke-width="3"/>
+  <!-- Arrow end -->
+  <polygon points="1370,154 1386,160 1370,166" fill="#4361EE"/>
+
+  <!-- Year markers -->
+  <line x1="60" y1="148" x2="60" y2="172" stroke="#4361EE" stroke-width="3"/>
+  <line x1="510" y1="148" x2="510" y2="172" stroke="#4361EE" stroke-width="2"/>
+  <line x1="960" y1="148" x2="960" y2="172" stroke="#4361EE" stroke-width="2"/>
+  <line x1="1350" y1="148" x2="1350" y2="172" stroke="#4361EE" stroke-width="2"/>
+
+  <text x="60" y="142" text-anchor="middle" fill="#4361EE" font-size="12" font-weight="700">2026.6</text>
+  <text x="510" y="142" text-anchor="middle" fill="#4361EE" font-size="12" font-weight="700">2027.6</text>
+  <text x="960" y="142" text-anchor="middle" fill="#4361EE" font-size="12" font-weight="700">2028.6</text>
+  <text x="1350" y="142" text-anchor="middle" fill="#4361EE" font-size="12" font-weight="700">2029.6</text>
+
+  <!-- ===== YEAR 1 COLUMN ===== -->
+  <!-- Header band -->
+  <rect x="68" y="178" rx="16" ry="16" width="430" height="64" fill="#4361EE" filter="url(#sh)"/>
+  <text x="283" y="204" text-anchor="middle" fill="white" font-size="11" font-weight="700" letter-spacing="3" opacity="0.8">YEAR 1</text>
+  <text x="283" y="228" text-anchor="middle" fill="white" font-size="20" font-weight="900">種を撒く</text>
+
+  <!-- Subtheme -->
+  <text x="283" y="270" text-anchor="middle" fill="#3730A3" font-size="12" font-weight="700">概念を作り、最初の1社を取る</text>
+
+  <!-- Y1 Action cards -->
+  <!-- Card A -->
+  <rect x="76" y="290" rx="12" ry="12" width="130" height="160" fill="white" stroke="#E0E7FF" stroke-width="1.5" filter="url(#sh)"/>
+  <text x="141" y="315" text-anchor="middle" fill="#4361EE" font-size="22">📦</text>
+  <text x="141" y="340" text-anchor="middle" fill="#1e1e2e" font-size="12" font-weight="700">事例</text>
+  <text x="141" y="356" text-anchor="middle" fill="#1e1e2e" font-size="12" font-weight="700">パッケージ化</text>
+  <text x="141" y="376" text-anchor="middle" fill="#888" font-size="10">2分動画</text>
+  <text x="141" y="392" text-anchor="middle" fill="#888" font-size="10">数値化</text>
+  <text x="141" y="408" text-anchor="middle" fill="#888" font-size="10">A4提案書1枚</text>
+  <text x="141" y="432" text-anchor="middle" fill="#F72585" font-size="10" font-weight="700">★ 最優先</text>
+
+  <!-- Card B -->
+  <rect x="219" y="290" rx="12" ry="12" width="130" height="160" fill="white" stroke="#E0E7FF" stroke-width="1.5" filter="url(#sh)"/>
+  <text x="284" y="315" text-anchor="middle" fill="#4361EE" font-size="22">🤝</text>
+  <text x="284" y="340" text-anchor="middle" fill="#1e1e2e" font-size="12" font-weight="700">5社</text>
+  <text x="284" y="356" text-anchor="middle" fill="#1e1e2e" font-size="12" font-weight="700">対面ピッチ</text>
+  <text x="284" y="376" text-anchor="middle" fill="#888" font-size="10">Wakachiku</text>
+  <text x="284" y="392" text-anchor="middle" fill="#888" font-size="10">Goyo / Toyo</text>
+  <text x="284" y="408" text-anchor="middle" fill="#888" font-size="10">Taisei</text>
+  <text x="284" y="428" text-anchor="middle" fill="#888" font-size="10">採用難を訴求</text>
+
+  <!-- Card C -->
+  <rect x="362" y="290" rx="12" ry="12" width="128" height="160" fill="white" stroke="#E0E7FF" stroke-width="1.5" filter="url(#sh)"/>
+  <text x="426" y="315" text-anchor="middle" fill="#4361EE" font-size="22">📝</text>
+  <text x="426" y="340" text-anchor="middle" fill="#1e1e2e" font-size="12" font-weight="700">概念</text>
+  <text x="426" y="356" text-anchor="middle" fill="#1e1e2e" font-size="12" font-weight="700">文書化</text>
+  <text x="426" y="376" text-anchor="middle" fill="#888" font-size="10">「ドキュメンタリー</text>
+  <text x="426" y="392" text-anchor="middle" fill="#888" font-size="10">マーケティング」</text>
+  <text x="426" y="408" text-anchor="middle" fill="#888" font-size="10">言葉を植える</text>
+
+  <!-- Y1 Goal -->
+  <rect x="76" y="462" rx="12" ry="12" width="414" height="54" fill="#EEF2FF" stroke="#C7D2FE" stroke-width="1.5"/>
+  <text x="130" y="483" fill="#4361EE" font-size="11" font-weight="800">🎯 目標</text>
+  <text x="180" y="483" fill="#3730A3" font-size="12">受注 2社 ／ 売上ベース確立</text>
+  <text x="130" y="503" fill="#4361EE" font-size="11" font-weight="800">💰</text>
+  <text x="148" y="503" fill="#555" font-size="11">業界10%成長の1%をいただくモデルを初検証</text>
+
+  <!-- ===== YEAR 2 COLUMN ===== -->
+  <rect x="518" y="178" rx="16" ry="16" width="430" height="64" fill="#7209B7" filter="url(#sh)"/>
+  <text x="733" y="204" text-anchor="middle" fill="white" font-size="11" font-weight="700" letter-spacing="3" opacity="0.8">YEAR 2</text>
+  <text x="733" y="228" text-anchor="middle" fill="white" font-size="20" font-weight="900">育てる</text>
+
+  <text x="733" y="270" text-anchor="middle" fill="#5B21B6" font-size="12" font-weight="700">事例を増やし、紹介連鎖を作る</text>
+
+  <!-- Y2 Cards -->
+  <rect x="526" y="290" rx="12" ry="12" width="130" height="160" fill="white" stroke="#EDE9FE" stroke-width="1.5" filter="url(#sh)"/>
+  <text x="591" y="315" text-anchor="middle" fill="#7209B7" font-size="22">🎬</text>
+  <text x="591" y="340" text-anchor="middle" fill="#1e1e2e" font-size="12" font-weight="700">1コンテンツ</text>
+  <text x="591" y="356" text-anchor="middle" fill="#1e1e2e" font-size="12" font-weight="700">マルチユース</text>
+  <text x="591" y="376" text-anchor="middle" fill="#888" font-size="10">採用用</text>
+  <text x="591" y="392" text-anchor="middle" fill="#888" font-size="10">ブランディング用</text>
+  <text x="591" y="408" text-anchor="middle" fill="#888" font-size="10">技術継承用</text>
+  <text x="591" y="428" text-anchor="middle" fill="#888" font-size="10">1案件→3展開</text>
+
+  <rect x="669" y="290" rx="12" ry="12" width="130" height="160" fill="white" stroke="#EDE9FE" stroke-width="1.5" filter="url(#sh)"/>
+  <text x="734" y="315" text-anchor="middle" fill="#7209B7" font-size="22">🔗</text>
+  <text x="734" y="340" text-anchor="middle" fill="#1e1e2e" font-size="12" font-weight="700">紹介システム</text>
+  <text x="734" y="356" text-anchor="middle" fill="#1e1e2e" font-size="12" font-weight="700">設計</text>
+  <text x="734" y="376" text-anchor="middle" fill="#888" font-size="10">業界は狭い</text>
+  <text x="734" y="392" text-anchor="middle" fill="#888" font-size="10">1社が3社紹介</text>
+  <text x="734" y="412" text-anchor="middle" fill="#888" font-size="10">「誰か紹介して</text>
+  <text x="734" y="428" text-anchor="middle" fill="#888" font-size="10">もらえますか？」</text>
+
+  <rect x="812" y="290" rx="12" ry="12" width="128" height="160" fill="white" stroke="#EDE9FE" stroke-width="1.5" filter="url(#sh)"/>
+  <text x="876" y="315" text-anchor="middle" fill="#7209B7" font-size="22">🎤</text>
+  <text x="876" y="340" text-anchor="middle" fill="#1e1e2e" font-size="12" font-weight="700">業界団体</text>
+  <text x="876" y="356" text-anchor="middle" fill="#1e1e2e" font-size="12" font-weight="700">登壇</text>
+  <text x="876" y="376" text-anchor="middle" fill="#888" font-size="10">建設業連合会</text>
+  <text x="876" y="392" text-anchor="middle" fill="#888" font-size="10">海洋工事協会</text>
+  <text x="876" y="412" text-anchor="middle" fill="#888" font-size="10">事例発表で</text>
+  <text x="876" y="428" text-anchor="middle" fill="#888" font-size="10">名前を広める</text>
+
+  <!-- Y2 Goal -->
+  <rect x="526" y="462" rx="12" ry="12" width="414" height="54" fill="#F5F3FF" stroke="#DDD6FE" stroke-width="1.5"/>
+  <text x="580" y="483" fill="#7209B7" font-size="11" font-weight="800">🎯 目標</text>
+  <text x="630" y="483" fill="#3730A3" font-size="12">受注累計 6〜8社 ／ 紹介 1本以上</text>
+  <text x="580" y="503" fill="#7209B7" font-size="11" font-weight="800">📡</text>
+  <text x="600" y="503" fill="#555" font-size="11">業界内で「ドキュメンタリーマーケ」の名前が通り始める</text>
+
+  <!-- ===== YEAR 3 COLUMN ===== -->
+  <rect x="968" y="178" rx="16" ry="16" width="380" height="64" fill="#F72585" filter="url(#sh)"/>
+  <text x="1158" y="204" text-anchor="middle" fill="white" font-size="11" font-weight="700" letter-spacing="3" opacity="0.8">YEAR 3</text>
+  <text x="1158" y="228" text-anchor="middle" fill="white" font-size="20" font-weight="900">収穫する</text>
+
+  <text x="1158" y="270" text-anchor="middle" fill="#9D174D" font-size="12" font-weight="700">土木業界の「第一想起」を取る</text>
+
+  <!-- Y3 Cards -->
+  <rect x="976" y="290" rx="12" ry="12" width="115" height="160" fill="white" stroke="#FCE7F3" stroke-width="1.5" filter="url(#sh)"/>
+  <text x="1034" y="315" text-anchor="middle" fill="#F72585" font-size="22">📚</text>
+  <text x="1034" y="340" text-anchor="middle" fill="#1e1e2e" font-size="12" font-weight="700">事例集</text>
+  <text x="1034" y="356" text-anchor="middle" fill="#1e1e2e" font-size="12" font-weight="700">出版・寄稿</text>
+  <text x="1034" y="376" text-anchor="middle" fill="#888" font-size="10">5社分PDF化</text>
+  <text x="1034" y="392" text-anchor="middle" fill="#888" font-size="10">業界誌へ</text>
+  <text x="1034" y="408" text-anchor="middle" fill="#888" font-size="10">プレスリリース</text>
+
+  <rect x="1104" y="290" rx="12" ry="12" width="115" height="160" fill="white" stroke="#FCE7F3" stroke-width="1.5" filter="url(#sh)"/>
+  <text x="1162" y="315" text-anchor="middle" fill="#F72585" font-size="22">💼</text>
+  <text x="1162" y="340" text-anchor="middle" fill="#1e1e2e" font-size="12" font-weight="700">パッケージ</text>
+  <text x="1162" y="356" text-anchor="middle" fill="#1e1e2e" font-size="12" font-weight="700">商品化</text>
+  <text x="1162" y="376" text-anchor="middle" fill="#888" font-size="10">料金設計明確化</text>
+  <text x="1162" y="392" text-anchor="middle" fill="#888" font-size="10">稟議通る資料</text>
+  <text x="1162" y="408" text-anchor="middle" fill="#888" font-size="10">標準プラン化</text>
+
+  <rect x="1232" y="290" rx="12" ry="12" width="108" height="160" fill="white" stroke="#FCE7F3" stroke-width="1.5" filter="url(#sh)"/>
+  <text x="1286" y="315" text-anchor="middle" fill="#F72585" font-size="22">👤</text>
+  <text x="1286" y="340" text-anchor="middle" fill="#1e1e2e" font-size="12" font-weight="700">外注1名</text>
+  <text x="1286" y="356" text-anchor="middle" fill="#1e1e2e" font-size="12" font-weight="700">契約</text>
+  <text x="1286" y="376" text-anchor="middle" fill="#888" font-size="10">映像編集</text>
+  <text x="1286" y="392" text-anchor="middle" fill="#888" font-size="10">を外注化</text>
+  <text x="1286" y="412" text-anchor="middle" fill="#888" font-size="10">2人は企画と</text>
+  <text x="1286" y="428" text-anchor="middle" fill="#888" font-size="10">営業に集中</text>
+
+  <!-- Y3 Goal -->
+  <rect x="976" y="462" rx="12" ry="12" width="364" height="54" fill="#FDF2F8" stroke="#FBCFE8" stroke-width="1.5"/>
+  <text x="1020" y="483" fill="#F72585" font-size="11" font-weight="800">🎯 目標</text>
+  <text x="1068" y="483" fill="#3730A3" font-size="12">受注累計 12〜15社</text>
+  <text x="1020" y="503" fill="#F72585" font-size="11" font-weight="800">🏆</text>
+  <text x="1038" y="503" fill="#555" font-size="11">業界ブランド確立 ／ 安定収益モデル完成</text>
+
+  <!-- ===== ARROWS BETWEEN YEARS ===== -->
+  <path d="M 498 255 Q 510 255 520 255" stroke="#4361EE" stroke-width="2.5" fill="none" marker-end="url(#ma)"/>
+  <path d="M 948 255 Q 958 255 968 255" stroke="#7209B7" stroke-width="2.5" fill="none" marker-end="url(#ma)"/>
+
+  <!-- ===== RESOURCE MATRIX (bottom) ===== -->
+  <rect x="60" y="540" rx="14" ry="14" width="1286" height="265" fill="white" stroke="#E0E7FF" stroke-width="1.5" filter="url(#sh)"/>
+  <text x="703" y="568" text-anchor="middle" fill="#4361EE" font-size="14" font-weight="800">リソース配分の原則 ── 2人チームの鉄則</text>
+
+  <!-- Headers -->
+  <rect x="76" y="580" rx="8" ry="8" width="80" height="28" fill="#4361EE"/>
+  <text x="116" y="599" text-anchor="middle" fill="white" font-size="12" font-weight="700">優先度</text>
+  <rect x="168" y="580" rx="8" ry="8" width="180" height="28" fill="#EEF2FF"/>
+  <text x="258" y="599" text-anchor="middle" fill="#3730A3" font-size="12" font-weight="700">施策</text>
+  <rect x="360" y="580" rx="8" ry="8" width="120" height="28" fill="#EEF2FF"/>
+  <text x="420" y="599" text-anchor="middle" fill="#3730A3" font-size="12" font-weight="700">担当</text>
+
+  <!-- Rows -->
+  <!-- Row 1 -->
+  <circle cx="116" cy="636" r="20" fill="#EF4444"/>
+  <text x="116" y="641" text-anchor="middle" fill="white" font-size="12" font-weight="800">◎◎</text>
+  <text x="258" y="641" text-anchor="middle" fill="#333" font-size="12">対面営業・ピッチ</text>
+  <text x="420" y="641" text-anchor="middle" fill="#555" font-size="11">鈴木 → ストーリー訴求</text>
+  <line x1="500" y1="636" x2="1330" y2="636" stroke="#EF4444" stroke-width="28" stroke-opacity="0.08" rx="4"/>
+  <text x="520" y="641" fill="#EF4444" font-size="11" font-weight="700">🔴 NOW → 今すぐ始める</text>
+  <text x="750" y="641" fill="#555" font-size="11">土木会社の課題（採用難・技術継承）に刺さる言葉でアプローチ</text>
+
+  <!-- Row 2 -->
+  <circle cx="116" cy="686" r="20" fill="#EF4444"/>
+  <text x="116" y="691" text-anchor="middle" fill="white" font-size="12" font-weight="800">◎◎</text>
+  <text x="258" y="691" text-anchor="middle" fill="#333" font-size="12">映像制作・事例化</text>
+  <text x="420" y="691" text-anchor="middle" fill="#555" font-size="11">Kudo → 映像クオリティ</text>
+  <line x1="500" y1="686" x2="1330" y2="686" stroke="#EF4444" stroke-width="28" stroke-opacity="0.08"/>
+  <text x="520" y="691" fill="#EF4444" font-size="11" font-weight="700">🔴 NOW → 今すぐ始める</text>
+  <text x="750" y="691" fill="#555" font-size="11">Kotobuki映像を2分動画 + 数値付き提案書に仕上げる</text>
+
+  <!-- Row 3 -->
+  <circle cx="116" cy="736" r="20" fill="#F59E0B"/>
+  <text x="116" y="741" text-anchor="middle" fill="white" font-size="12" font-weight="800">○</text>
+  <text x="258" y="736" text-anchor="middle" fill="#333" font-size="12">紹介依頼の仕組み化</text>
+  <text x="420" y="736" text-anchor="middle" fill="#555" font-size="11">鈴木 → Year1後半〜</text>
+  <text x="750" y="736" fill="#555" font-size="11">受注直後に「紹介してもらえる会社ありますか？」の一言を仕組みに</text>
+
+  <!-- Row 4 -->
+  <circle cx="116" cy="778" r="20" fill="#9CA3AF"/>
+  <text x="116" y="783" text-anchor="middle" fill="white" font-size="10" font-weight="800">△後</text>
+  <text x="258" y="783" text-anchor="middle" fill="#aaa" font-size="12">WEBサイト / SNS広告</text>
+  <text x="420" y="783" text-anchor="middle" fill="#aaa" font-size="11">Year3から検討</text>
+  <text x="750" y="783" fill="#aaa" font-size="11">土木業界には検索ボリュームなし。デジタルはYear3以降で十分。</text>
+</svg>
+</div>
+</body>
+</html>
