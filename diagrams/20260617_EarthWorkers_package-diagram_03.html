@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    width: 1400px; height: 900px; overflow: hidden;
+    background: #EEF2FF;
+    font-family: 'Hiragino Sans', 'Yu Gothic UI', 'Noto Sans JP', sans-serif;
+  }
+  .header {
+    background: #4361EE; color: white;
+    padding: 15px 36px; display: flex; align-items: center; gap: 20px;
+  }
+  .badge { background: rgba(255,255,255,0.2); border-radius: 20px; padding: 4px 14px; font-size: 11px; font-weight: 700; letter-spacing: 0.1em; white-space: nowrap; }
+  .header h1 { font-size: 19px; font-weight: 800; }
+  .header .sub { font-size: 11px; opacity: 0.8; margin-top: 2px; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="badge">EARTHWORKERS</div>
+  <div>
+    <h1>事例パッケージ化 ① ── 2分動画の構成設計 ✕ 数値化（Before/After）</h1>
+    <div class="sub">Kotobuki Kensetsu の既存映像を武器に変える ｜ 新規撮影ゼロ・編集のみで完成</div>
+  </div>
+</div>
+
+<svg viewBox="0 0 1400 838" width="1400" height="838">
+  <defs>
+    <filter id="sh"><feDropShadow dx="0" dy="3" stdDeviation="6" flood-color="#4361EE1A"/></filter>
+  </defs>
+
+  <!-- ====== LEFT: 2分動画 ====== -->
+  <rect x="28" y="20" rx="10" width="680" height="34" fill="#4361EE"/>
+  <text x="48" y="42" fill="white" font-size="13" font-weight="800">🎬  2分動画 ── タイムライン設計（Kudoさんの既存映像をそのまま使う）</text>
+
+  <!-- Timeline progress bar -->
+  <rect x="28" y="68" rx="5" width="680" height="10" fill="#C7D2FE"/>
+  <rect x="28" y="68" rx="5" width="112" height="10" fill="#F72585"/>
+  <rect x="140" y="68" width="272" height="10" fill="#4361EE"/>
+  <rect x="412" y="68" width="180" height="10" fill="#4CC9F0"/>
+  <rect x="592" y="68" rx="5" width="116" height="10" fill="#7209B7"/>
+
+  <!-- Time ticks -->
+  <line x1="28" y1="62" x2="28" y2="84" stroke="#4361EE" stroke-width="2"/>
+  <text x="28" y="98" fill="#4361EE" font-size="10" font-weight="700">0:00</text>
+  <line x1="140" y1="62" x2="140" y2="84" stroke="#F72585" stroke-width="2"/>
+  <text x="130" y="98" fill="#F72585" font-size="10" font-weight="700">0:20</text>
+  <line x1="412" y1="62" x2="412" y2="84" stroke="#4361EE" stroke-width="2"/>
+  <text x="400" y="98" fill="#4361EE" font-size="10" font-weight="700">1:10</text>
+  <line x1="592" y1="62" x2="592" y2="84" stroke="#4CC9F0" stroke-width="2"/>
+  <text x="582" y="98" fill="#4CC9F0" font-size="10" font-weight="700">1:40</text>
+  <line x1="708" y1="62" x2="708" y2="84" stroke="#7209B7" stroke-width="2"/>
+  <text x="698" y="98" fill="#7209B7" font-size="10" font-weight="700">2:00</text>
+
+  <!-- Block A: 課題提示 -->
+  <rect x="28" y="110" rx="12" width="300" height="170" fill="white" stroke="#F72585" stroke-width="2" filter="url(#sh)"/>
+  <rect x="28" y="110" rx="12" width="8" height="170" fill="#F72585"/>
+  <text x="50" y="136" fill="#F72585" font-size="11" font-weight="800">0:00 〜 0:20　課題提示</text>
+  <text x="50" y="158" fill="#333" font-size="12" font-weight="700">ナレーション ＋ 現場映像</text>
+  <text x="50" y="182" fill="#555" font-size="11">「土木業界では今、深刻な</text>
+  <text x="50" y="198" fill="#555" font-size="11"> 人手不足が続いています。」</text>
+  <text x="50" y="222" fill="#555" font-size="11">「Kotobuki Kensetsuも</text>
+  <text x="50" y="238" fill="#555" font-size="11"> 採用に苦しんでいました。」</text>
+  <text x="50" y="266" fill="#F72585" font-size="10" font-weight="700">→ 視聴者の共感・問題意識を引き出す</text>
+
+  <!-- Block B: ドキュメンタリー本編 -->
+  <rect x="340" y="110" rx="12" width="366" height="170" fill="white" stroke="#4361EE" stroke-width="2" filter="url(#sh)"/>
+  <rect x="340" y="110" rx="12" width="8" height="170" fill="#4361EE"/>
+  <text x="362" y="136" fill="#4361EE" font-size="11" font-weight="800">0:20 〜 1:10　ドキュメンタリー本編</text>
+  <text x="362" y="158" fill="#333" font-size="12" font-weight="700">Kudoさんの撮影済み映像をそのまま使う</text>
+  <text x="362" y="182" fill="#555" font-size="11">① 現場作業員インタビュー（生の声）</text>
+  <text x="362" y="200" fill="#555" font-size="11">② ベテラン→若手 技術継承シーン</text>
+  <text x="362" y="218" fill="#555" font-size="11">③ トンネル工事の迫力映像</text>
+  <text x="362" y="244" fill="#888" font-size="10">※ ナレーション追加・カット編集のみ</text>
+  <text x="362" y="262" fill="#888" font-size="10">　 新規撮影は一切不要</text>
+  <text x="362" y="272" fill="#4361EE" font-size="10" font-weight="700">→ 業界人が「わかる」と思える本物の映像</text>
+
+  <!-- Block C: 数値Before/After -->
+  <rect x="28" y="294" rx="12" width="300" height="130" fill="white" stroke="#4CC9F0" stroke-width="2" filter="url(#sh)"/>
+  <rect x="28" y="294" rx="12" width="8" height="130" fill="#4CC9F0"/>
+  <text x="50" y="320" fill="#0369A1" font-size="11" font-weight="800">1:10 〜 1:40　数値でBefore/After</text>
+  <text x="50" y="344" fill="#333" font-size="12" font-weight="700">テキストオーバーレイ ＋ 図解</text>
+  <text x="50" y="368" fill="#555" font-size="11">「ドキュメンタリー公開後——」</text>
+  <text x="50" y="386" fill="#555" font-size="11">「採用エントリー 前年比 ●●% 増加」</text>
+  <text x="50" y="410" fill="#4CC9F0" font-size="10" font-weight="700">→ 抽象を具体へ。数字が信頼を作る</text>
+
+  <!-- Block D: クロージング -->
+  <rect x="340" y="294" rx="12" width="366" height="130" fill="white" stroke="#7209B7" stroke-width="2" filter="url(#sh)"/>
+  <rect x="340" y="294" rx="12" width="8" height="130" fill="#7209B7"/>
+  <text x="362" y="320" fill="#7209B7" font-size="11" font-weight="800">1:40 〜 2:00　クロージング</text>
+  <text x="362" y="344" fill="#333" font-size="12" font-weight="700">テキスト ＋ ロゴ</text>
+  <text x="362" y="368" fill="#555" font-size="11">「この手法を、海洋土木業界に。」</text>
+  <text x="362" y="386" fill="#555" font-size="11">「── EarthWorkers」</text>
+  <text x="362" y="410" fill="#7209B7" font-size="10" font-weight="700">→ QRコードでA4提案書へ誘導</text>
+
+  <!-- Point card -->
+  <rect x="28" y="438" rx="10" width="680" height="52" fill="#FFF0F8" stroke="#F72585" stroke-width="1.5"/>
+  <text x="48" y="461" fill="#F72585" font-size="11" font-weight="800">💡 制作の現実</text>
+  <text x="148" y="461" fill="#444" font-size="11">Kudoさんの映像がすでにある → 編集作業のみ → 1〜2週間で完成 → 来週からピッチできる</text>
+  <text x="48" y="479" fill="#F72585" font-size="11" font-weight="800">⚠️ 唯一の課題</text>
+  <text x="148" y="479" fill="#444" font-size="11">Before/Afterの数字。Kotobuki Kensетsuに確認が必要。数字1つあれば骨格完成。</text>
+
+  <!-- ====== RIGHT: 数値化テーブル ====== -->
+  <rect x="732" y="20" rx="10" width="640" height="34" fill="#7209B7"/>
+  <text x="752" y="42" fill="white" font-size="13" font-weight="800">📊  数値化 ── Kotobuki Kensетsuに確認すべき指標（優先順）</text>
+
+  <!-- Table header -->
+  <rect x="732" y="68" rx="8" width="640" height="32" fill="#4361EE"/>
+  <text x="752" y="89" fill="white" font-size="11" font-weight="700">指標</text>
+  <text x="982" y="89" fill="white" font-size="11" font-weight="700">Before（導入前）</text>
+  <text x="1182" y="89" fill="white" font-size="11" font-weight="700">After（導入後）</text>
+
+  <!-- Row 1 - primary -->
+  <rect x="732" y="102" width="640" height="46" fill="#FFF0F8" stroke="#FECDD3" stroke-width="1"/>
+  <text x="738" y="118" fill="#F72585" font-size="12">★ 最優先</text>
+  <text x="752" y="136" fill="#333" font-size="12" font-weight="700">採用エントリー数</text>
+  <text x="982" y="127" fill="#EF4444" font-size="14" font-weight="700">●人 /年</text>
+  <text x="1182" y="127" fill="#059669" font-size="14" font-weight="700">●人 /年（+●●%）</text>
+
+  <!-- Row 2 -->
+  <rect x="732" y="150" width="640" height="46" fill="white" stroke="#E0E7FF" stroke-width="1"/>
+  <text x="752" y="168" fill="#333" font-size="12" font-weight="700">採用広告費・求人費</text>
+  <text x="752" y="184" fill="#888" font-size="10">コスト削減の証拠として使える</text>
+  <text x="982" y="173" fill="#EF4444" font-size="14" font-weight="700">●万円 /年</text>
+  <text x="1182" y="173" fill="#059669" font-size="14" font-weight="700">●万円（-●●%）</text>
+
+  <!-- Row 3 -->
+  <rect x="732" y="198" width="640" height="46" fill="#F8F9FF" stroke="#E0E7FF" stroke-width="1"/>
+  <text x="752" y="216" fill="#333" font-size="12" font-weight="700">技術継承研修にかかる時間</text>
+  <text x="752" y="232" fill="#888" font-size="10">技術継承難への訴求に使える</text>
+  <text x="982" y="221" fill="#EF4444" font-size="14" font-weight="700">●時間 /人</text>
+  <text x="1182" y="221" fill="#059669" font-size="14" font-weight="700">●時間（-●●%）</text>
+
+  <!-- Row 4 -->
+  <rect x="732" y="246" width="640" height="46" fill="white" stroke="#E0E7FF" stroke-width="1"/>
+  <text x="752" y="264" fill="#333" font-size="12" font-weight="700">業界・取引先からの問い合わせ数</text>
+  <text x="752" y="280" fill="#888" font-size="10">ブランド向上の証拠</text>
+  <text x="982" y="269" fill="#EF4444" font-size="14" font-weight="700">●件 /月</text>
+  <text x="1182" y="269" fill="#059669" font-size="14" font-weight="700">●件（+●件）</text>
+
+  <!-- Row 5 - alt -->
+  <rect x="732" y="294" width="640" height="46" fill="#F8FAFF" stroke="#E0E7FF" stroke-width="1"/>
+  <text x="752" y="312" fill="#888" font-size="11" font-weight="700">動画再生数（SNS・社内共有）</text>
+  <text x="752" y="328" fill="#aaa" font-size="10">数字が取れない場合の代替指標①</text>
+  <text x="982" y="319" fill="#bbb" font-size="13">─</text>
+  <text x="1182" y="319" fill="#059669" font-size="13" font-weight="700">●万回再生</text>
+
+  <!-- Separator -->
+  <rect x="732" y="344" rx="0" width="640" height="2" fill="#E0E7FF"/>
+
+  <!-- Alternative box -->
+  <rect x="732" y="350" rx="10" width="640" height="90" fill="#FFFBEB" stroke="#F59E0B" stroke-width="1.5" filter="url(#sh)"/>
+  <text x="752" y="374" fill="#B45309" font-size="11" font-weight="800">⚠️ 数字が全く取れない場合の代替（これでもピッチ可能）</text>
+  <text x="752" y="396" fill="#555" font-size="11">・「動画を見て応募した」という応募者が出てきた（社長のコメントで十分）</text>
+  <text x="752" y="414" fill="#555" font-size="11">・業界関係者から「あの映像いいね」と声をかけられた件数</text>
+  <text x="752" y="430" fill="#555" font-size="11">・社員アンケートで「会社に誇りが持てる」と答えた割合が増えた</text>
+
+  <!-- Now action -->
+  <rect x="732" y="454" rx="10" width="640" height="36" fill="#F72585"/>
+  <text x="752" y="470" fill="white" font-size="12" font-weight="800">🎯 今すぐのアクション :</text>
+  <text x="910" y="470" fill="white" font-size="12">KudoさんにLINE → 「Kotobukiさんに採用の数字もらえてる？」</text>
+  <text x="752" y="483" fill="rgba(255,255,255,0.85)" font-size="11">　数字1つ確認できれば、2分動画 ＋ A4提案書を完成させて来週ピッチに行ける。</text>
+
+  <!-- bottom bar -->
+  <rect x="28" y="510" rx="12" width="1344" height="58" fill="white" stroke="#4361EE" stroke-width="1.5" filter="url(#sh)"/>
+  <text x="700" y="534" text-anchor="middle" fill="#4361EE" font-size="13" font-weight="800">3点セットが揃ったときの営業フロー</text>
+  <text x="700" y="556" text-anchor="middle" fill="#333" font-size="12">2分動画を見せる → 「すごい」と感じてもらう → A4を渡す → 数値で納得させる → 「うちでもやりたい」 → 受注</text>
+
+  <!-- flow icons -->
+  <text x="108" y="592" text-anchor="middle" fill="#4361EE" font-size="28">🎬</text>
+  <text x="108" y="612" text-anchor="middle" fill="#4361EE" font-size="10" font-weight="700">2分動画</text>
+  <text x="274" y="596" text-anchor="middle" fill="#C7D2FE" font-size="22">→</text>
+  <text x="440" y="592" text-anchor="middle" fill="#4361EE" font-size="28">📊</text>
+  <text x="440" y="612" text-anchor="middle" fill="#4361EE" font-size="10" font-weight="700">数値で納得</text>
+  <text x="606" y="596" text-anchor="middle" fill="#C7D2FE" font-size="22">→</text>
+  <text x="772" y="592" text-anchor="middle" fill="#4361EE" font-size="28">📄</text>
+  <text x="772" y="612" text-anchor="middle" fill="#4361EE" font-size="10" font-weight="700">A4提案書</text>
+  <text x="938" y="596" text-anchor="middle" fill="#C7D2FE" font-size="22">→</text>
+  <text x="1104" y="592" text-anchor="middle" fill="#059669" font-size="28">✅</text>
+  <text x="1104" y="612" text-anchor="middle" fill="#059669" font-size="10" font-weight="700">受注</text>
+  <text x="1270" y="596" text-anchor="middle" fill="#C7D2FE" font-size="22">→</text>
+  <text x="1340" y="592" text-anchor="middle" fill="#F72585" font-size="22">🔄</text>
+  <text x="1340" y="612" text-anchor="middle" fill="#F72585" font-size="10" font-weight="700">次の事例へ</text>
+
+</svg>
+</body>
+</html>
