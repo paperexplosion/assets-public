@@ -1,0 +1,344 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+<title>Markmap</title>
+<style>
+* {
+  margin: 0;
+  padding: 0;
+}
+html {
+  font-family: ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji',
+    'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+}
+#mindmap {
+  display: block;
+  width: 100vw;
+  height: 100vh;
+}
+.markmap-dark {
+  background: #27272a;
+  color: white;
+}
+</style>
+
+</head>
+<body>
+<svg id="mindmap"></svg>
+<script src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js"></script><script src="https://cdn.jsdelivr.net/npm/markmap-view@0.18.12/dist/browser/index.js"></script><script>((getMarkmap, getOptions, root2, jsonOptions) => {
+              const markmap = getMarkmap();
+              window.mm = markmap.Markmap.create(
+                "svg#mindmap",
+                (getOptions || markmap.deriveOptions)(jsonOptions),
+                root2
+              );
+              if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+                document.documentElement.classList.add("markmap-dark");
+              }
+            })(() => window.markmap,null,{"content":"EarthWorkers &#x7d39;&#x4ecb;&#x30b7;&#x30b9;&#x30c6;&#x30e0;&#x8a2d;&#x8a08;","children":[{"content":"&#x306a;&#x305c;&#x7d39;&#x4ecb;&#x304c;&#x52b9;&#x304f;&#x304b;&#xff08;&#x696d;&#x754c;&#x69cb;&#x9020;&#xff09;","children":[{"content":"&#x696d;&#x754c;&#x304c;&#x6975;&#x7aef;&#x306b;&#x72ed;&#x3044;","children":[{"content":"&#x6d77;&#x6d0b;&#x571f;&#x6728;&#x306e;&#x4e3b;&#x8981;&#x30d7;&#x30ec;&#x30a4;&#x30e4;&#x30fc;&#x306f;&#x5168;&#x56fd;20&#x301c;30&#x793e;","children":[],"payload":{"tag":"li","lines":"4,5"}},{"content":"&#x90e8;&#x9577;&#x30fb;&#x62c5;&#x5f53;&#x8005;&#x30ec;&#x30d9;&#x30eb;&#x306f;&#x98f2;&#x307f;&#x4ef2;&#x9593;&#x30fb;&#x540c;&#x671f;&#x30fb;&#x5143;&#x540c;&#x50da;","children":[],"payload":{"tag":"li","lines":"5,6"}},{"content":"&#x540c;&#x696d;&#x8005;&#x306e;&#x53e3;&#x30b3;&#x30df;&#x304c;&#x5e83;&#x544a;&#x3088;&#x308a;100&#x500d;&#x4fe1;&#x983c;&#x3055;&#x308c;&#x308b;","children":[],"payload":{"tag":"li","lines":"6,7"}}],"payload":{"tag":"h3","lines":"3,4"}},{"content":"&#x540c;&#x3058;&#x8ab2;&#x984c;&#x3092;&#x5168;&#x54e1;&#x304c;&#x6301;&#x3063;&#x3066;&#x3044;&#x308b;","children":[{"content":"&#x63a1;&#x7528;&#x96e3;&#x30fb;&#x6280;&#x8853;&#x7d99;&#x627f;&#x30fb;&#x30a4;&#x30e1;&#x30fc;&#x30b8;&#x4f4e;&#x4e0b;&#x306f;&#x696d;&#x754c;&#x5171;&#x901a;","children":[],"payload":{"tag":"li","lines":"8,9"}},{"content":"Kotobuki&#x306e;&#x4e8b;&#x4f8b;&#x304c;&#x5168;&#x793e;&#x306b;&#x523a;&#x3055;&#x308b;","children":[],"payload":{"tag":"li","lines":"9,10"}}],"payload":{"tag":"h3","lines":"7,8"}},{"content":"&#x7d39;&#x4ecb;&#x306f;&#x300c;&#x4fe1;&#x7528;&#x306e;&#x8cb8;&#x3057;&#x501f;&#x308a;&#x300d;","children":[{"content":"&#x300c;&#x3007;&#x3007;&#x3055;&#x3093;&#x304c;&#x7d39;&#x4ecb;&#x3057;&#x3066;&#x304f;&#x308c;&#x305f;&#x4f1a;&#x793e;&#x300d;&#x3068;&#x3044;&#x3046;&#x6587;&#x8108;","children":[],"payload":{"tag":"li","lines":"11,12"}},{"content":"&#x521d;&#x5bfe;&#x9762;&#x3067;&#x3082;&#x4fe1;&#x983c;&#x30d9;&#x30fc;&#x30b9;&#x30e9;&#x30a4;&#x30f3;&#x304c;&#x9ad8;&#x3044;","children":[],"payload":{"tag":"li","lines":"12,13"}},{"content":"&#x55b6;&#x696d;&#x30b3;&#x30b9;&#x30c8;&#x30fb;&#x6642;&#x9593;&#x304c;&#x6fc0;&#x6e1b;&#x3059;&#x308b;","children":[],"payload":{"tag":"li","lines":"13,14"}}],"payload":{"tag":"h3","lines":"10,11"}},{"content":"&#x571f;&#x6728;&#x4eba;&#x306f;&#x30c7;&#x30b8;&#x30bf;&#x30eb;&#x3067;&#x63a2;&#x3055;&#x306a;&#x3044;","children":[{"content":"Google&#x691c;&#x7d22;&#x30fb;SNS&#x3067;&#x306f;&#x8abf;&#x3079;&#x306a;&#x3044;","children":[],"payload":{"tag":"li","lines":"15,16"}},{"content":"&#x98f2;&#x307f;&#x4f1a;&#x30fb;&#x696d;&#x754c;&#x56e3;&#x4f53;&#x30fb;&#x77e5;&#x4eba;&#x7d39;&#x4ecb;&#x304c;&#x552f;&#x4e00;&#x306e;&#x60c5;&#x5831;&#x5165;&#x53e3;","children":[],"payload":{"tag":"li","lines":"16,17"}},{"content":"&#x3060;&#x304b;&#x3089;&#x7d39;&#x4ecb;&#x3053;&#x305d;&#x304c;&#x30ea;&#x30fc;&#x30c9;&#x7372;&#x5f97;&#x306e;&#x672c;&#x9053;","children":[],"payload":{"tag":"li","lines":"17,19"}}],"payload":{"tag":"h3","lines":"14,15"}}],"payload":{"tag":"h2","lines":"2,3"}},{"content":"&#x7d39;&#x4ecb;&#x30b9;&#x30ce;&#x30fc;&#x30dc;&#x30fc;&#x30eb;&#xff08;&#x62e1;&#x5927;&#x69cb;&#x9020;&#xff09;","children":[{"content":"Year 1: &#x8d77;&#x70b9;","children":[{"content":"Kotobuki Kensetsu&#x3067;&#x521d;&#x4e8b;&#x4f8b;&#x5b8c;&#x6210;","children":[],"payload":{"tag":"li","lines":"21,22"}},{"content":"1&#x793e;&#x304b;&#x3089;&#x30b9;&#x30bf;&#x30fc;&#x30c8;","children":[],"payload":{"tag":"li","lines":"22,23"}}],"payload":{"tag":"h3","lines":"20,21"}},{"content":"Year 2: &#x6ce2;&#x53ca;","children":[{"content":"&#x7d39;&#x4ecb;&#x3067;3&#x793e;&#x3078;&#xff08;Wakachiku&#x30fb;Goyo&#x30fb;Toyo&#xff09;","children":[],"payload":{"tag":"li","lines":"24,25"}},{"content":"&#x7d2f;&#x8a08;4&#x793e;","children":[],"payload":{"tag":"li","lines":"25,26"}}],"payload":{"tag":"h3","lines":"23,24"}},{"content":"Year 3: &#x96ea;&#x3060;&#x308b;&#x307e;&#x5f0f;","children":[{"content":"&#x5404;&#x793e;&#x304c;&#x3055;&#x3089;&#x306b;&#x7d39;&#x4ecb;","children":[],"payload":{"tag":"li","lines":"27,28"}},{"content":"&#x7d2f;&#x8a08;10&#x793e;&#x4ee5;&#x4e0a;","children":[],"payload":{"tag":"li","lines":"28,30"}}],"payload":{"tag":"h3","lines":"26,27"}}],"payload":{"tag":"h2","lines":"19,20"}},{"content":"&#x8a2d;&#x8a08;&#x306e;3&#x8981;&#x7d20;","children":[{"content":"&#x2460; &#x30bf;&#x30a4;&#x30df;&#x30f3;&#x30b0;&#xff08;&#x3044;&#x3064;&#x805e;&#x304f;&#x304b;&#xff09;","children":[{"content":"&#x7d0d;&#x54c1;&#x76f4;&#x5f8c;&#x304c;&#x9ec4;&#x91d1;&#x30bf;&#x30a4;&#x30df;&#x30f3;&#x30b0;","children":[],"payload":{"tag":"li","lines":"33,34"}},{"content":"&#x611f;&#x8b1d;&#x306e;&#x30d4;&#x30fc;&#x30af;&#x6642;&#x306b;&#x805e;&#x304f;","children":[],"payload":{"tag":"li","lines":"34,35"}},{"content":"&#x53d7;&#x6ce8;&#x304b;&#x3089;&#x6570;&#x30f6;&#x6708;&#x5f8c;&#x3067;&#x306f;&#x9045;&#x3044;","children":[],"payload":{"tag":"li","lines":"35,36"}},{"content":"&#xd7; &#x55b6;&#x696d;&#x4e2d;&#x30fb;&#x5236;&#x4f5c;&#x4e2d;&#x306b;&#x805e;&#x304f;&#x306e;&#x306f;&#x65e9;&#x3059;&#x304e;&#x308b;","children":[],"payload":{"tag":"li","lines":"36,38"}}],"payload":{"tag":"h3","lines":"32,33"}},{"content":"&#x2461; &#x8a00;&#x8449;&#xff08;&#x3069;&#x3046;&#x805e;&#x304f;&#x304b;&#xff09;","children":[{"content":"&#x2705;&#x300c;&#x3082;&#x3057;&#x6c17;&#x304c;&#x5411;&#x3044;&#x305f;&#x3089;&#x540c;&#x696d;&#x306e;&#x65b9;&#x306b;&#x8a71;&#x3057;&#x3066;&#x307f;&#x3066;&#x3044;&#x305f;&#x3060;&#x3051;&#x308b;&#x3068;&#x300d;","children":[],"payload":{"tag":"li","lines":"39,40"}},{"content":"&#x2705;&#x300c;&#x540d;&#x523a;&#x3092;1&#x679a;&#x6e21;&#x3057;&#x3066;&#x3082;&#x3089;&#x3048;&#x308b;&#x3060;&#x3051;&#x3067;&#x5341;&#x5206;&#x3067;&#x3059;&#x300d;","children":[],"payload":{"tag":"li","lines":"40,41"}},{"content":"&#x274c;&#x300c;&#x7d39;&#x4ecb;&#x3057;&#x3066;&#x304f;&#x3060;&#x3055;&#x3044;&#x300d;&#x2192;&#x91cd;&#x3059;&#x304e;&#x308b;&#x30fb;&#x65ad;&#x308a;&#x306b;&#x304f;&#x3044;","children":[],"payload":{"tag":"li","lines":"41,42"}},{"content":"&#x76f8;&#x624b;&#x304c;&#x300c;&#x6c17;&#x8efd;&#x306b;&#x3067;&#x304d;&#x308b;&#x300d;&#x30ec;&#x30d9;&#x30eb;&#x307e;&#x3067;&#x4e0b;&#x3052;&#x308b;","children":[],"payload":{"tag":"li","lines":"42,44"}}],"payload":{"tag":"h3","lines":"38,39"}},{"content":"&#x2462; &#x6750;&#x6599;&#xff08;&#x4f55;&#x3092;&#x6e21;&#x3059;&#x304b;&#xff09;","children":[{"content":"2&#x5206;&#x52d5;&#x753b;&#x306e;URL&#xff08;LINE&#x3067;&#x8ee2;&#x9001;&#x3067;&#x304d;&#x308b;&#xff09;","children":[],"payload":{"tag":"li","lines":"45,46"}},{"content":"A4&#x63d0;&#x6848;&#x66f8;PDF&#xff08;&#x30e1;&#x30fc;&#x30eb;&#x6dfb;&#x4ed8;&#x3067;&#x304d;&#x308b;&#xff09;","children":[],"payload":{"tag":"li","lines":"46,47"}},{"content":"&#x7d39;&#x4ecb;&#x8005;&#x304c;&#x300c;&#x5ba3;&#x4f1d;&#x300d;&#x3067;&#x306a;&#x304f;&#x300c;&#x5171;&#x6709;&#x300d;&#x3057;&#x3066;&#x3044;&#x308b;&#x611f;&#x899a;&#x306b;&#x306a;&#x308b;&#x7d20;&#x6750;","children":[],"payload":{"tag":"li","lines":"47,49"}}],"payload":{"tag":"h3","lines":"44,45"}},{"content":"&#x304a;&#x307e;&#x3051;: &#x304a;&#x793c;&#xff08;&#x3069;&#x3046;&#x8fd4;&#x3059;&#x304b;&#xff09;","children":[{"content":"&#x304a;&#x91d1;&#x3067;&#x306f;&#x306a;&#x304f;&#x8ffd;&#x52a0;&#x52d5;&#x753b;&#x30b3;&#x30f3;&#x30c6;&#x30f3;&#x30c4;1&#x672c;","children":[],"payload":{"tag":"li","lines":"50,51"}},{"content":"&#x300c;&#x7d39;&#x4ecb;&#x3044;&#x305f;&#x3060;&#x3044;&#x305f;&#x306e;&#x3067;&#x63a1;&#x7528;&#x7528;&#x30d0;&#x30fc;&#x30b8;&#x30e7;&#x30f3;&#x3082;&#x4f5c;&#x308a;&#x307e;&#x3059;&#x300d;","children":[],"payload":{"tag":"li","lines":"51,52"}},{"content":"&#x6069;&#x8fd4;&#x3057;&#x304c;&#x6b21;&#x306e;&#x7d39;&#x4ecb;&#x3092;&#x751f;&#x3080;&#x5584;&#x5faa;&#x74b0;","children":[],"payload":{"tag":"li","lines":"52,54"}}],"payload":{"tag":"h3","lines":"49,50"}}],"payload":{"tag":"h2","lines":"30,31"}},{"content":"&#x30e6;&#x30fc;&#x30b9;&#x30b1;&#x30fc;&#x30b9;3&#x30d1;&#x30bf;&#x30fc;&#x30f3;","children":[{"content":"&#x30b7;&#x30ca;&#x30ea;&#x30aa;&#x2460; &#x7d0d;&#x54c1;&#x76f4;&#x5f8c;&#x306e;&#x4e00;&#x8a00;","children":[{"content":"&#x7d0d;&#x54c1;&#x30df;&#x30fc;&#x30c6;&#x30a3;&#x30f3;&#x30b0;&#x7d42;&#x4e86;&#x76f4;&#x5f8c;","children":[],"payload":{"tag":"li","lines":"57,58"}},{"content":"&#x300c;&#x6c17;&#x304c;&#x5411;&#x3044;&#x305f;&#x3089;URL&#x3092;LINE&#x3067;&#x9001;&#x3063;&#x3066;&#x3082;&#x3089;&#x3048;&#x308b;&#x3068;&#x300d;","children":[],"payload":{"tag":"li","lines":"58,59"}},{"content":"&#x62c5;&#x5f53;&#x8005;&#x304c;&#x300c;&#x98f2;&#x307f;&#x4ef2;&#x9593;&#x306b;&#x9023;&#x7d61;&#x3057;&#x3066;&#x307f;&#x308b;&#x300d;","children":[],"payload":{"tag":"li","lines":"59,60"}},{"content":"&#x7fcc;&#x65e5;&#x554f;&#x3044;&#x5408;&#x308f;&#x305b;&#x304c;&#x6765;&#x308b;","children":[],"payload":{"tag":"li","lines":"60,61"}},{"content":"&#x8a2d;&#x8a08;&#x30b3;&#x30b9;&#x30c8;&#x4f4e;&#x30fb;&#x52b9;&#x679c;&#x78ba;&#x5b9f;&#x30fb;Year1&#x304b;&#x3089;&#x5373;&#x5b9f;&#x884c;","children":[],"payload":{"tag":"li","lines":"61,63"}}],"payload":{"tag":"h3","lines":"56,57"}},{"content":"&#x30b7;&#x30ca;&#x30ea;&#x30aa;&#x2461; &#x696d;&#x754c;&#x98f2;&#x307f;&#x4f1a;&#x3067;&#x306e;&#x53e3;&#x30b3;&#x30df;","children":[{"content":"&#x5efa;&#x8a2d;&#x696d;&#x754c;&#x306e;&#x61c7;&#x89aa;&#x4f1a;&#x30fb;&#x5354;&#x4f1a;&#x306e;&#x98f2;&#x307f;&#x4f1a;","children":[],"payload":{"tag":"li","lines":"64,65"}},{"content":"Kotobuki&#x90e8;&#x9577;&#x304c;&#x81ea;&#x7136;&#x306b;&#x8a71;&#x984c;&#x306b;&#x3059;&#x308b;","children":[],"payload":{"tag":"li","lines":"65,66"}},{"content":"&#x30b9;&#x30de;&#x30db;&#x3067;&#x52d5;&#x753b;&#x3092;&#x305d;&#x306e;&#x5834;&#x3067;&#x518d;&#x751f;&#xff08;2&#x5206;&#xff09;","children":[],"payload":{"tag":"li","lines":"66,67"}},{"content":"&#x300c;&#x3046;&#x3061;&#x3067;&#x3082;&#x3067;&#x304d;&#x308b;&#xff1f;&#x300d;&#x3068;&#x805e;&#x304b;&#x308c;&#x308b;","children":[],"payload":{"tag":"li","lines":"67,68"}},{"content":"&#x7fcc;&#x65e5;&#x30df;&#x30fc;&#x30c6;&#x30a3;&#x30f3;&#x30b0;&#x4f9d;&#x983c;&#x304c;&#x6765;&#x308b;","children":[],"payload":{"tag":"li","lines":"68,69"}},{"content":"&#x8a2d;&#x8a08;&#x30b3;&#x30b9;&#x30c8;&#x307b;&#x307c;&#x30bc;&#x30ed;&#x30fb;&#x52b9;&#x679c;&#x7206;&#x767a;&#x7684;","children":[],"payload":{"tag":"li","lines":"69,71"}}],"payload":{"tag":"h3","lines":"63,64"}},{"content":"&#x30b7;&#x30ca;&#x30ea;&#x30aa;&#x2462; LINE&#x30b0;&#x30eb;&#x30fc;&#x30d7;&#x3067;&#x52d5;&#x753b;&#x304c;&#x56de;&#x308b;","children":[{"content":"&#x5efa;&#x8a2d;&#x696d;&#x540c;&#x696d;&#x8005;LINE&#x30b0;&#x30eb;&#x30fc;&#x30d7;&#xff08;10&#x301c;15&#x4eba;&#xff09;","children":[],"payload":{"tag":"li","lines":"72,73"}},{"content":"&#x62c5;&#x5f53;&#x8005;&#x304c;URL&#x3092;&#x300c;&#x306a;&#x304b;&#x306a;&#x304b;&#x3044;&#x3044;&#x3088;&#x300d;&#x3068;&#x6295;&#x7a3f;","children":[],"payload":{"tag":"li","lines":"73,74"}},{"content":"&#x65e2;&#x8aad;&#x30fb;&#x30ea;&#x30a2;&#x30af;&#x30b7;&#x30e7;&#x30f3;&#x304c;&#x5e83;&#x304c;&#x308b;","children":[],"payload":{"tag":"li","lines":"74,75"}},{"content":"Toyo&#x62c5;&#x5f53;&#x8005;&#x304c;DM&#x3067;&#x9023;&#x7d61;&#x5148;&#x3092;&#x805e;&#x304f;","children":[],"payload":{"tag":"li","lines":"75,76"}},{"content":"&#x5bdd;&#x3066;&#x3044;&#x308b;&#x9593;&#x306b;&#x5e83;&#x304c;&#x308b;","children":[],"payload":{"tag":"li","lines":"76,77"}},{"content":"&#x8a2d;&#x8a08;&#x30b3;&#x30b9;&#x30c8;&#x30bc;&#x30ed;&#x30fb;&#x30c7;&#x30b8;&#x30bf;&#x30eb;&#x53e3;&#x30b3;&#x30df;","children":[],"payload":{"tag":"li","lines":"77,79"}}],"payload":{"tag":"h3","lines":"71,72"}}],"payload":{"tag":"h2","lines":"54,55"}},{"content":"&#x5171;&#x901a;&#x306e;&#x8a2d;&#x8a08;&#x539f;&#x5247;","children":[{"content":"&#x300c;&#x58f2;&#x308a;&#x8fbc;&#x307e;&#x306a;&#x3044;&#x300d;","children":[],"payload":{"tag":"li","lines":"80,81"}},{"content":"&#x91cd;&#x3055;&#x30bc;&#x30ed;&#x306e;&#x4f9d;&#x983c;","children":[],"payload":{"tag":"li","lines":"81,82"}},{"content":"&#x3059;&#x3050;&#x5171;&#x6709;&#x3067;&#x304d;&#x308b;&#x7d20;&#x6750;&#xff08;2&#x5206;&#x52d5;&#x753b;URL&#xff09;","children":[],"payload":{"tag":"li","lines":"82,83"}},{"content":"&#x3053;&#x306e;3&#x70b9;&#x304c;&#x63c3;&#x3048;&#x3070;&#x7d39;&#x4ecb;&#x306f;&#x52dd;&#x624b;&#x306b;&#x52d5;&#x304f;","children":[],"payload":{"tag":"li","lines":"83,84"}}],"payload":{"tag":"h2","lines":"79,80"}}],"payload":{"tag":"h1","lines":"0,1"}},null)</script>
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/markmap-toolbar@0.18.10/dist/style.css"
+    />
+
+    <script src="https://cdn.jsdelivr.net/npm/markmap-toolbar@0.18.10/dist/index.js"></script>
+    <script>
+      ((r) => {
+          setTimeout(r);
+      })(() => {
+          const { markmap, mm } = window;
+          const toolbar = new markmap.Toolbar();
+          toolbar.attach(mm);
+          const el = toolbar.render();
+          el.setAttribute(
+              "style",
+              "position:absolute;bottom:20px;right:20px"
+          );
+          document.body.append(el);
+          
+          // Ensure the mind map fits the current view
+          setTimeout(() => {
+            if (mm && typeof mm.fit === 'function') {
+              mm.fit();
+            }
+          }, 1200);
+      });
+    </script>
+  
+
+    <!-- Add html-to-image library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html-to-image/1.11.11/html-to-image.min.js"></script>
+
+    <!-- Hidden element to store original Markdown content -->
+    <textarea id="original-markdown" style="display:none;"># EarthWorkers 紹介システム設計
+
+## なぜ紹介が効くか（業界構造）
+### 業界が極端に狭い
+- 海洋土木の主要プレイヤーは全国20〜30社
+- 部長・担当者レベルは飲み仲間・同期・元同僚
+- 同業者の口コミが広告より100倍信頼される
+### 同じ課題を全員が持っている
+- 採用難・技術継承・イメージ低下は業界共通
+- Kotobukiの事例が全社に刺さる
+### 紹介は「信用の貸し借り」
+- 「〇〇さんが紹介してくれた会社」という文脈
+- 初対面でも信頼ベースラインが高い
+- 営業コスト・時間が激減する
+### 土木人はデジタルで探さない
+- Google検索・SNSでは調べない
+- 飲み会・業界団体・知人紹介が唯一の情報入口
+- だから紹介こそがリード獲得の本道
+
+## 紹介スノーボール（拡大構造）
+### Year 1: 起点
+- Kotobuki Kensetsuで初事例完成
+- 1社からスタート
+### Year 2: 波及
+- 紹介で3社へ（Wakachiku・Goyo・Toyo）
+- 累計4社
+### Year 3: 雪だるま式
+- 各社がさらに紹介
+- 累計10社以上
+
+## 設計の3要素
+
+### ① タイミング（いつ聞くか）
+- 納品直後が黄金タイミング
+- 感謝のピーク時に聞く
+- 受注から数ヶ月後では遅い
+- × 営業中・制作中に聞くのは早すぎる
+
+### ② 言葉（どう聞くか）
+- ✅「もし気が向いたら同業の方に話してみていただけると」
+- ✅「名刺を1枚渡してもらえるだけで十分です」
+- ❌「紹介してください」→重すぎる・断りにくい
+- 相手が「気軽にできる」レベルまで下げる
+
+### ③ 材料（何を渡すか）
+- 2分動画のURL（LINEで転送できる）
+- A4提案書PDF（メール添付できる）
+- 紹介者が「宣伝」でなく「共有」している感覚になる素材
+
+### おまけ: お礼（どう返すか）
+- お金ではなく追加動画コンテンツ1本
+- 「紹介いただいたので採用用バージョンも作ります」
+- 恩返しが次の紹介を生む善循環
+
+## ユースケース3パターン
+
+### シナリオ① 納品直後の一言
+- 納品ミーティング終了直後
+- 「気が向いたらURLをLINEで送ってもらえると」
+- 担当者が「飲み仲間に連絡してみる」
+- 翌日問い合わせが来る
+- 設計コスト低・効果確実・Year1から即実行
+
+### シナリオ② 業界飲み会での口コミ
+- 建設業界の懇親会・協会の飲み会
+- Kotobuki部長が自然に話題にする
+- スマホで動画をその場で再生（2分）
+- 「うちでもできる？」と聞かれる
+- 翌日ミーティング依頼が来る
+- 設計コストほぼゼロ・効果爆発的
+
+### シナリオ③ LINEグループで動画が回る
+- 建設業同業者LINEグループ（10〜15人）
+- 担当者がURLを「なかなかいいよ」と投稿
+- 既読・リアクションが広がる
+- Toyo担当者がDMで連絡先を聞く
+- 寝ている間に広がる
+- 設計コストゼロ・デジタル口コミ
+
+## 共通の設計原則
+- 「売り込まない」
+- 重さゼロの依頼
+- すぐ共有できる素材（2分動画URL）
+- この3点が揃えば紹介は勝手に動く
+</textarea>
+
+    <style>
+      /* Export toolbar styles */
+      .mm-export-toolbar {
+        position: fixed;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 1000;
+        background: rgba(255, 255, 255, 0.9);
+        border-radius: 8px;
+        padding: 8px 16px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        display: flex;
+        gap: 10px;
+      }
+      .mm-export-btn {
+        padding: 6px 12px;
+        border: none;
+        border-radius: 4px;
+        background-color: #3498db;
+        color: white;
+        cursor: pointer;
+        font-size: 14px;
+        transition: background-color 0.3s;
+      }
+      .mm-export-btn:hover {
+        background-color: #2980b9;
+      }
+      .mm-copy-btn {
+        background-color: #27ae60;
+      }
+      .mm-copy-btn:hover {
+        background-color: #219653;
+      }
+      @media print {
+        .mm-export-toolbar { display: none !important; }
+        .mm-toolbar { display: none !important; }
+        svg.markmap, svg#mindmap, #mindmap svg { 
+          display: block !important;
+          visibility: visible !important; 
+          opacity: 1 !important;
+          height: 100vh !important;
+          width: 100% !important;
+          max-width: 100% !important;
+          max-height: 100vh !important;
+          overflow: visible !important;
+          page-break-inside: avoid !important;
+        }
+        body, html {
+          height: 100% !important;
+          width: 100% !important;
+          margin: 0 !important;
+          padding: 0 !important;
+          overflow: visible !important;
+        }
+      }
+    </style>
+
+    <script>
+      (function() {
+        // Create bottom export toolbar
+        const exportToolbar = document.createElement('div');
+        exportToolbar.className = 'mm-export-toolbar';
+        document.body.appendChild(exportToolbar);
+        
+        // Export as PNG image
+        const pngBtn = document.createElement('button');
+        pngBtn.className = 'mm-export-btn png-export';
+        pngBtn.innerHTML = 'Export PNG';
+        pngBtn.title = 'Export as PNG image';
+        pngBtn.onclick = () => {
+          exportToImage('png');
+        };
+        exportToolbar.appendChild(pngBtn);
+
+        // Export as JPG image
+        const jpgBtn = document.createElement('button');
+        jpgBtn.className = 'mm-export-btn jpg-export';
+        jpgBtn.innerHTML = 'Export JPG';
+        jpgBtn.title = 'Export as JPG image';
+        jpgBtn.onclick = () => {
+          exportToImage('jpeg');
+        };
+        exportToolbar.appendChild(jpgBtn);
+        
+        // Export as SVG image
+        const svgBtn = document.createElement('button');
+        svgBtn.className = 'mm-export-btn svg-export';
+        svgBtn.innerHTML = 'Export SVG';
+        svgBtn.title = 'Export as SVG image';
+        svgBtn.onclick = () => {
+          exportToImage('svg');
+        };
+        exportToolbar.appendChild(svgBtn);
+
+        // Copy original Markdown button
+        const copyBtn = document.createElement('button');
+        copyBtn.className = 'mm-export-btn mm-copy-btn copy-markdown';
+        copyBtn.innerHTML = 'Copy Markdown';
+        copyBtn.title = 'Copy original Markdown content';
+        copyBtn.onclick = copyOriginalMarkdown;
+        exportToolbar.appendChild(copyBtn);
+
+        // Function to copy original Markdown content
+        function copyOriginalMarkdown() {
+          try {
+            const markdownElement = document.getElementById('original-markdown');
+            if (!markdownElement) {
+              throw new Error('Original Markdown content not found');
+            }
+            
+            const markdownContent = markdownElement.value;
+            
+            // Copy to clipboard
+            navigator.clipboard.writeText(markdownContent)
+              .then(() => {
+                const originalText = copyBtn.innerHTML;
+                copyBtn.innerHTML = '✓ Copied';
+                copyBtn.style.backgroundColor = '#2ecc71';
+                
+                setTimeout(() => {
+                  copyBtn.innerHTML = originalText;
+                  copyBtn.style.backgroundColor = '';
+                }, 2000);
+              })
+              .catch(err => {
+                console.error('Copy failed:', err);
+                alert('Failed to copy to clipboard, please check browser permissions');
+              });
+          } catch (e) {
+            console.error('Error copying Markdown:', e);
+            alert('Unable to copy Markdown: ' + e.message);
+          }
+        }
+
+        // Function to export image
+        function exportToImage(format) {
+          try {
+            const node = window.mm.svg._groups[0][0];
+            
+            if (!node) {
+              throw new Error('Cannot find mind map SVG element');
+            }
+
+            window.mm.fit().then(() => {
+              const options = {
+                backgroundColor: "#ffffff", 
+                quality: 1.0,
+                width: node.getBoundingClientRect().width,
+                height: node.getBoundingClientRect().height
+              };
+              
+              const exportPromise = format === 'svg' 
+                ? htmlToImage.toSvg(node, options)
+                : format === 'jpeg' 
+                  ? htmlToImage.toJpeg(node, options) 
+                  : htmlToImage.toPng(node, options);
+              
+              exportPromise
+                .then((dataUrl) => {
+                  const link = document.createElement('a');
+                  const timestamp = new Date().toISOString().slice(0, 10);
+                  link.download = `markmap-${timestamp}.${format === 'jpeg' ? 'jpg' : format === 'svg' ? 'svg' : 'png'}`;
+                  link.href = dataUrl;
+                  link.click();
+                })
+                .catch((err) => console.error("Export failed:", err));
+            })
+            .catch((err) => {
+                throw err;
+            });
+              
+          } catch (e) {
+            console.error('Error exporting image:', e);
+            alert('Image export failed: ' + e.message);
+          }
+        }
+      })();
+    </script>
+  
+</body>
+</html>
