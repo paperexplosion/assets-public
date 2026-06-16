@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    width: 1400px; height: 900px; overflow: hidden;
+    background: #EEF2FF;
+    font-family: 'Hiragino Sans', 'Yu Gothic UI', 'Noto Sans JP', sans-serif;
+  }
+  .header {
+    background: #4361EE; color: white;
+    padding: 15px 36px; display: flex; align-items: center; gap: 20px;
+  }
+  .badge { background: rgba(255,255,255,0.2); border-radius: 20px; padding: 4px 14px; font-size: 11px; font-weight: 700; letter-spacing: 0.1em; white-space: nowrap; }
+  .header h1 { font-size: 19px; font-weight: 800; }
+  .header .sub { font-size: 11px; opacity: 0.8; margin-top: 2px; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="badge">EARTHWORKERS</div>
+  <div>
+    <h1>事例パッケージ化 ② ── A4提案書1枚のレイアウト設計</h1>
+    <div class="sub">商談後に置いていく・稟議に回せる・QRで動画に繋がる ｜ これ1枚でどこでもピッチできる</div>
+  </div>
+</div>
+
+<svg viewBox="0 0 1400 838" width="1400" height="838">
+  <defs>
+    <filter id="sh"><feDropShadow dx="0" dy="3" stdDeviation="7" flood-color="#4361EE1A"/></filter>
+    <filter id="doc"><feDropShadow dx="4" dy="6" stdDeviation="10" flood-color="#0000002A"/></filter>
+  </defs>
+
+  <!-- ====== LEFT: A4提案書ビジュアル ====== -->
+  <text x="320" y="30" text-anchor="middle" fill="#4361EE" font-size="13" font-weight="800">📄  A4提案書 1枚 ── 実際のレイアウト</text>
+
+  <!-- A4 paper mock -->
+  <rect x="48" y="44" rx="8" width="544" height="770" fill="white" filter="url(#doc)"/>
+
+  <!-- A4: Title block -->
+  <rect x="48" y="44" rx="8" width="544" height="64" fill="#1e3a8a"/>
+  <text x="320" y="70" text-anchor="middle" fill="white" font-size="15" font-weight="800">土木業界の「採用難・技術継承難」を</text>
+  <text x="320" y="92" text-anchor="middle" fill="white" font-size="15" font-weight="800">ドキュメンタリーで解決する。</text>
+  <text x="560" y="104" text-anchor="end" fill="rgba(255,255,255,0.7)" font-size="10">EarthWorkers</text>
+
+  <!-- A4: 2-col section -->
+  <!-- Left col: 課題 -->
+  <rect x="58" y="120" rx="6" width="248" height="130" fill="#FFF5F5" stroke="#FECACA" stroke-width="1"/>
+  <text x="182" y="142" text-anchor="middle" fill="#DC2626" font-size="12" font-weight="800">📌 業界の課題</text>
+  <text x="78" y="164" fill="#555" font-size="11">・採用エントリー数が年々減少</text>
+  <text x="78" y="182" fill="#555" font-size="11">・ベテランの技術が継承されない</text>
+  <text x="78" y="200" fill="#555" font-size="11">・業界イメージが若者に届かない</text>
+  <text x="78" y="218" fill="#555" font-size="11">・広告費だけが増え続けている</text>
+  <text x="78" y="238" fill="#888" font-size="10">「募集しても来ない」の根本原因はここ</text>
+
+  <!-- Right col: 解決策 -->
+  <rect x="318" y="120" rx="6" width="264" height="130" fill="#EEF2FF" stroke="#C7D2FE" stroke-width="1"/>
+  <text x="450" y="142" text-anchor="middle" fill="#4361EE" font-size="12" font-weight="800">💡 解決策</text>
+  <text x="330" y="164" fill="#333" font-size="13" font-weight="700">ドキュメンタリーマーケティング</text>
+  <text x="330" y="186" fill="#555" font-size="11">映像 × データドリブン・ストーリー</text>
+  <text x="330" y="206" fill="#555" font-size="11">現場の「誇り」を映像化 →</text>
+  <text x="330" y="222" fill="#555" font-size="11">採用・技術継承・ブランドを同時解決</text>
+  <text x="330" y="242" fill="#4361EE" font-size="10" font-weight="700">SNS広告・SEOなし。本物の映像が刺さる。</text>
+
+  <!-- A4: Case study box -->
+  <rect x="58" y="262" rx="6" width="524" height="130" fill="#F0FDF4" stroke="#86EFAC" stroke-width="1.5"/>
+  <text x="78" y="284" fill="#15803D" font-size="12" font-weight="800">【導入事例】Kotobuki Kensetsu（トンネル建設専門）</text>
+  <!-- Before/After -->
+  <rect x="68" y="294" rx="4" width="230" height="86" fill="white" stroke="#FCA5A5" stroke-width="1"/>
+  <text x="183" y="312" text-anchor="middle" fill="#DC2626" font-size="11" font-weight="700">Before（導入前）</text>
+  <text x="183" y="334" text-anchor="middle" fill="#DC2626" font-size="22" font-weight="800">●人/年</text>
+  <text x="183" y="356" text-anchor="middle" fill="#888" font-size="11">採用エントリー数</text>
+  <text x="183" y="374" text-anchor="middle" fill="#888" font-size="10">採用広告費 ●万円/年</text>
+  <!-- Arrow -->
+  <text x="320" y="342" text-anchor="middle" fill="#15803D" font-size="24" font-weight="800">→</text>
+  <rect x="342" y="294" rx="4" width="230" height="86" fill="white" stroke="#86EFAC" stroke-width="1.5"/>
+  <text x="457" y="312" text-anchor="middle" fill="#15803D" font-size="11" font-weight="700">After（導入後）</text>
+  <text x="457" y="334" text-anchor="middle" fill="#15803D" font-size="22" font-weight="800">●人/年</text>
+  <text x="457" y="356" text-anchor="middle" fill="#15803D" font-size="11">+●●%増加</text>
+  <text x="457" y="374" text-anchor="middle" fill="#15803D" font-size="10">採用広告費 -●●%削減</text>
+
+  <!-- A4: QR + video note -->
+  <rect x="58" y="402" rx="6" width="524" height="52" fill="#1e3a8a"/>
+  <text x="200" y="425" text-anchor="middle" fill="white" font-size="11" font-weight="700">▶  2分動画はこちら</text>
+  <!-- QR placeholder -->
+  <rect x="60" y="404" rx="4" width="44" height="44" fill="white"/>
+  <text x="82" y="432" text-anchor="middle" fill="#333" font-size="8">QR</text>
+  <text x="500" y="425" text-anchor="middle" fill="rgba(255,255,255,0.8)" font-size="10">https://●●●.jp/kotobuki</text>
+  <text x="500" y="442" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-size="10">スマホでスキャンして2分でご確認ください</text>
+
+  <!-- A4: 3 steps -->
+  <text x="320" y="476" text-anchor="middle" fill="#1e3a8a" font-size="12" font-weight="800">進め方（3ステップ）</text>
+  <rect x="58" y="484" rx="6" width="160" height="70" fill="#EEF2FF" stroke="#C7D2FE" stroke-width="1"/>
+  <text x="138" y="506" text-anchor="middle" fill="#4361EE" font-size="20">①</text>
+  <text x="138" y="526" text-anchor="middle" fill="#333" font-size="11" font-weight="700">ヒアリング</text>
+  <text x="138" y="544" text-anchor="middle" fill="#888" font-size="10">約1時間・無料</text>
+  <rect x="230" y="484" rx="6" width="160" height="70" fill="#EEF2FF" stroke="#C7D2FE" stroke-width="1"/>
+  <text x="310" y="506" text-anchor="middle" fill="#4361EE" font-size="20">②</text>
+  <text x="310" y="526" text-anchor="middle" fill="#333" font-size="11" font-weight="700">制作</text>
+  <text x="310" y="544" text-anchor="middle" fill="#888" font-size="10">2〜4週間</text>
+  <rect x="402" y="484" rx="6" width="180" height="70" fill="#EEF2FF" stroke="#C7D2FE" stroke-width="1"/>
+  <text x="492" y="506" text-anchor="middle" fill="#4361EE" font-size="20">③</text>
+  <text x="492" y="526" text-anchor="middle" fill="#333" font-size="11" font-weight="700">展開・多用途活用</text>
+  <text x="492" y="544" text-anchor="middle" fill="#888" font-size="10">採用・技術継承・取引先向け</text>
+
+  <!-- A4: Contact -->
+  <rect x="58" y="566" rx="6" width="524" height="56" fill="#F8FAFF" stroke="#E0E7FF" stroke-width="1"/>
+  <text x="82" y="588" fill="#333" font-size="11" font-weight="700">EarthWorkers　担当：鈴木（ストーリーマーケ）・Kudo（映像制作）</text>
+  <text x="82" y="606" fill="#555" font-size="11">📧 ●●●@storytelling.team　　📱 ●●●-●●●●-●●●●</text>
+
+  <!-- A4 border overall -->
+  <rect x="48" y="44" rx="8" width="544" height="588" fill="none" stroke="#E0E7FF" stroke-width="2"/>
+
+  <!-- ====== RIGHT: 解説 + ポイント ====== -->
+  <text x="1020" y="30" text-anchor="middle" fill="#4361EE" font-size="13" font-weight="800">🔍  各パーツの意図と使い方</text>
+
+  <!-- Card 1: タイトル -->
+  <rect x="622" y="44" rx="12" width="750" height="96" fill="white" stroke="#1e3a8a" stroke-width="2" filter="url(#sh)"/>
+  <rect x="622" y="44" rx="12" width="8" height="96" fill="#1e3a8a"/>
+  <text x="644" y="68" fill="#1e3a8a" font-size="12" font-weight="800">タイトルブロック</text>
+  <text x="644" y="90" fill="#333" font-size="12">「採用難・技術継承難をドキュメンタリーで解決する」</text>
+  <text x="644" y="110" fill="#555" font-size="11">→ 担当者が上司に回すとき、タイトルが稟議書の見出しになる。刺さる言葉が必要。</text>
+  <text x="644" y="128" fill="#888" font-size="11">→ 「ドキュメンタリーマーケティング」の概念を植える最初の接点。</text>
+
+  <!-- Card 2: 課題/解決 -->
+  <rect x="622" y="152" rx="12" width="750" height="96" fill="white" stroke="#DC2626" stroke-width="2" filter="url(#sh)"/>
+  <rect x="622" y="152" rx="12" width="8" height="96" fill="#DC2626"/>
+  <text x="644" y="176" fill="#DC2626" font-size="12" font-weight="800">課題 ✕ 解決策（2カラム）</text>
+  <text x="644" y="198" fill="#333" font-size="12">左に「課題」を書くことで相手に「自分ごと」と感じさせる</text>
+  <text x="644" y="218" fill="#555" font-size="11">→ 土木業界の採用担当は全員この課題を持っている。だから左を先に読む。</text>
+  <text x="644" y="236" fill="#555" font-size="11">→ 右の解決策は「課題を読んだ後」に見てもらうことで効果が3倍になる。</text>
+
+  <!-- Card 3: 事例 -->
+  <rect x="622" y="260" rx="12" width="750" height="96" fill="white" stroke="#15803D" stroke-width="2" filter="url(#sh)"/>
+  <rect x="622" y="260" rx="12" width="8" height="96" fill="#15803D"/>
+  <text x="644" y="284" fill="#15803D" font-size="12" font-weight="800">導入事例 Before/After（最重要パーツ）</text>
+  <text x="644" y="306" fill="#333" font-size="12">数値が入った事例は「信頼の証明書」になる。抽象→具体への橋渡し。</text>
+  <text x="644" y="326" fill="#555" font-size="11">→ 「前年比●●%増」があるだけで「本当に効果ある」と思ってもらえる。</text>
+  <text x="644" y="344" fill="#F72585" font-size="11" font-weight="700">→ ここだけが未完成。Kudoさんに数字確認が唯一のボトルネック。</text>
+
+  <!-- Card 4: QR -->
+  <rect x="622" y="368" rx="12" width="750" height="82" fill="white" stroke="#4361EE" stroke-width="2" filter="url(#sh)"/>
+  <rect x="622" y="368" rx="12" width="8" height="82" fill="#4361EE"/>
+  <text x="644" y="392" fill="#4361EE" font-size="12" font-weight="800">QRコード（動画リンク）</text>
+  <text x="644" y="414" fill="#333" font-size="12">A4を見た人がすぐ動画に飛べる。A4だけで受注が決まることはない。</text>
+  <text x="644" y="434" fill="#555" font-size="11">→ 紙とデジタルをつなぐ唯一の接点。QRがあることで「技術力がある会社」にも見える。</text>
+
+  <!-- Card 5: 3steps -->
+  <rect x="622" y="462" rx="12" width="750" height="82" fill="white" stroke="#7209B7" stroke-width="2" filter="url(#sh)"/>
+  <rect x="622" y="462" rx="12" width="8" height="82" fill="#7209B7"/>
+  <text x="644" y="486" fill="#7209B7" font-size="12" font-weight="800">進め方3ステップ</text>
+  <text x="644" y="508" fill="#333" font-size="12">「どうやって始めるか」がわからないと人は動かない。3ステップで単純化する。</text>
+  <text x="644" y="528" fill="#555" font-size="11">→ ヒアリング→制作→展開 の流れを見せることで「頼みやすい」と感じさせる。</text>
+
+  <!-- Bottom: Where to use this -->
+  <rect x="622" y="558" rx="12" width="750" height="120" fill="white" stroke="#4361EE" stroke-width="1.5" filter="url(#sh)"/>
+  <text x="997" y="582" text-anchor="middle" fill="#4361EE" font-size="13" font-weight="800">A4提案書を使えるシーン</text>
+
+  <circle cx="662" cy="616" r="18" fill="#4361EE"/>
+  <text x="662" y="621" text-anchor="middle" fill="white" font-size="10" font-weight="700">会議室</text>
+  <text x="662" y="648" text-anchor="middle" fill="#555" font-size="10">スクリーンに映して</text>
+  <text x="662" y="660" text-anchor="middle" fill="#555" font-size="10">じっくり説明</text>
+
+  <circle cx="812" cy="616" r="18" fill="#7209B7"/>
+  <text x="812" y="621" text-anchor="middle" fill="white" font-size="10" font-weight="700">居酒屋</text>
+  <text x="812" y="648" text-anchor="middle" fill="#555" font-size="10">スマホで動画→</text>
+  <text x="812" y="660" text-anchor="middle" fill="#555" font-size="10">A4を机に置く</text>
+
+  <circle cx="962" cy="616" r="18" fill="#F72585"/>
+  <text x="962" y="621" text-anchor="middle" fill="white" font-size="9" font-weight="700">名刺交換後</text>
+  <text x="962" y="648" text-anchor="middle" fill="#555" font-size="10">即A4を渡す→</text>
+  <text x="962" y="660" text-anchor="middle" fill="#555" font-size="10">QRで動画誘導</text>
+
+  <circle cx="1112" cy="616" r="18" fill="#4CC9F0"/>
+  <text x="1112" y="621" text-anchor="middle" fill="white" font-size="9" font-weight="700">展示会ブース</text>
+  <text x="1112" y="648" text-anchor="middle" fill="#555" font-size="10">配布資料として</text>
+  <text x="1112" y="660" text-anchor="middle" fill="#555" font-size="10">大量印刷して配る</text>
+
+  <circle cx="1262" cy="616" r="18" fill="#059669"/>
+  <text x="1262" y="621" text-anchor="middle" fill="white" font-size="9" font-weight="700">メール添付</text>
+  <text x="1262" y="648" text-anchor="middle" fill="#555" font-size="10">PDF送付→</text>
+  <text x="1262" y="660" text-anchor="middle" fill="#555" font-size="10">稟議に回してもらう</text>
+
+</svg>
+</body>
+</html>
