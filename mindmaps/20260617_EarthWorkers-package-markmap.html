@@ -1,0 +1,322 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+<title>Markmap</title>
+<style>
+* {
+  margin: 0;
+  padding: 0;
+}
+html {
+  font-family: ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji',
+    'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+}
+#mindmap {
+  display: block;
+  width: 100vw;
+  height: 100vh;
+}
+.markmap-dark {
+  background: #27272a;
+  color: white;
+}
+</style>
+
+</head>
+<body>
+<svg id="mindmap"></svg>
+<script src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js"></script><script src="https://cdn.jsdelivr.net/npm/markmap-view@0.18.12/dist/browser/index.js"></script><script>((getMarkmap, getOptions, root2, jsonOptions) => {
+              const markmap = getMarkmap();
+              window.mm = markmap.Markmap.create(
+                "svg#mindmap",
+                (getOptions || markmap.deriveOptions)(jsonOptions),
+                root2
+              );
+              if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+                document.documentElement.classList.add("markmap-dark");
+              }
+            })(() => window.markmap,null,{"content":"&#x4e8b;&#x4f8b;&#x30d1;&#x30c3;&#x30b1;&#x30fc;&#x30b8;&#x5316; &#x2500;&#x2500; 3&#x70b9;&#x30bb;&#x30c3;&#x30c8;&#x8a73;&#x7d30;&#x89e3;&#x50cf;&#x5ea6;","children":[{"content":"2&#x5206;&#x52d5;&#x753b;&#x306e;&#x69cb;&#x6210;","children":[{"content":"0:00&#x301c;0:20&#x3000;&#x8ab2;&#x984c;&#x63d0;&#x793a;","children":[{"content":"&#x30ca;&#x30ec;&#x30fc;&#x30b7;&#x30e7;&#x30f3;&#xff0b;&#x73fe;&#x5834;&#x6620;&#x50cf;","children":[],"payload":{"tag":"li","lines":"4,5"}},{"content":"&#x300c;&#x571f;&#x6728;&#x696d;&#x754c;&#x306e;&#x4eba;&#x624b;&#x4e0d;&#x8db3;&#x30fb;&#x63a1;&#x7528;&#x96e3;&#x300d;&#x3092;&#x8a9e;&#x308b;","children":[],"payload":{"tag":"li","lines":"5,6"}},{"content":"&#x8996;&#x8074;&#x8005;&#x306b;&#x300c;&#x81ea;&#x5206;&#x3054;&#x3068;&#x300d;&#x3068;&#x601d;&#x308f;&#x305b;&#x308b;&#x5165;&#x308a;&#x53e3;","children":[],"payload":{"tag":"li","lines":"6,7"}}],"payload":{"tag":"h3","lines":"3,4"}},{"content":"0:20&#x301c;1:10&#x3000;&#x30c9;&#x30ad;&#x30e5;&#x30e1;&#x30f3;&#x30bf;&#x30ea;&#x30fc;&#x672c;&#x7de8;","children":[{"content":"Kudo&#x3055;&#x3093;&#x306e;&#x64ae;&#x5f71;&#x6e08;&#x307f;&#x6620;&#x50cf;&#x3092;&#x305d;&#x306e;&#x307e;&#x307e;&#x4f7f;&#x3046;","children":[],"payload":{"tag":"li","lines":"8,9"}},{"content":"&#x73fe;&#x5834;&#x4f5c;&#x696d;&#x54e1;&#x30a4;&#x30f3;&#x30bf;&#x30d3;&#x30e5;&#x30fc;&#xff08;&#x751f;&#x306e;&#x58f0;&#xff09;","children":[],"payload":{"tag":"li","lines":"9,10"}},{"content":"&#x30d9;&#x30c6;&#x30e9;&#x30f3;&#x2192;&#x82e5;&#x624b; &#x6280;&#x8853;&#x7d99;&#x627f;&#x30b7;&#x30fc;&#x30f3;","children":[],"payload":{"tag":"li","lines":"10,11"}},{"content":"&#x30c8;&#x30f3;&#x30cd;&#x30eb;&#x5de5;&#x4e8b;&#x306e;&#x8feb;&#x529b;&#x6620;&#x50cf;","children":[],"payload":{"tag":"li","lines":"11,12"}},{"content":"&#x65b0;&#x898f;&#x64ae;&#x5f71;&#x30bc;&#x30ed;&#x30fb;&#x7de8;&#x96c6;&#x306e;&#x307f;&#x3067;&#x5b8c;&#x6210;","children":[],"payload":{"tag":"li","lines":"12,13"}}],"payload":{"tag":"h3","lines":"7,8"}},{"content":"1:10&#x301c;1:40&#x3000;&#x6570;&#x5024;&#x3067;Before/After","children":[{"content":"&#x30c6;&#x30ad;&#x30b9;&#x30c8;&#x30aa;&#x30fc;&#x30d0;&#x30fc;&#x30ec;&#x30a4;&#xff0b;&#x56f3;&#x89e3;","children":[],"payload":{"tag":"li","lines":"14,15"}},{"content":"&#x300c;&#x30c9;&#x30ad;&#x30e5;&#x30e1;&#x30f3;&#x30bf;&#x30ea;&#x30fc;&#x516c;&#x958b;&#x5f8c;&#x3001;&#x63a1;&#x7528;&#x30a8;&#x30f3;&#x30c8;&#x30ea;&#x30fc;&#x524d;&#x5e74;&#x6bd4;&#x25cf;&#x25cf;%&#x5897;&#x52a0;&#x300d;","children":[],"payload":{"tag":"li","lines":"15,16"}},{"content":"&#x62bd;&#x8c61;&#x2192;&#x5177;&#x4f53;&#x3078;&#x5909;&#x63db;&#x3059;&#x308b;&#x6700;&#x91cd;&#x8981;&#x30d1;&#x30fc;&#x30c4;","children":[],"payload":{"tag":"li","lines":"16,17"}}],"payload":{"tag":"h3","lines":"13,14"}},{"content":"1:40&#x301c;2:00&#x3000;&#x30af;&#x30ed;&#x30fc;&#x30b8;&#x30f3;&#x30b0;","children":[{"content":"&#x300c;&#x3053;&#x306e;&#x624b;&#x6cd5;&#x3092;&#x3001;&#x6d77;&#x6d0b;&#x571f;&#x6728;&#x696d;&#x754c;&#x306b;&#x3002;&#x2500;&#x2500; EarthWorkers&#x300d;","children":[],"payload":{"tag":"li","lines":"18,19"}},{"content":"QR&#x30b3;&#x30fc;&#x30c9;&#x3067;A4&#x63d0;&#x6848;&#x66f8;&#x30fb;&#x8a73;&#x7d30;&#x30da;&#x30fc;&#x30b8;&#x3078;&#x8a98;&#x5c0e;","children":[],"payload":{"tag":"li","lines":"19,21"}}],"payload":{"tag":"h3","lines":"17,18"}}],"payload":{"tag":"h2","lines":"2,3"}},{"content":"&#x6570;&#x5024;&#x5316;&#xff08;Before/After&#xff09;","children":[{"content":"&#x512a;&#x5148;&#x6307;&#x6a19;","children":[{"content":"&#x63a1;&#x7528;&#x30a8;&#x30f3;&#x30c8;&#x30ea;&#x30fc;&#x6570;&#xff08;&#x2605;&#x6700;&#x512a;&#x5148;&#x30fb;&#x7d76;&#x5bfe;&#x53d6;&#x308b;&#xff09;","children":[],"payload":{"tag":"li","lines":"23,24"}},{"content":"&#x63a1;&#x7528;&#x5e83;&#x544a;&#x8cbb;&#x30fb;&#x6c42;&#x4eba;&#x8cbb;&#xff08;&#x30b3;&#x30b9;&#x30c8;&#x524a;&#x6e1b;&#x8a3c;&#x62e0;&#xff09;","children":[],"payload":{"tag":"li","lines":"24,25"}},{"content":"&#x6280;&#x8853;&#x7d99;&#x627f;&#x7814;&#x4fee;&#x306b;&#x304b;&#x304b;&#x308b;&#x6642;&#x9593;&#xff08;&#x6280;&#x8853;&#x7d99;&#x627f;&#x96e3;&#x8a34;&#x6c42;&#xff09;","children":[],"payload":{"tag":"li","lines":"25,26"}},{"content":"&#x696d;&#x754c;&#x30fb;&#x53d6;&#x5f15;&#x5148;&#x304b;&#x3089;&#x306e;&#x554f;&#x3044;&#x5408;&#x308f;&#x305b;&#x6570;&#xff08;&#x30d6;&#x30e9;&#x30f3;&#x30c9;&#x5411;&#x4e0a;&#xff09;","children":[],"payload":{"tag":"li","lines":"26,27"}}],"payload":{"tag":"h3","lines":"22,23"}},{"content":"&#x6570;&#x5b57;&#x304c;&#x53d6;&#x308c;&#x306a;&#x3044;&#x5834;&#x5408;&#x306e;&#x4ee3;&#x66ff;","children":[{"content":"&#x300c;&#x52d5;&#x753b;&#x3092;&#x898b;&#x3066;&#x5fdc;&#x52df;&#x3057;&#x305f;&#x300d;&#x3068;&#x3044;&#x3046;&#x5fdc;&#x52df;&#x8005;&#x304c;&#x51fa;&#x305f;&#xff08;&#x793e;&#x9577;&#x30b3;&#x30e1;&#x30f3;&#x30c8;&#xff09;","children":[],"payload":{"tag":"li","lines":"28,29"}},{"content":"&#x696d;&#x754c;&#x95a2;&#x4fc2;&#x8005;&#x304b;&#x3089;&#x300c;&#x3042;&#x306e;&#x6620;&#x50cf;&#x3044;&#x3044;&#x306d;&#x300d;&#x3068;&#x8a00;&#x308f;&#x308c;&#x305f;&#x4ef6;&#x6570;","children":[],"payload":{"tag":"li","lines":"29,30"}},{"content":"&#x793e;&#x54e1;&#x30a2;&#x30f3;&#x30b1;&#x30fc;&#x30c8;&#x300c;&#x4f1a;&#x793e;&#x306b;&#x8a87;&#x308a;&#x304c;&#x6301;&#x3066;&#x308b;&#x300d;&#x5272;&#x5408;&#x304c;&#x5897;&#x3048;&#x305f;","children":[],"payload":{"tag":"li","lines":"30,31"}}],"payload":{"tag":"h3","lines":"27,28"}},{"content":"&#x4eca;&#x3059;&#x3050;&#x306e;&#x30a2;&#x30af;&#x30b7;&#x30e7;&#x30f3;","children":[{"content":"Kudo&#x3055;&#x3093;&#x306b;LINE&#xff1a;&#x300c;Kotobuki&#x3055;&#x3093;&#x306b;&#x63a1;&#x7528;&#x306e;&#x6570;&#x5b57;&#x3082;&#x3089;&#x3048;&#x3066;&#x308b;&#xff1f;&#x300d;","children":[],"payload":{"tag":"li","lines":"32,33"}},{"content":"&#x6570;&#x5b57;1&#x3064;&#x3042;&#x308c;&#x3070;&#x52d5;&#x753b;&#xff0b;A4&#x5b8c;&#x6210;&#x2192;&#x6765;&#x9031;&#x30d4;&#x30c3;&#x30c1;&#x53ef;&#x80fd;","children":[],"payload":{"tag":"li","lines":"33,35"}}],"payload":{"tag":"h3","lines":"31,32"}}],"payload":{"tag":"h2","lines":"21,22"}},{"content":"A4&#x63d0;&#x6848;&#x66f8;1&#x679a;","children":[{"content":"&#x30ec;&#x30a4;&#x30a2;&#x30a6;&#x30c8;&#x69cb;&#x6210;","children":[{"content":"&#x30bf;&#x30a4;&#x30c8;&#x30eb;&#xff1a;&#x63a1;&#x7528;&#x96e3;&#x30fb;&#x6280;&#x8853;&#x7d99;&#x627f;&#x96e3;&#x3092;&#x30c9;&#x30ad;&#x30e5;&#x30e1;&#x30f3;&#x30bf;&#x30ea;&#x30fc;&#x3067;&#x89e3;&#x6c7a;&#x3059;&#x308b;","children":[],"payload":{"tag":"li","lines":"37,38"}},{"content":"&#x5de6;&#x30ab;&#x30e9;&#x30e0;&#xff1a;&#x696d;&#x754c;&#x306e;&#x8ab2;&#x984c;&#xff08;&#x63a1;&#x7528;&#x6e1b;&#x30fb;&#x6280;&#x8853;&#x7d99;&#x627f;&#x65ad;&#x7d76;&#x30fb;&#x30a4;&#x30e1;&#x30fc;&#x30b8;&#x4f4e;&#x4e0b;&#xff09;","children":[],"payload":{"tag":"li","lines":"38,39"}},{"content":"&#x53f3;&#x30ab;&#x30e9;&#x30e0;&#xff1a;&#x89e3;&#x6c7a;&#x7b56;&#xff08;&#x30c9;&#x30ad;&#x30e5;&#x30e1;&#x30f3;&#x30bf;&#x30ea;&#x30fc;&#x30de;&#x30fc;&#x30b1;&#x30c6;&#x30a3;&#x30f3;&#x30b0;&#xff09;","children":[],"payload":{"tag":"li","lines":"39,40"}},{"content":"&#x4e2d;&#x592e;&#xff1a;Kotobuki&#x4e8b;&#x4f8b; Before/After&#x6570;&#x5024;","children":[],"payload":{"tag":"li","lines":"40,41"}},{"content":"QR&#x30b3;&#x30fc;&#x30c9;&#xff1a;2&#x5206;&#x52d5;&#x753b;&#x3078;&#x30ea;&#x30f3;&#x30af;","children":[],"payload":{"tag":"li","lines":"41,42"}},{"content":"&#x9032;&#x3081;&#x65b9;3&#x30b9;&#x30c6;&#x30c3;&#x30d7;&#xff08;&#x30d2;&#x30a2;&#x30ea;&#x30f3;&#x30b0;&#x2192;&#x5236;&#x4f5c;&#x2192;&#x5c55;&#x958b;&#xff09;","children":[],"payload":{"tag":"li","lines":"42,43"}},{"content":"&#x9023;&#x7d61;&#x5148;&#xff08;&#x9234;&#x6728;&#x30fb;Kudo&#xff09;","children":[],"payload":{"tag":"li","lines":"43,44"}}],"payload":{"tag":"h3","lines":"36,37"}},{"content":"&#x5404;&#x30d1;&#x30fc;&#x30c4;&#x306e;&#x610f;&#x56f3;","children":[{"content":"&#x30bf;&#x30a4;&#x30c8;&#x30eb;&#xff1d;&#x7a1f;&#x8b70;&#x66f8;&#x306e;&#x898b;&#x51fa;&#x3057;&#x306b;&#x306a;&#x308b;","children":[],"payload":{"tag":"li","lines":"45,46"}},{"content":"&#x8ab2;&#x984c;&#x3092;&#x5de6;&#x306b;&#x5148;&#x7f6e;&#x304d;&#xff1d;&#x81ea;&#x5206;&#x3054;&#x3068;&#x306b;&#x611f;&#x3058;&#x3055;&#x305b;&#x308b;","children":[],"payload":{"tag":"li","lines":"46,47"}},{"content":"Before/After&#x6570;&#x5024;&#xff1d;&#x4fe1;&#x983c;&#x306e;&#x8a3c;&#x660e;&#x66f8;","children":[],"payload":{"tag":"li","lines":"47,48"}},{"content":"QR&#xff1d;&#x7d19;&#x3068;&#x30c7;&#x30b8;&#x30bf;&#x30eb;&#x3092;&#x3064;&#x306a;&#x3050;&#x63a5;&#x70b9;","children":[],"payload":{"tag":"li","lines":"48,49"}},{"content":"3&#x30b9;&#x30c6;&#x30c3;&#x30d7;&#xff1d;&#x300c;&#x983c;&#x307f;&#x3084;&#x3059;&#x3044;&#x300d;&#x3068;&#x601d;&#x308f;&#x305b;&#x308b;","children":[],"payload":{"tag":"li","lines":"49,50"}}],"payload":{"tag":"h3","lines":"44,45"}},{"content":"&#x4f7f;&#x3048;&#x308b;&#x30b7;&#x30fc;&#x30f3;","children":[{"content":"&#x4f1a;&#x8b70;&#x5ba4;&#xff08;&#x30b9;&#x30af;&#x30ea;&#x30fc;&#x30f3;&#x3067;&#x8aac;&#x660e;&#xff09;","children":[],"payload":{"tag":"li","lines":"51,52"}},{"content":"&#x5c45;&#x9152;&#x5c4b;&#xff08;&#x30b9;&#x30de;&#x30db;&#x3067;&#x52d5;&#x753b;&#x2192;A4&#x3092;&#x7f6e;&#x304f;&#xff09;","children":[],"payload":{"tag":"li","lines":"52,53"}},{"content":"&#x540d;&#x523a;&#x4ea4;&#x63db;&#x76f4;&#x5f8c;&#xff08;&#x5373;A4&#x3092;&#x6e21;&#x3059;&#xff09;","children":[],"payload":{"tag":"li","lines":"53,54"}},{"content":"&#x5c55;&#x793a;&#x4f1a;&#x30d6;&#x30fc;&#x30b9;&#xff08;&#x5927;&#x91cf;&#x5370;&#x5237;&#x30fb;&#x914d;&#x5e03;&#xff09;","children":[],"payload":{"tag":"li","lines":"54,55"}},{"content":"&#x30e1;&#x30fc;&#x30eb;&#x6dfb;&#x4ed8;&#xff08;PDF&#x9001;&#x4ed8;&#x2192;&#x7a1f;&#x8b70;&#x306b;&#x56de;&#x3057;&#x3066;&#x3082;&#x3089;&#x3046;&#xff09;","children":[],"payload":{"tag":"li","lines":"55,57"}}],"payload":{"tag":"h3","lines":"50,51"}}],"payload":{"tag":"h2","lines":"35,36"}},{"content":"3&#x70b9;&#x30bb;&#x30c3;&#x30c8;&#x55b6;&#x696d;&#x30d5;&#x30ed;&#x30fc;","children":[{"content":"&#x52d5;&#x753b;&#x3092;&#x898b;&#x305b;&#x308b; &#x2192; &#x3059;&#x3054;&#x3044;&#x3068;&#x611f;&#x3058;&#x3066;&#x3082;&#x3089;&#x3046;","children":[],"payload":{"tag":"li","lines":"58,59"}},{"content":"A4&#x3092;&#x6e21;&#x3059; &#x2192; &#x6570;&#x5024;&#x3067;&#x7d0d;&#x5f97;&#x3055;&#x305b;&#x308b;","children":[],"payload":{"tag":"li","lines":"59,60"}},{"content":"&#x300c;&#x3046;&#x3061;&#x3067;&#x3082;&#x3084;&#x308a;&#x305f;&#x3044;&#x300d; &#x2192; &#x53d7;&#x6ce8;","children":[],"payload":{"tag":"li","lines":"60,61"}},{"content":"&#x65b0;&#x3057;&#x3044;&#x4e8b;&#x4f8b;&#x304c;&#x5b8c;&#x6210; &#x2192; &#x6b21;&#x306e;5&#x793e;&#x3078;&#x7e70;&#x308a;&#x8fd4;&#x3059;","children":[],"payload":{"tag":"li","lines":"61,62"}}],"payload":{"tag":"h2","lines":"57,58"}}],"payload":{"tag":"h1","lines":"0,1"}},null)</script>
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/markmap-toolbar@0.18.10/dist/style.css"
+    />
+
+    <script src="https://cdn.jsdelivr.net/npm/markmap-toolbar@0.18.10/dist/index.js"></script>
+    <script>
+      ((r) => {
+          setTimeout(r);
+      })(() => {
+          const { markmap, mm } = window;
+          const toolbar = new markmap.Toolbar();
+          toolbar.attach(mm);
+          const el = toolbar.render();
+          el.setAttribute(
+              "style",
+              "position:absolute;bottom:20px;right:20px"
+          );
+          document.body.append(el);
+          
+          // Ensure the mind map fits the current view
+          setTimeout(() => {
+            if (mm && typeof mm.fit === 'function') {
+              mm.fit();
+            }
+          }, 1200);
+      });
+    </script>
+  
+
+    <!-- Add html-to-image library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html-to-image/1.11.11/html-to-image.min.js"></script>
+
+    <!-- Hidden element to store original Markdown content -->
+    <textarea id="original-markdown" style="display:none;"># 事例パッケージ化 ── 3点セット詳細解像度
+
+## 2分動画の構成
+### 0:00〜0:20　課題提示
+- ナレーション＋現場映像
+- 「土木業界の人手不足・採用難」を語る
+- 視聴者に「自分ごと」と思わせる入り口
+### 0:20〜1:10　ドキュメンタリー本編
+- Kudoさんの撮影済み映像をそのまま使う
+- 現場作業員インタビュー（生の声）
+- ベテラン→若手 技術継承シーン
+- トンネル工事の迫力映像
+- 新規撮影ゼロ・編集のみで完成
+### 1:10〜1:40　数値でBefore/After
+- テキストオーバーレイ＋図解
+- 「ドキュメンタリー公開後、採用エントリー前年比●●%増加」
+- 抽象→具体へ変換する最重要パーツ
+### 1:40〜2:00　クロージング
+- 「この手法を、海洋土木業界に。── EarthWorkers」
+- QRコードでA4提案書・詳細ページへ誘導
+
+## 数値化（Before/After）
+### 優先指標
+- 採用エントリー数（★最優先・絶対取る）
+- 採用広告費・求人費（コスト削減証拠）
+- 技術継承研修にかかる時間（技術継承難訴求）
+- 業界・取引先からの問い合わせ数（ブランド向上）
+### 数字が取れない場合の代替
+- 「動画を見て応募した」という応募者が出た（社長コメント）
+- 業界関係者から「あの映像いいね」と言われた件数
+- 社員アンケート「会社に誇りが持てる」割合が増えた
+### 今すぐのアクション
+- KudoさんにLINE：「Kotobukiさんに採用の数字もらえてる？」
+- 数字1つあれば動画＋A4完成→来週ピッチ可能
+
+## A4提案書1枚
+### レイアウト構成
+- タイトル：採用難・技術継承難をドキュメンタリーで解決する
+- 左カラム：業界の課題（採用減・技術継承断絶・イメージ低下）
+- 右カラム：解決策（ドキュメンタリーマーケティング）
+- 中央：Kotobuki事例 Before/After数値
+- QRコード：2分動画へリンク
+- 進め方3ステップ（ヒアリング→制作→展開）
+- 連絡先（鈴木・Kudo）
+### 各パーツの意図
+- タイトル＝稟議書の見出しになる
+- 課題を左に先置き＝自分ごとに感じさせる
+- Before/After数値＝信頼の証明書
+- QR＝紙とデジタルをつなぐ接点
+- 3ステップ＝「頼みやすい」と思わせる
+### 使えるシーン
+- 会議室（スクリーンで説明）
+- 居酒屋（スマホで動画→A4を置く）
+- 名刺交換直後（即A4を渡す）
+- 展示会ブース（大量印刷・配布）
+- メール添付（PDF送付→稟議に回してもらう）
+
+## 3点セット営業フロー
+- 動画を見せる → すごいと感じてもらう
+- A4を渡す → 数値で納得させる
+- 「うちでもやりたい」 → 受注
+- 新しい事例が完成 → 次の5社へ繰り返す
+</textarea>
+
+    <style>
+      /* Export toolbar styles */
+      .mm-export-toolbar {
+        position: fixed;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 1000;
+        background: rgba(255, 255, 255, 0.9);
+        border-radius: 8px;
+        padding: 8px 16px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        display: flex;
+        gap: 10px;
+      }
+      .mm-export-btn {
+        padding: 6px 12px;
+        border: none;
+        border-radius: 4px;
+        background-color: #3498db;
+        color: white;
+        cursor: pointer;
+        font-size: 14px;
+        transition: background-color 0.3s;
+      }
+      .mm-export-btn:hover {
+        background-color: #2980b9;
+      }
+      .mm-copy-btn {
+        background-color: #27ae60;
+      }
+      .mm-copy-btn:hover {
+        background-color: #219653;
+      }
+      @media print {
+        .mm-export-toolbar { display: none !important; }
+        .mm-toolbar { display: none !important; }
+        svg.markmap, svg#mindmap, #mindmap svg { 
+          display: block !important;
+          visibility: visible !important; 
+          opacity: 1 !important;
+          height: 100vh !important;
+          width: 100% !important;
+          max-width: 100% !important;
+          max-height: 100vh !important;
+          overflow: visible !important;
+          page-break-inside: avoid !important;
+        }
+        body, html {
+          height: 100% !important;
+          width: 100% !important;
+          margin: 0 !important;
+          padding: 0 !important;
+          overflow: visible !important;
+        }
+      }
+    </style>
+
+    <script>
+      (function() {
+        // Create bottom export toolbar
+        const exportToolbar = document.createElement('div');
+        exportToolbar.className = 'mm-export-toolbar';
+        document.body.appendChild(exportToolbar);
+        
+        // Export as PNG image
+        const pngBtn = document.createElement('button');
+        pngBtn.className = 'mm-export-btn png-export';
+        pngBtn.innerHTML = 'Export PNG';
+        pngBtn.title = 'Export as PNG image';
+        pngBtn.onclick = () => {
+          exportToImage('png');
+        };
+        exportToolbar.appendChild(pngBtn);
+
+        // Export as JPG image
+        const jpgBtn = document.createElement('button');
+        jpgBtn.className = 'mm-export-btn jpg-export';
+        jpgBtn.innerHTML = 'Export JPG';
+        jpgBtn.title = 'Export as JPG image';
+        jpgBtn.onclick = () => {
+          exportToImage('jpeg');
+        };
+        exportToolbar.appendChild(jpgBtn);
+        
+        // Export as SVG image
+        const svgBtn = document.createElement('button');
+        svgBtn.className = 'mm-export-btn svg-export';
+        svgBtn.innerHTML = 'Export SVG';
+        svgBtn.title = 'Export as SVG image';
+        svgBtn.onclick = () => {
+          exportToImage('svg');
+        };
+        exportToolbar.appendChild(svgBtn);
+
+        // Copy original Markdown button
+        const copyBtn = document.createElement('button');
+        copyBtn.className = 'mm-export-btn mm-copy-btn copy-markdown';
+        copyBtn.innerHTML = 'Copy Markdown';
+        copyBtn.title = 'Copy original Markdown content';
+        copyBtn.onclick = copyOriginalMarkdown;
+        exportToolbar.appendChild(copyBtn);
+
+        // Function to copy original Markdown content
+        function copyOriginalMarkdown() {
+          try {
+            const markdownElement = document.getElementById('original-markdown');
+            if (!markdownElement) {
+              throw new Error('Original Markdown content not found');
+            }
+            
+            const markdownContent = markdownElement.value;
+            
+            // Copy to clipboard
+            navigator.clipboard.writeText(markdownContent)
+              .then(() => {
+                const originalText = copyBtn.innerHTML;
+                copyBtn.innerHTML = '✓ Copied';
+                copyBtn.style.backgroundColor = '#2ecc71';
+                
+                setTimeout(() => {
+                  copyBtn.innerHTML = originalText;
+                  copyBtn.style.backgroundColor = '';
+                }, 2000);
+              })
+              .catch(err => {
+                console.error('Copy failed:', err);
+                alert('Failed to copy to clipboard, please check browser permissions');
+              });
+          } catch (e) {
+            console.error('Error copying Markdown:', e);
+            alert('Unable to copy Markdown: ' + e.message);
+          }
+        }
+
+        // Function to export image
+        function exportToImage(format) {
+          try {
+            const node = window.mm.svg._groups[0][0];
+            
+            if (!node) {
+              throw new Error('Cannot find mind map SVG element');
+            }
+
+            window.mm.fit().then(() => {
+              const options = {
+                backgroundColor: "#ffffff", 
+                quality: 1.0,
+                width: node.getBoundingClientRect().width,
+                height: node.getBoundingClientRect().height
+              };
+              
+              const exportPromise = format === 'svg' 
+                ? htmlToImage.toSvg(node, options)
+                : format === 'jpeg' 
+                  ? htmlToImage.toJpeg(node, options) 
+                  : htmlToImage.toPng(node, options);
+              
+              exportPromise
+                .then((dataUrl) => {
+                  const link = document.createElement('a');
+                  const timestamp = new Date().toISOString().slice(0, 10);
+                  link.download = `markmap-${timestamp}.${format === 'jpeg' ? 'jpg' : format === 'svg' ? 'svg' : 'png'}`;
+                  link.href = dataUrl;
+                  link.click();
+                })
+                .catch((err) => console.error("Export failed:", err));
+            })
+            .catch((err) => {
+                throw err;
+            });
+              
+          } catch (e) {
+            console.error('Error exporting image:', e);
+            alert('Image export failed: ' + e.message);
+          }
+        }
+      })();
+    </script>
+  
+</body>
+</html>
