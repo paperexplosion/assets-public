@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    width: 1400px; height: 900px; overflow: hidden;
+    background: #EEF2FF;
+    font-family: 'Hiragino Sans', 'Yu Gothic UI', 'Noto Sans JP', sans-serif;
+  }
+  .header {
+    background: #4361EE;
+    color: white;
+    padding: 16px 36px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  .badge {
+    background: rgba(255,255,255,0.2);
+    border-radius: 20px;
+    padding: 4px 14px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    white-space: nowrap;
+  }
+  .header h1 { font-size: 21px; font-weight: 800; letter-spacing: 0.04em; }
+  .header .sub { font-size: 12px; opacity: 0.8; margin-top: 3px; }
+  .canvas { width: 1400px; height: 838px; position: relative; }
+  svg.bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="badge">EARTHWORKERS</div>
+  <div>
+    <h1>一本道サイクル ── 事例起点・対面連鎖モデル</h1>
+    <div class="sub">2人チームが3年間繰り返す唯一の打ち手 ｜ 広告なし・SEOなし・人と会って見せて受注して事例を作る</div>
+  </div>
+</div>
+
+<div class="canvas">
+<svg class="bg" viewBox="0 0 1400 838">
+  <defs>
+    <marker id="mp" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0,10 3.5,0 7" fill="#F72585"/>
+    </marker>
+    <marker id="mb" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0,10 3.5,0 7" fill="#4361EE"/>
+    </marker>
+    <marker id="mc" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0,10 3.5,0 7" fill="#4CC9F0"/>
+    </marker>
+    <marker id="mv" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0,10 3.5,0 7" fill="#7209B7"/>
+    </marker>
+    <filter id="sh">
+      <feDropShadow dx="0" dy="3" stdDeviation="6" flood-color="#4361EE22"/>
+    </filter>
+  </defs>
+
+  <!-- ===== ARROWS ===== -->
+  <!-- 起点 → Step1 -->
+  <path d="M 388 298 Q 490 258 562 288" stroke="#F72585" stroke-width="2.8" fill="none"
+        marker-end="url(#mp)" stroke-dasharray="7,4"/>
+  <text x="450" y="255" fill="#F72585" font-size="11" font-weight="700" text-anchor="middle">既存資産を武器化</text>
+
+  <!-- Step1 → Step2 -->
+  <path d="M 758 340 Q 840 390 875 438" stroke="#4361EE" stroke-width="2.8" fill="none"
+        marker-end="url(#mb)"/>
+  <text x="850" y="378" fill="#4361EE" font-size="11" font-weight="700">コンペリング</text>
+  <text x="850" y="392" fill="#4361EE" font-size="11" font-weight="700">イベント訴求</text>
+
+  <!-- Step2 → Step3 -->
+  <path d="M 905 568 Q 880 618 828 650" stroke="#4361EE" stroke-width="2.8" fill="none"
+        marker-end="url(#mb)"/>
+
+  <!-- Step3 → Step4 -->
+  <path d="M 688 678 Q 582 708 516 688" stroke="#4CC9F0" stroke-width="2.8" fill="none"
+        marker-end="url(#mc)"/>
+  <text x="600" y="720" fill="#4CC9F0" font-size="11" font-weight="700" text-anchor="middle">業界10%拡張の1%</text>
+
+  <!-- Step4 → Step1 (loop) -->
+  <path d="M 352 638 Q 220 588 210 490 Q 202 412 248 355 Q 295 295 370 288"
+        stroke="#7209B7" stroke-width="2.8" fill="none"
+        marker-end="url(#mv)" stroke-dasharray="9,4"/>
+  <text x="168" y="500" fill="#7209B7" font-size="11" font-weight="700" text-anchor="middle">紹介連鎖</text>
+  <text x="168" y="514" fill="#7209B7" font-size="11" font-weight="700" text-anchor="middle">雪だるま式</text>
+
+  <!-- ===== NODES ===== -->
+
+  <!-- 起点 -->
+  <rect x="152" y="228" rx="16" ry="16" width="220" height="140"
+        fill="#FFF0F8" stroke="#F72585" stroke-width="2.5" filter="url(#sh)"/>
+  <text x="172" y="260" fill="#F72585" font-size="10" font-weight="800" letter-spacing="2">起 点</text>
+  <text x="262" y="280" text-anchor="middle" fill="#333" font-size="22">🎬</text>
+  <text x="262" y="308" text-anchor="middle" fill="#1a1a2e" font-size="13" font-weight="700">Kotobuki Kensetsu</text>
+  <text x="262" y="326" text-anchor="middle" fill="#1a1a2e" font-size="13" font-weight="700">映像資産（既存）</text>
+  <text x="262" y="348" text-anchor="middle" fill="#888" font-size="11">Kudoさん制作済み → 武器</text>
+
+  <!-- Step 1 -->
+  <rect x="558" y="248" rx="16" ry="16" width="204" height="140"
+        fill="white" stroke="#4361EE" stroke-width="2.5" filter="url(#sh)"/>
+  <circle cx="578" cy="266" r="14" fill="#4361EE"/>
+  <text x="578" y="271" text-anchor="middle" fill="white" font-size="12" font-weight="800">1</text>
+  <text x="660" y="298" text-anchor="middle" fill="#333" font-size="24">📦</text>
+  <text x="660" y="324" text-anchor="middle" fill="#1a1a2e" font-size="13" font-weight="700">事例パッケージ化</text>
+  <text x="660" y="344" text-anchor="middle" fill="#666" font-size="11">2分動画</text>
+  <text x="660" y="360" text-anchor="middle" fill="#666" font-size="11">Before/After 数値化</text>
+  <text x="660" y="376" text-anchor="middle" fill="#666" font-size="11">A4 提案書 1枚</text>
+
+  <!-- Step 2 -->
+  <rect x="868" y="418" rx="16" ry="16" width="204" height="148"
+        fill="white" stroke="#4361EE" stroke-width="2.5" filter="url(#sh)"/>
+  <circle cx="888" cy="436" r="14" fill="#4361EE"/>
+  <text x="888" y="441" text-anchor="middle" fill="white" font-size="12" font-weight="800">2</text>
+  <text x="970" y="468" text-anchor="middle" fill="#333" font-size="24">🤝</text>
+  <text x="970" y="494" text-anchor="middle" fill="#1a1a2e" font-size="13" font-weight="700">5社 対面ピッチ</text>
+  <text x="970" y="514" text-anchor="middle" fill="#666" font-size="11">Wakachiku / Goyo</text>
+  <text x="970" y="530" text-anchor="middle" fill="#666" font-size="11">Toyo / Taisei</text>
+  <text x="970" y="550" text-anchor="middle" fill="#4361EE" font-size="11" font-weight="700">採用難・技術継承を訴求</text>
+
+  <!-- Step 3 -->
+  <rect x="692" y="608" rx="16" ry="16" width="188" height="128"
+        fill="#F0FCFF" stroke="#4CC9F0" stroke-width="2.5" filter="url(#sh)"/>
+  <circle cx="712" cy="626" r="14" fill="#4CC9F0"/>
+  <text x="712" y="631" text-anchor="middle" fill="white" font-size="12" font-weight="800">3</text>
+  <text x="786" y="658" text-anchor="middle" fill="#333" font-size="22">✅</text>
+  <text x="786" y="682" text-anchor="middle" fill="#1a1a2e" font-size="13" font-weight="700">受注</text>
+  <text x="786" y="700" text-anchor="middle" fill="#666" font-size="11">ドキュメンタリー制作</text>
+  <text x="786" y="718" text-anchor="middle" fill="#666" font-size="11">+ データ設計</text>
+
+  <!-- Step 4 -->
+  <rect x="312" y="608" rx="16" ry="16" width="200" height="128"
+        fill="#FAF0FF" stroke="#7209B7" stroke-width="2.5" filter="url(#sh)"/>
+  <circle cx="332" cy="626" r="14" fill="#7209B7"/>
+  <text x="332" y="631" text-anchor="middle" fill="white" font-size="12" font-weight="800">4</text>
+  <text x="412" y="658" text-anchor="middle" fill="#333" font-size="22">🔄</text>
+  <text x="412" y="682" text-anchor="middle" fill="#1a1a2e" font-size="13" font-weight="700">新しい事例完成</text>
+  <text x="412" y="700" text-anchor="middle" fill="#666" font-size="11">1コンテンツ</text>
+  <text x="412" y="716" text-anchor="middle" fill="#666" font-size="11">マルチユース 3展開</text>
+
+  <!-- Center circle -->
+  <circle cx="630" cy="488" r="88" fill="url(#grad)" filter="url(#sh)"/>
+  <defs>
+    <radialGradient id="grad" cx="40%" cy="40%">
+      <stop offset="0%" stop-color="#4361EE"/>
+      <stop offset="100%" stop-color="#7209B7"/>
+    </radialGradient>
+  </defs>
+  <text x="630" y="480" text-anchor="middle" fill="white" font-size="16" font-weight="800">繰り返す</text>
+  <text x="630" y="500" text-anchor="middle" fill="rgba(255,255,255,0.85)" font-size="11">事例を積み上げ</text>
+  <text x="630" y="516" text-anchor="middle" fill="rgba(255,255,255,0.85)" font-size="11">紹介連鎖へ</text>
+
+  <!-- ===== RIGHT SIDE CARDS ===== -->
+  <!-- Book2 -->
+  <rect x="1112" y="88" rx="14" ry="14" width="250" height="105"
+        fill="white" stroke="#F72585" stroke-width="1.5" filter="url(#sh)"/>
+  <rect x="1112" y="88" rx="14" ry="14" width="6" height="105" fill="#F72585"/>
+  <text x="1134" y="114" fill="#F72585" font-size="11" font-weight="800">💡 Book2より</text>
+  <text x="1134" y="136" fill="#444" font-size="12">ニッチな商材ほど</text>
+  <text x="1134" y="154" fill="#444" font-size="12">オフライン施策が効く。</text>
+  <text x="1134" y="172" fill="#444" font-size="12">業界特化×大企業は</text>
+  <text x="1134" y="190" fill="#444" font-size="12">テレアポ・展示会を優先。</text>
+
+  <!-- Book1 -->
+  <rect x="1112" y="210" rx="14" ry="14" width="250" height="105"
+        fill="white" stroke="#4361EE" stroke-width="1.5" filter="url(#sh)"/>
+  <rect x="1112" y="210" rx="14" ry="14" width="6" height="105" fill="#4361EE"/>
+  <text x="1134" y="236" fill="#4361EE" font-size="11" font-weight="800">💡 Book1より</text>
+  <text x="1134" y="258" fill="#444" font-size="12">受注に近い順に</text>
+  <text x="1134" y="276" fill="#444" font-size="12">施策を進めるのが鉄則。</text>
+  <text x="1134" y="294" fill="#444" font-size="12">広告・SEOは後回し。</text>
+
+  <!-- 核心 -->
+  <rect x="1112" y="332" rx="14" ry="14" width="250" height="125"
+        fill="white" stroke="#7209B7" stroke-width="1.5" filter="url(#sh)"/>
+  <rect x="1112" y="332" rx="14" ry="14" width="6" height="125" fill="#7209B7"/>
+  <text x="1134" y="358" fill="#7209B7" font-size="11" font-weight="800">🎯 EarthWorkersの核心</text>
+  <text x="1134" y="380" fill="#444" font-size="12">SNS広告・SEOは</text>
+  <text x="1134" y="398" fill="#444" font-size="12">土木業界には刺さらない。</text>
+  <text x="1134" y="418" fill="#444" font-size="12">人と会う → 見せる</text>
+  <text x="1134" y="438" fill="#444" font-size="12">→ 受注 → また事例。</text>
+
+  <!-- NG list -->
+  <rect x="1112" y="475" rx="14" ry="14" width="250" height="120"
+        fill="#FFF5F5" stroke="#FECACA" stroke-width="1.5" filter="url(#sh)"/>
+  <text x="1237" y="500" text-anchor="middle" fill="#DC2626" font-size="11" font-weight="800">❌ やらないこと</text>
+  <text x="1134" y="524" fill="#888" font-size="12">SNS広告・リスティング広告</text>
+  <text x="1134" y="544" fill="#888" font-size="12">コンテンツSEO</text>
+  <text x="1134" y="564" fill="#888" font-size="12">WEBサイト（Year3まで不要）</text>
+  <text x="1134" y="584" fill="#888" font-size="12">マス広告</text>
+
+  <!-- legend -->
+  <rect x="36" y="780" rx="10" ry="10" width="440" height="44" fill="white" stroke="#E0E7FF" stroke-width="1.5"/>
+  <circle cx="64" cy="802" r="7" fill="#F72585"/>
+  <text x="78" y="806" fill="#555" font-size="11">起点資産</text>
+  <circle cx="148" cy="802" r="7" fill="#4361EE"/>
+  <text x="162" y="806" fill="#555" font-size="11">営業アクション</text>
+  <circle cx="262" cy="802" r="7" fill="#4CC9F0"/>
+  <text x="276" y="806" fill="#555" font-size="11">成果</text>
+  <circle cx="330" cy="802" r="7" fill="#7209B7"/>
+  <text x="344" y="806" fill="#555" font-size="11">連鎖ループ</text>
+</svg>
+</div>
+</body>
+</html>
