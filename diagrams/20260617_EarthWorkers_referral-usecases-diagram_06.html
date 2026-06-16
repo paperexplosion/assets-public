@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { width: 1400px; height: 900px; overflow: hidden; background: #EEF2FF;
+    font-family: 'Hiragino Sans', 'Yu Gothic UI', 'Noto Sans JP', sans-serif; }
+  .header { background: #4361EE; color: white; padding: 15px 36px; display: flex; align-items: center; gap: 20px; }
+  .badge { background: rgba(255,255,255,0.2); border-radius: 20px; padding: 4px 14px; font-size: 11px; font-weight: 700; letter-spacing: 0.1em; white-space: nowrap; }
+  .header h1 { font-size: 19px; font-weight: 800; }
+  .header .sub { font-size: 11px; opacity: 0.8; margin-top: 2px; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="badge">EARTHWORKERS</div>
+  <div>
+    <h1>紹介システム ── 超ユースケース3パターン（実際にこうやって動く）</h1>
+    <div class="sub">どのシーンで・誰が・何を言って・どうつながるか ｜ 全部リアルシナリオ</div>
+  </div>
+</div>
+<svg viewBox="0 0 1400 838" width="1400" height="838">
+  <defs>
+    <filter id="sh"><feDropShadow dx="0" dy="3" stdDeviation="6" flood-color="#4361EE1A"/></filter>
+    <marker id="arr" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0,10 3.5,0 7" fill="#4361EE"/>
+    </marker>
+    <marker id="arrp" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0,10 3.5,0 7" fill="#7209B7"/>
+    </marker>
+    <marker id="arrg" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0,10 3.5,0 7" fill="#059669"/>
+    </marker>
+  </defs>
+
+  <!-- ===== COL HEADERS ===== -->
+  <rect x="18" y="14" rx="12" width="430" height="46" fill="#4361EE" filter="url(#sh)"/>
+  <text x="233" y="35" text-anchor="middle" fill="white" font-size="13" font-weight="800">📋 シナリオ① 納品直後の「一言」</text>
+  <text x="233" y="52" text-anchor="middle" fill="rgba(255,255,255,0.8)" font-size="10">最も確実・最も即効性が高い</text>
+
+  <rect x="486" y="14" rx="12" width="430" height="46" fill="#7209B7" filter="url(#sh)"/>
+  <text x="701" y="35" text-anchor="middle" fill="white" font-size="13" font-weight="800">🍺 シナリオ② 業界の飲み会で口コミ</text>
+  <text x="701" y="52" text-anchor="middle" fill="rgba(255,255,255,0.8)" font-size="10">設計しなくても勝手に動く・最強ルート</text>
+
+  <rect x="954" y="14" rx="12" width="430" height="46" fill="#059669" filter="url(#sh)"/>
+  <text x="1169" y="35" text-anchor="middle" fill="white" font-size="13" font-weight="800">📱 シナリオ③ LINEで動画が回る</text>
+  <text x="1169" y="52" text-anchor="middle" fill="rgba(255,255,255,0.8)" font-size="10">寝ている間に広がる・デジタル口コミ</text>
+
+  <!-- ====== SCENARIO 1 ====== -->
+  <!-- Step 1 -->
+  <rect x="18" y="72" rx="10" width="430" height="64" fill="white" stroke="#C7D2FE" stroke-width="1.5" filter="url(#sh)"/>
+  <circle cx="46" cy="98" r="14" fill="#4361EE"/>
+  <text x="46" y="103" text-anchor="middle" fill="white" font-size="11" font-weight="800">1</text>
+  <text x="72" y="94" fill="#333" font-size="12" font-weight="700">Kotobukiへの動画納品ミーティング終了</text>
+  <text x="72" y="112" fill="#555" font-size="11">「できあがりました！ありがとうございました。」</text>
+  <text x="72" y="128" fill="#888" font-size="10">← ここが感謝のピーク。このタイミングを逃さない。</text>
+
+  <path d="M 233 136 L 233 154" stroke="#4361EE" stroke-width="2" marker-end="url(#arr)"/>
+
+  <!-- Step 2 -->
+  <rect x="18" y="156" rx="10" width="430" height="80" fill="#EEF2FF" stroke="#4361EE" stroke-width="2" filter="url(#sh)"/>
+  <circle cx="46" cy="186" r="14" fill="#4361EE"/>
+  <text x="46" y="191" text-anchor="middle" fill="white" font-size="11" font-weight="800">2</text>
+  <text x="72" y="178" fill="#4361EE" font-size="12" font-weight="800">鈴木またはKudoが一言添える</text>
+  <rect x="72" y="188" rx="6" width="368" height="42" fill="white" stroke="#C7D2FE" stroke-width="1"/>
+  <text x="88" y="207" fill="#333" font-size="11">「あの、もし気が向いたら——同業の方で似た課題をお持ちの</text>
+  <text x="88" y="222" fill="#333" font-size="11"> 方がいたら、この動画のURL、LINEで送ってもらえると嬉しいです」</text>
+
+  <path d="M 233 236 L 233 254" stroke="#4361EE" stroke-width="2" marker-end="url(#arr)"/>
+
+  <!-- Step 3 -->
+  <rect x="18" y="256" rx="10" width="430" height="64" fill="white" stroke="#C7D2FE" stroke-width="1.5" filter="url(#sh)"/>
+  <circle cx="46" cy="282" r="14" fill="#4361EE"/>
+  <text x="46" y="287" text-anchor="middle" fill="white" font-size="11" font-weight="800">3</text>
+  <text x="72" y="278" fill="#333" font-size="12" font-weight="700">Kotobuki担当者：「ああ、Wakachikusの〇〇さんとは</text>
+  <text x="72" y="294" fill="#333" font-size="12">　飲み仲間だよ。連絡してみようか」</text>
+  <text x="72" y="312" fill="#888" font-size="10">← 「気が向いたら」の言葉が相手に判断権を与えた。</text>
+
+  <path d="M 233 320 L 233 338" stroke="#4361EE" stroke-width="2" marker-end="url(#arr)"/>
+
+  <!-- Step 4 -->
+  <rect x="18" y="340" rx="10" width="430" height="64" fill="white" stroke="#C7D2FE" stroke-width="1.5" filter="url(#sh)"/>
+  <circle cx="46" cy="366" r="14" fill="#4361EE"/>
+  <text x="46" y="371" text-anchor="middle" fill="white" font-size="11" font-weight="800">4</text>
+  <text x="72" y="362" fill="#333" font-size="12" font-weight="700">KotobukiがWakachiku担当者にLINE</text>
+  <text x="72" y="378" fill="#555" font-size="11">「これ、うちでやってもらった動画。なかなかいいよ。」</text>
+  <text x="72" y="396" fill="#888" font-size="10">← 紹介者は「宣伝」ではなく「共有」している感覚。</text>
+
+  <path d="M 233 404 L 233 422" stroke="#059669" stroke-width="2" marker-end="url(#arrg)"/>
+
+  <!-- Step 5: Result -->
+  <rect x="18" y="424" rx="10" width="430" height="64" fill="#ECFDF5" stroke="#059669" stroke-width="2" filter="url(#sh)"/>
+  <circle cx="46" cy="450" r="14" fill="#059669"/>
+  <text x="46" y="455" text-anchor="middle" fill="white" font-size="13">✓</text>
+  <text x="72" y="446" fill="#059669" font-size="12" font-weight="800">Wakachiku担当者から問い合わせ</text>
+  <text x="72" y="462" fill="#555" font-size="11">「〇〇さんから動画見せてもらいました。詳しく聞かせてください」</text>
+  <text x="72" y="480" fill="#059669" font-size="10" font-weight="700">→ 初対面でも信頼ベースラインが高い状態でスタート</text>
+
+  <!-- Key Point -->
+  <rect x="18" y="500" rx="10" width="430" height="44" fill="#FFF0F8" stroke="#F72585" stroke-width="1.5"/>
+  <text x="233" y="520" text-anchor="middle" fill="#F72585" font-size="11" font-weight="800">設計のコツ：「紹介してください」は言わない。「気が向いたらURL送って」が正解。</text>
+
+  <!-- ====== SCENARIO 2 ====== -->
+  <rect x="486" y="72" rx="10" width="430" height="64" fill="white" stroke="#DDD6FE" stroke-width="1.5" filter="url(#sh)"/>
+  <circle cx="514" cy="98" r="14" fill="#7209B7"/>
+  <text x="514" y="103" text-anchor="middle" fill="white" font-size="11" font-weight="800">1</text>
+  <text x="540" y="94" fill="#333" font-size="12" font-weight="700">建設業界の懇親会（業界団体・協会の飲み会）</text>
+  <text x="540" y="112" fill="#555" font-size="11">Kotobuki部長が参加。旧知の仲間たちと乾杯中。</text>
+  <text x="540" y="128" fill="#888" font-size="10">← 年2〜3回の定例飲み会。全員顔見知り。</text>
+
+  <path d="M 701 136 L 701 154" stroke="#7209B7" stroke-width="2" marker-end="url(#arrp)"/>
+
+  <rect x="486" y="156" rx="10" width="430" height="80" fill="#F5F3FF" stroke="#7209B7" stroke-width="2" filter="url(#sh)"/>
+  <circle cx="514" cy="186" r="14" fill="#7209B7"/>
+  <text x="514" y="191" text-anchor="middle" fill="white" font-size="11" font-weight="800">2</text>
+  <text x="540" y="178" fill="#7209B7" font-size="12" font-weight="800">Kotobuki部長が話題にする（自然発生）</text>
+  <rect x="540" y="188" rx="6" width="368" height="42" fill="white" stroke="#DDD6FE" stroke-width="1"/>
+  <text x="556" y="207" fill="#333" font-size="11">「最近おもしろいことやってさ、ドキュメンタリーマーケティングって</text>
+  <text x="556" y="222" fill="#333" font-size="11"> いうやつ。うちの採用動画、ちょっと違うから見てみて。」</text>
+
+  <path d="M 701 236 L 701 254" stroke="#7209B7" stroke-width="2" marker-end="url(#arrp)"/>
+
+  <rect x="486" y="256" rx="10" width="430" height="64" fill="white" stroke="#DDD6FE" stroke-width="1.5" filter="url(#sh)"/>
+  <circle cx="514" cy="282" r="14" fill="#7209B7"/>
+  <text x="514" y="287" text-anchor="middle" fill="white" font-size="11" font-weight="800">3</text>
+  <text x="540" y="278" fill="#333" font-size="12" font-weight="700">スマホで動画URLを見せる（2分）</text>
+  <text x="540" y="294" fill="#555" font-size="11">その場で動画再生。3人が画面を覗き込む。</text>
+  <text x="540" y="312" fill="#888" font-size="10">← 酒の席の「ながら視聴」でも2分なら最後まで見る。</text>
+
+  <path d="M 701 320 L 701 338" stroke="#7209B7" stroke-width="2" marker-end="url(#arrp)"/>
+
+  <rect x="486" y="340" rx="10" width="430" height="64" fill="white" stroke="#DDD6FE" stroke-width="1.5" filter="url(#sh)"/>
+  <circle cx="514" cy="366" r="14" fill="#7209B7"/>
+  <text x="514" y="371" text-anchor="middle" fill="white" font-size="11" font-weight="800">4</text>
+  <text x="540" y="362" fill="#333" font-size="12" font-weight="700">Goyo担当者：「これ、うちでもできる？」</text>
+  <text x="540" y="378" fill="#555" font-size="11">「これ誰がやってるの？」「どこに頼んだの？」</text>
+  <text x="540" y="396" fill="#888" font-size="10">← 鈴木・Kudoは会場にいなくても話が進んでいる。</text>
+
+  <path d="M 701 404 L 701 422" stroke="#059669" stroke-width="2" marker-end="url(#arrg)"/>
+
+  <rect x="486" y="424" rx="10" width="430" height="64" fill="#ECFDF5" stroke="#059669" stroke-width="2" filter="url(#sh)"/>
+  <circle cx="514" cy="450" r="14" fill="#059669"/>
+  <text x="514" y="455" text-anchor="middle" fill="white" font-size="13">✓</text>
+  <text x="540" y="446" fill="#059669" font-size="12" font-weight="800">翌日、Kotobukiからメッセージ</text>
+  <text x="540" y="462" fill="#555" font-size="11">「昨日の飲み会でGoyoの〇〇さんが興味持ってたよ。連絡してみて」</text>
+  <text x="540" y="480" fill="#059669" font-size="10" font-weight="700">→ 自分たちは何もしていない。勝手に広がった。</text>
+
+  <rect x="486" y="500" rx="10" width="430" height="44" fill="#F5F3FF" stroke="#7209B7" stroke-width="1.5"/>
+  <text x="701" y="520" text-anchor="middle" fill="#7209B7" font-size="11" font-weight="800">設計のコツ：動画が「話のタネ」になる。2分動画はスマホで即再生できるサイズ感が命。</text>
+
+  <!-- ====== SCENARIO 3 ====== -->
+  <rect x="954" y="72" rx="10" width="430" height="64" fill="white" stroke="#D1FAE5" stroke-width="1.5" filter="url(#sh)"/>
+  <circle cx="982" cy="98" r="14" fill="#059669"/>
+  <text x="982" y="103" text-anchor="middle" fill="white" font-size="11" font-weight="800">1</text>
+  <text x="1008" y="94" fill="#333" font-size="12" font-weight="700">Kotobuki担当者の建設業LINEグループ</text>
+  <text x="1008" y="112" fill="#555" font-size="11">海洋土木の同業者10〜15人が入るグループチャット。</text>
+  <text x="1008" y="128" fill="#888" font-size="10">← 業界の同業者グループは全国にある。情報交換の場。</text>
+
+  <path d="M 1169 136 L 1169 154" stroke="#059669" stroke-width="2" marker-end="url(#arrg)"/>
+
+  <rect x="954" y="156" rx="10" width="430" height="80" fill="#ECFDF5" stroke="#059669" stroke-width="2" filter="url(#sh)"/>
+  <circle cx="982" cy="186" r="14" fill="#059669"/>
+  <text x="982" y="191" text-anchor="middle" fill="white" font-size="11" font-weight="800">2</text>
+  <text x="1008" y="178" fill="#059669" font-size="12" font-weight="800">担当者がURLをグループに投稿</text>
+  <rect x="1008" y="188" rx="6" width="368" height="42" fill="white" stroke="#D1FAE5" stroke-width="1"/>
+  <text x="1024" y="207" fill="#333" font-size="11">「うちでこんな動画作ってもらいました〜。なかなかいい感じです。</text>
+  <text x="1024" y="222" fill="#333" font-size="11"> よかったら見てみてください 🎬」[URL]</text>
+
+  <path d="M 1169 236 L 1169 254" stroke="#059669" stroke-width="2" marker-end="url(#arrg)"/>
+
+  <rect x="954" y="256" rx="10" width="430" height="64" fill="white" stroke="#D1FAE5" stroke-width="1.5" filter="url(#sh)"/>
+  <circle cx="982" cy="282" r="14" fill="#059669"/>
+  <text x="982" y="287" text-anchor="middle" fill="white" font-size="11" font-weight="800">3</text>
+  <text x="1008" y="278" fill="#333" font-size="12" font-weight="700">グループ内で既読・反応が広がる</text>
+  <text x="1008" y="294" fill="#555" font-size="11">👍リアクション・「すごい」「うちもほしい」コメント</text>
+  <text x="1008" y="312" fill="#888" font-size="10">← 10人が同時に見る。鈴木・Kudoは寝ていても動いている。</text>
+
+  <path d="M 1169 320 L 1169 338" stroke="#059669" stroke-width="2" marker-end="url(#arrg)"/>
+
+  <rect x="954" y="340" rx="10" width="430" height="64" fill="white" stroke="#D1FAE5" stroke-width="1.5" filter="url(#sh)"/>
+  <circle cx="982" cy="366" r="14" fill="#059669"/>
+  <text x="982" y="371" text-anchor="middle" fill="white" font-size="11" font-weight="800">4</text>
+  <text x="1008" y="362" fill="#333" font-size="12" font-weight="700">Toyo担当者がKotobukiにDM</text>
+  <text x="1008" y="378" fill="#555" font-size="11">「これどこの会社ですか？連絡先教えてもらえますか？」</text>
+  <text x="1008" y="396" fill="#888" font-size="10">← 向こうから来る。こちらから売り込まない。</text>
+
+  <path d="M 1169 404 L 1169 422" stroke="#059669" stroke-width="2" marker-end="url(#arrg)"/>
+
+  <rect x="954" y="424" rx="10" width="430" height="64" fill="#ECFDF5" stroke="#059669" stroke-width="2" filter="url(#sh)"/>
+  <circle cx="982" cy="450" r="14" fill="#059669"/>
+  <text x="982" y="455" text-anchor="middle" fill="white" font-size="13">✓</text>
+  <text x="1008" y="446" fill="#059669" font-size="12" font-weight="800">KotobukiからToyoの連絡先が届く</text>
+  <text x="1008" y="462" fill="#555" font-size="11">「Toyoの〇〇さんがぜひ話を聞きたいって。紹介しますね」</text>
+  <text x="1008" y="480" fill="#059669" font-size="10" font-weight="700">→ 夜中にグループに投稿されて、翌朝ピッチ依頼が来ていた。</text>
+
+  <rect x="954" y="500" rx="10" width="430" height="44" fill="#ECFDF5" stroke="#059669" stroke-width="1.5"/>
+  <text x="1169" y="520" text-anchor="middle" fill="#059669" font-size="11" font-weight="800">設計のコツ：URLは必ずLINEで送れるサイズ感に。YouTubeリンクか自社ページで即再生できること。</text>
+
+  <!-- Bottom: 3シナリオ比較 -->
+  <rect x="18" y="558" rx="12" width="1364" height="62" fill="white" stroke="#4361EE" stroke-width="1.5" filter="url(#sh)"/>
+  <text x="700" y="578" text-anchor="middle" fill="#4361EE" font-size="12" font-weight="800">3シナリオに共通する設計原則</text>
+  <text x="700" y="600" text-anchor="middle" fill="#555" font-size="11">「売り込まない」「重さゼロの依頼」「すぐ共有できる素材（2分動画URL）」── この3点が揃えば、紹介は勝手に動く。</text>
+
+  <!-- Scenario type badges -->
+  <rect x="18" y="632" rx="10" width="430" height="52" fill="#EEF2FF" stroke="#4361EE" stroke-width="1.5"/>
+  <text x="233" y="652" text-anchor="middle" fill="#4361EE" font-size="11" font-weight="800">① 納品直後の一言</text>
+  <text x="233" y="670" text-anchor="middle" fill="#555" font-size="11">設計コスト：低　効果：確実　タイミング：Year1から即実行</text>
+
+  <rect x="486" y="632" rx="10" width="430" height="52" fill="#F5F3FF" stroke="#7209B7" stroke-width="1.5"/>
+  <text x="701" y="652" text-anchor="middle" fill="#7209B7" font-size="11" font-weight="800">② 飲み会口コミ</text>
+  <text x="701" y="670" text-anchor="middle" fill="#555" font-size="11">設計コスト：ほぼゼロ　効果：爆発的　タイミング：事例が増えるほど加速</text>
+
+  <rect x="954" y="632" rx="10" width="430" height="52" fill="#ECFDF5" stroke="#059669" stroke-width="1.5"/>
+  <text x="1169" y="652" text-anchor="middle" fill="#059669" font-size="11" font-weight="800">③ LINEで動画が回る</text>
+  <text x="1169" y="670" text-anchor="middle" fill="#555" font-size="11">設計コスト：ゼロ　効果：寝てても動く　タイミング：動画URLを渡した瞬間から</text>
+
+</svg>
+</body>
+</html>
