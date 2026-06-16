@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  width: 1400px; height: 900px;
+  background: #EEF2FF;
+  font-family: 'Hiragino Sans', 'Yu Gothic UI', sans-serif;
+  overflow: hidden;
+}
+</style>
+</head>
+<body>
+<svg width="1400" height="900" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <filter id="sh">
+      <feDropShadow dx="0" dy="3" stdDeviation="5" flood-opacity="0.10"/>
+    </filter>
+  </defs>
+
+  <rect width="1400" height="900" fill="#EEF2FF"/>
+
+  <!-- Title bar -->
+  <rect width="1400" height="70" fill="#1E3A8A"/>
+  <text x="700" y="36" text-anchor="middle" fill="white" font-size="21" font-weight="bold" font-family="'Hiragino Sans', sans-serif">Earth Workers 二社連合 ｜ 売上構造マップ（2029年 未来完了）</text>
+  <text x="700" y="57" text-anchor="middle" fill="#93C5FD" font-size="13" font-family="'Hiragino Sans', sans-serif">スモールフィルム株式会社（映像制作）× ストーリーテリング合同会社（物語設計）→ 合計4億円の仕組み</text>
+
+  <!-- LEFT PANEL: Small Film -->
+  <rect x="18" y="82" width="670" height="658" rx="14" fill="white" filter="url(#sh)"/>
+  <rect x="18" y="82" width="670" height="58" rx="14" fill="#7C3AED"/>
+  <rect x="18" y="110" width="670" height="30" fill="#7C3AED"/>
+  <text x="353" y="112" text-anchor="middle" fill="white" font-size="17" font-weight="bold" font-family="'Hiragino Sans', sans-serif">スモールフィルム株式会社</text>
+  <text x="353" y="132" text-anchor="middle" fill="#DDD6FE" font-size="12" font-family="'Hiragino Sans', sans-serif">現場を知り尽くしている映像制作 ｜ Kudo 代表</text>
+
+  <text x="80" y="198" fill="#7C3AED" font-size="54" font-weight="bold" font-family="'Hiragino Sans', sans-serif">1億円</text>
+  <text x="236" y="182" fill="#374151" font-size="13" font-family="'Hiragino Sans', sans-serif">2029年</text>
+  <text x="236" y="200" fill="#374151" font-size="13" font-family="'Hiragino Sans', sans-serif">年商目標</text>
+
+  <text x="36" y="232" fill="#374151" font-size="12" font-weight="bold" font-family="'Hiragino Sans', sans-serif">▌ 収益の仕組み</text>
+
+  <rect x="36" y="244" width="634" height="76" rx="8" fill="#F5F3FF"/>
+  <rect x="36" y="244" width="5" height="76" rx="3" fill="#7C3AED"/>
+  <text x="52" y="266" fill="#5B21B6" font-size="13" font-weight="bold" font-family="'Hiragino Sans', sans-serif">① リテイナー契約（安定基盤）</text>
+  <rect x="52" y="274" width="488" height="26" rx="5" fill="#7C3AED"/>
+  <text x="296" y="292" text-anchor="middle" fill="white" font-size="12" font-weight="bold" font-family="'Hiragino Sans', sans-serif">12社 × 月65万円 × 12ヶ月 ＝ 9,360万円</text>
+  <text x="554" y="292" fill="#6D28D9" font-size="13" font-weight="bold" font-family="'Hiragino Sans', sans-serif">≒ 93%</text>
+  <text x="52" y="312" fill="#6B7280" font-size="11" font-family="'Hiragino Sans', sans-serif">現場知識が信頼を生み長期契約へ。評判が次を連れてくる。営業費ゼロ。</text>
+
+  <rect x="36" y="330" width="634" height="76" rx="8" fill="#F5F3FF"/>
+  <rect x="36" y="330" width="5" height="76" rx="3" fill="#A78BFA"/>
+  <text x="52" y="352" fill="#5B21B6" font-size="13" font-weight="bold" font-family="'Hiragino Sans', sans-serif">② 単発受注（厳選案件）</text>
+  <rect x="52" y="360" width="108" height="26" rx="5" fill="#A78BFA"/>
+  <text x="106" y="378" text-anchor="middle" fill="white" font-size="12" font-weight="bold" font-family="'Hiragino Sans', sans-serif">8本 × 250万 ＝ 2,000万円</text>
+  <text x="172" y="378" fill="#7C3AED" font-size="13" font-weight="bold" font-family="'Hiragino Sans', sans-serif">　　　　　≒ 7%</text>
+  <text x="52" y="398" fill="#6B7280" font-size="11" font-family="'Hiragino Sans', sans-serif">リテイナー外の価値ある案件のみ受注。単価は2026年比 ×3倍以上。</text>
+
+  <text x="36" y="424" fill="#374151" font-size="12" font-weight="bold" font-family="'Hiragino Sans', sans-serif">▌ 積み上がり方（リテイナー社数 × 単価の変遷）</text>
+
+  <rect x="36" y="434" width="634" height="152" rx="8" fill="#FAFAFA"/>
+  <line x1="92" y1="508" x2="602" y2="508" stroke="#D1D5DB" stroke-width="2"/>
+
+  <circle cx="112" cy="508" r="26" fill="#EDE9FE" stroke="#C4B5FD" stroke-width="2"/>
+  <text x="112" y="503" text-anchor="middle" fill="#7C3AED" font-size="10" font-weight="bold">2026</text>
+  <text x="112" y="518" text-anchor="middle" fill="#7C3AED" font-size="10">720万</text>
+  <text x="112" y="547" text-anchor="middle" fill="#6B7280" font-size="10">単発9本</text>
+  <text x="112" y="561" text-anchor="middle" fill="#9CA3AF" font-size="9">実績づくり</text>
+  <line x1="140" y1="508" x2="200" y2="508" stroke="#C4B5FD" stroke-width="2" stroke-dasharray="4,3"/>
+
+  <circle cx="246" cy="508" r="26" fill="#DDD6FE" stroke="#A78BFA" stroke-width="2"/>
+  <text x="246" y="503" text-anchor="middle" fill="#6D28D9" font-size="10" font-weight="bold">2027</text>
+  <text x="246" y="518" text-anchor="middle" fill="#6D28D9" font-size="10">3,720万</text>
+  <text x="246" y="547" text-anchor="middle" fill="#6B7280" font-size="10">4社・月40万</text>
+  <text x="246" y="561" text-anchor="middle" fill="#9CA3AF" font-size="9">初リテイナー</text>
+  <line x1="274" y1="508" x2="334" y2="508" stroke="#A78BFA" stroke-width="2" stroke-dasharray="4,3"/>
+
+  <circle cx="380" cy="508" r="26" fill="#C4B5FD" stroke="#8B5CF6" stroke-width="2"/>
+  <text x="380" y="503" text-anchor="middle" fill="#4C1D95" font-size="10" font-weight="bold">2028</text>
+  <text x="380" y="518" text-anchor="middle" fill="#4C1D95" font-size="10">9,180万</text>
+  <text x="380" y="547" text-anchor="middle" fill="#6B7280" font-size="10">9社・月55万</text>
+  <text x="380" y="561" text-anchor="middle" fill="#9CA3AF" font-size="9">単価急上昇</text>
+  <line x1="408" y1="508" x2="476" y2="508" stroke="#7C3AED" stroke-width="2.5"/>
+
+  <circle cx="530" cy="508" r="36" fill="#7C3AED" stroke="#6D28D9" stroke-width="2"/>
+  <text x="530" y="502" text-anchor="middle" fill="white" font-size="10" font-weight="bold">2029</text>
+  <text x="530" y="516" text-anchor="middle" fill="white" font-size="11" font-weight="bold">1.1億円</text>
+  <text x="530" y="556" text-anchor="middle" fill="#7C3AED" font-size="11" font-weight="bold">GOAL 達成</text>
+  <text x="530" y="570" text-anchor="middle" fill="#6B7280" font-size="10">12社・月65万</text>
+
+  <rect x="36" y="598" width="634" height="50" rx="8" fill="#EDE9FE"/>
+  <text x="353" y="620" text-anchor="middle" fill="#5B21B6" font-size="13" font-weight="bold" font-family="'Hiragino Sans', sans-serif">「仕事が仕事を連れてくる」</text>
+  <text x="353" y="638" text-anchor="middle" fill="#6D28D9" font-size="12" font-family="'Hiragino Sans', sans-serif">現場知識 × 継続関係 × 評判 → 営業ゼロで単価3年間で3倍超</text>
+
+  <!-- RIGHT PANEL: Storytelling -->
+  <rect x="712" y="82" width="670" height="658" rx="14" fill="white" filter="url(#sh)"/>
+  <rect x="712" y="82" width="670" height="58" rx="14" fill="#1D4ED8"/>
+  <rect x="712" y="110" width="670" height="30" fill="#1D4ED8"/>
+  <text x="1047" y="112" text-anchor="middle" fill="white" font-size="17" font-weight="bold" font-family="'Hiragino Sans', sans-serif">ストーリーテリング合同会社</text>
+  <text x="1047" y="132" text-anchor="middle" fill="#BFDBFE" font-size="12" font-family="'Hiragino Sans', sans-serif">物語設計 × ストーリーマーケティング ｜ 鈴木代表</text>
+
+  <text x="772" y="198" fill="#1D4ED8" font-size="54" font-weight="bold" font-family="'Hiragino Sans', sans-serif">3億円</text>
+  <text x="928" y="182" fill="#374151" font-size="13" font-family="'Hiragino Sans', sans-serif">2029年</text>
+  <text x="928" y="200" fill="#374151" font-size="13" font-family="'Hiragino Sans', sans-serif">年商目標</text>
+
+  <text x="730" y="232" fill="#374151" font-size="12" font-weight="bold" font-family="'Hiragino Sans', sans-serif">▌ 3つの収益柱</text>
+
+  <rect x="730" y="244" width="634" height="86" rx="8" fill="#FFFBEB"/>
+  <rect x="730" y="244" width="5" height="86" rx="3" fill="#D97706"/>
+  <text x="748" y="266" fill="#92400E" font-size="13" font-weight="bold" font-family="'Hiragino Sans', sans-serif">① アースワーカーズ事業</text>
+  <text x="748" y="288" fill="#B45309" font-size="22" font-weight="bold" font-family="'Hiragino Sans', sans-serif">1億円</text>
+  <text x="812" y="282" fill="#78350F" font-size="11" font-family="'Hiragino Sans', sans-serif">全体の33%</text>
+  <text x="748" y="304" fill="#6B7280" font-size="11" font-family="'Hiragino Sans', sans-serif">年間契約12社 × 800万 ＝ 9,600万 ｜ 研修・セミナー 400万</text>
+  <text x="748" y="320" fill="#6B7280" font-size="11" font-family="'Hiragino Sans', sans-serif">HACKTメソッド：各社データ × 物語 → 採用・受注・単価交渉に直結</text>
+
+  <rect x="730" y="340" width="634" height="86" rx="8" fill="#F0FDF4"/>
+  <rect x="730" y="340" width="5" height="86" rx="3" fill="#059669"/>
+  <text x="748" y="362" fill="#065F46" font-size="13" font-weight="bold" font-family="'Hiragino Sans', sans-serif">② AI活用研修・大企業コンサルティング</text>
+  <text x="748" y="384" fill="#047857" font-size="22" font-weight="bold" font-family="'Hiragino Sans', sans-serif">1.2億円</text>
+  <text x="830" y="378" fill="#065F46" font-size="11" font-family="'Hiragino Sans', sans-serif">全体の40%</text>
+  <text x="748" y="400" fill="#6B7280" font-size="11" font-family="'Hiragino Sans', sans-serif">大企業5社 × 年間2,400万円 ｜ ai-survival.orgの信頼 → 先方から来るようになった</text>
+  <text x="748" y="416" fill="#6B7280" font-size="11" font-family="'Hiragino Sans', sans-serif">メディアで届け続けた結果。売り込みなし。</text>
+
+  <rect x="730" y="436" width="634" height="86" rx="8" fill="#EFF6FF"/>
+  <rect x="730" y="436" width="5" height="86" rx="3" fill="#2563EB"/>
+  <text x="748" y="458" fill="#1E3A8A" font-size="13" font-weight="bold" font-family="'Hiragino Sans', sans-serif">③ 大企業コンテンツ設計・ブランドストーリー</text>
+  <text x="748" y="480" fill="#1D4ED8" font-size="22" font-weight="bold" font-family="'Hiragino Sans', sans-serif">0.7億円</text>
+  <text x="832" y="474" fill="#1E3A8A" font-size="11" font-family="'Hiragino Sans', sans-serif">全体の23%</text>
+  <text x="748" y="496" fill="#6B7280" font-size="11" font-family="'Hiragino Sans', sans-serif">Google Leaders Circle Tokyo等 ｜ 年間15〜20件 × 平均500万円</text>
+  <text x="748" y="512" fill="#6B7280" font-size="11" font-family="'Hiragino Sans', sans-serif">物語設計のみ担当。映像制作はSmall Filmへ。二重契約が自然発生。</text>
+
+  <rect x="730" y="532" width="634" height="44" rx="8" fill="#F9FAFB"/>
+  <rect x="730" y="532" width="5" height="44" rx="3" fill="#9CA3AF"/>
+  <text x="748" y="551" fill="#374151" font-size="12" font-weight="bold" font-family="'Hiragino Sans', sans-serif">④ メディア収益・講演・執筆</text>
+  <text x="748" y="568" fill="#6B7280" font-size="11" font-family="'Hiragino Sans', sans-serif">0.1億円 ｜ ai-survival.org スポンサード + 年間講演数本</text>
+
+  <rect x="730" y="586" width="634" height="26" rx="6" fill="#F3F4F6"/>
+  <rect x="730" y="586" width="209" height="26" rx="6" fill="#D97706"/>
+  <rect x="939" y="586" width="254" height="26" fill="#059669"/>
+  <rect x="1193" y="586" width="146" height="26" fill="#2563EB"/>
+  <rect x="1339" y="586" width="25" height="26" rx="6" fill="#9CA3AF"/>
+  <text x="834" y="603" text-anchor="middle" fill="white" font-size="10" font-weight="bold">EW 33%</text>
+  <text x="1066" y="603" text-anchor="middle" fill="white" font-size="10" font-weight="bold">AI研修 40%</text>
+  <text x="1266" y="603" text-anchor="middle" fill="white" font-size="10" font-weight="bold">コンテンツ 23%</text>
+
+  <rect x="730" y="622" width="634" height="50" rx="8" fill="#DBEAFE"/>
+  <text x="1047" y="644" text-anchor="middle" fill="#1E3A8A" font-size="13" font-weight="bold" font-family="'Hiragino Sans', sans-serif">「在り方を先に決めると、仕事が向こうから来る」</text>
+  <text x="1047" y="662" text-anchor="middle" fill="#1D4ED8" font-size="12" font-family="'Hiragino Sans', sans-serif">EW事業 × AI研修 × コンテンツ設計 — 三本柱が支え合う3億円</text>
+
+  <!-- BOTTOM BAR -->
+  <rect x="18" y="752" width="1364" height="130" rx="14" fill="#1E3A8A" filter="url(#sh)"/>
+
+  <text x="210" y="778" text-anchor="middle" fill="#93C5FD" font-size="11" font-family="'Hiragino Sans', sans-serif">スモールフィルム株式会社</text>
+  <text x="210" y="798" text-anchor="middle" fill="white" font-size="15" font-weight="bold" font-family="'Hiragino Sans', sans-serif">「映像をつくる」</text>
+  <text x="210" y="816" text-anchor="middle" fill="#BFDBFE" font-size="11" font-family="'Hiragino Sans', sans-serif">現場知識 × 映画品質</text>
+  <text x="210" y="832" text-anchor="middle" fill="#BFDBFE" font-size="11" font-family="'Hiragino Sans', sans-serif">制作費はSmall Filmへ</text>
+  <text x="210" y="862" text-anchor="middle" fill="white" font-size="22" font-weight="bold" font-family="'Hiragino Sans', sans-serif">1億円</text>
+
+  <line x1="420" y1="762" x2="420" y2="870" stroke="#3B5BA9" stroke-width="1.5"/>
+
+  <text x="700" y="778" text-anchor="middle" fill="#93C5FD" font-size="11" font-family="'Hiragino Sans', sans-serif">住み分け × 連携</text>
+  <text x="700" y="798" text-anchor="middle" fill="white" font-size="14" font-weight="bold" font-family="'Hiragino Sans', sans-serif">映像制作  ✦  物語設計</text>
+  <text x="700" y="816" text-anchor="middle" fill="#BFDBFE" font-size="12" font-family="'Hiragino Sans', sans-serif">クライアントが二社に二重契約</text>
+  <text x="700" y="832" text-anchor="middle" fill="#BFDBFE" font-size="11" font-family="'Hiragino Sans', sans-serif">お互いを食い合わない構造</text>
+  <rect x="580" y="845" width="240" height="24" rx="12" fill="#4361EE"/>
+  <text x="700" y="862" text-anchor="middle" fill="white" font-size="13" font-weight="bold" font-family="'Hiragino Sans', sans-serif">二社合計 ＝ 4億円以上</text>
+
+  <line x1="980" y1="762" x2="980" y2="870" stroke="#3B5BA9" stroke-width="1.5"/>
+
+  <text x="1190" y="778" text-anchor="middle" fill="#93C5FD" font-size="11" font-family="'Hiragino Sans', sans-serif">ストーリーテリング合同会社</text>
+  <text x="1190" y="798" text-anchor="middle" fill="white" font-size="15" font-weight="bold" font-family="'Hiragino Sans', sans-serif">「物語を設計し、届ける」</text>
+  <text x="1190" y="816" text-anchor="middle" fill="#BFDBFE" font-size="11" font-family="'Hiragino Sans', sans-serif">EW × AI研修 × コンテンツ</text>
+  <text x="1190" y="832" text-anchor="middle" fill="#BFDBFE" font-size="11" font-family="'Hiragino Sans', sans-serif">戦略設計料はSTLへ</text>
+  <text x="1190" y="862" text-anchor="middle" fill="white" font-size="22" font-weight="bold" font-family="'Hiragino Sans', sans-serif">3億円</text>
+
+</svg>
+</body>
+</html>
