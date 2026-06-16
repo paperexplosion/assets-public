@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1400">
+<title>五年目の朝に — スタジオと畑の夢</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    width: 1400px;
+    height: 900px;
+    overflow: hidden;
+    background-color: #EEF2FF;
+    font-family: 'Hiragino Sans', 'Yu Gothic UI', 'Meiryo', sans-serif;
+  }
+
+  /* タイトルバー */
+  .title-bar {
+    background: #4361EE;
+    color: white;
+    padding: 16px 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 68px;
+    box-shadow: 0 4px 12px rgba(67,97,238,0.3);
+  }
+  .title-bar h1 {
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+  }
+  .title-bar .subtitle {
+    font-size: 13px;
+    opacity: 0.85;
+    letter-spacing: 0.06em;
+  }
+
+  /* メインキャンバス */
+  .canvas {
+    position: relative;
+    width: 1400px;
+    height: 832px;
+  }
+
+  /* SVGライン（接続線） */
+  .connections {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* 中心ハブ */
+  .hub {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 180px;
+    height: 180px;
+    background: linear-gradient(135deg, #4361EE 0%, #7B2FBE 100%);
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 32px rgba(67,97,238,0.4), 0 0 0 6px rgba(255,255,255,0.6);
+    z-index: 10;
+    text-align: center;
+    color: white;
+  }
+  .hub .hub-emoji {
+    font-size: 36px;
+    margin-bottom: 6px;
+  }
+  .hub .hub-title {
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    line-height: 1.3;
+  }
+  .hub .hub-sub {
+    font-size: 11px;
+    opacity: 0.85;
+    margin-top: 4px;
+    letter-spacing: 0.04em;
+  }
+
+  /* 共通カードスタイル */
+  .card {
+    position: absolute;
+    width: 280px;
+    background: white;
+    border-radius: 14px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.10), 0 1px 4px rgba(0,0,0,0.06);
+    padding: 20px 18px 18px;
+    z-index: 5;
+    transition: transform 0.2s;
+  }
+
+  .card-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid;
+  }
+  .card-icon {
+    font-size: 28px;
+    flex-shrink: 0;
+  }
+  .card-title {
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    line-height: 1.2;
+  }
+  .card-label {
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    opacity: 0.6;
+  }
+
+  .card-items {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+  }
+  .card-items li {
+    font-size: 12px;
+    color: #374151;
+    line-height: 1.5;
+    display: flex;
+    align-items: flex-start;
+    gap: 6px;
+  }
+  .card-items li::before {
+    content: '▸';
+    flex-shrink: 0;
+    margin-top: 1px;
+    font-size: 10px;
+  }
+
+  /* カード①農業 — 緑 */
+  .card-farm {
+    top: 60px;
+    left: 70px;
+  }
+  .card-farm .card-header { border-color: #22C55E; }
+  .card-farm .card-title { color: #15803D; }
+  .card-farm .card-label { color: #22C55E; }
+  .card-farm .card-items li::before { color: #22C55E; }
+
+  /* カード②演劇 — オレンジ */
+  .card-theater {
+    top: 60px;
+    right: 70px;
+  }
+  .card-theater .card-header { border-color: #F97316; }
+  .card-theater .card-title { color: #C2410C; }
+  .card-theater .card-label { color: #F97316; }
+  .card-theater .card-items li::before { color: #F97316; }
+
+  /* カード③映像 — シアン */
+  .card-video {
+    bottom: 80px;
+    right: 70px;
+  }
+  .card-video .card-header { border-color: #06B6D4; }
+  .card-video .card-title { color: #0E7490; }
+  .card-video .card-label { color: #06B6D4; }
+  .card-video .card-items li::before { color: #06B6D4; }
+
+  /* カード④資金と哲学 — 紫 */
+  .card-philosophy {
+    bottom: 80px;
+    left: 70px;
+  }
+  .card-philosophy .card-header { border-color: #A855F7; }
+  .card-philosophy .card-title { color: #7E22CE; }
+  .card-philosophy .card-label { color: #A855F7; }
+  .card-philosophy .card-items li::before { color: #A855F7; }
+
+  /* キャッチフレーズ帯（下部） */
+  .tagline {
+    position: absolute;
+    bottom: 14px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(67,97,238,0.10);
+    border: 1px solid rgba(67,97,238,0.20);
+    border-radius: 24px;
+    padding: 8px 28px;
+    font-size: 12px;
+    color: #4361EE;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    white-space: nowrap;
+    z-index: 10;
+  }
+</style>
+</head>
+<body>
+
+<!-- タイトルバー -->
+<div class="title-bar">
+  <h1>五年目の朝に — スタジオと畑の夢</h1>
+  <span class="subtitle">忍者宿 × アースワーカーズ → スタジオ × 畑 × 映像制作 / 2026.06.16</span>
+</div>
+
+<!-- メインキャンバス -->
+<div class="canvas">
+
+  <!-- 接続線 SVG -->
+  <svg class="connections" viewBox="0 0 1400 832" preserveAspectRatio="none">
+    <!-- 中心ハブ座標: 700, 416 -->
+    <!-- カード中心: 農業(210,240) 演劇(1190,240) 映像(1190,580) 哲学(210,580) -->
+    <!-- 農業 -->
+    <line x1="700" y1="416" x2="350" y2="240" stroke="#22C55E" stroke-width="2.5" stroke-dasharray="8,5" opacity="0.55"/>
+    <!-- 演劇 -->
+    <line x1="700" y1="416" x2="1050" y2="240" stroke="#F97316" stroke-width="2.5" stroke-dasharray="8,5" opacity="0.55"/>
+    <!-- 映像 -->
+    <line x1="700" y1="416" x2="1050" y2="580" stroke="#06B6D4" stroke-width="2.5" stroke-dasharray="8,5" opacity="0.55"/>
+    <!-- 哲学 -->
+    <line x1="700" y1="416" x2="350" y2="580" stroke="#A855F7" stroke-width="2.5" stroke-dasharray="8,5" opacity="0.55"/>
+  </svg>
+
+  <!-- 中心ハブ -->
+  <div class="hub">
+    <div class="hub-emoji">🌀</div>
+    <div class="hub-title">五年目の場所</div>
+    <div class="hub-sub">みんなの渦</div>
+  </div>
+
+  <!-- カード① 農業の柱 -->
+  <div class="card card-farm">
+    <div class="card-header">
+      <span class="card-icon">🌱</span>
+      <div>
+        <div class="card-label">柱 ①</div>
+        <div class="card-title">農業の柱</div>
+      </div>
+    </div>
+    <ul class="card-items">
+      <li>ヤギ3頭・牛1頭・鶏十数羽・養蜂4箱</li>
+      <li>畑は思想の根拠。コンテンツ素材ではない</li>
+      <li>土を耕すことが舞台の身体を変える</li>
+      <li>生活の基盤として農が在る</li>
+    </ul>
+  </div>
+
+  <!-- カード② 演劇の柱 -->
+  <div class="card card-theater">
+    <div class="card-header">
+      <span class="card-icon">🎭</span>
+      <div>
+        <div class="card-label">柱 ②</div>
+        <div class="card-title">演劇の柱</div>
+      </div>
+    </div>
+    <ul class="card-items">
+      <li>遠景劇場：赤テントを積んだ軽トラで駅前上演</li>
+      <li>子供劇団：紙姉妹的・有機的に誕生</li>
+      <li>幻想的な劇団が世界から集結</li>
+      <li>アジア・ヨーロッパ・アフリカの路上でも上演</li>
+    </ul>
+  </div>
+
+  <!-- カード③ 映像の柱 -->
+  <div class="card card-video">
+    <div class="card-header">
+      <span class="card-icon">🎬</span>
+      <div>
+        <div class="card-label">柱 ③</div>
+        <div class="card-title">映像の柱</div>
+      </div>
+    </div>
+    <ul class="card-items">
+      <li>YouTubeヒットメーカー（Mark Rober級）</li>
+      <li>Kudo氏のドキュメンタリー上映会</li>
+      <li>世界旅行 → 発見 → スタジオで発表のサイクル</li>
+      <li>スタジオ貸し出しも可能</li>
+    </ul>
+  </div>
+
+  <!-- カード④ 資金と哲学 -->
+  <div class="card card-philosophy">
+    <div class="card-header">
+      <span class="card-icon">💡</span>
+      <div>
+        <div class="card-label">柱 ④</div>
+        <div class="card-title">資金と哲学</div>
+      </div>
+    </div>
+    <ul class="card-items">
+      <li>資金源：忍者宿 + アースワーカーズ収益</li>
+      <li>Otaki Fuyuka メソッド：在り方を先に決める</li>
+      <li>採算より実験。失敗が次を生む</li>
+      <li>本・オフグリッドメディアへの愛（電池なし）</li>
+    </ul>
+  </div>
+
+  <!-- キャッチフレーズ -->
+  <div class="tagline">世界中から人が集まり渦を巻く場所 — 誰のものでもない「みんなのもの」</div>
+
+</div><!-- /canvas -->
+
+</body>
+</html>
