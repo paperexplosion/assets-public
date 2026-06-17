@@ -1,0 +1,318 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+<title>Markmap</title>
+<style>
+* {
+  margin: 0;
+  padding: 0;
+}
+html {
+  font-family: ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji',
+    'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+}
+#mindmap {
+  display: block;
+  width: 100vw;
+  height: 100vh;
+}
+.markmap-dark {
+  background: #27272a;
+  color: white;
+}
+</style>
+
+</head>
+<body>
+<svg id="mindmap"></svg>
+<script src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js"></script><script src="https://cdn.jsdelivr.net/npm/markmap-view@0.18.12/dist/browser/index.js"></script><script>((getMarkmap, getOptions, root2, jsonOptions) => {
+              const markmap = getMarkmap();
+              window.mm = markmap.Markmap.create(
+                "svg#mindmap",
+                (getOptions || markmap.deriveOptions)(jsonOptions),
+                root2
+              );
+              if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+                document.documentElement.classList.add("markmap-dark");
+              }
+            })(() => window.markmap,null,{"content":"EarthWorkers &#x5b9f;&#x884c;&#x8a08;&#x753b;","children":[{"content":"&#x4e8b;&#x696d;&#x6982;&#x8981;","children":[{"content":"&#x30b9;&#x30e2;&#x30fc;&#x30eb;&#x30d5;&#x30a3;&#x30eb;&#x30e0;&#x682a;&#x5f0f;&#x4f1a;&#x793e;&#xff08;smallfilm.co.jp&#xff09;","children":[],"payload":{"tag":"li","lines":"3,4"}},{"content":"&#x571f;&#x6728;&#x5efa;&#x8a2d;&#x696d;&#x754c;&#x5411;&#x3051;&#x30c9;&#x30ad;&#x30e5;&#x30e1;&#x30f3;&#x30bf;&#x30ea;&#x30fc;&#x30de;&#x30fc;&#x30b1;&#x30c6;&#x30a3;&#x30f3;&#x30b0;","children":[],"payload":{"tag":"li","lines":"4,5"}},{"content":"&#x9234;&#x6728;&#xff08;&#x6226;&#x7565;&#xff09;&#xd7; Kudo&#xff08;&#x6620;&#x50cf;&#x5236;&#x4f5c;&#xff09;&#x306e;&#x5171;&#x540c;&#x4e8b;&#x696d;","children":[],"payload":{"tag":"li","lines":"5,6"}},{"content":"&#x30d3;&#x30b8;&#x30cd;&#x30b9;&#x30e2;&#x30c7;&#x30eb;&#xff1a;&#x696d;&#x754c;&#x58f2;&#x4e0a;10%&#x6210;&#x9577; &#xd7; 1% = &#x5831;&#x916c;","children":[],"payload":{"tag":"li","lines":"6,8"}}],"payload":{"tag":"h2","lines":"2,3"}},{"content":"&#x30ad;&#x30fc;&#x30de;&#x30f3;2&#x4eba;","children":[{"content":"Asaga&#x6240;&#x9577;&#xff08;Wakachiku Kensetsu&#xff09;","children":[{"content":"Kudo&#x3055;&#x3093;&#x3068;1&#x5e74;&#x9593;&#x306e;YouTube&#x53d6;&#x308a;&#x7d44;&#x307f;&#x5b9f;&#x7e3e;","children":[],"payload":{"tag":"li","lines":"10,11"}},{"content":"&#x9ad8;&#x8996;&#x8074;&#x56de;&#x6570;&#x3092;&#x9054;&#x6210;","children":[],"payload":{"tag":"li","lines":"11,12"}},{"content":"&#x6b66;&#x5668;&#xff1a;&#x6570;&#x5024;&#x3067;&#x8a9e;&#x308c;&#x308b;&#x52d5;&#x304f;&#x8a3c;&#x62e0;","children":[],"payload":{"tag":"li","lines":"12,13"}},{"content":"&#x6025;&#x52d9;&#xff1a;YouTube&#x5b9f;&#x7e3e;&#x3092;&#x6570;&#x5024;&#x5316;&#xff08;&#x8996;&#x8074;&#x56de;&#x6570;&#x30fb;&#x6c42;&#x4eba;&#x5fdc;&#x52df;&#x5897;&#x52a0;&#x6570;&#xff09;","children":[],"payload":{"tag":"li","lines":"13,15"}}],"payload":{"tag":"h3","lines":"9,10"}},{"content":"Kotobuki&#x793e;&#x9577;&#xff08;&#x3053;&#x3068;&#x3076;&#x304d;&#x5efa;&#x8a2d;&#xff09;","children":[{"content":"&#x30c9;&#x30ad;&#x30e5;&#x30e1;&#x30f3;&#x30bf;&#x30ea;&#x30fc;&#x6620;&#x50cf;&#x300c;bungodokko&#xff08;&#x6587;&#x8a9e;&#x8aad;&#x8b1b;&#xff09;&#x300d;&#x3042;&#x308a;","children":[],"payload":{"tag":"li","lines":"16,17"}},{"content":"&#x5c55;&#x793a;&#x4f1a;&#x30fb;&#x696d;&#x754c;&#x30d5;&#x30a7;&#x30a2;&#x3078;&#x306e;&#x767b;&#x58c7;&#x610f;&#x6b32;&#x65fa;&#x76db;","children":[],"payload":{"tag":"li","lines":"17,18"}},{"content":"&#x6b66;&#x5668;&#xff1a;&#x696d;&#x754c;&#x3078;&#x306e;&#x5f71;&#x97ff;&#x529b;&#x30fb;&#x52d5;&#x304f;&#x8ef8;","children":[],"payload":{"tag":"li","lines":"18,19"}},{"content":"Kudo&#x3055;&#x3093;&#x306e;&#x65e2;&#x5b58;&#x30af;&#x30e9;&#x30a4;&#x30a2;&#x30f3;&#x30c8;&#xff08;&#x7d39;&#x4ecb;&#x5143;&#xff09;","children":[],"payload":{"tag":"li","lines":"19,21"}}],"payload":{"tag":"h3","lines":"15,16"}}],"payload":{"tag":"h2","lines":"8,9"}},{"content":"&#x5b9f;&#x884c;&#x8a08;&#x753b;","children":[{"content":"Phase 1&#xff08;&#x4eca;&#x3059;&#x3050;&#x301c;1&#x30f6;&#x6708;&#xff09;&#xff1a;&#x57fa;&#x76e4;&#x78ba;&#x8a8d;&#x30fb;&#x6253;&#x8a3a;","children":[{"content":"Kudo&#xff1a;Asaga&#x6240;&#x9577;&#x306b;YouTube&#x6570;&#x5024;&#x3092;&#x78ba;&#x8a8d;","children":[],"payload":{"tag":"li","lines":"23,24"}},{"content":"&#x9234;&#x6728;&#xff1a;&#x571f;&#x6728;&#x696d;&#x754c;&#x5c55;&#x793a;&#x4f1a;&#x30b9;&#x30b1;&#x30b8;&#x30e5;&#x30fc;&#x30eb;&#x8abf;&#x67fb;","children":[],"payload":{"tag":"li","lines":"24,25"}},{"content":"Kudo&#xff1a;Kotobuki&#x793e;&#x9577;&#x306b;&#x5c55;&#x793a;&#x4f1a;&#x767b;&#x58c7;&#x6253;&#x8a3a;","children":[],"payload":{"tag":"li","lines":"25,27"}}],"payload":{"tag":"h3","lines":"22,23"}},{"content":"Phase 2&#xff08;1&#x301c;3&#x30f6;&#x6708;&#xff09;&#xff1a;&#x8a3c;&#x62e0;&#x4f5c;&#x6210;&#x30fb;&#x4ed5;&#x7d44;&#x307f;&#x8a2d;&#x8a08;","children":[{"content":"&#x9234;&#x6728;&#xff1a;Wakachiku&#x4e8b;&#x4f8b;&#x30b7;&#x30fc;&#x30c8;1&#x679a;&#x4f5c;&#x6210;&#xff08;&#x8ab2;&#x984c;&#x2192;&#x30d7;&#x30ed;&#x30bb;&#x30b9;&#x2192;&#x6210;&#x679c; &#x6570;&#x5024;3&#x70b9;&#xff09;","children":[],"payload":{"tag":"li","lines":"28,29"}},{"content":"&#x4e21;&#x8005;&#xff1a;&#x5c55;&#x793a;&#x4f1a;&#x5f8c;&#x30d5;&#x30a9;&#x30ed;&#x30fc;&#x30d5;&#x30ed;&#x30fc;&#x8a2d;&#x8a08;&#xff08;&#x8ab0;&#x304c;&#x30fb;&#x3044;&#x3064;&#x30fb;&#x4f55;&#x3092;&#x9001;&#x308b;&#xff09;","children":[],"payload":{"tag":"li","lines":"29,31"}}],"payload":{"tag":"h3","lines":"27,28"}},{"content":"Phase 3&#xff08;3&#x301c;6&#x30f6;&#x6708;&#xff09;&#xff1a;&#x5c55;&#x793a;&#x4f1a;&#x5b9f;&#x65bd;&#x30fb;&#x30ea;&#x30fc;&#x30c9;&#x7372;&#x5f97;","children":[{"content":"Kotobuki&#x793e;&#x9577; &#xd7; &#x696d;&#x754c;&#x5c55;&#x793a;&#x4f1a;&#x767b;&#x58c7;","children":[],"payload":{"tag":"li","lines":"32,33"}},{"content":"&#x540d;&#x523a;&#x4ea4;&#x63db; &#x2192; &#x52d5;&#x753b;&#x9001;&#x4ed8; &#x2192; &#x30a2;&#x30dd;&#x5165;&#x308c;&#x30d5;&#x30ed;&#x30fc;&#x5b9f;&#x884c;","children":[],"payload":{"tag":"li","lines":"33,34"}},{"content":"&#x9234;&#x6728;&#xff1a;&#x30d5;&#x30a9;&#x30ed;&#x30fc;&#x30bb;&#x30df;&#x30ca;&#x30fc;&#x8a2d;&#x8a08;&#x958b;&#x59cb;","children":[],"payload":{"tag":"li","lines":"34,36"}}],"payload":{"tag":"h3","lines":"31,32"}},{"content":"Phase 4&#xff08;6&#x30f6;&#x6708;&#x301c;1&#x5e74;&#xff09;&#xff1a;&#x30b9;&#x30b1;&#x30fc;&#x30eb;&#x30fb;&#x30c7;&#x30b8;&#x30bf;&#x30eb;&#x5c55;&#x958b;","children":[{"content":"&#x5c55;&#x793a;&#x4f1a;&#x63a5;&#x89e6;&#x8005;&#x3078;&#x306e;&#x5171;&#x50ac;&#x30bb;&#x30df;&#x30ca;&#x30fc;&#x5b9f;&#x65bd;","children":[],"payload":{"tag":"li","lines":"37,38"}},{"content":"&#x4e8b;&#x4f8b;3&#x793e;&#x9054;&#x6210; &#x2192; &#x30db;&#x30ef;&#x30a4;&#x30c8;&#x30da;&#x30fc;&#x30d1;&#x30fc;&#x4f5c;&#x6210;","children":[],"payload":{"tag":"li","lines":"38,39"}},{"content":"&#x30ea;&#x30b9;&#x30c6;&#x30a3;&#x30f3;&#x30b0;&#x5e83;&#x544a;&#x5c55;&#x958b;","children":[],"payload":{"tag":"li","lines":"39,41"}}],"payload":{"tag":"h3","lines":"36,37"}}],"payload":{"tag":"h2","lines":"21,22"}},{"content":"3&#x30ab;&#x5e74;&#x30b4;&#x30fc;&#x30eb;","children":[{"content":"1&#x5e74;&#x76ee;&#xff1a;Kotobuki/Wakachiku&#x5468;&#x8fba;&#x3067;3&#x301c;5&#x793e;&#x53d7;&#x6ce8;&#x78ba;&#x7acb;","children":[],"payload":{"tag":"li","lines":"42,43"}},{"content":"2&#x5e74;&#x76ee;&#xff1a;&#x7d39;&#x4ecb;&#x30b9;&#x30ce;&#x30fc;&#x30dc;&#x30fc;&#x30eb;&#x8d77;&#x52d5;&#xff08;1&#x793e;&#x2192;3&#x793e;&#x2192;9&#x793e;&#xff09;","children":[],"payload":{"tag":"li","lines":"43,44"}},{"content":"3&#x5e74;&#x76ee;&#xff1a;&#x696d;&#x754c;&#x30d5;&#x30a7;&#x30a2;&#xd7;&#x30bb;&#x30df;&#x30ca;&#x30fc;&#x3067;&#x6e26;&#x3092;&#x8d77;&#x3053;&#x3059; / &#x30c7;&#x30b8;&#x30bf;&#x30eb;&#x5c55;&#x958b;","children":[],"payload":{"tag":"li","lines":"44,46"}}],"payload":{"tag":"h2","lines":"41,42"}},{"content":"B2B&#x30de;&#x30fc;&#x30b1;&#x66f8;&#x7c4d; &#x7167;&#x5408;&#x7d50;&#x679c;","children":[{"content":"&#x65b9;&#x5411;&#x6027;&#x306f;&#x6b63;&#x3057;&#x3044;&#x3002;&#x512a;&#x5148;&#x9806;&#x4f4d;&#x306e;&#x8a2d;&#x8a08;&#x304c;&#x3059;&#x3079;&#x3066;&#x3002;","children":[{"content":"&#x30cb;&#x30c3;&#x30c1;&#xd7;&#x696d;&#x754c;&#x7279;&#x5316; &#x2192; &#x5c55;&#x793a;&#x4f1a;&#x512a;&#x5148; &#x2192; Kotobuki&#x767b;&#x58c7;&#x3068;&#x5b8c;&#x5168;&#x4e00;&#x81f4;","children":[],"payload":{"tag":"li","lines":"48,49"}},{"content":"YouTube &#xd7; B2B&#x76f8;&#x6027;&#x6700;&#x826f; &#x2192; Asaga&#x6240;&#x9577;&#x5b9f;&#x7e3e;&#x304c;&#x6700;&#x5f37;&#x306e;&#x8a3c;&#x62e0;","children":[],"payload":{"tag":"li","lines":"49,50"}},{"content":"&#x53d7;&#x6ce8;&#x306b;&#x8fd1;&#x3044;&#x65bd;&#x7b56;&#x304b;&#x3089;&#x9806;&#x756a;&#x306b; &#x2192; Kotobuki/Wakachiku&#x5468;&#x8fba;&#x3067;&#x56fa;&#x3081;&#x308b;","children":[],"payload":{"tag":"li","lines":"50,51"}},{"content":"&#x4e8b;&#x4f8b;&#x306f;&#x8ab2;&#x984c;&#x30fb;&#x30d7;&#x30ed;&#x30bb;&#x30b9;&#x30fb;&#x6210;&#x679c;&#x306e;&#x6570;&#x5024;3&#x70b9; &#x2192; &#x6570;&#x5024;&#x5316;&#x304c;&#x6025;&#x52d9;","children":[],"payload":{"tag":"li","lines":"51,53"}}],"payload":{"tag":"h3","lines":"47,48"}}],"payload":{"tag":"h2","lines":"46,47"}},{"content":"&#x4f5c;&#x6210;&#x6e08;&#x307f;&#x8cc7;&#x7523;","children":[{"content":"diagram_03&#xff1a;2&#x5206;&#x52d5;&#x753b;&#x30bf;&#x30a4;&#x30e0;&#x30e9;&#x30a4;&#x30f3;&#xff0b;Before/After&#x6570;&#x5024;&#x5316;&#x30c6;&#x30fc;&#x30d6;&#x30eb;","children":[],"payload":{"tag":"li","lines":"54,55"}},{"content":"diagram_04&#xff1a;A4&#x63d0;&#x6848;&#x66f8;&#x30ec;&#x30a4;&#x30a2;&#x30a6;&#x30c8;&#x5b9f;&#x7269;&#xff0b;&#x5404;&#x30d1;&#x30fc;&#x30c4;&#x306e;&#x610f;&#x56f3;&#x89e3;&#x8aac;","children":[],"payload":{"tag":"li","lines":"55,56"}},{"content":"diagram_05&#xff1a;&#x7d39;&#x4ecb;&#x30b7;&#x30b9;&#x30c6;&#x30e0;&#x8a2d;&#x8a08;&#x30d5;&#x30ed;&#x30fc;&#xff08;&#x30b9;&#x30ce;&#x30fc;&#x30dc;&#x30fc;&#x30eb;&#x69cb;&#x9020;&#xff09;","children":[],"payload":{"tag":"li","lines":"56,57"}},{"content":"diagram_06&#xff1a;&#x8d85;&#x30e6;&#x30fc;&#x30b9;&#x30b1;&#x30fc;&#x30b9;3&#x30d1;&#x30bf;&#x30fc;&#x30f3;","children":[],"payload":{"tag":"li","lines":"57,58"}},{"content":"&#x30de;&#x30a4;&#x30f3;&#x30c9;&#x30de;&#x30c3;&#x30d7;&#xd7;2&#xff08;&#x4e8b;&#x4f8b;&#x30d1;&#x30c3;&#x30b1;&#x30fc;&#x30b8;&#x5316;&#x30fb;&#x7d39;&#x4ecb;&#x30b7;&#x30b9;&#x30c6;&#x30e0;&#x8a2d;&#x8a08;&#xff09;","children":[],"payload":{"tag":"li","lines":"58,59"}}],"payload":{"tag":"h2","lines":"53,54"}}],"payload":{"tag":"h1","lines":"0,1"}},null)</script>
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/markmap-toolbar@0.18.10/dist/style.css"
+    />
+
+    <script src="https://cdn.jsdelivr.net/npm/markmap-toolbar@0.18.10/dist/index.js"></script>
+    <script>
+      ((r) => {
+          setTimeout(r);
+      })(() => {
+          const { markmap, mm } = window;
+          const toolbar = new markmap.Toolbar();
+          toolbar.attach(mm);
+          const el = toolbar.render();
+          el.setAttribute(
+              "style",
+              "position:absolute;bottom:20px;right:20px"
+          );
+          document.body.append(el);
+          
+          // Ensure the mind map fits the current view
+          setTimeout(() => {
+            if (mm && typeof mm.fit === 'function') {
+              mm.fit();
+            }
+          }, 1200);
+      });
+    </script>
+  
+
+    <!-- Add html-to-image library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html-to-image/1.11.11/html-to-image.min.js"></script>
+
+    <!-- Hidden element to store original Markdown content -->
+    <textarea id="original-markdown" style="display:none;"># EarthWorkers 実行計画
+
+## 事業概要
+- スモールフィルム株式会社（smallfilm.co.jp）
+- 土木建設業界向けドキュメンタリーマーケティング
+- 鈴木（戦略）× Kudo（映像制作）の共同事業
+- ビジネスモデル：業界売上10%成長 × 1% = 報酬
+
+## キーマン2人
+### Asaga所長（Wakachiku Kensetsu）
+- Kudoさんと1年間のYouTube取り組み実績
+- 高視聴回数を達成
+- 武器：数値で語れる動く証拠
+- 急務：YouTube実績を数値化（視聴回数・求人応募増加数）
+
+### Kotobuki社長（ことぶき建設）
+- ドキュメンタリー映像「bungodokko（文語読講）」あり
+- 展示会・業界フェアへの登壇意欲旺盛
+- 武器：業界への影響力・動く軸
+- Kudoさんの既存クライアント（紹介元）
+
+## 実行計画
+### Phase 1（今すぐ〜1ヶ月）：基盤確認・打診
+- Kudo：Asaga所長にYouTube数値を確認
+- 鈴木：土木業界展示会スケジュール調査
+- Kudo：Kotobuki社長に展示会登壇打診
+
+### Phase 2（1〜3ヶ月）：証拠作成・仕組み設計
+- 鈴木：Wakachiku事例シート1枚作成（課題→プロセス→成果 数値3点）
+- 両者：展示会後フォローフロー設計（誰が・いつ・何を送る）
+
+### Phase 3（3〜6ヶ月）：展示会実施・リード獲得
+- Kotobuki社長 × 業界展示会登壇
+- 名刺交換 → 動画送付 → アポ入れフロー実行
+- 鈴木：フォローセミナー設計開始
+
+### Phase 4（6ヶ月〜1年）：スケール・デジタル展開
+- 展示会接触者への共催セミナー実施
+- 事例3社達成 → ホワイトペーパー作成
+- リスティング広告展開
+
+## 3カ年ゴール
+- 1年目：Kotobuki/Wakachiku周辺で3〜5社受注確立
+- 2年目：紹介スノーボール起動（1社→3社→9社）
+- 3年目：業界フェア×セミナーで渦を起こす / デジタル展開
+
+## B2Bマーケ書籍 照合結果
+### 方向性は正しい。優先順位の設計がすべて。
+- ニッチ×業界特化 → 展示会優先 → Kotobuki登壇と完全一致
+- YouTube × B2B相性最良 → Asaga所長実績が最強の証拠
+- 受注に近い施策から順番に → Kotobuki/Wakachiku周辺で固める
+- 事例は課題・プロセス・成果の数値3点 → 数値化が急務
+
+## 作成済み資産
+- diagram_03：2分動画タイムライン＋Before/After数値化テーブル
+- diagram_04：A4提案書レイアウト実物＋各パーツの意図解説
+- diagram_05：紹介システム設計フロー（スノーボール構造）
+- diagram_06：超ユースケース3パターン
+- マインドマップ×2（事例パッケージ化・紹介システム設計）</textarea>
+
+    <style>
+      /* Export toolbar styles */
+      .mm-export-toolbar {
+        position: fixed;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 1000;
+        background: rgba(255, 255, 255, 0.9);
+        border-radius: 8px;
+        padding: 8px 16px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        display: flex;
+        gap: 10px;
+      }
+      .mm-export-btn {
+        padding: 6px 12px;
+        border: none;
+        border-radius: 4px;
+        background-color: #3498db;
+        color: white;
+        cursor: pointer;
+        font-size: 14px;
+        transition: background-color 0.3s;
+      }
+      .mm-export-btn:hover {
+        background-color: #2980b9;
+      }
+      .mm-copy-btn {
+        background-color: #27ae60;
+      }
+      .mm-copy-btn:hover {
+        background-color: #219653;
+      }
+      @media print {
+        .mm-export-toolbar { display: none !important; }
+        .mm-toolbar { display: none !important; }
+        svg.markmap, svg#mindmap, #mindmap svg { 
+          display: block !important;
+          visibility: visible !important; 
+          opacity: 1 !important;
+          height: 100vh !important;
+          width: 100% !important;
+          max-width: 100% !important;
+          max-height: 100vh !important;
+          overflow: visible !important;
+          page-break-inside: avoid !important;
+        }
+        body, html {
+          height: 100% !important;
+          width: 100% !important;
+          margin: 0 !important;
+          padding: 0 !important;
+          overflow: visible !important;
+        }
+      }
+    </style>
+
+    <script>
+      (function() {
+        // Create bottom export toolbar
+        const exportToolbar = document.createElement('div');
+        exportToolbar.className = 'mm-export-toolbar';
+        document.body.appendChild(exportToolbar);
+        
+        // Export as PNG image
+        const pngBtn = document.createElement('button');
+        pngBtn.className = 'mm-export-btn png-export';
+        pngBtn.innerHTML = 'Export PNG';
+        pngBtn.title = 'Export as PNG image';
+        pngBtn.onclick = () => {
+          exportToImage('png');
+        };
+        exportToolbar.appendChild(pngBtn);
+
+        // Export as JPG image
+        const jpgBtn = document.createElement('button');
+        jpgBtn.className = 'mm-export-btn jpg-export';
+        jpgBtn.innerHTML = 'Export JPG';
+        jpgBtn.title = 'Export as JPG image';
+        jpgBtn.onclick = () => {
+          exportToImage('jpeg');
+        };
+        exportToolbar.appendChild(jpgBtn);
+        
+        // Export as SVG image
+        const svgBtn = document.createElement('button');
+        svgBtn.className = 'mm-export-btn svg-export';
+        svgBtn.innerHTML = 'Export SVG';
+        svgBtn.title = 'Export as SVG image';
+        svgBtn.onclick = () => {
+          exportToImage('svg');
+        };
+        exportToolbar.appendChild(svgBtn);
+
+        // Copy original Markdown button
+        const copyBtn = document.createElement('button');
+        copyBtn.className = 'mm-export-btn mm-copy-btn copy-markdown';
+        copyBtn.innerHTML = 'Copy Markdown';
+        copyBtn.title = 'Copy original Markdown content';
+        copyBtn.onclick = copyOriginalMarkdown;
+        exportToolbar.appendChild(copyBtn);
+
+        // Function to copy original Markdown content
+        function copyOriginalMarkdown() {
+          try {
+            const markdownElement = document.getElementById('original-markdown');
+            if (!markdownElement) {
+              throw new Error('Original Markdown content not found');
+            }
+            
+            const markdownContent = markdownElement.value;
+            
+            // Copy to clipboard
+            navigator.clipboard.writeText(markdownContent)
+              .then(() => {
+                const originalText = copyBtn.innerHTML;
+                copyBtn.innerHTML = '✓ Copied';
+                copyBtn.style.backgroundColor = '#2ecc71';
+                
+                setTimeout(() => {
+                  copyBtn.innerHTML = originalText;
+                  copyBtn.style.backgroundColor = '';
+                }, 2000);
+              })
+              .catch(err => {
+                console.error('Copy failed:', err);
+                alert('Failed to copy to clipboard, please check browser permissions');
+              });
+          } catch (e) {
+            console.error('Error copying Markdown:', e);
+            alert('Unable to copy Markdown: ' + e.message);
+          }
+        }
+
+        // Function to export image
+        function exportToImage(format) {
+          try {
+            const node = window.mm.svg._groups[0][0];
+            
+            if (!node) {
+              throw new Error('Cannot find mind map SVG element');
+            }
+
+            window.mm.fit().then(() => {
+              const options = {
+                backgroundColor: "#ffffff", 
+                quality: 1.0,
+                width: node.getBoundingClientRect().width,
+                height: node.getBoundingClientRect().height
+              };
+              
+              const exportPromise = format === 'svg' 
+                ? htmlToImage.toSvg(node, options)
+                : format === 'jpeg' 
+                  ? htmlToImage.toJpeg(node, options) 
+                  : htmlToImage.toPng(node, options);
+              
+              exportPromise
+                .then((dataUrl) => {
+                  const link = document.createElement('a');
+                  const timestamp = new Date().toISOString().slice(0, 10);
+                  link.download = `markmap-${timestamp}.${format === 'jpeg' ? 'jpg' : format === 'svg' ? 'svg' : 'png'}`;
+                  link.href = dataUrl;
+                  link.click();
+                })
+                .catch((err) => console.error("Export failed:", err));
+            })
+            .catch((err) => {
+                throw err;
+            });
+              
+          } catch (e) {
+            console.error('Error exporting image:', e);
+            alert('Image export failed: ' + e.message);
+          }
+        }
+      })();
+    </script>
+  
+</body>
+</html>
