@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    width: 1400px; height: 900px; overflow: hidden;
+    background: #EEF2FF;
+    font-family: 'Hiragino Sans', 'Yu Gothic UI', sans-serif;
+  }
+  .header {
+    background: #4361EE;
+    color: white;
+    padding: 14px 28px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 66px;
+  }
+  .header h1 { font-size: 20px; font-weight: 700; letter-spacing: 0.04em; }
+  .header .sub { font-size: 12px; opacity: 0.8; margin-top: 2px; }
+  .tag {
+    background: rgba(255,255,255,0.2);
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-size: 11px;
+    margin-left: 6px;
+  }
+  .main {
+    display: grid;
+    grid-template-columns: 270px 1fr 270px;
+    gap: 14px;
+    padding: 14px 20px;
+    height: calc(900px - 66px);
+  }
+
+  /* 共通カード */
+  .card {
+    background: white;
+    border-radius: 14px;
+    padding: 13px 14px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.07);
+  }
+  .card-label {
+    font-size: 10px; font-weight: 700;
+    color: #9CA3AF; text-transform: uppercase;
+    letter-spacing: 0.08em; margin-bottom: 8px;
+  }
+
+  /* 左カラム */
+  .left { display: flex; flex-direction: column; gap: 11px; }
+
+  .person-row { display: flex; align-items: center; gap: 9px; margin-bottom: 9px; }
+  .avatar {
+    width: 34px; height: 34px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 14px; font-weight: 700; color: white; flex-shrink: 0;
+  }
+  .av-s { background: #4361EE; }
+  .av-k { background: #7C3AED; }
+  .person-name { font-size: 13px; font-weight: 700; color: #111; }
+  .person-role { font-size: 10px; color: #6B7280; }
+
+  .task-list { list-style: none; }
+  .task-list li {
+    font-size: 11px; color: #374151;
+    padding: 3px 0 3px 14px;
+    position: relative;
+    border-bottom: 1px solid #F9FAFB;
+    line-height: 1.4;
+  }
+  .task-list li:last-child { border-bottom: none; }
+  .task-list li::before { content: '›'; position: absolute; left: 2px; color: #4361EE; font-weight: 700; }
+  .task-list.kudo li::before { color: #7C3AED; }
+
+  .alert {
+    background: #FFFBEB;
+    border: 2px solid #F59E0B;
+    border-radius: 14px;
+    padding: 11px 13px;
+  }
+  .alert-title { font-size: 11px; font-weight: 700; color: #92400E; margin-bottom: 6px; }
+  .alert p { font-size: 11px; color: #78350F; line-height: 1.5; margin-top: 4px; }
+
+  /* 中央カラム */
+  .center { display: flex; flex-direction: column; gap: 8px; }
+  .center-title {
+    text-align: center; font-size: 13px; font-weight: 700;
+    color: #4361EE; padding: 2px 0; letter-spacing: 0.04em;
+  }
+
+  .phase {
+    background: white; border-radius: 14px;
+    padding: 12px 14px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.07);
+    display: flex; gap: 12px; align-items: flex-start;
+  }
+  .badge {
+    min-width: 72px; text-align: center;
+    padding: 5px 8px; border-radius: 10px;
+    font-size: 10px; font-weight: 700; color: white; line-height: 1.5;
+    flex-shrink: 0;
+  }
+  .b1 { background: #EF4444; }
+  .b2 { background: #F97316; }
+  .b3 { background: #3B82F6; }
+  .b4 { background: #10B981; }
+
+  .ph-body { flex: 1; }
+  .ph-title { font-size: 12px; font-weight: 700; color: #111; margin-bottom: 6px; }
+  .actions { display: flex; flex-direction: column; gap: 4px; }
+  .act {
+    display: flex; align-items: flex-start; gap: 7px;
+    font-size: 11px; color: #374151; line-height: 1.4;
+  }
+  .who {
+    font-size: 9px; font-weight: 700;
+    padding: 2px 5px; border-radius: 4px; color: white;
+    flex-shrink: 0; margin-top: 1px;
+  }
+  .ws { background: #4361EE; }
+  .wk { background: #7C3AED; }
+  .wb { background: #059669; }
+
+  .arrow { text-align: center; color: #D1D5DB; font-size: 16px; line-height: 1; }
+
+  /* 右カラム */
+  .right { display: flex; flex-direction: column; gap: 11px; }
+
+  .keyman { padding: 9px 10px; border-radius: 10px; margin-bottom: 8px; }
+  .keyman:last-child { margin-bottom: 0; }
+  .km-asaga { background: #EFF6FF; border-left: 4px solid #3B82F6; }
+  .km-kotobuki { background: #F5F3FF; border-left: 4px solid #7C3AED; }
+  .km-name { font-size: 13px; font-weight: 700; color: #111; }
+  .km-co { font-size: 10px; color: #6B7280; margin: 2px 0 5px; }
+  .km-weapon { font-size: 11px; color: #374151; line-height: 1.5; }
+  .wlabel {
+    display: inline-block; font-size: 9px; font-weight: 700;
+    padding: 1px 5px; border-radius: 3px; color: white; margin-right: 3px;
+  }
+  .km-asaga .wlabel { background: #3B82F6; }
+  .km-kotobuki .wlabel { background: #7C3AED; }
+
+  .goal-card {
+    background: linear-gradient(135deg, #4361EE 0%, #7C3AED 100%);
+    border-radius: 14px; padding: 13px 14px; color: white;
+  }
+  .goal-label { font-size: 10px; opacity: 0.75; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 8px; }
+  .goal-row { display: flex; align-items: center; gap: 8px; margin-bottom: 7px; font-size: 11px; }
+  .gyear {
+    background: rgba(255,255,255,0.2);
+    padding: 2px 7px; border-radius: 4px;
+    font-size: 10px; font-weight: 700; flex-shrink: 0;
+  }
+
+  .biz {
+    background: white; border-radius: 14px;
+    padding: 10px 14px; text-align: center;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.07);
+  }
+  .biz-f { font-size: 12px; font-weight: 700; color: #4361EE; }
+  .biz-n { font-size: 10px; color: #9CA3AF; margin-top: 3px; }
+
+  .books {
+    background: white; border-radius: 14px;
+    padding: 10px 14px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.07);
+  }
+  .books p { font-size: 11px; color: #374151; line-height: 1.6; }
+  .books .verdict { font-size: 11px; font-weight: 700; color: #4361EE; margin-top: 5px; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div>
+    <h1>EarthWorkers 実行計画書</h1>
+    <div class="sub">鈴木 × Kudo ｜ 土木建設業界ドキュメンタリーマーケティング事業</div>
+  </div>
+  <div>
+    <span class="tag">Wakachiku</span>
+    <span class="tag">Kotobuki</span>
+    <span class="tag">2026-06-17</span>
+  </div>
+</div>
+
+<div class="main">
+
+  <!-- 左：役割分担 -->
+  <div class="left">
+
+    <div class="card">
+      <div class="card-label">鈴木編集長兼社長 の担当</div>
+      <div class="person-row">
+        <div class="avatar av-s">鈴</div>
+        <div>
+          <div class="person-name">鈴木編集長兼社長</div>
+          <div class="person-role">戦略設計 / コンテンツ / 資料作成</div>
+        </div>
+      </div>
+      <ul class="task-list">
+        <li>土木業界展示会・フェアスケジュール調査</li>
+        <li>Wakachiku事例シート1枚作成（数値3点セット）</li>
+        <li>展示会後フォローフロー設計</li>
+        <li>共催セミナー設計・運営（採用・技術継承テーマ）</li>
+        <li>ホワイトペーパー作成（1年以内）</li>
+        <li>リスティング広告展開設計（1年以降）</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-label">Kudo の担当</div>
+      <div class="person-row">
+        <div class="avatar av-k">工</div>
+        <div>
+          <div class="person-name">Kudo</div>
+          <div class="person-role">映像制作 / 現場撮影 / 顧客接点</div>
+        </div>
+      </div>
+      <ul class="task-list kudo">
+        <li>Asaga所長にYouTube数値を確認（視聴回数・求人波及）</li>
+        <li>Kotobuki社長に展示会登壇の打診</li>
+        <li>現場撮影・動画制作・納品</li>
+        <li>既存顧客（Kotobuki等）との関係維持・深耕</li>
+      </ul>
+    </div>
+
+    <div class="alert">
+      <div class="alert-title">⚠ 今すぐ動くべき 2点</div>
+      <p>① Asaga所長YouTube実績を数値化<br>（視聴回数・登録者数・求人応募増加数）</p>
+      <p>② 展示会後フォロー仕組みを事前設計<br>（誰が・いつ・何を送り・どこでアポ化）</p>
+    </div>
+
+  </div>
+
+  <!-- 中央：フェーズロードマップ -->
+  <div class="center">
+    <div class="center-title">▶ フェーズ別 実行ロードマップ</div>
+
+    <div class="phase">
+      <div class="badge b1">Phase 1<br>今すぐ<br>〜1ヶ月</div>
+      <div class="ph-body">
+        <div class="ph-title">基盤確認・打診フェーズ</div>
+        <div class="actions">
+          <div class="act"><span class="who wk">Kudo</span>Asaga所長にYouTubeチャンネルの数値を確認（視聴回数・登録者・求人波及）</div>
+          <div class="act"><span class="who ws">鈴木</span>直近の土木業界展示会・フェアスケジュールを調査・リストアップ</div>
+          <div class="act"><span class="who wk">Kudo</span>Kotobuki社長に展示会登壇の意向確認・打診</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="arrow">↓</div>
+
+    <div class="phase">
+      <div class="badge b2">Phase 2<br>1〜3ヶ月</div>
+      <div class="ph-body">
+        <div class="ph-title">証拠作成・仕組み設計フェーズ</div>
+        <div class="actions">
+          <div class="act"><span class="who ws">鈴木</span>Wakachiku事例シート1枚作成（課題→プロセス→成果の数値3点セット）</div>
+          <div class="act"><span class="who wb">両者</span>展示会後フォローフロー設計（誰が・いつ・何を送り・どこでアポ化するか）</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="arrow">↓</div>
+
+    <div class="phase">
+      <div class="badge b3">Phase 3<br>3〜6ヶ月</div>
+      <div class="ph-body">
+        <div class="ph-title">展示会実施・リード獲得フェーズ</div>
+        <div class="actions">
+          <div class="act"><span class="who wk">Kudo</span>Kotobuki社長 × 業界展示会登壇（bungodokko上映 or 登壇発表）</div>
+          <div class="act"><span class="who wb">両者</span>名刺交換 → 動画送付 → アポ入れフローを実行</div>
+          <div class="act"><span class="who ws">鈴木</span>フォローアップセミナー設計開始（採用・技術継承テーマ）</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="arrow">↓</div>
+
+    <div class="phase">
+      <div class="badge b4">Phase 4<br>6ヶ月〜<br>1年</div>
+      <div class="ph-body">
+        <div class="ph-title">スケール・デジタル展開フェーズ</div>
+        <div class="actions">
+          <div class="act"><span class="who ws">鈴木</span>展示会接触者への共催セミナー実施（採用・技術継承テーマ）</div>
+          <div class="act"><span class="who wb">両者</span>事例3社達成 → ホワイトペーパー作成 → リスティング広告展開</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- 右：キーマン＋ゴール -->
+  <div class="right">
+
+    <div class="card">
+      <div class="card-label">キーマン 2人</div>
+      <div class="keyman km-asaga">
+        <div class="km-name">Asaga所長</div>
+        <div class="km-co">Wakachiku Kensetsu</div>
+        <div class="km-weapon"><span class="wlabel">武器</span>Kudoさんと1年間のYouTube実績・高視聴回数達成。数値で語れる動く証拠。</div>
+      </div>
+      <div class="keyman km-kotobuki">
+        <div class="km-name">Kotobuki社長</div>
+        <div class="km-co">ことぶき建設 / bungodokko（文語読講）</div>
+        <div class="km-weapon"><span class="wlabel">武器</span>ドキュメンタリー映像あり。展示会・業界フェア登壇意欲旺盛。業界の動く軸。</div>
+      </div>
+    </div>
+
+    <div class="goal-card">
+      <div class="goal-label">3カ年ゴール</div>
+      <div class="goal-row"><span class="gyear">1年目</span>Kotobuki×Wakachiku周辺で3〜5社受注確立</div>
+      <div class="goal-row"><span class="gyear">2年目</span>紹介スノーボール起動（1社→3社→9社）</div>
+      <div class="goal-row"><span class="gyear">3年目</span>業界フェア×セミナーで渦を起こす / デジタル展開へ</div>
+    </div>
+
+    <div class="biz">
+      <div class="card-label">ビジネスモデル</div>
+      <div class="biz-f">業界売上10%成長 × 1% = 報酬</div>
+      <div class="biz-n">土木建設業界の成長を共に作り、果実を分かち合う</div>
+    </div>
+
+    <div class="books">
+      <div class="card-label">参照書籍 照合結果</div>
+      <p>📚 BtoBマーケティング打ち手大全<br>📚 マーケティング全施策60</p>
+      <p class="verdict">→ 方向性は正しい。優先順位の設計がすべて。</p>
+    </div>
+
+  </div>
+
+</div>
+
+</body>
+</html>
