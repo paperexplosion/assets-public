@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>Kaza キャラクター量産・動画制作 コスト比較 完全版</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Hiragino Sans', 'Yu Gothic UI', sans-serif; background: #F0F4FF; padding: 40px 30px; color: #1a1a2e; font-size: 12.5px; }
+  h1 { font-size: 20px; color: #fff; background: #4361EE; padding: 16px 24px; border-radius: 12px; margin-bottom: 6px; }
+  .subtitle { font-size: 11px; color: #6b7280; margin-bottom: 24px; }
+  .section-title { font-size: 13px; font-weight: 700; color: #4361EE; background: #E8EDFF; padding: 8px 16px; border-radius: 8px; margin: 26px 0 10px; }
+  table { width: 100%; border-collapse: collapse; background: #fff; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 10px rgba(67,97,238,0.07); font-size: 12px; }
+  thead tr { background: #1a1a2e; color: #fff; }
+  thead th { padding: 10px 12px; text-align: center; font-weight: 600; font-size: 11px; white-space: nowrap; }
+  thead th:first-child { text-align: left; }
+  tbody tr:nth-child(even) { background: #F8F9FF; }
+  tbody tr:hover { background: #EEF2FF; }
+  tbody td { padding: 9px 12px; text-align: center; border-bottom: 1px solid #E8EDFF; vertical-align: middle; line-height: 1.4; }
+  tbody td:first-child { text-align: left; font-weight: 600; }
+  .badge { display: inline-block; padding: 2px 8px; border-radius: 20px; font-size: 10.5px; font-weight: 600; }
+  .best  { background: #D1FAE5; color: #065f46; }
+  .good  { background: #DBEAFE; color: #1e40af; }
+  .mid   { background: #FEF3C7; color: #92400e; }
+  .bad   { background: #FEE2E2; color: #991b1b; }
+  .highlight-row td { background: #EEF2FF !important; }
+  .highlight-row td:first-child { color: #4361EE; font-weight: 700; }
+  .section-divider { background: linear-gradient(135deg, #4361EE, #7C3AED); color: #fff; font-size: 14px; font-weight: 800; padding: 10px 20px; border-radius: 10px; margin: 36px 0 12px; }
+  .cards { display: grid; grid-template-columns: repeat(3,1fr); gap: 12px; margin-top: 10px; }
+  .card { background: #fff; border-radius: 12px; padding: 14px 16px; box-shadow: 0 2px 10px rgba(0,0,0,0.06); border-top: 4px solid #4361EE; }
+  .card.orange { border-top-color: #F59E0B; } .card.green { border-top-color: #10B981; } .card.purple { border-top-color: #7C3AED; }
+  .card-label { font-size: 10px; color: #6b7280; font-weight: 700; margin-bottom: 5px; }
+  .card-title { font-size: 14px; font-weight: 800; color: #1a1a2e; margin-bottom: 4px; }
+  .card-desc { font-size: 10.5px; color: #6b7280; line-height: 1.55; }
+  .note { font-size: 10px; color: #9ca3af; margin-top: 6px; }
+  .yen { font-size: 10px; color: #9ca3af; }
+  sub { font-size: 9px; color: #9ca3af; font-weight: 400; }
+</style>
+</head>
+<body>
+<h1>Kaza キャラクター量産・動画化 ― ツール別コスト・手間 完全比較表（全7パート）</h1>
+<div class="subtitle">2026年6月時点 ／ PART A:静止画 B:動画 C:SD環境 D:フルワークフロー E:クラウドGPU F:初期集中作戦 G:ゆっくり動画</div>
+
+<div class="section-divider">PART A ― 静止画（ポーズ量産）ツール比較</div>
+<div class="section-title">A-① 初期費用・月額プラン</div>
+<table><thead><tr><th>ツール</th><th>無料枠</th><th>推奨プラン</th><th>推奨月額</th><th>年間コスト</th></tr></thead>
+<tbody>
+<tr><td>Midjourney</td><td>なし</td><td>Standard</td><td>$30</td><td>$360</td></tr>
+<tr class="highlight-row"><td>Dzine ⭐推奨</td><td><span class="badge best">32cr/日</span></td><td>Creator</td><td>$19.99</td><td>$240</td></tr>
+<tr><td>fal.ai Kontext</td><td>少量あり</td><td>PAYG</td><td>枚数×$0.04</td><td>生成量次第</td></tr>
+<tr><td>Stability AI API</td><td>少量あり</td><td>PAYG</td><td>枚数×$0.065</td><td>生成量次第</td></tr>
+</tbody></table>
+
+<div class="section-divider">PART B ― 動画生成ツール比較</div>
+<div class="section-title">B-① 月額プラン・5秒動画コスト</div>
+<table><thead><tr><th>ツール</th><th>推奨月額</th><th>5秒動画コスト</th><th>Kaza評価</th></tr></thead>
+<tbody>
+<tr class="highlight-row"><td>Kling AI Pro ⭐</td><td>$25.99</td><td><span class="badge best">$0.15〜0.50</span></td><td><span class="badge best">90/100</span></td></tr>
+<tr><td>Hailuo AI Pro</td><td>$24.99</td><td><span class="badge good">$0.20〜0.30</span></td><td><span class="badge good">75/100</span></td></tr>
+<tr><td>Runway Gen-4.5 Pro</td><td>$35</td><td><span class="badge mid">$0.78</span></td><td><span class="badge mid">70/100</span></td></tr>
+<tr><td>Veo 3.1 Lite (API)</td><td>従量</td><td><span class="badge good">$0.25</span></td><td><span class="badge bad">50/100</span></td></tr>
+<tr><td>Wan 2.x API</td><td>従量</td><td><span class="badge mid">$0.50</span></td><td><span class="badge bad">55/100</span></td></tr>
+</tbody></table>
+
+<div class="section-divider">PART C ― Stable Diffusion 環境比較</div>
+<div class="section-title">C-① 環境タイプ別費用</div>
+<table><thead><tr><th>環境</th><th>初期費用</th><th>月額</th><th>1枚コスト</th><th>キャラ一貫性</th></tr></thead>
+<tbody>
+<tr class="highlight-row"><td>ComfyUI+LoRA ローカルRTX4080</td><td><span class="badge mid">¥150,000〜</span></td><td><span class="badge best">¥0</span></td><td><span class="badge best">¥0</span></td><td><span class="badge best">◎</span></td></tr>
+<tr><td>RunDiffusion（クラウドSD）</td><td><span class="badge best">¥0</span></td><td>$30〜90</td><td>$0.001〜0.01</td><td><span class="badge best">◎</span></td></tr>
+<tr><td>Vast.ai RTX4090</td><td><span class="badge best">¥0</span></td><td>$0.36/時</td><td>$0.001〜0.005</td><td><span class="badge best">◎</span></td></tr>
+<tr><td>Stability AI API</td><td><span class="badge best">¥0</span></td><td>従量</td><td>$0.065</td><td><span class="badge mid">△</span></td></tr>
+</tbody></table>
+
+<div class="section-divider">PART D ― フルワークフロー月間コスト試算</div>
+<div class="section-title">D-① 月200枚静止画＋月10本5秒動画シナリオ</div>
+<table><thead><tr><th>構成</th><th>静止画ツール</th><th>動画ツール</th><th>月合計</th><th>年間</th></tr></thead>
+<tbody>
+<tr class="highlight-row"><td>⭐推奨：コスパ×品質</td><td>Dzine Creator</td><td>Kling Pro</td><td><span class="badge best">$45.98</span></td><td>$551</td></tr>
+<tr><td>API自動化プラン</td><td>fal.ai Kontext</td><td>Veo 3.1 Lite</td><td><span class="badge best">$10.50</span></td><td>$126</td></tr>
+<tr><td>品質最優先</td><td>Midjourney Standard</td><td>Runway Pro</td><td><span class="badge mid">$65</span></td><td>$780</td></tr>
+<tr><td>ローカルSD（初期投資後）</td><td>ComfyUI+LoRA</td><td>AnimateDiff</td><td><span class="badge best">¥0</span></td><td>¥0</td></tr>
+</tbody></table>
+
+<div class="section-divider">PART E ― クラウドGPU（Colab/RunPod/fal.ai）比較</div>
+<div class="section-title">E-① プラットフォーム別費用</div>
+<table><thead><tr><th>プラットフォーム</th><th>GPU</th><th>費用</th><th>LoRA学習</th><th>推奨度</th></tr></thead>
+<tbody>
+<tr class="highlight-row"><td>Kaggle Notebooks ⭐</td><td>T4×2</td><td><span class="badge best">$0（週30h無料）</span></td><td><span class="badge best">◎ Kohya_ss可</span></td><td><span class="badge best">◎ 最優先</span></td></tr>
+<tr><td>Google Colab Free</td><td>T4</td><td>$0（不安定）</td><td><span class="badge bad">× セッション切れ多</span></td><td><span class="badge bad">✕</span></td></tr>
+<tr><td>Google Colab Pro</td><td>T4/L4</td><td>$9.99/月</td><td><span class="badge mid">△ CU消費注意</span></td><td><span class="badge mid">△</span></td></tr>
+<tr class="highlight-row"><td>RunPod Community RTX4090 ⭐</td><td>RTX4090</td><td><span class="badge best">$0.34/時</span></td><td><span class="badge best">◎ 2〜4時間完了</span></td><td><span class="badge best">◎</span></td></tr>
+<tr class="highlight-row"><td>fal.ai API ⭐</td><td>クラウド自動</td><td>$0.006/枚（SDXL）</td><td><span class="badge good">○ $1〜3/回</span></td><td><span class="badge best">◎ 自動化最強</span></td></tr>
+</tbody></table>
+
+<div class="section-divider">PART F ― 初期集中→サブスク解約作戦</div>
+<div class="section-title">F-① 3フェーズ戦略</div>
+<div class="cards">
+  <div class="card"><div class="card-label">PHASE 1 ― 1ヶ月目</div><div class="card-title">$13〜15のみ投資</div><div class="card-desc">Midjourney Basic $10でKaza確立(30〜50枚)→Kaggle無料でLoRA学習→HuggingFaceに保存→月末Midjourney解約</div></div>
+  <div class="card green"><div class="card-label">PHASE 2 ― 2ヶ月目〜</div><div class="card-title">月$0〜1で無限生成</div><div class="card-desc">Kaggle週30hでLoRA推論($0) or fal.ai $0.006/枚。YMM4+VOICEVOX($0)で口パク動画。毎月のサブスクゼロ。</div></div>
+  <div class="card purple"><div class="card-label">PHASE 3 ― 随時</div><div class="card-title">必要時だけ課金再開</div><div class="card-desc">動画10本超の月だけKling Standard $6.99再加入。新デザイン必要時だけMidjourney $10再加入。完全従量モデル。</div></div>
+</div>
+<div class="section-title">F-② 年間コスト試算</div>
+<table><thead><tr><th>項目</th><th>1ヶ月目</th><th>2〜12ヶ月目</th><th>年間合計</th></tr></thead>
+<tbody>
+<tr><td>静止画生成</td><td>$10（Midjourney）</td><td>$0〜1.20/月（fal.ai）</td><td><span class="badge best">$13〜23</span></td></tr>
+<tr><td>LoRA学習（初回のみ）</td><td>$0〜3（RunPod）</td><td>$0</td><td><span class="badge best">$0〜3</span></td></tr>
+<tr><td>動画生成（月5〜10本）</td><td>$0</td><td>$0〜6.99（必要時Kling）</td><td><span class="badge good">$0〜42</span></td></tr>
+<tr><td>口パク・アニメ</td><td>$0</td><td>$0（YMM4+VOICEVOX）</td><td><span class="badge best">$0</span></td></tr>
+<tr style="background:#EEF2FF;font-weight:700;"><td>年間合計</td><td>$13〜15</td><td>$0〜4/月</td><td><span class="badge best">$13〜62（¥2,054〜9,796）</span></td></tr>
+</tbody></table>
+<p class="note">※ 比較：Dzine+Kling常時サブスク $551/年。初期集中作戦は最大$490節約。</p>
+
+<div class="section-divider">PART G ― Kazaの「解説係」動画ワークフロー（ゆっくり動画スタイル）</div>
+<div class="section-title">G-① 口パク・アニメーションツール比較</div>
+<table><thead><tr><th>ツール</th><th>月額</th><th>二頭身対応</th><th>口パク品質</th><th>Kaza推奨度</th></tr></thead>
+<tbody>
+<tr class="highlight-row"><td>Live2D Cubism ⭐</td><td>$0（無料版）/ $100/年（Pro）</td><td><span class="badge best">◎ 二頭身得意</span></td><td><span class="badge best">◎ 完全制御</span></td><td><span class="badge best">◎ 最推奨</span></td></tr>
+<tr class="highlight-row"><td>YMM4+PSDToolKit2 ⭐</td><td><span class="badge best">$0 完全無料</span></td><td><span class="badge best">◎ 立ち絵専用</span></td><td><span class="badge good">○ 自動口パク</span></td><td><span class="badge best">◎ 最速・無料</span></td></tr>
+<tr><td>SadTalker（ローカル）</td><td>$0（fal.aiは$0.03/秒）</td><td><span class="badge mid">△ リアル顔寄り</span></td><td><span class="badge mid">△ 破綻リスク</span></td><td><span class="badge mid">△ 試験的に</span></td></tr>
+<tr><td>D-ID</td><td>$5.90〜/月</td><td><span class="badge bad">× リアル顔前提</span></td><td><span class="badge bad">△ 二頭身NG</span></td><td><span class="badge bad">× 不向き</span></td></tr>
+<tr><td>HeyGen</td><td>$29/月〜</td><td><span class="badge bad">× リアル人物向け</span></td><td><span class="badge mid">△ 不安定</span></td><td><span class="badge bad">× 不向き</span></td></tr>
+<tr><td>Kling AI 3.0</td><td>$6.99〜/月</td><td><span class="badge good">○ イラスト対応</span></td><td><span class="badge good">○ リップシンク7言語</span></td><td><span class="badge good">○ 動き重視なら</span></td></tr>
+</tbody></table>
+
+<div class="section-title">G-② Kaza動画構成テンプレート</div>
+<table><thead><tr><th>パート</th><th>担当</th><th>映像</th><th>音声</th><th>尺</th></tr></thead>
+<tbody>
+<tr><td><span class="badge best">イントロ</span></td><td>鈴木さん本人</td><td>リアル撮影</td><td>本人ボイス</td><td>15〜30秒</td></tr>
+<tr class="highlight-row"><td><span class="badge good">本編解説</span></td><td>Kaza（解説係）</td><td>Kaza立ち絵（YMM4口パク）</td><td>VOICEVOX / ElevenLabs</td><td>3〜8分</td></tr>
+<tr class="highlight-row"><td><span class="badge good">リアクション</span></td><td>Kaza差し込み</td><td>kaza-bestポーズ差し替え</td><td>短い反応音声</td><td>2〜5秒×複数</td></tr>
+<tr><td><span class="badge best">アウトロ</span></td><td>鈴木さん本人</td><td>リアル映像（CTA）</td><td>本人ボイス</td><td>15〜30秒</td></tr>
+</tbody></table>
+
+<p class="note" style="margin-top:18px;">※ YMM4はWindows専用。Mac環境ではKling AI + VOICEVOX推奨。VOICEVOX・YMM4は商用利用可・完全無料。$1=¥158換算（2026年6月）</p>
+</body></html>
