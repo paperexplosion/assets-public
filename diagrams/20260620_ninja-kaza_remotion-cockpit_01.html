@@ -13,20 +13,907 @@
     min-width: 1300px;
     line-height: 1.6;
   }
+
   h1 { font-size: 22px; font-weight: 900; color: #fff; letter-spacing: 0.04em; margin-bottom: 5px; }
   .tagline { font-size: 11px; color: #4b5563; margin-bottom: 44px; }
   .tagline span { background: #12122a; padding: 2px 9px; border-radius: 4px; margin-right: 6px; color: #6b7280; font-size: 10px; }
+
+  /* ── COCKPIT DIAGRAM ── */
+  .cockpit {
+    background: #0d0d20;
+    border: 1px solid #1e1e40;
+    border-radius: 16px;
+    padding: 28px 32px 32px;
+    margin-bottom: 48px;
+  }
+  .cockpit-title { font-size: 10px; font-weight: 800; letter-spacing: 0.12em; color: #4361EE; margin-bottom: 20px; }
+
+  .flow-row { display: flex; align-items: stretch; gap: 0; margin-bottom: 12px; }
+  .flow-node {
+    flex: 1; background: #12122a; border: 1px solid #1e1e40;
+    border-radius: 10px; padding: 13px 14px; text-align: center;
+    position: relative;
+  }
+  .flow-node.voice  { border-color: #10B981; background: #071a10; }
+  .flow-node.claude { border-color: #4361EE; background: #0a0f2a; }
+  .flow-node.remote { border-color: #7C3AED; background: #0f0a20; }
+  .flow-node.editor { border-color: #F59E0B; background: #1a1000; }
+  .flow-node.output { border-color: #EC4899; background: #1a0010; }
+  .flow-node.vtube  { border-color: #0D9488; background: #021212; }
+  .flow-node.chatter{ border-color: #6366f1; background: #080820; }
+  .fn-icon  { font-size: 20px; margin-bottom: 5px; }
+  .fn-label { font-size: 11.5px; font-weight: 800; color: #fff; margin-bottom: 2px; }
+  .fn-sub   { font-size: 9.5px; color: #4b5563; line-height: 1.4; }
+  .fn-badge {
+    position: absolute; top: -8px; right: -4px;
+    font-size: 8px; font-weight: 800; padding: 1px 6px; border-radius: 10px;
+  }
+  .b-free   { background: #10B981; color: #000; }
+  .b-paid   { background: #F59E0B; color: #000; }
+  .b-done   { background: #4361EE; color: #fff; }
+  .flow-arr { display: flex; align-items: center; padding: 0 8px; color: #2d2d5e; font-size: 18px; flex-shrink: 0; }
+  .flow-arr.down { writing-mode: vertical-lr; padding: 8px 0; font-size: 14px; justify-content: center; }
+
+  .key-insight {
+    background: #0a1a0a; border: 1px solid #10B981;
+    border-radius: 10px; padding: 14px 18px; margin-top: 16px;
+    font-size: 11px; color: #9ca3af; line-height: 1.6;
+  }
+  .key-insight strong { color: #6ee7b7; }
+
+  /* ── PHASE ── */
+  .phase { margin-bottom: 38px; }
+  .ph-header { display: flex; align-items: center; gap: 14px; margin-bottom: 16px; }
+  .ph-num {
+    width: 38px; height: 38px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 14px; font-weight: 900; flex-shrink: 0;
+  }
+  .n0{background:#10B981;color:#000;} .n1{background:#4361EE;color:#fff;}
+  .n2{background:#7C3AED;color:#fff;} .n3{background:#0D9488;color:#fff;}
+  .n4{background:#F59E0B;color:#000;} .n5{background:#EC4899;color:#fff;}
+  .n6{background:#6366f1;color:#fff;}
+
+  .ph-title { font-size: 16px; font-weight: 900; color: #fff; }
+  .ph-meta  { font-size: 10px; color: #4b5563; margin-top: 2px; }
+  .tag { display: inline-block; padding: 1px 8px; border-radius: 4px; font-size: 9.5px; font-weight: 700; margin-right: 5px; }
+  .t-free   { background: #071a10; color: #6ee7b7; }
+  .t-paid   { background: #1a1000; color: #fcd34d; }
+  .t-time   { background: #0a0f2a; color: #818cf8; }
+  .t-done   { background: #071a10; color: #6ee7b7; }
+  .t-key    { background: #1a0010; color: #f9a8d4; }
+
+  .ph-body {
+    background: #0d0d20; border-radius: 12px; padding: 22px 26px;
+    border-left: 3px solid #1e1e40;
+  }
+  .ph-body.c0{border-left-color:#10B981;} .ph-body.c1{border-left-color:#4361EE;}
+  .ph-body.c2{border-left-color:#7C3AED;} .ph-body.c3{border-left-color:#0D9488;}
+  .ph-body.c4{border-left-color:#F59E0B;} .ph-body.c5{border-left-color:#EC4899;}
+  .ph-body.c6{border-left-color:#6366f1;}
+
+  /* ── STEPS ── */
+  .steps { list-style: none; }
+  .steps > li {
+    display: flex; gap: 12px; padding: 11px 0;
+    border-bottom: 1px solid #12122a;
+  }
+  .steps > li:last-child { border-bottom: none; padding-bottom: 0; }
+  .snum {
+    width: 24px; height: 24px; border-radius: 50%;
+    background: #12122a; border: 1px solid #2d2d5e;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 10px; font-weight: 800; color: #818cf8; flex-shrink: 0; margin-top: 2px;
+  }
+  .snum.done { background: #071a10; border-color: #10B981; color: #10B981; }
+  .sc { flex: 1; }
+  .st { font-size: 12.5px; font-weight: 800; color: #e2e4f0; margin-bottom: 3px; }
+  .sd { font-size: 11px; color: #4b5563; line-height: 1.55; }
+  .code {
+    display: block; background: #050510; border: 1px solid #1e1e40;
+    border-radius: 6px; padding: 9px 13px; margin-top: 7px;
+    font-family: 'SF Mono', monospace; font-size: 10.5px; color: #a5f3fc;
+    white-space: pre; overflow-x: auto;
+  }
+  .tool { display: inline-block; margin-top: 5px; margin-right: 4px; font-size: 9.5px; font-weight: 700; padding: 2px 8px; border-radius: 4px; }
+  .tool.blue   { background: #0a0f2a; color: #818cf8; }
+  .tool.green  { background: #071a10; color: #6ee7b7; }
+  .tool.gold   { background: #1a1000; color: #fcd34d; }
+  .tool.pink   { background: #1a0010; color: #f9a8d4; }
+
+  /* ── COMPONENT ARCH ── */
+  .arch {
+    background: #050510; border: 1px solid #1e1e40; border-radius: 10px;
+    padding: 16px 18px; margin-top: 14px;
+    font-family: 'SF Mono', monospace; font-size: 11px; color: #c4c8e0; line-height: 1.8;
+  }
+  .arch .dir  { color: #818cf8; }
+  .arch .comp { color: #a5f3fc; }
+  .arch .note { color: #374151; }
+
+  /* ── VOICE EXAMPLES ── */
+  .voice-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 12px; }
+  .voice-card { background: #050510; border: 1px solid #1e1e40; border-radius: 10px; padding: 14px 16px; }
+  .vc-scene { font-size: 9px; font-weight: 800; letter-spacing: 0.1em; color: #6b7280; margin-bottom: 6px; }
+  .vc-voice {
+    background: #071a10; border-radius: 6px; padding: 8px 11px;
+    font-size: 10.5px; color: #6ee7b7; margin-bottom: 8px;
+    border-left: 2px solid #10B981;
+  }
+  .vc-voice::before { content: '🎤 '; }
+  .vc-code { font-family: 'SF Mono', monospace; font-size: 9.5px; color: #818cf8; line-height: 1.6; }
+
+  /* ── DECISION ── */
+  .decision {
+    background: #0f0a20; border: 1px dashed #7C3AED;
+    border-radius: 10px; padding: 16px 20px; margin: 14px 0;
+  }
+  .dec-q { font-size: 12px; font-weight: 800; color: #a78bfa; margin-bottom: 10px; }
+  .dec-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .dec-opt { background: #070710; border-radius: 8px; padding: 12px 14px; border: 1px solid #1e1e40; }
+  .dec-opt.rec { border-color: #4361EE; }
+  .do-label { font-size: 9px; font-weight: 800; letter-spacing: 0.08em; color: #4361EE; margin-bottom: 4px; }
+  .do-label.gold { color: #F59E0B; }
+  .do-title { font-size: 12.5px; font-weight: 900; color: #fff; margin-bottom: 5px; }
+  .do-body  { font-size: 10.5px; color: #4b5563; line-height: 1.6; }
+
+  /* ── CHECKLIST ── */
+  .cl { list-style: none; }
+  .cl li {
+    display: flex; align-items: flex-start; gap: 10px;
+    padding: 9px 0; border-bottom: 1px solid #0d0d20;
+    font-size: 11px; color: #c4c8e0;
+  }
+  .cl li:last-child { border-bottom: none; }
+  .cl input[type=checkbox] { width: 15px; height: 15px; flex-shrink: 0; margin-top: 2px; accent-color: #4361EE; cursor: pointer; }
+  .cl .cn { font-size: 9px; font-weight: 800; color: #4361EE; width: 22px; flex-shrink: 0; margin-top: 2px; }
+
+  /* ── COST TABLE ── */
+  .ctable { width: 100%; border-collapse: collapse; font-size: 11px; margin-top: 12px; }
+  .ctable th { background: #0d0d20; color: #4b5563; padding: 8px 12px; text-align: left; font-size: 9.5px; font-weight: 800; letter-spacing: 0.08em; }
+  .ctable td { padding: 9px 12px; border-bottom: 1px solid #0d0d20; vertical-align: top; color: #c4c8e0; }
+  .ctable tr:hover td { background: #0a0a18; }
+  .ctable .free { color: #10B981; font-weight: 700; }
+  .ctable .paid { color: #F59E0B; font-weight: 700; }
+  .ctable .done { color: #10B981; }
+
+  /* ── TIP / WARN ── */
+  .tip  { background: #071a10; border-left: 3px solid #10B981; border-radius: 0 8px 8px 0; padding: 10px 14px; font-size: 11px; color: #4b5563; margin: 12px 0; line-height: 1.55; }
+  .tip strong { color: #6ee7b7; }
+  .warn { background: #1a0a00; border-left: 3px solid #F59E0B; border-radius: 0 8px 8px 0; padding: 10px 14px; font-size: 11px; color: #4b5563; margin: 12px 0; }
+  .warn strong { color: #fcd34d; }
+  .info { background: #0a0f2a; border-left: 3px solid #4361EE; border-radius: 0 8px 8px 0; padding: 10px 14px; font-size: 11px; color: #4b5563; margin: 12px 0; }
+  .info strong { color: #818cf8; }
+
+  hr { border: none; border-top: 1px solid #12122a; margin: 42px 0; }
+  .note { font-size: 10px; color: #1e1e3a; margin-top: 24px; }
 </style>
 </head>
 <body>
+
 <h1>🥷 Ninja Kaza × Remotion ― 声でつくる動画コックピット 完全手順書</h1>
-<p style="color:#6b7280;font-size:12px;margin-top:20px;">このファイルは GitHub Pages に保存された参照用インデックスです。完全版は ~/Downloads/kaza_remotion_cockpit.html を参照してください。</p>
-<ul style="margin-top:20px;color:#818cf8;font-size:13px;line-height:2;">
-<li>声 → Claude Code → Remotion → 動画</li>
-<li>DaVinci Resolve 不使用</li>
-<li>Chatterbox TTS (済) + Remotion + Editor Starter ($600 入手済) + VTube Studio WebSocket API</li>
-<li>Phase 0: Chatterbox ✓ / Phase 1: Remotion setup / Phase 2: VTube Studio API / Phase 3: 声パイプライン / Phase 4: Editor Starter / Phase 5: Live2D</li>
-</ul>
-<p style="color:#4b5563;font-size:10px;margin-top:40px;">2026-06-20 作成 by Amanda Askell (Claude Code)</p>
+<div class="tagline">
+  <span>声 → Claude Code → Remotion → 動画</span>
+  <span>DaVinci Resolve 不使用</span>
+  <span>可能な限りOSS・無料</span>
+  2026年6月〜
+</div>
+
+<!-- ══════════════════════════════════════════
+     COCKPIT DIAGRAM
+════════════════════════════════════════════ -->
+<div class="cockpit">
+  <div class="cockpit-title">▸ THE COCKPIT ― 完成後の毎回のループ</div>
+
+  <!-- Row 1: Voice → Claude → Remotion → Video -->
+  <div class="flow-row">
+    <div class="flow-node voice">
+      <div class="fn-badge b-free">FREE</div>
+      <div class="fn-icon">🎤</div>
+      <div class="fn-label">声で指示する</div>
+      <div class="fn-sub">macOS Dictation<br>or Whisper (OSS)</div>
+    </div>
+    <div class="flow-arr">→</div>
+    <div class="flow-node claude">
+      <div class="fn-badge b-free">FREE</div>
+      <div class="fn-icon">⚡</div>
+      <div class="fn-label">Claude Code</div>
+      <div class="fn-sub">.tsx ファイルを書き換え<br>Bash でコマンド実行</div>
+    </div>
+    <div class="flow-arr">→</div>
+    <div class="flow-node remote">
+      <div class="fn-badge b-free">FREE</div>
+      <div class="fn-icon">⚛️</div>
+      <div class="fn-label">Remotion Studio</div>
+      <div class="fn-sub">ブラウザで即プレビュー<br>ホットリロード</div>
+    </div>
+    <div class="flow-arr">→</div>
+    <div class="flow-node editor">
+      <div class="fn-badge b-paid">$600</div>
+      <div class="fn-icon">🎞</div>
+      <div class="fn-label">Editor Starter</div>
+      <div class="fn-sub">GUI で微調整<br>タイムライン・Canvas</div>
+    </div>
+    <div class="flow-arr">→</div>
+    <div class="flow-node output">
+      <div class="fn-badge b-free">FREE</div>
+      <div class="fn-icon">▶️</div>
+      <div class="fn-label">render → MP4</div>
+      <div class="fn-sub">npx remotion render<br>YouTube へアップ</div>
+    </div>
+  </div>
+
+  <!-- Row 2: Kaza素材生成ライン -->
+  <div style="font-size:9px; font-weight:800; letter-spacing:0.1em; color:#374151; margin: 18px 0 10px;">▸ KAZA 素材生成ライン（並行して動く）</div>
+  <div class="flow-row">
+    <div class="flow-node chatter">
+      <div class="fn-badge b-done">✓済</div>
+      <div class="fn-icon">🎙</div>
+      <div class="fn-label">Chatterbox TTS</div>
+      <div class="fn-sub">台本テキスト → WAV<br>Kaza 英語音声</div>
+    </div>
+    <div class="flow-arr">→</div>
+    <div class="flow-node vtube">
+      <div class="fn-badge b-paid">$15</div>
+      <div class="fn-icon">🥷</div>
+      <div class="fn-label">VTube Studio<br>WebSocket API</div>
+      <div class="fn-sub">表情・ポーズを<br>コードで自動制御</div>
+    </div>
+    <div class="flow-arr">→</div>
+    <div class="flow-node voice" style="border-color:#6366f1; background:#08081a;">
+      <div class="fn-badge b-free">FREE</div>
+      <div class="fn-icon">⬛</div>
+      <div class="fn-label">OBS Studio</div>
+      <div class="fn-sub">Kaza アニメを<br>MP4 として収録</div>
+    </div>
+    <div class="flow-arr">→</div>
+    <div class="flow-node remote" style="flex:2;">
+      <div class="fn-icon">📁</div>
+      <div class="fn-label">assets/ フォルダに配置</div>
+      <div class="fn-sub">kaza_scene_01.mp4, voice_01.wav … → Remotion が読み込む</div>
+    </div>
+  </div>
+
+  <div class="key-insight">
+    <strong>核心：</strong>
+    DaVinci の「GUIで手動編集」を Claude Code の「コードで指示」に置き換える。
+    声で "Kaza を右下に配置して、30秒から40秒の間だけ表示して" と言えば、
+    Claude Code が Remotion の .tsx を書き換え、ブラウザで即座にプレビューできる。<br>
+    <strong>VTube Studio WebSocket API</strong> の発見で、Kaza の表情・ポーズ切り替えもコードから自動制御が可能。ホットキーを手で押す必要がなくなる。
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     PHASE 0: 完了済み
+════════════════════════════════════════════ -->
+<div class="phase">
+  <div class="ph-header">
+    <div class="ph-num n0">0</div>
+    <div>
+      <div class="ph-title">PHASE 0 ― すでに完了していること</div>
+      <div class="ph-meta"><span class="tag t-done">✓ DONE</span></div>
+    </div>
+  </div>
+  <div class="ph-body c0">
+    <ul class="steps">
+      <li>
+        <div class="snum done">✓</div>
+        <div class="sc">
+          <div class="st">Chatterbox TTS（~/kaza-tts/）― 英語音声生成・動作確認済み</div>
+          <div class="sd">generate.py のバッチスクリプト構成、soundfile での WAV 保存まで確立。M5 MPS 動作確認済み。</div>
+        </div>
+      </li>
+      <li>
+        <div class="snum done">✓</div>
+        <div class="sc">
+          <div class="st">Node.js / npm の確認</div>
+          <span class="code">node --version && npm --version</span>
+          <div class="sd" style="margin-top:5px;">Remotion は Node.js 18+ が必要。v20 以上推奨。</div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     PHASE 1: Remotion プロジェクト構築
+════════════════════════════════════════════ -->
+<div class="phase">
+  <div class="ph-header">
+    <div class="ph-num n1">1</div>
+    <div>
+      <div class="ph-title">PHASE 1 ― Remotion プロジェクトを作る</div>
+      <div class="ph-meta"><span class="tag t-time">⏱ 1〜2時間</span><span class="tag t-free">$ 0</span>Kaza Show の動画基盤をコードで構築する</div>
+    </div>
+  </div>
+  <div class="ph-body c1">
+    <ul class="steps">
+      <li>
+        <div class="snum">1</div>
+        <div class="sc">
+          <div class="st">Kaza Show プロジェクトをスキャフォールドする</div>
+          <span class="code">cd ~
+npx create-video@latest kaza-show
+# テンプレート: "Hello World" を選択
+cd kaza-show
+npm install</span>
+          <span class="tool blue">Remotion (無料・個人利用)</span>
+        </div>
+      </li>
+      <li>
+        <div class="snum">2</div>
+        <div class="sc">
+          <div class="st">Remotion Studio を起動して確認する</div>
+          <span class="code">npx remotion studio
+# ブラウザで http://localhost:3000 が開く</span>
+          <div class="sd">これが毎回のプレビュー画面になる。Claude Code がファイルを変更するとここに即座に反映される。</div>
+        </div>
+      </li>
+      <li>
+        <div class="snum">3</div>
+        <div class="sc">
+          <div class="st">フォルダ構成を Kaza Show 用に整備する</div>
+          <span class="code">kaza-show/
+├── src/
+│   ├── compositions/
+│   │   ├── Root.tsx          # 全シーンの登録
+│   │   ├── KazaShow.tsx      # メイン動画（全体構成）
+│   │   ├── IntroScene.tsx    # 鈴木さん導入
+│   │   ├── KazaSection.tsx   # Kaza 解説パート（繰り返し使う）
+│   │   ├── TextOverlay.tsx   # Johnny Harris 式テキスト
+│   │   └── OutroScene.tsx    # 鈴木さん締め
+│   └── index.ts
+├── public/
+│   └── assets/
+│       ├── kaza/             # OBS録画の Kaza 動画
+│       ├── voice/            # Chatterbox 生成 WAV
+│       ├── broll/            # B-roll 映像
+│       └── intro/            # 鈴木さんの自撮り動画
+└── remotion.config.ts</span>
+          <span class="code">mkdir -p public/assets/{kaza,voice,broll,intro}
+mkdir -p src/compositions</span>
+        </div>
+      </li>
+      <li>
+        <div class="snum">4</div>
+        <div class="sc">
+          <div class="st">KazaSection コンポーネントを作る（毎動画の核になる）</div>
+          <span class="code">// src/compositions/KazaSection.tsx
+import { AbsoluteFill, Video, Audio, Sequence, useCurrentFrame, interpolate } from 'remotion';
+
+type Props = {
+  kazaClip: string;   // Kaza アニメ動画パス (OBS録画)
+  voiceFile: string;  // Chatterbox 音声 WAV パス
+  broll?: string;     // B-roll 映像（任意）
+  keywords?: string[]; // テキストオーバーレイ
+  durationInSeconds: number;
+};
+
+export const KazaSection: React.FC&lt;Props&gt; = ({
+  kazaClip, voiceFile, broll, keywords = [], durationInSeconds
+}) => {
+  const frame = useCurrentFrame();
+  const fps = 30;
+
+  return (
+    &lt;AbsoluteFill style={{ background: '#0a0a14' }}&gt;
+      {/* B-roll（あれば） */}
+      {broll && (
+        &lt;Video src={broll} style={{ width: '100%', height: '100%', objectFit: 'cover', opacity: 0.4 }} /&gt;
+      )}
+
+      {/* Kaza アニメ（右下） */}
+      &lt;div style={{ position: 'absolute', bottom: 40, right: 40, width: 360 }}&gt;
+        &lt;Video src={kazaClip} /&gt;
+      &lt;/div&gt;
+
+      {/* 音声 */}
+      &lt;Audio src={voiceFile} /&gt;
+
+      {/* テキストオーバーレイ */}
+      {keywords.map((kw, i) => (
+        &lt;Sequence key={i} from={fps * (i * 8)} durationInFrames={fps * 6}&gt;
+          &lt;div style={{
+            position: 'absolute', top: '40%', left: 80,
+            fontSize: 64, fontWeight: 900, color: '#fff',
+            fontFamily: 'Arial Black', textTransform: 'uppercase',
+          }}&gt;{kw}&lt;/div&gt;
+        &lt;/Sequence&gt;
+      ))}
+    &lt;/AbsoluteFill&gt;
+  );
+};</span>
+        </div>
+      </li>
+      <li>
+        <div class="snum">5</div>
+        <div class="sc">
+          <div class="st">KazaShow.tsx でシーンをつなぐ（毎動画の骨格）</div>
+          <span class="code">// src/compositions/KazaShow.tsx
+import { AbsoluteFill, Sequence } from 'remotion';
+import { IntroScene } from './IntroScene';
+import { KazaSection } from './KazaSection';
+import { OutroScene } from './OutroScene';
+
+const fps = 30;
+
+export const KazaShow: React.FC = () => (
+  &lt;AbsoluteFill&gt;
+    {/* 鈴木さん導入: 0〜45秒 */}
+    &lt;Sequence from={0} durationInFrames={fps * 45}&gt;
+      &lt;IntroScene videoSrc="/assets/intro/intro_ep01.mp4" /&gt;
+    &lt;/Sequence&gt;
+
+    {/* Kaza 解説 セクション1: 45秒〜4分 */}
+    &lt;Sequence from={fps * 45} durationInFrames={fps * 195}&gt;
+      &lt;KazaSection
+        kazaClip="/assets/kaza/section_01.mp4"
+        voiceFile="/assets/voice/01_intro.wav"
+        keywords={['AI TOOLS', '$551/YEAR', 'THE TRAP']}
+        durationInSeconds={195}
+      /&gt;
+    &lt;/Sequence&gt;
+
+    {/* 必要なだけ追加 */}
+
+    {/* 鈴木さん締め */}
+    &lt;Sequence from={fps * 1800} durationInFrames={fps * 45}&gt;
+      &lt;OutroScene videoSrc="/assets/intro/outro_ep01.mp4" /&gt;
+    &lt;/Sequence&gt;
+  &lt;/AbsoluteFill&gt;
+);</span>
+        </div>
+      </li>
+      <li>
+        <div class="snum">6</div>
+        <div class="sc">
+          <div class="st">レンダリングのテスト</div>
+          <span class="code">npx remotion render KazaShow out/test.mp4 --frames=0-90</span>
+          <div class="sd">最初の90フレーム(3秒)だけレンダリングして速度・品質を確認する。</div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     PHASE 2: VTube Studio WebSocket API
+════════════════════════════════════════════ -->
+<div class="phase">
+  <div class="ph-header">
+    <div class="ph-num n2">2</div>
+    <div>
+      <div class="ph-title">PHASE 2 ― VTube Studio WebSocket API で Kaza を自動制御する</div>
+      <div class="ph-meta"><span class="tag t-time">⏱ 2〜3時間</span><span class="tag t-paid">VTube Studio $15</span><span class="tag t-key">🔑 鍵</span>ホットキーを手で押さず、コードで Kaza を動かす</div>
+    </div>
+  </div>
+  <div class="ph-body c2">
+
+    <div class="info"><strong>VTube Studio WebSocket API とは：</strong> VTube Studio はポート 8001 で WebSocket API を公開している。Python や JavaScript から表情・モーション・パラメータをリアルタイムで制御できる。これにより「WAV を再生しながら Kaza の表情を自動で切り替える」スクリプトが書ける。</div>
+
+    <ul class="steps">
+      <li>
+        <div class="snum">1</div>
+        <div class="sc">
+          <div class="st">VTube Studio の API を有効化する</div>
+          <div class="sd">VTube Studio 起動 → 歯車アイコン → "Plugins" タブ → "Allow Plugins" をオン → ポート: 8001</div>
+        </div>
+      </li>
+      <li>
+        <div class="snum">2</div>
+        <div class="sc">
+          <div class="st">Python の WebSocket ライブラリをインストールする</div>
+          <span class="code">/Users/takafumisuzuki/kaza-tts/bin/pip install websockets</span>
+        </div>
+      </li>
+      <li>
+        <div class="snum">3</div>
+        <div class="sc">
+          <div class="st">Kaza 自動収録スクリプトを作る（~/kaza-tts/record_kaza.py）</div>
+          <span class="code">"""
+Kaza 自動収録スクリプト
+- Chatterbox WAV を再生しながら
+- VTube Studio API で台本に沿って表情を自動切り替え
+- OBS は別途起動して録画しておく（または OBS WebSocket API で制御）
+
+使い方: python record_kaza.py script.json
+"""
+import asyncio, json, subprocess, time, sys
+from pathlib import Path
+import websockets
+
+VTUBE_WS = "ws://localhost:8001"
+OUTPUT_DIR = Path("output")
+
+# 表情名 → VTube Studio の HotkeyID（事前に設定）
+EXPRESSION_MAP = {
+    "neutral":   "hotkey_neutral",
+    "happy":     "hotkey_happy",
+    "surprised": "hotkey_surprised",
+    "thinking":  "hotkey_thinking",
+    "serious":   "hotkey_serious",
+    "pose1":     "hotkey_ninja_pose1",
+    "pose2":     "hotkey_ninja_pose2",
+}
+
+async def trigger_expression(ws, token, expr_name):
+    hotkey_id = EXPRESSION_MAP.get(expr_name)
+    if not hotkey_id:
+        return
+    req = {
+        "apiName": "VTubeStudioPublicAPI",
+        "apiVersion": "1.0",
+        "messageType": "HotkeyTriggerRequest",
+        "data": {"hotkeyID": hotkey_id}
+    }
+    await ws.send(json.dumps(req))
+    await ws.recv()
+
+async def record(script_path):
+    with open(script_path) as f:
+        segments = json.load(f)
+    # 例: [{"id":"01","wav":"output/01.wav","expr":"neutral","duration":12.5}, ...]
+
+    async with websockets.connect(VTUBE_WS) as ws:
+        # 認証
+        auth_req = {"apiName":"VTubeStudioPublicAPI","apiVersion":"1.0",
+                    "messageType":"AuthenticationRequest",
+                    "data":{"pluginName":"KazaRecorder","pluginDeveloper":"Suzuki",
+                            "authenticationToken":""}}
+        await ws.send(json.dumps(auth_req))
+        auth_res = json.loads(await ws.recv())
+        token = auth_res.get("data", {}).get("authenticationToken", "")
+
+        for seg in segments:
+            print(f"▶ {seg['id']}: {seg.get('expr','neutral')}")
+            await trigger_expression(ws, token, seg.get("expr", "neutral"))
+            # WAV 再生（BlackHole 経由で VTube Studio がリップシンク）
+            proc = subprocess.Popen(["afplay", str(OUTPUT_DIR / f"{seg['id']}.wav")])
+            proc.wait()
+            await asyncio.sleep(0.3)  # 次セグメントまで間
+
+if __name__ == "__main__":
+    asyncio.run(record(sys.argv[1]))</span>
+          <span class="tool blue">VTube Studio API</span>
+          <span class="tool green">websockets (Python)</span>
+          <span class="tool green">afplay (macOS 標準)</span>
+        </div>
+      </li>
+      <li>
+        <div class="snum">4</div>
+        <div class="sc">
+          <div class="st">台本 JSON に表情指示を追加する（拡張版）</div>
+          <span class="code">// ~/kaza-tts/scripts/video_001.json
+[
+  {"id":"01_open",   "text":"Greetings. I am Kaza.",
+   "expr":"neutral",   "duration":4.0},
+  {"id":"02_topic",  "text":"Today I investigated the hidden cost of AI tools.",
+   "expr":"serious",   "duration":7.0},
+  {"id":"03_shock",  "text":"The average creator wastes 60% of their budget.",
+   "expr":"surprised", "duration":6.0},
+  {"id":"04_point",  "text":"Here is what I found. First...",
+   "expr":"pose1",     "duration":8.0},
+  {"id":"05_close",  "text":"My recommendation: start free, validate, then commit.",
+   "expr":"thinking",  "duration":9.0}
+]</span>
+        </div>
+      </li>
+      <li>
+        <div class="snum">5</div>
+        <div class="sc">
+          <div class="st">ワンコマンドで Kaza 収録を実行する</div>
+          <span class="code"># 1. Chatterbox で音声生成
+/Users/takafumisuzuki/kaza-tts/bin/python3.14 generate.py scripts/video_001.json
+
+# 2. VTube Studio + OBS を起動（手動で OK）
+
+# 3. OBS の録画開始 → 自動収録スクリプト実行
+/Users/takafumisuzuki/kaza-tts/bin/python3.14 record_kaza.py scripts/video_001.json
+
+# → 表情自動切り替え + リップシンク + OBS 録画 が同時進行</span>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     PHASE 3: 声パイプライン
+════════════════════════════════════════════ -->
+<div class="phase">
+  <div class="ph-header">
+    <div class="ph-num n3">3</div>
+    <div>
+      <div class="ph-title">PHASE 3 ― 声 → Claude Code パイプラインを整える</div>
+      <div class="ph-meta"><span class="tag t-time">⏱ 30分</span><span class="tag t-free">$ 0</span>声で Claude Code に指示できる状態をつくる</div>
+    </div>
+  </div>
+  <div class="ph-body c3">
+
+    <div class="tip"><strong>一番シンプルな方法：macOS Dictation（即使える）</strong><br>
+    Claude Code のターミナルにカーソルを置いた状態で <strong>Fn を2回押す</strong>（または 地球儀キー長押し）→ Dictation が起動 → 英語か日本語で喋る → テキストがそのまま入力される。追加ツール不要。</div>
+
+    <ul class="steps">
+      <li>
+        <div class="snum">1</div>
+        <div class="sc">
+          <div class="st">macOS Dictation の精度を上げる設定（今すぐできる）</div>
+          <div class="sd">
+            システム設定 → キーボード → 音声入力 → "向上したオン端末音声入力" をオン<br>
+            言語: 英語（United States）を追加 → Claude Code には英語で指示するのが最も精度が高い
+          </div>
+          <span class="tool green">macOS 内蔵 / $0</span>
+        </div>
+      </li>
+      <li>
+        <div class="snum">2</div>
+        <div class="sc">
+          <div class="st">より高精度にしたい場合: Whisper をローカルで動かす</div>
+          <span class="code">/Users/takafumisuzuki/kaza-tts/bin/pip install openai-whisper
+# または faster-whisper（Appleシリコン最適化版）
+/Users/takafumisuzuki/kaza-tts/bin/pip install faster-whisper</span>
+          <div class="sd">Whisper は OpenAI が公開したOSS音声認識モデル。ローカルで動作、完全無料、英語精度が非常に高い。ただし macOS Dictation で十分なことが多い。</div>
+          <span class="tool green">Whisper OSS / $0</span>
+        </div>
+      </li>
+      <li>
+        <div class="snum">3</div>
+        <div class="sc">
+          <div class="st">Claude Code への指示をパターン化する（バイブコーディングの言語）</div>
+          <div class="sd">Remotion を声で操作するときの定型フレーズを身につける。</div>
+          <div class="voice-grid" style="margin-top:8px;">
+            <div class="voice-card">
+              <div class="vc-scene">シーンの追加</div>
+              <div class="vc-voice">Add a Kaza section starting at 2 minutes, using voice file 03_point1 and keywords "KEY FINDING"</div>
+              <div class="vc-code">→ KazaShow.tsx に Sequence を追加<br>→ from={fps*120} durationInFrames={fps*60}</div>
+            </div>
+            <div class="voice-card">
+              <div class="vc-scene">テキストオーバーレイ</div>
+              <div class="vc-voice">Put a big white text "60% WASTED" on screen at 45 seconds for 5 seconds</div>
+              <div class="vc-code">→ TextOverlay コンポーネントを追加<br>→ Sequence from={fps*45} durationInFrames={fps*5}</div>
+            </div>
+            <div class="voice-card">
+              <div class="vc-scene">Kaza の位置・サイズ</div>
+              <div class="vc-voice">Make Kaza smaller, move her to the bottom left corner</div>
+              <div class="vc-code">→ KazaSection.tsx の style を変更<br>→ bottom:40, left:40, width:280</div>
+            </div>
+            <div class="voice-card">
+              <div class="vc-scene">タイミング調整</div>
+              <div class="vc-voice">Move the intro section to end at 1 minute instead of 45 seconds</div>
+              <div class="vc-code">→ IntroScene の durationInFrames 変更<br>→ fps*60 に更新</div>
+            </div>
+            <div class="voice-card">
+              <div class="vc-scene">B-roll の差し込み</div>
+              <div class="vc-voice">Add B-roll footage broll_tokyo.mp4 behind Kaza in section 2</div>
+              <div class="vc-code">→ KazaSection の broll prop に追加<br>→ opacity 0.3 で透かし表示</div>
+            </div>
+            <div class="voice-card">
+              <div class="vc-scene">音声の差し替え</div>
+              <div class="vc-voice">Change the voice in section 3 to use file 04_revised.wav</div>
+              <div class="vc-code">→ KazaSection の voiceFile prop 変更<br>→ "/assets/voice/04_revised.wav"</div>
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     PHASE 4: Editor Starter
+════════════════════════════════════════════ -->
+<div class="phase">
+  <div class="ph-header">
+    <div class="ph-num n4">4</div>
+    <div>
+      <div class="ph-title">PHASE 4 ― Editor Starter セットアップ（✓ 入手済み）</div>
+      <div class="ph-meta"><span class="tag t-done">✓ 入手済み</span>Remotion Studio の次のステップとして即導入できる</div>
+    </div>
+  </div>
+  <div class="ph-body c4">
+
+    <div class="info"><strong>Editor Starter 入手済み。</strong> Remotion プロジェクト（Phase 1）が完成したら即導入できる。Claude Code でコードを書きつつ、タイムラインの視覚調整は Editor Starter の GUI を使う「両刀運用」が最強構成。</div>
+
+    <div style="margin-bottom:12px; padding: 12px 14px; background:#0a0f2a; border-radius:8px; font-size:11px; color:#6b7280; line-height:1.6;">
+      <strong style="color:#818cf8;">Editor Starter の得意な作業：</strong><br>
+      ・タイムライン上でクリップの長さをドラッグ調整<br>
+      ・テキスト位置・フォント・カラーを目で見ながら微調整<br>
+      ・Asset upload からファイルをドラッグで素早く差し込む<br>
+      ・クライアントや自分でプレビューしながらリアルタイム修正<br>
+      <br>
+      <strong style="color:#818cf8;">Claude Code の得意な作業（声で指示）：</strong><br>
+      ・シーン・Sequence の追加・削除・並び替え<br>
+      ・タイミング（from / durationInFrames）の数値変更<br>
+      ・コンポーネントの構造変更・新 props 追加<br>
+      ・BGM・テキストオーバーレイの一括適用
+    </div>
+
+    <ul class="steps">
+      <li>
+        <div class="snum">1</div>
+        <div class="sc">
+          <div class="st">Editor Starter のソースコードを展開する</div>
+          <div class="sd">購入時にダウンロードした zip を解凍 → ドキュメントの Setup 手順に従ってインストール</div>
+          <span class="code">cd ~/
+unzip editor-starter-*.zip
+cd editor-starter
+npm install
+npm run dev   # http://localhost:3000 で Editor Starter が起動</span>
+          <span class="tool green">✓ 入手済み</span>
+        </div>
+      </li>
+      <li>
+        <div class="snum">2</div>
+        <div class="sc">
+          <div class="st">Kaza Show 用のコンポジションを Editor Starter に登録する</div>
+          <div class="sd">
+            Editor Starter は自前の Remotion プロジェクトを上書きするのではなく、<br>
+            Editor Starter のソースに自分のコンポーネントをインポートして使う構造になっている。<br>
+            Phase 1 で作った <code style="color:#a5f3fc">KazaShow.tsx</code> などを <code style="color:#a5f3fc">src/compositions/</code> にコピーして登録する。
+          </div>
+        </div>
+      </li>
+      <li>
+        <div class="snum">3</div>
+        <div class="sc">
+          <div class="st">運用: Claude Code（声）でコード編集 ↔ Editor Starter GUI で微調整 を使い分ける</div>
+          <div class="sd">
+            大きな構造変更 → 声で Claude Code に指示 → .tsx 書き換え → Editor Starter でプレビュー確認<br>
+            細かい位置・タイミング調整 → Editor Starter のタイムライン・Canvas で直接操作
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     PHASE 5: Kaza PSD + Live2D (前手順書から継承)
+════════════════════════════════════════════ -->
+<div class="phase">
+  <div class="ph-header">
+    <div class="ph-num n5">5</div>
+    <div>
+      <div class="ph-title">PHASE 5 ― Kaza PSD アセット → Live2D リグ → VTube Studio</div>
+      <div class="ph-meta"><span class="tag t-time">⏱ Phase 1 同様</span><span class="tag t-paid">外注推奨 $300〜800</span>前の手順書（kaza_cockpit_manual.html）の Phase 1〜3 を参照</div>
+    </div>
+  </div>
+  <div class="ph-body c5">
+    <div class="tip">
+      <strong>この Phase は前の手順書（kaza_cockpit_manual.html）の Phase 1〜3 と同じ内容。</strong><br>
+      変更点は1つだけ: VTube Studio をホットキー運用ではなく、<strong>WebSocket API（record_kaza.py）で自動制御する</strong>。
+      Live2D モデルが納品されたら Phase 2 の API スクリプトに戻って連携させる。
+    </div>
+    <ul class="steps">
+      <li>
+        <div class="snum">1</div>
+        <div class="sc"><div class="st">Kaza PSD を作る → Live2D リガーに外注</div><div class="sd">Skeb / Coconala でリガーに依頼。.moc3 が納品されたら VTube Studio に読み込む。</div></div>
+      </li>
+      <li>
+        <div class="snum">2</div>
+        <div class="sc"><div class="st">VTube Studio でホットキー ID を確認して EXPRESSION_MAP を更新</div>
+          <span class="code"># VTube Studio API でホットキー一覧を取得するスクリプト
+import asyncio, json
+import websockets
+
+async def list_hotkeys():
+    async with websockets.connect("ws://localhost:8001") as ws:
+        req = {"apiName":"VTubeStudioPublicAPI","apiVersion":"1.0",
+               "messageType":"HotkeysInCurrentModelRequest","data":{}}
+        await ws.send(json.dumps(req))
+        res = json.loads(await ws.recv())
+        for hk in res["data"]["availableHotkeys"]:
+            print(hk["hotkeyID"], "→", hk["name"])
+
+asyncio.run(list_hotkeys())</span>
+        </div>
+      </li>
+      <li>
+        <div class="snum">3</div>
+        <div class="sc"><div class="st">OBS で録画セットアップ → record_kaza.py で自動収録テスト</div></div>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<hr>
+
+<!-- ══════════════════════════════════════════
+     THE COCKPIT: 毎回チェックリスト
+════════════════════════════════════════════ -->
+<div class="phase">
+  <div class="ph-header">
+    <div class="ph-num n6">🥷</div>
+    <div>
+      <div class="ph-title">THE COCKPIT ― 毎動画の制作チェックリスト（声で操作）</div>
+      <div class="ph-meta"><span class="tag t-done">環境完成後</span>ここに座るだけでコンテンツができる</div>
+    </div>
+  </div>
+  <div class="ph-body c6">
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px;">
+      <div>
+        <div style="font-size:10px;font-weight:800;color:#4b5563;letter-spacing:.08em;margin-bottom:10px;">📝 PREP</div>
+        <ul class="cl">
+          <li><input type="checkbox"><span class="cn">01</span>テーマ確定・台本を書く（Notion）</li>
+          <li><input type="checkbox"><span class="cn">02</span>Kaza パートを JSON に書き起こす（id / text / expr）</li>
+          <li><input type="checkbox"><span class="cn">03</span><code style="font-size:10px;color:#a5f3fc">python generate.py scripts/ep_XX.json</code> → WAV 生成</li>
+          <li><input type="checkbox"><span class="cn">04</span>WAV 全部再生して確認・リテイクあれば JSON 修正→再実行</li>
+        </ul>
+      </div>
+      <div>
+        <div style="font-size:10px;font-weight:800;color:#4b5563;letter-spacing:.08em;margin-bottom:10px;">🥷 KAZA 収録</div>
+        <ul class="cl">
+          <li><input type="checkbox"><span class="cn">05</span>VTube Studio 起動・Kaza モデル読み込み確認</li>
+          <li><input type="checkbox"><span class="cn">06</span>OBS 起動・"Kaza Recording" シーンで録画開始</li>
+          <li><input type="checkbox"><span class="cn">07</span><code style="font-size:10px;color:#a5f3fc">python record_kaza.py scripts/ep_XX.json</code> 実行</li>
+          <li><input type="checkbox"><span class="cn">08</span>収録 MP4 を public/assets/kaza/ にコピー</li>
+        </ul>
+      </div>
+      <div>
+        <div style="font-size:10px;font-weight:800;color:#4b5563;letter-spacing:.08em;margin-bottom:10px;">🎤 自分の収録</div>
+        <ul class="cl">
+          <li><input type="checkbox"><span class="cn">09</span>英語で導入を撮影 → public/assets/intro/ へ</li>
+          <li><input type="checkbox"><span class="cn">10</span>B-roll を撮影 or Pexels からダウンロード → public/assets/broll/ へ</li>
+          <li><input type="checkbox"><span class="cn">11</span>締めを撮影</li>
+        </ul>
+      </div>
+      <div>
+        <div style="font-size:10px;font-weight:800;color:#4b5563;letter-spacing:.08em;margin-bottom:10px;">⚡ REMOTION 編集（声で操作）</div>
+        <ul class="cl">
+          <li><input type="checkbox"><span class="cn">12</span><code style="font-size:10px;color:#a5f3fc">npx remotion studio</code> → ブラウザでプレビュー起動</li>
+          <li><input type="checkbox"><span class="cn">13</span>Claude Code に声で指示しながら KazaShow.tsx を構築</li>
+          <li><input type="checkbox"><span class="cn">14</span>テキストオーバーレイ・BGM・タイミングを声で調整</li>
+          <li><input type="checkbox"><span class="cn">15</span><code style="font-size:10px;color:#a5f3fc">npx remotion render KazaShow out/ep_XX.mp4</code></li>
+        </ul>
+      </div>
+      <div style="grid-column:1/-1;">
+        <div style="font-size:10px;font-weight:800;color:#4b5563;letter-spacing:.08em;margin-bottom:10px;">🚀 PUBLISH</div>
+        <ul class="cl">
+          <li><input type="checkbox"><span class="cn">16</span>完成 MP4 を通しで確認</li>
+          <li><input type="checkbox"><span class="cn">17</span>サムネイル作成（Kaza ポーズ + タイトル）</li>
+          <li><input type="checkbox"><span class="cn">18</span>YouTube アップロード・説明文・タグ・公開</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr>
+
+<!-- COST TABLE -->
+<div style="font-size:13px;font-weight:900;color:#fff;margin-bottom:14px;">📊 全ツール コスト・OSS サマリー</div>
+<table class="ctable">
+  <thead><tr><th>ツール</th><th>役割</th><th>コスト</th><th>OSS?</th><th>状態</th></tr></thead>
+  <tbody>
+    <tr><td>Chatterbox TTS</td><td>Kaza 英語音声生成</td><td class="free">$0</td><td class="free">◎ OSS</td><td class="done">✓ 完了</td></tr>
+    <tr><td>Remotion</td><td>動画生成エンジン（React）</td><td class="free">$0（個人利用）</td><td class="free">◎ OSS</td><td>NEXT</td></tr>
+    <tr><td>Remotion Studio</td><td>プレビュー・確認</td><td class="free">$0</td><td class="free">◎ OSS</td><td>Phase 1</td></tr>
+    <tr><td>macOS Dictation</td><td>声 → テキスト入力</td><td class="free">$0</td><td>△ 内蔵</td><td>今日から使える</td></tr>
+    <tr><td>Whisper (OSS)</td><td>高精度 STT（任意）</td><td class="free">$0</td><td class="free">◎ OSS</td><td>任意</td></tr>
+    <tr><td>OBS Studio</td><td>Kaza アニメ録画</td><td class="free">$0</td><td class="free">◎ OSS</td><td>Phase 5</td></tr>
+    <tr><td>FFmpeg</td><td>音声・動画処理</td><td class="free">$0</td><td class="free">◎ OSS</td><td>任意</td></tr>
+    <tr><td>VTube Studio</td><td>Live2D Kaza をリアルタイム制御</td><td class="paid">$15（買い切り）</td><td>△ Steam</td><td>Phase 5</td></tr>
+    <tr><td>Live2D Cubism（外注）</td><td>Kaza モデルのリグ作成</td><td class="paid">$300〜800（外注）</td><td>△ 外注</td><td>Phase 5</td></tr>
+    <tr><td>Remotion Editor Starter</td><td>GUI タイムライン・Canvas 微調整</td><td class="free">$0（入手済み）</td><td>× 有料</td><td class="done">✓ 入手済み</td></tr>
+    <tr style="background:#0d0d20;">
+      <td style="color:#10B981;font-weight:800;">合計（最小構成）</td>
+      <td style="color:#10B981;">Chatterbox + Remotion + OBS + macOS Dictation のみ</td>
+      <td class="free">$0</td><td></td><td></td>
+    </tr>
+    <tr style="background:#0d0d20;">
+      <td style="color:#fff;font-weight:800;">合計（Kaza フル構成）</td>
+      <td>+ VTube Studio + Live2D 外注</td>
+      <td class="paid">$315〜815</td><td></td><td></td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="note" style="margin-top:20px;">
+  ※ Remotion 商用ライセンス: 年間売上 $1M 未満の企業は無料。超える場合は Company License 要確認 ／
+  Editor Starter は Remotion の別売テンプレート ($600 買い切り) ／
+  VTube Studio API (WebSocket) はポート 8001、認証トークン方式 ／
+  Chatterbox Apache 2.0: 商用コンテンツへの使用は問題なし
+</div>
+
 </body>
 </html>
