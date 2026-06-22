@@ -1,0 +1,131 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+<title>Markmap</title>
+<style>
+* {
+  margin: 0;
+  padding: 0;
+}
+html {
+  font-family: ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji',
+    'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+}
+#mindmap {
+  display: block;
+  width: 100vw;
+  height: 100vh;
+}
+.markmap-dark {
+  background: #27272a;
+  color: white;
+}
+</style>
+
+</head>
+<body>
+<svg id="mindmap"></svg>
+<script src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js"></script><script src="https://cdn.jsdelivr.net/npm/markmap-view@0.18.12/dist/browser/index.js"></script><script>((getMarkmap, getOptions, root2, jsonOptions) => {
+              const markmap = getMarkmap();
+              window.mm = markmap.Markmap.create(
+                "svg#mindmap",
+                (getOptions || markmap.deriveOptions)(jsonOptions),
+                root2
+              );
+              if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+                document.documentElement.classList.add("markmap-dark");
+              }
+            })(() => window.markmap,null,{"content":"&#x5de5;&#x85e4;&#x6676;&#x5f66;&#x3055;&#x3093;&#x30e1;&#x30c3;&#x30bb;&#x30fc;&#x30b8;&#xff5c;2026-06-22","children":[{"content":"YouTube&#x30aa;&#x30ea;&#x30b8;&#x30ca;&#x30eb;ch","children":[{"content":"&#x30bf;&#x30a4;&#x30df;&#x30f3;&#x30b0;","children":[{"content":"Earth&#x304c;&#x8ecc;&#x9053;&#x306b;&#x4e57;&#x3063;&#x3066;&#x304b;&#x3089;&#x958b;&#x8a2d;","children":[],"payload":{"tag":"li","lines":"4,5"}},{"content":"&#x6025;&#x3044;&#x3067;&#x3044;&#x306a;&#x3044;","children":[],"payload":{"tag":"li","lines":"5,6"}},{"content":"&#x6765;&#x671f;&#x30b9;&#x30bf;&#x30fc;&#x30c8;&#x306e;&#x30a4;&#x30e1;&#x30fc;&#x30b8;","children":[],"payload":{"tag":"li","lines":"6,7"}}],"payload":{"tag":"h3","lines":"3,4"}},{"content":"&#x65b9;&#x5411;&#x6027;","children":[{"content":"smallfilm / EarthWorkers &#x3068;&#x9023;&#x52d5;","children":[],"payload":{"tag":"li","lines":"8,9"}},{"content":"&#x958b;&#x8a2d;&#x5f8c;&#x307e;&#x305f;&#x76f8;&#x8ac7;","children":[],"payload":{"tag":"li","lines":"9,11"}}],"payload":{"tag":"h3","lines":"7,8"}}],"payload":{"tag":"h2","lines":"2,3"}},{"content":"&#x30cf;&#x30a4;&#x30a8;&#x30f3;&#x30c9;&#x30d7;&#x30ed;&#x30c0;&#x30af;&#x30b7;&#x30e7;&#x30f3;&#x69cb;&#x60f3;","children":[{"content":"Honda-san&#x306e;&#x5b58;&#x5728;","children":[{"content":"&#x30a2;&#x30fc;&#x30c6;&#x30a3;&#x30b9;&#x30c8;&#x30fb;&#x30af;&#x30ea;&#x30a8;&#x30fc;&#x30bf;&#x30fc;&#xff08;&#x30b8;&#x30e5;&#x30ea;&#x30a2;&#x30f3;&#x7684;&#xff09;","children":[],"payload":{"tag":"li","lines":"13,14"}},{"content":"&#x5909;&#x4eba;&#x305f;&#x3061;&#x306e;&#x4e16;&#x754c;&#x30fb;&#x30de;&#x30cd;&#x30b8;&#x30e1;&#x30f3;&#x30c8;&#x30ea;&#x30b9;&#x30af;&#x9ad8;","children":[],"payload":{"tag":"li","lines":"14,15"}}],"payload":{"tag":"h3","lines":"12,13"}},{"content":"&#x30d3;&#x30b8;&#x30cd;&#x30b9;&#x30e2;&#x30c7;&#x30eb;&#x65b9;&#x91dd;","children":[{"content":"Web&#x3067;BM&#x3092;&#x5148;&#x884c;&#x69cb;&#x7bc9;","children":[],"payload":{"tag":"li","lines":"16,17"}},{"content":"&#x5236;&#x4f5c;&#x8005;&#x306e;&#x5fdc;&#x52df;&#x7a93;&#x53e3;&#x3068;&#x3057;&#x3066;&#x3082;&#x6d3b;&#x7528;","children":[],"payload":{"tag":"li","lines":"17,18"}},{"content":"&#x826f;&#x3044;&#x4eba;&#x305f;&#x3061;&#x3078;&#x53c2;&#x52a0;&#x547c;&#x3073;&#x304b;&#x3051;&#x65b9;&#x5f0f;","children":[],"payload":{"tag":"li","lines":"18,19"}}],"payload":{"tag":"h3","lines":"15,16"}},{"content":"&#x30bf;&#x30fc;&#x30b2;&#x30c3;&#x30c8;&#x6848;&#x4ef6;","children":[{"content":"&#x56fd;&#x5185;&#x756a;&#x7d44;","children":[],"payload":{"tag":"li","lines":"20,21"}},{"content":"CM","children":[],"payload":{"tag":"li","lines":"21,22"}},{"content":"&#x30b7;&#x30cd;&#x30de;&#x30c6;&#x30a3;&#x30c3;&#x30af;&#x6848;&#x4ef6;&#xff08;&#x4eca;&#x56de;&#x306e;&#x3088;&#x3046;&#x306a;&#xff09;","children":[],"payload":{"tag":"li","lines":"22,24"}}],"payload":{"tag":"h3","lines":"19,20"}}],"payload":{"tag":"h2","lines":"11,12"}},{"content":"&#x30d6;&#x30e9;&#x30f3;&#x30c9;&#x540d;&#x5019;&#x88dc;","children":[{"content":"MoonWorks","children":[{"content":"&#x72ec;&#x7acb;&#x30d7;&#x30ed;&#x30c0;&#x30af;&#x30b7;&#x30e7;&#x30f3;","children":[],"payload":{"tag":"li","lines":"26,27"}},{"content":"&#x30cf;&#x30a4;&#x30a8;&#x30f3;&#x30c9;&#x30c1;&#x30fc;&#x30e0;&#x63d0;&#x4f9b;","children":[],"payload":{"tag":"li","lines":"27,28"}}],"payload":{"tag":"h3","lines":"25,26"}},{"content":"Sol y sombra","children":[{"content":"&#x5149;&#x3068;&#x5f71;&#xff08;&#x30b9;&#x30da;&#x30a4;&#x30f3;&#x8a9e;&#xff09;","children":[],"payload":{"tag":"li","lines":"29,30"}},{"content":"&#x30a2;&#x30fc;&#x30c8;&#x7cfb;&#x30d6;&#x30e9;&#x30f3;&#x30c9;&#x30a4;&#x30e1;&#x30fc;&#x30b8;","children":[],"payload":{"tag":"li","lines":"30,31"}}],"payload":{"tag":"h3","lines":"28,29"}},{"content":"&#x30b7;&#x30cd;&#x30de;&#x3068;&#x30b0;&#x30e9;&#x30d5;","children":[{"content":"&#x30af;&#x30ea;&#x30a8;&#x30fc;&#x30c6;&#x30a3;&#x30d6;&#x30fb;&#x30e1;&#x30c7;&#x30a3;&#x30a2;","children":[],"payload":{"tag":"li","lines":"32,33"}},{"content":"PR&#x6848;&#x4ef6;&#x53d7;&#x6ce8;&#x30e2;&#x30c7;&#x30eb;","children":[],"payload":{"tag":"li","lines":"33,35"}}],"payload":{"tag":"h3","lines":"31,32"}}],"payload":{"tag":"h2","lines":"24,25"}},{"content":"&#x5927;&#x578b;&#x30aa;&#x30a6;&#x30f3;&#x30c9;&#x30e1;&#x30c7;&#x30a3;&#x30a2;&#x69cb;&#x60f3;","children":[{"content":"&#x30b3;&#x30f3;&#x30c6;&#x30f3;&#x30c4;","children":[{"content":"&#x5199;&#x771f;&#x5bb6;&#x306b;&#x3088;&#x308b;&#x30e9;&#x30a4;&#x30d6;&#x914d;&#x4fe1;&#x5bfe;&#x8ac7;&#x756a;&#x7d44;","children":[],"payload":{"tag":"li","lines":"37,38"}},{"content":"&#x97f3;&#x697d;&#x756a;&#x7d44;","children":[],"payload":{"tag":"li","lines":"38,39"}},{"content":"YouTube&#x3067;&#x914d;&#x4fe1;","children":[],"payload":{"tag":"li","lines":"39,40"}}],"payload":{"tag":"h3","lines":"36,37"}},{"content":"&#x30ec;&#x30d9;&#x30cb;&#x30e5;&#x30fc;&#x53c2;&#x52a0;&#x5019;&#x88dc;","children":[{"content":"Shimizu-kun&#xff08;&#x6e05;&#x6c34;&#x304f;&#x3093;&#xff09;","children":[],"payload":{"tag":"li","lines":"41,42"}},{"content":"Kogure-san&#xff08;&#x5c0f;&#x66ae;&#x3055;&#x3093;&#xff09;","children":[],"payload":{"tag":"li","lines":"42,43"}},{"content":"Kuma-chan&#xff08;&#x718a;&#x3061;&#x3083;&#x3093;&#xff09;","children":[],"payload":{"tag":"li","lines":"43,45"}}],"payload":{"tag":"h3","lines":"40,41"}}],"payload":{"tag":"h2","lines":"35,36"}},{"content":"&#x6b21;&#x306e;&#x30a2;&#x30af;&#x30b7;&#x30e7;&#x30f3;","children":[{"content":"&#x4f1a;&#x5408;&#x958b;&#x50ac;","children":[{"content":"&#x8b70;&#x984c;&#x3092;&#x4f5c;&#x3063;&#x305f;&#x4e0a;&#x3067;&#x53c2;&#x52a0;&#x547c;&#x3073;&#x304b;&#x3051;&#x65b9;&#x5f0f;","children":[],"payload":{"tag":"li","lines":"47,48"}},{"content":"&#x305f;&#x3060;&#x306e;&#x98f2;&#x307f;&#x4f1a;&#x3067;&#x306f;&#x306a;&#x304f;","children":[],"payload":{"tag":"li","lines":"48,49"}}],"payload":{"tag":"h3","lines":"46,47"}},{"content":"&#x8cc7;&#x91d1;&#x53c2;&#x52a0;&#x6253;&#x8a3a;","children":[{"content":"Chen-san&#x306b;&#x6253;&#x8a3a;","children":[],"payload":{"tag":"li","lines":"50,51"}},{"content":"&#x6d77;&#x5916;&#x3068;&#x65e5;&#x672c;&#x3092;&#x30af;&#x30ea;&#x30a8;&#x30fc;&#x30c6;&#x30a3;&#x30d6;&#x3067;&#x7e4b;&#x3050;&#x4e8b;&#x696d;&#x6295;&#x8cc7;&#x3068;&#x3057;&#x3066;","children":[],"payload":{"tag":"li","lines":"51,52"}}],"payload":{"tag":"h3","lines":"49,50"}},{"content":"&#x691c;&#x8a0e;&#x8ab2;&#x984c;","children":[{"content":"&#x30d6;&#x30e9;&#x30f3;&#x30c9;&#x540d;&#x6700;&#x7d42;&#x6c7a;&#x5b9a;","children":[],"payload":{"tag":"li","lines":"53,54"}},{"content":"&#x30c1;&#x30fc;&#x30e0;&#x7de8;&#x6210;&#x65b9;&#x91dd;&#x78ba;&#x5b9a;","children":[],"payload":{"tag":"li","lines":"54,55"}}],"payload":{"tag":"h3","lines":"52,53"}}],"payload":{"tag":"h2","lines":"45,46"}}],"payload":{"tag":"h1","lines":"0,1"}},null)</script>
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/markmap-toolbar@0.18.10/dist/style.css"
+    />
+
+    <script src="https://cdn.jsdelivr.net/npm/markmap-toolbar@0.18.10/dist/index.js"></script>
+    <script>
+      ((r) => {
+          setTimeout(r);
+      })(() => {
+          const { markmap, mm } = window;
+          const toolbar = new markmap.Toolbar();
+          toolbar.attach(mm);
+          const el = toolbar.render();
+          el.setAttribute(
+              "style",
+              "position:absolute;bottom:20px;right:20px"
+          );
+          document.body.append(el);
+          
+          setTimeout(() => {
+            if (mm && typeof mm.fit === 'function') {
+              mm.fit();
+            }
+          }, 1200);
+      });
+    </script>
+  
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html-to-image/1.11.11/html-to-image.min.js"></script>
+
+    <textarea id="original-markdown" style="display:none;"># 工藤晶彦さんメッセージ｜2026-06-22
+
+## YouTubeオリジナルch
+### タイミング
+- Earthが軌道に乗ってから開設
+- 急いでいない
+- 来期スタートのイメージ
+### 方向性
+- smallfilm / EarthWorkers と連動
+- 開設後また相談
+
+## ハイエンドプロダクション構想
+### Honda-sanの存在
+- アーティスト・クリエーター（ジュリアン的）
+- 変人たちの世界・マネジメントリスク高
+### ビジネスモデル方針
+- WebでBMを先行構築
+- 制作者の応募窓口としても活用
+- 良い人たちへ参加呼びかけ方式
+### ターゲット案件
+- 国内番組
+- CM
+- シネマティック案件（今回のような）
+
+## ブランド名候補
+### MoonWorks
+- 独立プロダクション
+- ハイエンドチーム提供
+### Sol y sombra
+- 光と影（スペイン語）
+- アート系ブランドイメージ
+### シネマとグラフ
+- クリエーティブ・メディア
+- PR案件受注モデル
+
+## 大型オウンドメディア構想
+### コンテンツ
+- 写真家によるライブ配信対談番組
+- 音楽番組
+- YouTubeで配信
+### レベニュー参加候補
+- Shimizu-kun（清水くん）
+- Kogure-san（小暮さん）
+- Kuma-chan（熊ちゃん）
+
+## 次のアクション
+### 会合開催
+- 議題を作った上で参加呼びかけ方式
+- ただの飲み会ではなく
+### 資金参加打診
+- Chen-sanに打診
+- 海外と日本をクリエーティブで繋ぐ事業投資として
+### 検討課題
+- ブランド名最終決定
+- チーム編成方針確定</textarea>
+
+</body>
+</html>
