@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    width:1400px; height:900px;
+    background:#EEF2FF;
+    font-family:'Hiragino Sans','Yu Gothic UI',sans-serif;
+  }
+  .titlebar {
+    background:#4361EE;
+    color:white;
+    padding:26px 40px;
+    font-size:30px;
+    font-weight:700;
+  }
+  .subtitle { font-size:15px; font-weight:400; opacity:0.85; margin-top:6px; }
+  .timeline {
+    position:relative;
+    padding:90px 60px 0 60px;
+  }
+  .line {
+    position:absolute;
+    top:150px; left:100px; right:100px;
+    height:4px;
+    background:#C7D0F7;
+    border-radius:4px;
+  }
+  .steps {
+    display:flex;
+    justify-content:space-between;
+  }
+  .step {
+    width:220px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    text-align:center;
+  }
+  .dot {
+    width:56px; height:56px;
+    background:#4361EE;
+    color:white;
+    border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    font-size:22px; font-weight:800;
+    box-shadow:0 6px 14px rgba(67,97,238,0.35);
+    margin-bottom:26px;
+    z-index:1;
+  }
+  .card {
+    background:white;
+    border-radius:14px;
+    box-shadow:0 8px 18px rgba(0,0,0,0.08);
+    padding:18px 16px;
+    min-height:190px;
+  }
+  .card h3 { font-size:16px; color:#1a1a2e; margin-bottom:8px; }
+  .card p { font-size:12.5px; color:#555; line-height:1.6; }
+  .loop-note {
+    text-align:center;
+    margin-top:28px;
+    font-size:14px;
+    color:#4361EE;
+    font-weight:700;
+  }
+</style>
+</head>
+<body>
+  <div class="titlebar">
+    現場営業フロー
+    <div class="subtitle">紹介に次ぐ紹介で全国展開する「竹の子方式」</div>
+  </div>
+  <div class="timeline">
+    <div class="line"></div>
+    <div class="steps">
+      <div class="step">
+        <div class="dot">1</div>
+        <div class="card">
+          <h3>現場発見</h3>
+          <p>入札情報（NJSS等）・既存クライアントの横展開・現場訪問時の偶発的ニーズで見つける。</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="dot">2</div>
+        <div class="card">
+          <h3>事前挨拶・許可取り</h3>
+          <p>元請けゼネコン・発注者（役所）に直接説明。「担い手確保」等の社会的意義を前面に安心感を作る。</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="dot">3</div>
+        <div class="card">
+          <h3>撮影実施</h3>
+          <p>50万円基本パッケージ（1日・ドローン/CGなし）で撮影。オンラインMTG1回で商談を完結させる。</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="dot">4</div>
+        <div class="card">
+          <h3>納品・公開</h3>
+          <p>サムネイル・詳細欄も含めて制作側で対応し、YouTube等へアップロードまで代行する。</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="dot">5</div>
+        <div class="card">
+          <h3>紹介連鎖</h3>
+          <p>所長経由で他現場・他支店を紹介してもらい、地方間の競争意識も利用して全国へ展開する。</p>
+        </div>
+      </div>
+    </div>
+    <div class="loop-note">↺ 現場担当窓口として、制作は全国の信頼できるパートナーへ発注しスケール</div>
+  </div>
+</body>
+</html>

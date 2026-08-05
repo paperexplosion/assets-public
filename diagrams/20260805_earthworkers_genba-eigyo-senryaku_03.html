@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    width:1400px; height:900px;
+    background:#EEF2FF;
+    font-family:'Hiragino Sans','Yu Gothic UI',sans-serif;
+  }
+  .titlebar {
+    background:#4361EE;
+    color:white;
+    padding:26px 40px;
+    font-size:30px;
+    font-weight:700;
+  }
+  .subtitle { font-size:15px; font-weight:400; opacity:0.85; margin-top:6px; }
+  .list {
+    padding:34px 60px;
+    display:flex;
+    flex-direction:column;
+    gap:16px;
+  }
+  .row {
+    background:white;
+    border-radius:14px;
+    box-shadow:0 6px 16px rgba(0,0,0,0.07);
+    padding:18px 26px;
+    display:flex;
+    align-items:center;
+    gap:22px;
+  }
+  .badge {
+    flex-shrink:0;
+    width:88px;
+    text-align:center;
+    font-size:13px;
+    font-weight:800;
+    padding:8px 0;
+    border-radius:10px;
+    color:white;
+  }
+  .badge.top { background:#E63946; }
+  .badge.mid { background:#F4A300; }
+  .badge.later { background:#4361EE; }
+  .row-content h3 { font-size:17.5px; color:#1a1a2e; margin-bottom:4px; }
+  .row-content p { font-size:13.5px; color:#555; line-height:1.5; }
+</style>
+</head>
+<body>
+  <div class="titlebar">
+    最優先アクションアイテム
+    <div class="subtitle">担当：Suzu / Kudoさん（両名共同）</div>
+  </div>
+  <div class="list">
+    <div class="row">
+      <div class="badge top">最優先</div>
+      <div class="row-content">
+        <h3>現場リストの洗い出し</h3>
+        <p>NJSS・JUTSUTAI WORKS等の入札情報サービス、または各自治体ホームページの入札情報欄から、稼働中の現場・所長名・事務所連絡先をリスト化する。</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="badge top">最優先</div>
+      <div class="row-content">
+        <h3>名刺・独自ドメインホームページの整備</h3>
+        <p>アースワーカーズ名刺（2名分）を作成。実績・サービス内容・QRコードを載せた独自ドメインのホームページを整備する。</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="badge mid">優先</div>
+      <div class="row-content">
+        <h3>現場営業用チラシ（フライヤー）の作成</h3>
+        <p>現場訪問時・展示会（ビッグサイト等）で配布する紙のツールを用意。「その場でスマホで実績を見せる」動線とセットで使う。</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="badge mid">優先</div>
+      <div class="row-content">
+        <h3>50万円ベースの営業フロー・商品パッケージ確定</h3>
+        <p>ミーティング1回→現場撮影→即アップという「コミュニケーションコストがかからない」型を固め、自動販売機的に回せる形にする。</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="badge later">中期</div>
+      <div class="row-content">
+        <h3>「アスファルトガーズ」YouTubeチャンネルの立ち上げ</h3>
+        <p>依頼を待たず土木現場を自主撮影・発信。地方現場間の競争意識を喚起し、リクエストがあれば有償のカスタム映像へ誘導する二段階モデル。</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="badge later">中期</div>
+      <div class="row-content">
+        <h3>Asada所長の事例をホームページ上でストーリー掲載</h3>
+        <p>「現場発の初めてのYouTube PR事例」として権威付け。映画文化連盟ドキュメンタリー賞（一次通過済み）などの受賞実績も合わせて活用する。</p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
