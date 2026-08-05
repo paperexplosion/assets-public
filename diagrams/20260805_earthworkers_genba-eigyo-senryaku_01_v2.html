@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    width:1400px; height:900px;
+    background:#EEF2FF;
+    font-family:'Hiragino Sans','Yu Gothic UI',sans-serif;
+    display:flex;
+    flex-direction:column;
+    overflow:hidden;
+  }
+  .titlebar {
+    background:#4361EE;
+    color:white;
+    padding:30px 44px;
+    font-size:32px;
+    font-weight:700;
+    letter-spacing:1px;
+  }
+  .subtitle {
+    font-size:16px;
+    font-weight:400;
+    opacity:0.85;
+    margin-top:8px;
+  }
+  .canvas {
+    position:relative;
+    flex:1;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    grid-template-rows:1fr 1fr;
+    gap:44px;
+    padding:36px 70px;
+  }
+  svg.connectors { position:absolute; top:0; left:0; width:100%; height:100%; z-index:0; }
+  .hub {
+    position:absolute;
+    top:50%; left:50%;
+    transform:translate(-50%,-50%);
+    width:320px; height:184px;
+    background:white;
+    border-radius:22px;
+    box-shadow:0 16px 40px rgba(67,97,238,0.28);
+    display:flex; flex-direction:column;
+    align-items:center; justify-content:center;
+    text-align:center;
+    border:4px solid #4361EE;
+    padding:18px;
+    z-index:2;
+  }
+  .hub .label { font-size:14px; color:#4361EE; font-weight:700; margin-bottom:10px; letter-spacing:1px; }
+  .hub .main { font-size:26px; font-weight:800; color:#1a1a2e; line-height:1.5; }
+  .card {
+    background:white;
+    border-radius:18px;
+    box-shadow:0 10px 26px rgba(0,0,0,0.09);
+    padding:30px 34px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    z-index:1;
+  }
+  .card .num {
+    display:inline-block;
+    background:#4361EE;
+    color:white;
+    font-size:14px;
+    font-weight:700;
+    padding:5px 15px;
+    border-radius:20px;
+    margin-bottom:14px;
+    align-self:flex-start;
+  }
+  .card h3 { font-size:22px; color:#1a1a2e; margin-bottom:12px; font-weight:800; }
+  .card p { font-size:16px; color:#444; line-height:1.75; }
+</style>
+</head>
+<body>
+  <div class="titlebar">
+    アースワーカーズ 現場営業戦略 全体像
+    <div class="subtitle">2026-08-04 プロジェクト同期ミーティング要約</div>
+  </div>
+  <div class="canvas">
+    <svg class="connectors" viewBox="0 0 1000 1000" preserveAspectRatio="none">
+      <line x1="500" y1="500" x2="250" y2="250" stroke="#B4C0F5" stroke-width="4"/>
+      <line x1="500" y1="500" x2="750" y2="250" stroke="#B4C0F5" stroke-width="4"/>
+      <line x1="500" y1="500" x2="250" y2="750" stroke="#B4C0F5" stroke-width="4"/>
+      <line x1="500" y1="500" x2="750" y2="750" stroke="#B4C0F5" stroke-width="4"/>
+    </svg>
+
+    <div class="card">
+      <span class="num">01 ターゲット市場</span>
+      <h3>土木建設 全般</h3>
+      <p>海洋土木に限定せず「土木建設」全体を対象。今後30〜50年のインフラ総取替需要（エネルギー・運輸・下水道等）を見据える。</p>
+    </div>
+
+    <div class="card">
+      <span class="num">02 価格・商品設計</span>
+      <h3>50万円 基本パッケージ</h3>
+      <p>ドローン・CGなし1日撮影が基本。現場所長が単独決裁しやすい「稟議の壁」を超えないスイートスポット。</p>
+    </div>
+
+    <div class="card">
+      <span class="num">03 営業アプローチ</span>
+      <h3>現場・支店への直接営業</h3>
+      <p>本社より現場事務所・支店の方が意思決定が早い。入札情報（NJSS等）＋現場訪問＋紹介連鎖で全国展開。</p>
+    </div>
+
+    <div class="card">
+      <span class="num">04 ブランディング</span>
+      <h3>土木専門の権威付け</h3>
+      <p>「土木建設専門の映像制作・マーケティング会社」を明確化。Asada所長の事例・受賞実績で役所・ゼネコンの信頼を獲得。</p>
+    </div>
+
+    <div class="hub">
+      <div class="label">CORE STRATEGY</div>
+      <div class="main">現場発の<br>50万円モデル</div>
+    </div>
+  </div>
+</body>
+</html>

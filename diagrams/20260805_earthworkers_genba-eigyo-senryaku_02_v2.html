@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    width:1400px; height:900px;
+    background:#EEF2FF;
+    font-family:'Hiragino Sans','Yu Gothic UI',sans-serif;
+    display:flex;
+    flex-direction:column;
+  }
+  .titlebar {
+    background:#4361EE;
+    color:white;
+    padding:30px 44px;
+    font-size:32px;
+    font-weight:700;
+  }
+  .subtitle { font-size:16px; font-weight:400; opacity:0.85; margin-top:8px; }
+  .body-area {
+    flex:1;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    padding:36px 50px;
+  }
+  .cols {
+    display:flex;
+    gap:36px;
+  }
+  .col {
+    flex:1;
+    background:white;
+    border-radius:20px;
+    box-shadow:0 10px 26px rgba(0,0,0,0.09);
+    padding:44px 38px;
+    display:flex;
+    flex-direction:column;
+    min-height:520px;
+  }
+  .col.highlight {
+    border:4px solid #4361EE;
+    transform:translateY(-14px);
+    box-shadow:0 22px 46px rgba(67,97,238,0.3);
+  }
+  .price {
+    font-size:60px;
+    font-weight:900;
+    color:#1a1a2e;
+    margin-bottom:8px;
+  }
+  .price span { font-size:22px; font-weight:600; color:#888; }
+  .tag {
+    display:inline-block;
+    font-size:14px;
+    font-weight:700;
+    color:#4361EE;
+    background:#EEF2FF;
+    padding:7px 16px;
+    border-radius:20px;
+    margin-bottom:22px;
+    align-self:flex-start;
+  }
+  .col.highlight .tag { background:#4361EE; color:white; }
+  h3 { font-size:24px; margin-bottom:22px; color:#1a1a2e; }
+  ul { padding-left:24px; flex:1; }
+  li { font-size:17px; line-height:2.3; color:#444; }
+  .divider { height:1px; background:#eee; margin:20px 0; }
+  .use-case { font-size:14.5px; color:#4361EE; font-weight:700; margin-top:auto; padding-top:16px; }
+  .footer-note {
+    text-align:center;
+    font-size:16px;
+    color:#555;
+    padding-top:30px;
+    font-weight:600;
+  }
+</style>
+</head>
+<body>
+  <div class="titlebar">
+    価格帯別 商品設計
+    <div class="subtitle">「稟議が通りやすい額」から逆算した3段階メニュー</div>
+  </div>
+  <div class="body-area">
+    <div class="cols">
+      <div class="col">
+        <span class="tag">SMALL</span>
+        <div class="price">30<span>万円〜</span></div>
+        <h3>ライトプラン</h3>
+        <ul>
+          <li>小規模現場・単発案件向け</li>
+          <li>インタビュー中心の記録映像</li>
+          <li>入り口として発注しやすい価格</li>
+        </ul>
+        <div class="use-case">USE: 初回取引・小規模自治体案件</div>
+      </div>
+      <div class="col highlight">
+        <span class="tag">BASIC ★推奨</span>
+        <div class="price">50<span>万円</span></div>
+        <h3>ベーシックプラン（基本）</h3>
+        <ul>
+          <li>ドローン・CGなし、〰1日撮影が基本</li>
+          <li>現場所長の裁量で決裁できる金額</li>
+          <li>100万円を超えると本社稟議が必要になるため、この価格帯を軸に据える</li>
+          <li>1現場50万円×12現場＝月600万円モデル</li>
+        </ul>
+        <div class="use-case">USE: 標準営業パッケージ・全国展開の主力</div>
+      </div>
+      <div class="col">
+        <span class="tag">PREMIUM</span>
+        <div class="price">100<span>万円〜</span></div>
+        <h3>プレミアムプラン</h3>
+        <ul>
+          <li>ドローン・CG・複数日撮影を追加</li>
+          <li>信頼関係が構築できた大型現場向け</li>
+          <li>所長の信用があれば説明不要で通る額</li>
+        </ul>
+        <div class="use-case">USE: リピーター・大型現場・受賞歴案件</div>
+      </div>
+    </div>
+    <div class="footer-note">オプション積み上げ構造：基本50万円＋ドローン／CG／複数日などをアラカルトで追加</div>
+  </div>
+</body>
+</html>
