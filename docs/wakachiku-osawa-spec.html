@@ -1,0 +1,355 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>若築建設サイト移行仕様書</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Public+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+
+  :root {
+    --paper: #F2F4F3;
+    --panel: #FFFFFF;
+    --ink: #16202B;
+    --ink-soft: #56636E;
+    --blueprint: #1F5FA8;
+    --blueprint-soft: rgba(31,95,168,0.09);
+    --blueprint-line: rgba(31,95,168,0.35);
+    --amber: #9C6208;
+    --amber-soft: rgba(156,98,8,0.10);
+    --amber-line: rgba(156,98,8,0.4);
+    --line: rgba(22,32,43,0.13);
+    --line-strong: rgba(22,32,43,0.32);
+    --shadow: 0 1px 2px rgba(22,32,43,0.05), 0 10px 26px -18px rgba(22,32,43,0.3);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper: #0F1519;
+      --panel: #161E24;
+      --ink: #E7ECEF;
+      --ink-soft: #9BACB8;
+      --blueprint: #6FA8DC;
+      --blueprint-soft: rgba(111,168,220,0.12);
+      --blueprint-line: rgba(111,168,220,0.4);
+      --amber: #E0A552;
+      --amber-soft: rgba(224,165,82,0.12);
+      --amber-line: rgba(224,165,82,0.4);
+      --line: rgba(231,236,239,0.13);
+      --line-strong: rgba(231,236,239,0.28);
+      --shadow: 0 1px 2px rgba(0,0,0,0.4), 0 10px 26px -18px rgba(0,0,0,0.6);
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper: #0F1519;
+    --panel: #161E24;
+    --ink: #E7ECEF;
+    --ink-soft: #9BACB8;
+    --blueprint: #6FA8DC;
+    --blueprint-soft: rgba(111,168,220,0.12);
+    --blueprint-line: rgba(111,168,220,0.4);
+    --amber: #E0A552;
+    --amber-soft: rgba(224,165,82,0.12);
+    --amber-line: rgba(224,165,82,0.4);
+    --line: rgba(231,236,239,0.13);
+    --line-strong: rgba(231,236,239,0.28);
+    --shadow: 0 1px 2px rgba(0,0,0,0.4), 0 10px 26px -18px rgba(0,0,0,0.6);
+  }
+
+  * { box-sizing: border-box; }
+  @media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }
+
+  html { background: var(--paper); }
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: "Public Sans", "Hiragino Sans", "Yu Gothic UI", sans-serif;
+    font-size: 15.5px;
+    line-height: 1.8;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .mono { font-family: "IBM Plex Mono", ui-monospace, monospace; }
+
+  h1, h2, h3 { font-family: "Barlow Condensed", "Hiragino Sans", sans-serif; text-wrap: balance; letter-spacing: 0.01em; }
+
+  .doc { max-width: 900px; margin: 0 auto; padding: 56px 28px 100px; }
+  @media (max-width: 640px) { .doc { padding: 40px 18px 80px; } }
+
+  .doc-head { margin-bottom: 44px; }
+  .doc-kicker {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 11.5px;
+    letter-spacing: 0.12em;
+    color: var(--blueprint);
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .doc-kicker::before { content: ""; width: 22px; height: 1px; background: var(--blueprint-line); display: inline-block; }
+  .doc-head h1 {
+    margin: 14px 0 22px;
+    font-size: clamp(1.7rem, 4.4vw, 2.5rem);
+    font-weight: 700;
+    color: var(--ink);
+    max-width: 20ch;
+  }
+
+  .title-block {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    border: 1px solid var(--line-strong);
+    border-radius: 4px;
+    overflow: hidden;
+    background: var(--panel);
+    box-shadow: var(--shadow);
+  }
+  @media (max-width: 640px) { .title-block { grid-template-columns: repeat(2, 1fr); } }
+  .title-block dl {
+    margin: 0;
+    padding: 12px 16px;
+    border-right: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+  .title-block dl:nth-child(4n) { border-right: none; }
+  .title-block dt {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 10px;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    margin-bottom: 4px;
+  }
+  .title-block dd { margin: 0; font-size: 14px; font-weight: 600; }
+  .status-draft { color: var(--amber); font-family: "IBM Plex Mono", monospace; font-size: 13px; letter-spacing: 0.04em; }
+
+  .clause { display: grid; grid-template-columns: 52px 1fr; gap: 0 22px; padding: 40px 0; border-top: 1px solid var(--line); }
+  @media (max-width: 640px) { .clause { grid-template-columns: 36px 1fr; } }
+  .clause:first-of-type { border-top: none; padding-top: 8px; }
+  .clause-num {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 13px;
+    color: var(--blueprint);
+    padding-top: 4px;
+  }
+  .clause h2 { margin: 0 0 6px; font-size: 1.55rem; }
+  .clause .sub { font-size: 13.5px; color: var(--ink-soft); margin-bottom: 22px; max-width: 46em; }
+  .clause .prose { max-width: 46em; }
+  .clause .prose p { margin: 0 0 1.1em; }
+  .clause .prose strong { color: var(--ink); }
+
+  table.spec { width: 100%; border-collapse: collapse; font-size: 14px; margin: 4px 0 6px; }
+  table.spec th, table.spec td { text-align: left; padding: 10px 14px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  table.spec th { font-family: "IBM Plex Mono", monospace; font-size: 10.5px; letter-spacing: 0.07em; text-transform: uppercase; color: var(--ink-soft); font-weight: 500; width: 34%; }
+  table.spec td { color: var(--ink); }
+  table.spec .num { font-family: "IBM Plex Mono", monospace; font-variant-numeric: tabular-nums; }
+  table.spec tr:last-child th, table.spec tr:last-child td { border-bottom: none; }
+
+  .flow { display: flex; align-items: center; gap: 14px; margin: 6px 0 26px; flex-wrap: wrap; }
+  .flow .node { border: 1px solid var(--line-strong); border-radius: 4px; padding: 10px 16px; font-size: 13.5px; background: var(--panel); }
+  .flow .node b { display: block; font-family: "IBM Plex Mono", monospace; font-size: 10px; letter-spacing: 0.08em; color: var(--ink-soft); text-transform: uppercase; margin-bottom: 3px; font-weight: 500; }
+  .flow .arrow { color: var(--blueprint); font-family: "IBM Plex Mono", monospace; font-size: 15px; }
+
+  .qlist { display: flex; flex-direction: column; gap: 14px; margin-top: 6px; }
+  .qcard {
+    border: 1px solid var(--amber-line);
+    background: var(--amber-soft);
+    border-radius: 4px;
+    padding: 18px 20px;
+  }
+  .qcard .qid {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    color: var(--amber);
+    text-transform: uppercase;
+    margin-bottom: 6px;
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+  }
+  .qcard p { margin: 0; font-size: 14.5px; color: var(--ink); }
+  .qcard p.note { margin-top: 8px; font-size: 13px; color: var(--ink-soft); }
+
+  .callout {
+    border-left: 3px solid var(--blueprint);
+    background: var(--blueprint-soft);
+    padding: 14px 20px;
+    border-radius: 0 4px 4px 0;
+    font-size: 14px;
+    margin: 8px 0 4px;
+  }
+  .callout strong { color: var(--ink); }
+
+  footer.doc-foot {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 28px 56px;
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 11px;
+    color: var(--ink-soft);
+    border-top: 1px solid var(--line);
+    padding-top: 22px;
+  }
+  @media (max-width: 640px) { footer.doc-foot { padding-left: 18px; padding-right: 18px; } }
+
+  ::selection { background: var(--blueprint); color: #fff; }
+</style>
+</head>
+<body>
+
+<div class="doc">
+
+  <div class="doc-head">
+    <div class="doc-kicker">Internal — Technical Handoff</div>
+    <h1>若築建設サイト移行仕様書</h1>
+    <div class="title-block">
+      <dl><dt>宛先</dt><dd>大沢くん</dd></dl>
+      <dl><dt>起草</dt><dd>storytelling team</dd></dl>
+      <dl><dt>日付</dt><dd class="mono">2026-08-28</dd></dl>
+      <dl><dt>ステータス</dt><dd class="status-draft">DRAFT — 実現可否レビュー依頼中</dd></dl>
+    </div>
+  </div>
+
+  <section class="clause">
+    <div class="clause-num">00</div>
+    <div>
+      <h2>背景とお願いしたいこと</h2>
+      <div class="sub">まず、ざっくりした経緯から</div>
+      <div class="prose">
+        <p>若築建設という会社(創業130年超・海洋土木の建設会社)と今話をしていて、コーポレートサイトのリニューアルを提案しようとしています。先方はリニューアルしたい気持ちはあるものの、今年度に使える予算が限られているとのことで、<strong>フェーズ1(今年度・限られた予算でトップページを中心に改修)→フェーズ2(来年度・予算を確保して残り全体を本格改修)</strong>という2段階で進める提案を組んでいます。</p>
+        <p>現状のサイトはこちらです:<a href="https://www.wakachiku.co.jp/" class="mono" style="color:var(--blueprint);">https://www.wakachiku.co.jp/</a>。どんな環境で動いているかは下記01に、どこへ移行したいかは下記02にまとめました。</p>
+        <p>体制としては、<strong>見た目(フロントエンド)は自分の方で体制を整え、制作チームと一緒に作っていきます</strong>。クライアントの好みに合わせた細かい調整もそちら側で対応する想定です。大沢くんにお願いしたいのは、その裏側——<strong>バックエンドの技術的な配線が無理なく成立するかどうか</strong>です。あわせて、公開後は基本的に<strong>若築建設側の情報システム部に運用を引き継ぐ</strong>想定でいるので、その引き継ぎ用の運用仕様書をつくるにあたって手伝ってもらえないか、という相談です。</p>
+        <p>この文書は、その体制が技術的に無理なく成立するかを、大沢くんに判断していただくための一次情報です。営業的な提案書ではありません。必要であれば、画面を見せながら動画で説明することもできますし、オンラインでミーティングしながら直接お伝えすることもできます。まずはこちらの資料で全体像を掴んでいただけると嬉しいです。</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="clause">
+    <div class="clause-num">01</div>
+    <div>
+      <h2>現状(AS-IS)</h2>
+      <div class="sub">対象:<a href="https://www.wakachiku.co.jp/" class="mono" style="color:var(--blueprint);">wakachiku.co.jp</a>／外部調査(DNS・HTTPヘッダー・HTMLソース)で確認できた事実</div>
+      <table class="spec">
+        <tr><th>ホスティング</th><td>IP 194.91.11.216、逆引き<span class="mono">cxubb216.secure.ne.jp</span>。KDDIウェブコミュニケーションズ「CPI」のドメイン形式と一致(推察)。契約・運用は現行制作会社側と推測。</td></tr>
+        <tr><th>CMS</th><td>存在せず。全ページに<span class="mono">&lt;!-- InstanceBegin template="/Templates/common.dwt" --&gt;</span>の痕跡あり。Adobe Dreamweaverテンプレート機能による静的HTML直編集運用。トップ(<span class="mono">common.dwt</span>)と採用(<span class="mono">recruit.dwt</span>)は既に別テンプレート。</td></tr>
+        <tr><th>サーバー / 実行環境</th><td><span class="mono">Server: Apache</span>、<span class="mono">PHPSESSID</span>発行あり(PHP稼働)。TLS1.3・HTTP2対応。SSL証明書はDigiCert発行のOV証明書(貴社名義で正規購入)。</td></tr>
+        <tr><th>フロントエンド</th><td>Bootstrap 4.2.1 / jQuery 3.3.1(2018年)/ Swiper / Slick。React・Vue等のモダンフレームワークは不使用。</td></tr>
+        <tr><th>外部連携</th><td>IR情報:<span class="mono">irpocket.com</span>のスクリプトで動的注入(IR Pocket)。サイト内検索:Google Custom Search。計測:GTM(<span class="mono">GTM-KXZGX9W</span>)、Google広告コンバージョン(<span class="mono">AW-449377804</span>、採用エントリー用)。</td></tr>
+        <tr><th>メール</th><td>MXレコードよりMicrosoft 365(Exchange Online)。</td></tr>
+        <tr><th>SEO基礎</th><td>robots.txt / sitemap.xml とも未設置(404)。</td></tr>
+      </table>
+    </div>
+  </section>
+
+  <section class="clause">
+    <div class="clause-num">02</div>
+    <div>
+      <h2>目標(TO-BE)</h2>
+      <div class="sub">フェーズ1で切り替える先</div>
+
+      <div class="flow">
+        <div class="node"><b>CMS</b>なし(DWT静的)</div>
+        <span class="arrow">→</span>
+        <div class="node"><b>CMS</b>Kuroco(エントリープラン)</div>
+      </div>
+      <div class="flow">
+        <div class="node"><b>ホスティング</b>CPI(推定)</div>
+        <span class="arrow">→</span>
+        <div class="node"><b>ホスティング</b>Vercel</div>
+      </div>
+
+      <div class="callout">
+        <strong>移行方式:ストラングラーパターン。</strong> DNSの入口をVercelへ切り替え、フェーズ1の対象(トップページ)はVercel側で新基盤が直接応答。未移行の残りページは裏側で旧CPIサーバーへプロキシ転送する。訪問者からはURLも含め、常にひとつのサイトに見える。フェーズ2で転送設定を1ページずつ剥がし、最終的に旧サーバー依存を完全に解消する。
+      </div>
+    </div>
+  </section>
+
+  <section class="clause">
+    <div class="clause-num">03</div>
+    <div>
+      <h2>体制のイメージ(役割分担)</h2>
+      <div class="sub">一度きりのレビューではなく、継続的にお願いしたい体制</div>
+      <table class="spec">
+        <tr><th>鈴木×制作チーム(フロントエンド)</th><td>見た目の設計・実装は、鈴木が体制を整えた制作チームで担当。クライアントの好みに合わせた調整もそちらで対応する想定。</td></tr>
+        <tr><th>大沢くん(バックエンド)</th><td>CMS(Kuroco)導入・環境構築、Vercel移行、旧CPIサーバーとのプロキシ設定、既存ツール(IR Pocket・GA/GTM・Google広告コンバージョン)の統合検証、本番切替とロールバック計画。<strong>公開後は若築建設側の情報システム部に運用を引き継ぐ想定</strong>で、その引き継ぎ用の運用仕様書づくりを手伝ってもらう立ち位置を想定しています。</td></tr>
+      </table>
+      <div class="prose" style="margin-top: 8px;">
+        <p class="note" style="color: var(--ink-soft); font-size: 13.5px;">位置づけの補足:作業量そのものというより、「本番切替・CMS環境構築という一発勝負を失敗させない」こと、そして<strong>公開後、若築建設の情報システム部が安心して運用を引き継げる状態を整える</strong>ことに価値がある役割だと考えています。間違えた場合の被害(サイト全体停止、IR/広告計測が気づかれないまま壊れる、等)が大きい部分を大沢くんに見てもらえたら、というお願いです。</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="clause">
+    <div class="clause-num">04</div>
+    <div>
+      <h2>見ていただきたい観点</h2>
+      <div class="sub">率直に言うと、心配しているのはここです</div>
+      <table class="spec">
+        <tr><th>設計の古さ</th><td>無理のある設計になっていないか</td></tr>
+        <tr><th>コードの汚さ</th><td>コードが荒れていないか</td></tr>
+        <tr><th>表示の軽さ</th><td>「サクサクしていない」と言われがちな部分が出ていないか(パフォーマンス)</td></tr>
+        <tr><th>CMSとの接続</th><td>Kurocoとの接続がちゃんとできているか</td></tr>
+        <tr><th>システムの安定性</th><td>公開後にバグらないか</td></tr>
+        <tr><th>運用のしやすさ</th><td>若築建設側の情報システム部への引き継ぎを見据えて、無理のない構成・ドキュメント化ができそうか</td></tr>
+      </table>
+    </div>
+  </section>
+
+  <section class="clause">
+    <div class="clause-num">05</div>
+    <div>
+      <h2>具体的な確認事項</h2>
+      <div class="sub">上記04を踏まえた、技術的な実現可否・懸念を率直にいただきたい4点</div>
+
+      <div class="qlist">
+        <div class="qcard">
+          <div class="qid"><span>Q1 — プロキシ設計</span><span>移行方式</span></div>
+          <p>ストラングラーパターンは、DNSをVercelへ切り替えるだけで完結しますか。それとも旧CPIサーバー(Apache/PHP)側にも追加の設定変更が必要になりますか。</p>
+        </div>
+        <div class="qcard">
+          <div class="qid"><span>Q2 — 映像アセット基盤</span><span>Kuroco設計</span></div>
+          <p>Kurocoの目録側に動画の情報源(YouTube／Vimeo)を記録し、社外拡散用の動画はYouTube・社内限定/IR前情報用の動画はVimeo(Standard、月¥3,625・2TB・パスワード保護)に振り分ける設計は、Kurocoで無理なく実装できますか。</p>
+          <p class="note">検討済みで却下した案:Wistia(実質月5.7〜7.2万円、オーバースペック)／Cloudflare Stream(従量課金で安いが非エンジニア向け管理画面がなく、結局アップロードが大沢くん依存に戻る)。</p>
+        </div>
+        <div class="qcard">
+          <div class="qid"><span>Q3 — 計測移設</span><span>リスク</span></div>
+          <p>IR Pocket・GTM・Google広告コンバージョンタグの移設で、計測が途切れるリスクはありますか。安全に移行する手順はありますか。</p>
+        </div>
+        <div class="qcard">
+          <div class="qid"><span>Q4 — 工数感</span><span>スケジュール</span></div>
+          <p>フェーズ1の想定スケジュール(9月10日頃ラフ案提示 → 本番切替)に対して、03の担当範囲は工数的に無理のない規模感ですか。大まかな工数感だけでも聞かせてください。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="clause">
+    <div class="clause-num">06</div>
+    <div>
+      <h2>前提条件</h2>
+      <table class="spec">
+        <tr><th>スケジュール目安</th><td>2026年9月10日頃、Takahashi-san(先方担当)へラフ案提示予定</td></tr>
+        <tr><th>素材</th><td>既存の写真・動画素材の活用が前提。新規撮影費は含まない</td></tr>
+        <tr><th>フェーズ2</th><td>残り全ページの移行・旧サーバー完全撤去。今回のスコープ外、別途相談</td></tr>
+        <tr><th>金額</th><td>クライアントとの合意前のため、この時点では確約できません。作業範囲の実現可否が先です</td></tr>
+      </table>
+    </div>
+  </section>
+
+</div>
+
+<footer class="doc-foot">
+  <span>WAKACHIKU — SITE MIGRATION SPEC</span>
+  <span>DRAFT — NOT FOR CLIENT DISTRIBUTION</span>
+</footer>
+
+</body>
+</html>
