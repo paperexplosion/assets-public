@@ -1,0 +1,1004 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>init</title>
+<script>window.onload=function(){document.title='H'+document.body.scrollHeight+'H';};</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@500;700;900&family=Noto+Sans+JP:wght@400;500;600;700;900&family=Archivo+Black&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = { theme: { extend: {
+    colors: { ink:'#185aa5', sea:'#0088d2', abyss:'#0a2540', sand:'#f6f4ee', steel:'#4b5a68', tide:'#d7e2ee', royal:'#2f57ff' },
+    fontFamily: { serif:['"Noto Serif JP"','serif'], sans:['"Noto Sans JP"','sans-serif'], display:['"Archivo Black"','sans-serif'] }
+  } } }
+</script>
+<style>
+  body{font-family:'Noto Sans JP',sans-serif;}
+  .eyebrow{font-family:'Archivo Black',sans-serif; letter-spacing:-0.01em;}
+  /* パターン1（FIELDS）：グリッド＋対角線＋交点ドット */
+  .geo-pattern-grid{
+    position:absolute; inset:0; pointer-events:none;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cpath d='M0 70H140M70 0V140M0 0L140 140M140 0L0 140' stroke='%23185aa5' stroke-width='0.6' opacity='0.09'/%3E%3Ccircle cx='70' cy='70' r='1.6' fill='%230088d2' opacity='0.22'/%3E%3C/svg%3E");
+    background-repeat:repeat;
+    -webkit-mask-image:radial-gradient(ellipse 75% 90% at 50% 40%, black 35%, transparent 88%);
+    mask-image:radial-gradient(ellipse 75% 90% at 50% 40%, black 35%, transparent 88%);
+  }
+  /* パターン2（TECH）：三角メッシュ（アイソメトリック格子） */
+  .geo-pattern-tri{
+    position:absolute; inset:0; pointer-events:none;
+    background-image:
+      repeating-linear-gradient(30deg, rgba(24,90,165,0.10) 0 0.6px, transparent 0.6px 52px),
+      repeating-linear-gradient(150deg, rgba(24,90,165,0.10) 0 0.6px, transparent 0.6px 52px),
+      repeating-linear-gradient(90deg, rgba(0,136,210,0.08) 0 0.6px, transparent 0.6px 52px);
+    -webkit-mask-image:radial-gradient(ellipse 75% 90% at 50% 45%, black 35%, transparent 88%);
+    mask-image:radial-gradient(ellipse 75% 90% at 50% 45%, black 35%, transparent 88%);
+  }
+  /* パターン3（採用ブリッジCTAセクション・白背景の余白部分のみ。写真ボックス自体には重ねない） */
+  .geo-pattern-contour{
+    position:absolute; inset:0; pointer-events:none;
+    background-image: repeating-radial-gradient(circle at 88% 15%, rgba(24,90,165,0.10) 0 0.7px, transparent 0.7px 32px);
+  }
+  /* パターン4（SDGs）：縦線パターン。白背景部分のみに適用し中央のロゴ画像帯とは重ならないようマスク */
+  .geo-pattern-vlines{
+    position:absolute; inset:0; pointer-events:none;
+    background-image: repeating-linear-gradient(90deg, rgba(24,90,165,0.10) 0 0.6px, transparent 0.6px 22px);
+    -webkit-mask-image:radial-gradient(ellipse 70% 85% at 50% 55%, transparent 45%, black 78%);
+    mask-image:radial-gradient(ellipse 70% 85% at 50% 55%, transparent 45%, black 78%);
+  }
+
+  /* ==== 2026-09-07（v15）：インタラクション・アニメーション演出 ====
+     参照調査：azumagumi.co.jp（GSAP ScrollTriggerで画像スケール、bounce-in系の減速イージングを多用）／
+     toda.co.jp/recruit/fresh（独自スクロールトリガー .anim-trigger が要素に .active を付与し、
+     .fx-fade-bottom は opacity:0→1 + translateY(30px)→0 を cubic-bezier(0,0.55,0.45,1) で0.8秒、
+     .fx-heading は行ごとにマスク＋translateY(90%)→0%をcubic-bezier(0.65,0,0.35,1)でずらして表示）／
+     geo-group.jp（シンプルな構成・簡易確認のみ）。
+     いずれも重量ライブラリ前提だが、本実装は同じ視覚効果をVanilla JS（IntersectionObserver＋rAFスクロール）
+     とCSS transitionのみで軽量に再現。 */
+
+  /* ==== 2026-09-07（v18）：インタラクション・ビジュアルの大幅強化 ====
+     参照調査：showa-kogyo.com（GSAP SplitText＋ScrollTriggerで見出しを文字単位に分割し、overflow:hiddenでマスクした
+     コンテナの中でtranslateY＋回転でキャラクターごとに踊るように登場させる。有償プラグイン前提のため、本実装は
+     同じ視覚効果をJSでの文字spanラップ＋CSS transitionのみで自前再現）／
+     toda.co.jp/recruit/fresh（border-radiusの実測値：ボタン/バッジは999px＝完全なピル型、写真カードは15〜30px程度の
+     中〜大きめの角丸）／azumagumi.co.jp（生成りに近いオフホワイト背景・低コントラストな黒に近いテキスト・
+     余白を大きく取った質感。アクセントカラー自体は同社ブランドの緑だが、今回は指示により独自のロイヤルブルーを
+     新規定義して統一）。 */
+  /* 2026-09-15（v28）変更：鈴木隆文の指示によりサイト全体の座布団（sweep-text/cushion/nav-cushion/
+     row-cushion）・ボタンホバー・ドロップダウン見出し色を、ロイヤルブルーからコンテンポラリーな
+     黒に統一。変数を1箇所変更するだけで、これらすべてに反映される設計（各パーツ側は var(--royal) 参照のまま）。 -->
+  :root{ --royal: #12151a; --royal-deep: #05070a; }
+
+  /* 3) スクロール見出しリビュー（v18：何度でも再発火するようJS側をtoggle方式に変更、CSSはそのまま流用） */
+  .reveal-up{
+    opacity:0;
+    transform:translateY(28px);
+    transition:opacity .9s cubic-bezier(0,0.55,0.45,1), transform .9s cubic-bezier(0,0.55,0.45,1);
+    will-change:opacity, transform;
+  }
+  .reveal-up.is-inview{ opacity:1; transform:translateY(0); }
+  .delay-1{ transition-delay:.12s; }
+  .delay-2{ transition-delay:.24s; }
+  .delay-3{ transition-delay:.36s; }
+
+  /* 2026-09-07（v19）：showa-kogyo.com調査結果を踏まえた「左→右ロイヤルブルー座布団スイープ」見出し演出。
+     参照調査：showa-kogyo.comの見出し実装(.cFadeinText)自体は文字を1行ずつ<span>で囲みtranslateY+skewXで
+     下からせり上がるフェード演出であり、厳密な意味での「背景ボックスが左から右へ広がる」スイープではなかった
+     （CSSを直接確認した結果、background-size等を使った左右ワイプ実装は見当たらなかった）。ただしご指定の
+     視覚効果自体は、v18で既に実装済みの「座布団」ホバー演出（scaleX/scaleYで色ボックスをスライドインさせる
+     手法）をスクロールリビール向けに転用すれば同一の見た目を再現できるため、transform-origin:leftの
+     scaleX(0→1)スイープとして新規実装した。 */
+  .sweep-text{
+    position:relative;
+    display:inline-block;
+    z-index:0;
+    transition:color .3s ease-out .3s;
+  }
+  /* v23：em単位の相対計算では句読点・漢字下端の欠けを確実に防げなかったため、固定px単位に変更。
+     【2026-09-11訂正】このコメントは開発中に一度試したtop:-20px/bottom:-28pxという値の名残だったが、
+     実際にはTECH等の隣接行見出しでボックス同士が重なる副作用が発生したため、全体共通の値としては
+     left:-8px; right:-8px; top:-10px; bottom:-13px; に縮小して確定していた（他セクションの見出しは
+     この値のままで正しく機能している）。 */
+  .sweep-text::before{
+    content:"";
+    position:absolute;
+    left:-8px; right:-8px; top:-10px; bottom:-13px;
+    background:var(--royal);
+    transform:scaleX(0);
+    transform-origin:left;
+    transition:transform .65s cubic-bezier(0.65,0,0.35,1);
+    z-index:-1;
+    border-radius:4px;
+  }
+  .sweep-text.is-inview{ color:#fff !important; }
+  /* 2026-09-15（v28再修正）：座布団を黒にした際、明るい背景セクション（FIELDS/WORKS/TECH/SDGs/NEWS）の見出しが
+     「白文字が背景に沈んで見えない」状態になっていたため、これらの見出しだけ座布団の色に関わらず
+     常に読める濃紺（--abyss相当）に固定する。座布団自体（黒いボックス）の表示・アニメーションは変更しない。 */
+  .sweep-text.sweep-onlight.is-inview{ color:#0a2540 !important; }
+  /* 2026-09-11（再修正）：前回追加した.hero-sweep(top:-14px;bottom:-26px)による局所パディング調整では
+     句点「。」の被りが解消しきれなかったとのご指摘を受け、方針を変更。座布団ボックスのパディングを
+     いじるのではなく、そもそも被りが発生していない採用ページのヘッドコピー実装(recruit_new_frame_newcopy_v10.html
+     の h1: font-size:64px・leading-[1.35]、.sweep-textクラスと::beforeのpadding値はサイト共通のものを無改造で使用)
+     をそのまま踏襲する方針に変更。.hero-sweepクラスは削除し、ヒーローh1のfont-size/line-heightを
+     採用ページと同じ64px/1.35に変更（色は既存のロイヤルブルーのまま、コピー文言も変更なし）。 */
+  .sweep-text.is-inview::before{ transform:scaleX(1); }
+
+  /* 1)+4) 写真の統一インタラクション系（.photo-fx）：スクロールでの緩やかなズーム＋マウスオーバーでのパララックス移動を
+     同じtransformに合成してJS側で書き込む。角丸・overflow:hiddenもここに統一。 */
+  .photo-fx{ overflow:hidden; border-radius:16px; }
+  .photo-fx > img, .photo-fx > video{
+    display:block; width:100%; height:100%; object-fit:cover;
+    transform:scale(1);
+    transition:transform .6s cubic-bezier(0.16,1,0.3,1);
+    will-change:transform;
+  }
+
+  /* showa-kogyo.com型キネティックタイポグラフィ：英字ラベルを1文字ずつspanに分割し、
+     overflow:hiddenの外枠の中でtranslateY＋わずかな回転で1文字ずつ踊るように登場させる（何度でも再発火） */
+  .kinetic-label{ display:inline-block; overflow:hidden; }
+  .kinetic-label .k-char{
+    display:inline-block;
+    transform:translateY(0.7em) rotate(6deg);
+    opacity:0;
+    transition:transform .6s cubic-bezier(0.34,1.56,0.64,1), opacity .5s ease-out;
+  }
+  .kinetic-label.is-inview .k-char{ transform:translateY(0) rotate(0deg); opacity:1; }
+
+  /* 2)（テキストリンク・カード見出し）／4)（ヘッダーナビ）共通の「座布団」ホバー演出。
+     下から発色の良いロイヤルブルーのボックスがスライドイン（scaleY 0→1、transform-origin:bottom） */
+  .cushion{
+    position:relative;
+    display:inline-block;
+    z-index:0;
+    transition:color .35s cubic-bezier(0.65,0,0.35,1);
+  }
+  .cushion::after{
+    content:"";
+    position:absolute;
+    left:-.4em; right:-.4em; top:-.14em; bottom:-.1em;
+    background:var(--royal);
+    transform:scaleY(0);
+    transform-origin:bottom;
+    transition:transform .45s cubic-bezier(0.65,0,0.35,1);
+    z-index:-1;
+    border-radius:4px;
+  }
+  .cushion:hover{ color:#fff; }
+  .cushion:hover::after{ transform:scaleY(1); }
+
+  .nav-cushion{
+    position:relative;
+    padding:7px 12px;
+    margin:-7px -12px;
+    z-index:0;
+    border-radius:6px;
+    transition:color .35s cubic-bezier(0.65,0,0.35,1);
+  }
+  .nav-cushion::after{
+    content:"";
+    position:absolute; inset:0;
+    background:var(--royal);
+    transform:scaleY(0);
+    transform-origin:bottom;
+    transition:transform .4s cubic-bezier(0.65,0,0.35,1);
+    z-index:-1;
+    border-radius:6px;
+  }
+  .nav-cushion:hover{ color:#fff !important; }
+  .nav-cushion:hover::after{ transform:scaleY(1); }
+
+  /* 5) NEWS各行の座布団：横方向のワイプでロイヤルブルーの薄い座布団が現れる（行全体が対象のため縦scaleYではなく横scaleX） */
+  .row-cushion{
+    position:relative;
+    z-index:0;
+    margin:0 -16px;
+    padding:0 16px;
+    border-radius:8px;
+    transition:color .3s ease;
+  }
+  .row-cushion::before{
+    content:"";
+    position:absolute; inset:0;
+    background:rgba(47,87,255,.10);
+    border-left:3px solid var(--royal);
+    transform:scaleX(0);
+    transform-origin:left;
+    transition:transform .4s cubic-bezier(0.65,0,0.35,1);
+    z-index:-1;
+    border-radius:8px;
+  }
+  .row-cushion:hover::before{ transform:scaleX(1); }
+
+  /* 6) CTAボタン各種：ホバー時にロイヤルブルーへ変化。角丸はピル型（toda.co.jpの999pxを踏襲） */
+  .btn-royal-hover{ border-radius:999px; transition:background-color .3s ease, color .3s ease; }
+  .btn-royal-hover:hover{ background-color:var(--royal) !important; color:#fff !important; }
+
+  /* 2026-09-07（v22→v23修正）：ヘッダーナビ2階層目のドロップダウン。参照調査：wakachiku.co.jp実サイトの.dd_box
+     （表示はjQuery slideDownベースの旧来型で、なめらかさに乏しい）の「動きの古さ」はあえて踏襲せず、フェード+
+     わずかなtranslateY+リンクの順次スタッガー登場という、本ファイルで既に確立したreveal/座布団と同じ質感の
+     トランジションで再構築。表示自体はCSSの:hoverのみで完結させ、JSの追加は不要。
+     【v23修正】ナビ項目→ドロップダウンへマウスを移動する際に「隙間」でホバーが切れて閉じる不具合を修正。
+     外側の.dd-panelにはmargin-topではなくpadding-topで見た目の余白を作り、当たり判定（.dd-panelの矩形）自体は
+     ナビ項目の真下からpadding-topの範囲も含めて隙間なく連続させた。実際に見える白背景・角丸・シャドウ・
+     エントランスアニメーション(translateY)は内側の.dd-panel-innerに移し、外側.dd-panelは透明な「橋」として
+     ホバー判定のみを担う。 */
+  .nav-item{ position:relative; }
+  .dd-panel{
+    position:absolute;
+    top:100%;
+    left:50%;
+    transform:translateX(-50%);
+    padding-top:14px;
+    opacity:0;
+    visibility:hidden;
+    pointer-events:none;
+    z-index:60;
+    transition:opacity .35s cubic-bezier(0.16,1,0.3,1), visibility 0s linear .35s;
+  }
+  .nav-item:hover .dd-panel{
+    opacity:1;
+    visibility:visible;
+    pointer-events:auto;
+    transition:opacity .35s cubic-bezier(0.16,1,0.3,1), visibility 0s linear 0s;
+  }
+  .dd-panel-inner{
+    background:#fff;
+    border-radius:16px;
+    box-shadow:0 24px 60px rgba(10,37,64,.20);
+    padding:28px 32px;
+    display:flex;
+    gap:36px;
+    transform:translateY(10px);
+    transition:transform .35s cubic-bezier(0.16,1,0.3,1);
+  }
+  .nav-item:hover .dd-panel .dd-panel-inner{ transform:translateY(0); }
+  .dd-col{ display:flex; flex-direction:column; gap:2px; min-width:150px; }
+  .dd-col-title{ font-family:'Archivo Black',sans-serif; letter-spacing:-0.01em; font-size:12px; color:var(--royal); margin-bottom:8px; white-space:nowrap; }
+  .dd-panel a{
+    display:block;
+    white-space:nowrap;
+    font-size:13.5px;
+    color:#0a2540cc;
+    padding:6px 10px;
+    margin:0 -10px;
+    border-radius:8px;
+    opacity:0;
+    transform:translateY(8px);
+    transition:opacity .4s cubic-bezier(0.16,1,0.3,1), transform .4s cubic-bezier(0.16,1,0.3,1), background-color .2s ease, color .2s ease;
+  }
+  .nav-item:hover .dd-panel a{ opacity:1; transform:translateY(0); }
+  .dd-panel a:hover{ background:rgba(10,15,20,.06); color:var(--royal); }
+  .dd-panel a:nth-child(1){transition-delay:.02s}
+  .dd-panel a:nth-child(2){transition-delay:.05s}
+  .dd-panel a:nth-child(3){transition-delay:.08s}
+  .dd-panel a:nth-child(4){transition-delay:.11s}
+  .dd-panel a:nth-child(5){transition-delay:.14s}
+  .dd-panel a:nth-child(6){transition-delay:.17s}
+  .dd-panel a:nth-child(7){transition-delay:.20s}
+  .dd-panel a:nth-child(8){transition-delay:.23s}
+  @media (prefers-reduced-motion: reduce){
+    .dd-panel, .dd-panel-inner, .dd-panel a{ transition:none !important; }
+  }
+
+  /* 2026-09-15（v28再修正）：格子線パターンはノイズっぽく見えるとのご指摘のため撤去。
+     代わりに、右→左へシャープに一本だけ流れる線（.hero-line-sweep）に変更。ぼかし(filter:blur)は使わず、
+     線自体は不透明な単色でエッジをはっきりさせ、進行方向の逆側（右側）にだけ短いグラデーションの
+     フェード（ぼかしではなく不透明度のグラデーションなのでエッジはシャープなまま）を伸ばして
+     「動きの軌跡」を示す。6秒に1回、サッと通過して消える単発の動きで、常時ループするノイズにはしない。 */
+  .hero-line-sweep{
+    position:absolute; top:0; bottom:0; left:104%; width:3px; z-index:8; pointer-events:none;
+    background:#f2fffa;
+    animation: hero-line-sweep-move 6s cubic-bezier(.65,0,.35,1) infinite;
+  }
+  .hero-line-sweep::before{
+    content:""; position:absolute; top:0; bottom:0; left:3px; width:130px;
+    background:linear-gradient(90deg, rgba(94,230,196,.4) 0%, rgba(94,230,196,0) 100%);
+  }
+  @keyframes hero-line-sweep-move{
+    0%{ left:104%; }
+    18%{ left:-8%; }
+    100%{ left:-8%; }
+  }
+  @media (prefers-reduced-motion: reduce){
+    .hero-line-sweep{ animation:none !important; display:none; }
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    .reveal-up{ opacity:1 !important; transform:none !important; transition:none !important; }
+    .photo-fx > img, .photo-fx > video{ transition:none !important; }
+    .kinetic-label .k-char{ opacity:1 !important; transform:none !important; transition:none !important; }
+    .cushion::after, .nav-cushion::after, .row-cushion::before{ transition:none !important; }
+    .sweep-text::before{ transition:none !important; }
+  }
+</style>
+</head>
+<!-- 2026-09-07（v14）：文字サイズ全体拡大。ヒーロー見出し(h1)と各セクションの英字ウォーターマーク(PORTAL/FIELDS/WORKS/TECH/STORY/MOVIE/SDGs/NEWSの背景ラベル、および「SINCE 1890/MARINE CIVIL ENGINEERING」)は現状維持。それ以外（ヘッダーナビ・フッター・各セクションの日本語見出し・本文・NEWS一覧・写真キャプション等）は約1.25倍に拡大。CTAボタンの文言（「採用情報」ヘッダー内・「採用情報はこちら」CTAバナー内）のみ約1.5倍に拡大し、ボタンのpaddingも合わせて微調整（px-6 py-3→px-7 py-3.5）。 -->
+<body class="bg-sand text-abyss">
+
+
+<header class="sticky top-0 z-50 bg-white/95 backdrop-blur border-b border-black/5">
+  <div class="max-w-[1400px] mx-auto px-8 h-[100px] flex items-center justify-between">
+    <img src="img/wakachiku_logo_real.svg" alt="若築建設" class="h-16">
+    <nav class="hidden lg:flex items-center gap-7 text-[17px] font-medium text-abyss/80">
+      <div class="nav-item"><a href="#" class="nav-cushion">企業情報</a>
+        <div class="dd-panel">
+          <div class="dd-panel-inner">
+          <div class="dd-col">
+            <a href="https://www.wakachiku.co.jp/company/message.html" target="_blank">社長あいさつ</a>
+            <a href="https://www.wakachiku.co.jp/company/policy.html" target="_blank">経営理念</a>
+            <a href="https://www.wakachiku.co.jp/company/profile.html" target="_blank">会社概要</a>
+            <a href="https://www.wakachiku.co.jp/company/history.html" target="_blank">会社沿革</a>
+            <a href="https://www.wakachiku.co.jp/company/offices.html" target="_blank">事業所</a>
+            <a href="https://www.wakachiku.co.jp/company/corporate_message.html" target="_blank">コーポレートメッセージ</a>
+            <a href="https://www.wakachiku.co.jp/company/governance.html" target="_blank">コーポレートガバナンス</a>
+          </div>
+        </div>
+          </div>
+      </div>
+      <div class="nav-item"><a href="#" class="nav-cushion">IR情報</a>
+        <div class="dd-panel">
+          <div class="dd-panel-inner">
+          <div class="dd-col">
+            <a href="https://www.wakachiku.co.jp/ir/release.html" target="_blank">IRニュース</a>
+            <a href="https://www.wakachiku.co.jp/company/message.html" target="_blank">トップメッセージ</a>
+            <a href="https://www.wakachiku.co.jp/ir/highlights.html" target="_blank">業績ハイライト</a>
+            <a href="https://www.wakachiku.co.jp/ir/shareholders.html" target="_blank">株式情報</a>
+            <a href="https://www.wakachiku.co.jp/ir/financial.html" target="_blank">IRライブラリー</a>
+          </div>
+          <div class="dd-col">
+            <a href="https://www.wakachiku.co.jp/ir/calendar.html" target="_blank">IRカレンダー</a>
+            <a href="https://www.wakachiku.co.jp/ir/esg.html" target="_blank">ESG</a>
+            <a href="https://www.wakachiku.co.jp/ir/shareholder_meeting.html" target="_blank">株主総会</a>
+            <a href="https://www.pronexus.co.jp/koukoku/1888/1888.html" target="_blank">電子公告</a>
+            <a href="https://www.wakachiku.co.jp/ir/disclaimer.html" target="_blank">免責事項</a>
+          </div>
+        </div>
+          </div>
+      </div>
+      <div class="nav-item"><a href="#" class="nav-cushion">サステナビリティ</a>
+        <div class="dd-panel">
+          <div class="dd-panel-inner">
+          <div class="dd-col">
+            <a href="https://www.wakachiku.co.jp/company/message.html" target="_blank">トップメッセージ</a>
+            <a href="https://www.wakachiku.co.jp/csr/esg-policy.html" target="_blank">ESG経営基本方針</a>
+            <a href="https://www.wakachiku.co.jp/csr/dx-promotion.html" target="_blank">DX推進</a>
+            <a href="https://www.wakachiku.co.jp/csr/report.html" target="_blank">コーポレートレポート</a>
+          </div>
+          <div class="dd-col">
+            <div class="dd-col-title">E（環境）</div>
+            <a href="https://www.wakachiku.co.jp/csr/environment-01.html" target="_blank">環境方針</a>
+            <a href="https://www.wakachiku.co.jp/csr/environment-02.html" target="_blank">環境教育の実施</a>
+            <a href="https://www.wakachiku.co.jp/csr/tcfd.html" target="_blank">TCFD提言による情報開示</a>
+          </div>
+          <div class="dd-col">
+            <div class="dd-col-title">S（社会）</div>
+            <a href="https://www.wakachiku.co.jp/csr/social-01.html" target="_blank">人権方針</a>
+            <a href="https://www.wakachiku.co.jp/csr/next_generation.html" target="_blank">次世代育成支援</a>
+            <a href="https://www.wakachiku.co.jp/csr/female_employees.html" target="_blank">女性活躍推進</a>
+            <a href="https://www.wakachiku.co.jp/csr/health.html" target="_blank">健康経営</a>
+            <a href="https://www.wakachiku.co.jp/csr/activity.html" target="_blank">農村地域振興活動</a>
+          </div>
+          <div class="dd-col">
+            <div class="dd-col-title">G（ガバナンス）</div>
+            <a href="https://www.wakachiku.co.jp/csr/governance-01.html" target="_blank">G（ガバナンス）</a>
+            <a href="https://www.wakachiku.co.jp/company/governance.html" target="_blank">コーポレート・ガバナンス</a>
+            <a href="https://www.wakachiku.co.jp/company/code_of_conduct.html" target="_blank">企業行動規範</a>
+            <a href="https://www.wakachiku.co.jp/csr/security.html" target="_blank">情報セキュリティ方針</a>
+            <a href="https://www.wakachiku.co.jp/csr/whistleblowing.html" target="_blank">内部通報制度</a>
+          </div>
+        </div>
+          </div>
+      </div>
+      <div class="nav-item"><a href="#" class="nav-cushion">施工実績</a>
+        <div class="dd-panel">
+          <div class="dd-panel-inner">
+          <div class="dd-col">
+            <a href="https://www.wakachiku.co.jp/achievement/detail1.html" target="_blank">海上土木</a>
+            <a href="https://www.wakachiku.co.jp/achievement/detail2.html" target="_blank">陸上土木</a>
+            <a href="https://www.wakachiku.co.jp/achievement/detail3.html" target="_blank">建築</a>
+            <a href="https://www.wakachiku.co.jp/achievement/detail4.html" target="_blank">海外</a>
+          </div>
+        </div>
+          </div>
+      </div>
+      <div class="nav-item"><a href="#" class="nav-cushion">技術紹介</a>
+        <div class="dd-panel">
+          <div class="dd-panel-inner">
+          <div class="dd-col">
+            <a href="https://www.wakachiku.co.jp/technology/technology1.html" target="_blank">浚渫・埋立</a>
+            <a href="https://www.wakachiku.co.jp/technology/technology2.html" target="_blank">港湾施設建設技術</a>
+            <a href="https://www.wakachiku.co.jp/technology/technology3.html" target="_blank">地盤改良技術</a>
+            <a href="https://www.wakachiku.co.jp/technology/technology4.html" target="_blank">コンクリート関連技術</a>
+            <a href="https://www.wakachiku.co.jp/technology/technology5.html" target="_blank">維持管理・リニューアル</a>
+          </div>
+          <div class="dd-col">
+            <a href="https://www.wakachiku.co.jp/technology/technology6.html" target="_blank">環境保全技術</a>
+            <a href="https://www.wakachiku.co.jp/technology/technology10.html" target="_blank">エネルギー施設建設技術</a>
+            <a href="https://www.wakachiku.co.jp/technology/technology7.html" target="_blank">ICT活用事例</a>
+            <a href="https://www.wakachiku.co.jp/technology/technology8.html" target="_blank">その他</a>
+            <a href="https://www.wakachiku.co.jp/technology/technology9.html" target="_blank">主要船舶</a>
+          </div>
+        </div>
+          </div>
+      </div>
+      <a href="#" class="nav-cushion">新着情報</a>
+      <a href="https://www.wakachiku.co.jp/en/" target="_blank" class="text-[15px] font-bold text-steel border border-steel/30 rounded-full w-9 h-9 flex items-center justify-center hover:border-ink hover:text-ink transition-colors">EN</a>
+      <a href="#" class="btn-royal-hover ml-1 bg-ink text-white text-[20px] px-7 py-3.5 font-semibold">採用情報</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ヒーロー：2026-09-15（v28）コンセプト刷新。核コピーを「海の底、土の奥。人の未来をつくり続ける。」に変更
+     （海洋土木・陸上土木・建築の事業構成を海／土の対句で拾い、"人の未来"で採用ページへの接続も持たせる新コンセプト）。
+     背景は自動再生動画(hero_reel.mp4)から実写の静止画に変更。鈴木隆文の指示：「未来的・抽象的・幾何学的だが
+     現実的に若築と関連がある、美しく爽やかなブルーの海」に該当する実写素材として、priority/39（クレーンによる
+     鋼製セル吊り上げ・鮮やかなターコイズブルーの海・クレーンの円形ハブが幾何学的パターンを成す）を採用。
+     AI生成ではなく実際の現場写真のため「かっこよくて、嘘をついていない」の原則に合致。
+     元のhero_reel.mp4は削除ではなく、直後の「数字で見る」セクションの次（旧FIELDS手前＝3セクション目）に
+     新設のREELセクションとして移設。 -->
+<section class="relative h-[880px] flex items-end overflow-hidden">
+  <img src="../priority/39_aerial_wide_cylinders_tugboats.jpg" class="absolute inset-0 w-full h-full object-cover" style="filter:saturate(1.35) brightness(1.1) contrast(1.04);" alt="鮮やかなターコイズブルーの海で、クレーン船が幾何学的な鋼製セルを吊り上げる若築建設の現場">
+  <!-- 2026-09-15（v28再修正）：クライアントの好みに合わせ、暗いスモーク調のオーバーレイを大幅に軽量化。
+       見出し(h1)は座布団(sweep-text)の単色ボックスで独立して視認性を確保できているため、この下方グラデーションは
+       リード文（座布団なしの白文字）の可読性確保が主目的。以前は最下部92%・中間55%と暗かったが、
+       62%→32%→10%→0%に縮小し、海と空の明るさ・彩度をそのまま見せる。 -->
+  <div class="absolute inset-0" style="background:linear-gradient(0deg, rgba(10,37,64,.62) 0%, rgba(10,37,64,.32) 35%, rgba(10,37,64,.10) 65%, rgba(10,37,64,0) 100%);"></div>
+
+  <!-- 2026-09-15（v28）追加：kajima.co.jp トップページ参照。単一の写実的ヒーロー画像だけでなく、切り取った
+       ビジュアルをコラージュ的に浮かせ、スクロールで背景とは異なる速度でtranslateYさせる（.parallax-block、
+       data-speedで速度指定、下部scriptのupdateCollageParallaxで処理）ことで現代アート的な奥行きを追加。
+       ベースのヒーロー写真自体は変更なし。2026-09-15追記：既存2枚を1.25倍に拡大し、近未来・抽象感を
+       強める新規2枚（マクロの鋼製ワイヤーロープ／ソナー状の光の輪）を追加し、計4枚のコラージュに拡張。
+       ブロック1：セル内部の円形天窓（TECH セクションでも使用中の同一素材＝../priority/18）。寄った抽象的な一枚。
+       ブロック2：AI生成のBIM/CIMデータオーバーレイ。引いて見ても「これ何？」という近未来的な一枚。
+       ブロック3：AI生成のマクロ鋼製ワイヤーロープ（幾何学的・抽象的な近未来感）。
+       ブロック4：AI生成のソナー状の光の輪（水面に響く光のリング、近未来的で神秘的な一枚）。 -->
+  <div class="parallax-block absolute rounded-2xl overflow-hidden shadow-2xl ring-1 ring-white/15 hidden md:block" data-speed="0.18" style="top:50px; right:60px; width:288px; height:375px; z-index:5;">
+    <div class="photo-fx w-full h-full"><img src="../priority/18_interior_cell_circular_skylight.jpg" class="w-full h-full object-cover" style="filter:saturate(1.05);" alt="セル内部の円形天窓——若築建設の現場にある抽象的な幾何学パターン"></div>
+  </div>
+  <div class="parallax-block absolute rounded-2xl overflow-hidden shadow-2xl ring-1 ring-white/15 hidden lg:block" data-speed="0.32" style="top:460px; right:60px; width:350px; height:238px; z-index:5;">
+    <div class="photo-fx w-full h-full"><img src="img/concept_data_overlay.webp" class="w-full h-full object-cover" alt="BIM/CIMのデータが実写に重なる近未来的な一枚"></div>
+  </div>
+  <div class="parallax-block absolute rounded-2xl overflow-hidden shadow-2xl ring-1 ring-white/15 hidden lg:block" data-speed="0.24" style="top:170px; right:440px; width:260px; height:200px; z-index:5;">
+    <div class="photo-fx w-full h-full"><img src="img/concept_macro_wire.webp" class="w-full h-full object-cover" alt="鋼製ワイヤーロープのマクロ写真——幾何学的で抽象的な一枚"></div>
+  </div>
+  <div class="parallax-block absolute rounded-2xl overflow-hidden shadow-2xl ring-1 ring-white/15 hidden lg:block" data-speed="0.40" style="top:410px; right:440px; width:230px; height:270px; z-index:5;">
+    <div class="photo-fx w-full h-full"><img src="img/concept_sonar_abstract.webp" class="w-full h-full object-cover" alt="水面に響くソナー状の光の輪——近未来的で神秘的な一枚"></div>
+  </div>
+
+  <div class="hero-line-sweep"></div>
+
+  <div class="relative z-10 max-w-[1400px] mx-auto px-8 w-full pb-20">
+    <p class="eyebrow text-sea text-[15px] mb-5 tracking-wide">SINCE 1890 / MARINE CIVIL ENGINEERING</p>
+    <h1 class="font-serif font-bold text-white text-[64px] leading-[1.35] mb-8"><span class="sweep-text">海の底、土の奥。</span><br><span class="sweep-text delay-1">人の未来を</span><br><span class="sweep-text delay-2">つくり続ける。</span></h1>
+    <p class="text-[19px] text-white/85 leading-[1.9] max-w-[540px]"><span class="sweep-text">創業135年。海を拓き、陸をつくり、風の力を生かす場所をつくってきました。堅実な技術力を礎に、現場では一人ひとりが自分の判断で、状況の流れそのものを変えていく。</span></p>
+  </div>
+</section>
+
+<!-- 数字で見る：核メッセージ「確かな手」の裏付けとなる実数値のみ（新規セクションのため創作せず事実のみ） -->
+<section class="py-20 bg-abyss text-white">
+  <div class="reveal-up max-w-[1320px] mx-auto px-8 grid grid-cols-1 lg:grid-cols-3 gap-10 text-center divide-y lg:divide-y-0 lg:divide-x divide-white/10">
+    <div class="pt-8 lg:pt-0"><div class="eyebrow text-[65px] text-sea">135<span class="text-[20px] font-sans font-normal text-white ml-1">年</span></div><div class="text-[15px] text-white/55 mt-2">創業135周年（1890年創業）</div></div>
+    <div class="pt-8 lg:pt-0"><div class="eyebrow text-[45px] text-sea leading-tight">1,047<span class="text-[20px] font-sans font-normal text-white ml-1">億円</span></div><div class="text-[15px] text-white/55 mt-2">連結売上高（2026年3月期・過去最高水準）</div></div>
+    <div class="pt-8 lg:pt-0"><div class="font-serif text-[28px] font-bold leading-snug">羽田空港Ｄ滑走路<br><span class="text-[16px] font-sans font-normal text-white/70">建設外工事に15社ＪＶで参画</span></div><div class="text-[15px] text-white/55 mt-2">埋立430m・桟橋560.7m施工（2010年竣工）</div></div>
+  </div>
+</section>
+
+<!-- 2026-09-15（v28）新設：REELセクション。旧ヒーローで自動再生していたhero_reel.mp4（洋上ケーソン曳航・
+     岸壁でのケーソン吊り降ろし等を含む75.4秒の実写リール）を、ヒーロー静止画化に伴いこの位置（数字で見る、の直後
+     ＝上から3セクション目）に移設。スタイルは既存のMOTIONセクション（人物中心・後方に配置済み）と同じ全画面
+     ループ再生パターンを踏襲し、テキストのみ本セクション独自の内容に変更。 -->
+<section class="relative h-[760px] overflow-hidden bg-abyss">
+  <div class="photo-fx absolute inset-0" style="border-radius:0;">
+    <video class="w-full h-full object-cover" style="filter:saturate(1.05);" autoplay muted loop playsinline poster="../priority/12_aerial_crane_barge_two_cells_dock.jpg">
+      <source src="video/hero_reel.mp4" type="video/mp4">
+    </video>
+  </div>
+  <div class="absolute inset-0" style="background:linear-gradient(180deg, rgba(10,37,64,.78) 0%, rgba(10,37,64,.30) 42%, rgba(10,37,64,.82) 100%);"></div>
+  <div class="relative z-10 h-full flex flex-col items-center justify-center text-center px-8">
+    <span class="kinetic-label reveal-up eyebrow text-[56px] md:text-[72px] leading-none text-white/10 mb-4">REEL</span>
+    <h2 class="reveal-up font-serif font-bold text-white text-[32px] mb-4 leading-snug"><span class="sweep-text">確かな手が、今日も動く。</span></h2>
+    <p class="reveal-up delay-1 text-[16px] text-white/70 max-w-[560px] leading-[1.9]">洋上でのケーソン曳航、岸壁での据え付け——海の底で、土の奥で。若築建設の現場を、そのまま。</p>
+  </div>
+</section>
+
+<!-- 事業紹介：核メッセージから導出した各事業の位置づけ -->
+<section class="relative py-24 overflow-hidden">
+  <div class="geo-pattern-grid"></div>
+  <div class="relative max-w-[1320px] mx-auto px-8">
+    <div class="reveal-up flex items-end gap-6 mb-14">
+      <span class="kinetic-label reveal-up eyebrow text-[64px] md:text-[84px] leading-none text-tide">FIELDS</span>
+      <h2 class="font-serif font-bold text-[32px] text-abyss pb-2"><span class="sweep-text sweep-onlight">四つの力で、未来を拓く。</span></h2>
+    </div>
+    <div class="grid grid-cols-1 lg:grid-cols-4 gap-8">
+      <div class="reveal-up border-t-2 border-ink pt-6">
+        <div class="h-28 mb-5 flex items-end"><img src="img/illustrations/field_port_crane.svg" class="h-full w-auto object-contain object-left rounded-2xl" alt="港湾クレーンの線画"></div>
+        <h3 class="cushion text-[21px] font-bold text-abyss mb-3">海を、陸に変える。</h3>
+        <p class="text-[16px] text-steel leading-[1.8]">港湾・空港：海上の交通インフラを整備する、若築建設の出発点。</p>
+      </div>
+      <div class="reveal-up delay-1 border-t-2 border-ink pt-6">
+        <div class="h-28 mb-5 flex items-end"><img src="img/illustrations/field_dredger.svg" class="h-full w-auto object-contain object-left rounded-2xl" alt="浚渫船の線画"></div>
+        <h3 class="cushion text-[21px] font-bold text-abyss mb-3">航路を拓く。</h3>
+        <p class="text-[16px] text-steel leading-[1.8]">浚渫・埋立：船の通り道をつくり、物流を支える。</p>
+      </div>
+      <div class="reveal-up delay-2 border-t-2 border-ink pt-6">
+        <div class="h-28 mb-5 flex items-end"><img src="img/illustrations/field_building.svg" class="h-full w-auto object-contain object-left rounded-2xl" alt="建築構造の線画"></div>
+        <h3 class="cushion text-[21px] font-bold text-abyss mb-3">暮らしの土台を築く。</h3>
+        <p class="text-[16px] text-steel leading-[1.8]">陸上土木・建築：人々の日常と安全・安心を支える。</p>
+      </div>
+      <div class="reveal-up delay-3 border-t-2 border-ink pt-6">
+        <div class="h-28 mb-5 flex items-end"><img src="img/illustrations/field_windturbine.svg" class="h-full w-auto object-contain object-left rounded-2xl" alt="洋上風力タービンの線画"></div>
+        <h3 class="cushion text-[21px] font-bold text-abyss mb-3">未来の力を生かす。</h3>
+        <p class="text-[16px] text-steel leading-[1.8]">洋上風力・再生可能エネルギー：次の時代のインフラへ。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 代表施工実績 -->
+<section class="py-24 bg-tide/40">
+  <div class="max-w-[1320px] mx-auto px-8">
+    <div class="reveal-up flex items-end gap-6 mb-2">
+      <span class="kinetic-label reveal-up eyebrow text-[64px] md:text-[84px] leading-none text-abyss/10">WORKS</span>
+      <h2 class="font-serif font-bold text-[32px] text-abyss pb-2"><span class="sweep-text sweep-onlight">手を動かした先に、新しい景色がある。</span></h2>
+    </div>
+    <p class="text-[16px] text-steel mb-12">現場写真（新本牧・横浜港／湘南・西湘バイパス）</p>
+    <div class="reveal-up grid grid-cols-1 lg:grid-cols-4 gap-1">
+      <a href="#" class="photo-fx relative block h-[220px]"><img src="../priority/07_aerial_crane_lifting_two_cells.jpg" class="w-full h-full object-cover"><div class="absolute inset-0 bg-gradient-to-t from-abyss/85 to-transparent"></div><span class="absolute left-5 bottom-5 text-white font-bold text-[19px]">鋼板セル据付</span></a>
+      <a href="#" class="photo-fx relative block h-[220px]"><img src="../priority/17_crane_lifting_steel_plate_lower.jpg" class="w-full h-full object-cover"><div class="absolute inset-0 bg-gradient-to-t from-abyss/85 to-transparent"></div><span class="absolute left-5 bottom-5 text-white font-bold text-[19px]">クレーン吊り込み</span></a>
+      <a href="#" class="photo-fx relative block h-[220px]"><img src="../priority/30_aerial_tetrapod_breakwater_diagonal.jpg" class="w-full h-full object-cover"><div class="absolute inset-0 bg-gradient-to-t from-abyss/85 to-transparent"></div><span class="absolute left-5 bottom-5 text-white font-bold text-[19px]">護岸・海岸保全</span></a>
+      <a href="#" class="photo-fx relative block h-[220px]"><img src="../priority/21_aerial_crane_tow_wake_tugboats.jpg" class="w-full h-full object-cover"><div class="absolute inset-0 bg-gradient-to-t from-abyss/85 to-transparent"></div><span class="absolute left-5 bottom-5 text-white font-bold text-[19px]">曳航・海上輸送</span></a>
+    </div>
+
+    <!-- 施工実績特設サイトバナー：現行サイトの実バナー・実リンク・実キャプションをそのまま使用 -->
+    <a href="https://www.wakachiku.co.jp/anniversary/achievement_anv/" target="_blank" class="block mt-10 rounded-2xl overflow-hidden border border-black/10 hover:border-ink/40 transition-colors">
+      <img src="https://www.wakachiku.co.jp/images/banner/banner.png" alt="施工実績紹介特設サイトはこちら" class="w-full">
+    </a>
+    <p class="text-[16px] text-steel leading-[1.8] mt-4">若築建設 創業135周年記念 実績紹介特設サイト：日本全国から世界まで、私たちが紡いできた信頼と実績を、ぜひご覧ください。<br><span class="text-steel/60">※当サイトに掲載されている施工実績は、弊社がこれまで手掛けてきたすべての工事を網羅したものではありません。掲載にあたり、発注者様の許可を得たものや、その他条件に基づき選定した一部の実績のみを公開しております。</span></p>
+  </div>
+</section>
+
+<!-- 技術・こだわり：リード文は現行サイトの実コピーをそのまま使用。10カテゴリは現行サイトの実サムネイル・実リンクをそのまま使用 -->
+<section class="relative py-24 overflow-hidden">
+  <div class="geo-pattern-tri"></div>
+  <div class="relative max-w-[1320px] mx-auto px-8">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-16">
+      <div>
+        <span class="kinetic-label reveal-up eyebrow block text-[56px] md:text-[72px] leading-none text-tide mb-2">TECH</span>
+        <h2 class="font-serif font-bold text-[32px] text-abyss leading-[1.6] mb-6"><span class="sweep-text sweep-onlight">新しいだけではない。</span><br><span class="sweep-text sweep-onlight delay-1">驚くだけでもない。</span></h2>
+        <p class="text-[18px] text-steel leading-[1.9] mb-6">機能の先にある、喜びや、安らぎや、幸せを描く。可能性を広げるために、挑戦することをやめない。それが、私たちの誇りです。</p>
+        <a href="https://www.wakachiku.co.jp/technology/" target="_blank" class="cushion inline-block text-[16px] font-semibold text-ink">Read More</a>
+      </div>
+      <div class="reveal-up delay-1 photo-fx relative h-[320px]"><img src="../priority/18_interior_cell_circular_skylight.jpg" class="w-full h-full object-cover"></div>
+    </div>
+    <div class="grid grid-cols-2 md:grid-cols-5 gap-1">
+      <a href="https://www.wakachiku.co.jp/technology/technology1.html" target="_blank" class="photo-fx relative block h-[150px]"><img src="https://www.wakachiku.co.jp/images/technology/list/img1.jpg" alt="浚渫・埋立" class="w-full h-full object-cover"><div class="absolute inset-0 bg-gradient-to-t from-abyss/80 to-transparent"></div><span class="absolute left-3 bottom-3 text-white font-bold text-[16px]">浚渫・埋立</span></a>
+      <a href="https://www.wakachiku.co.jp/technology/technology2.html" target="_blank" class="photo-fx relative block h-[150px]"><img src="https://www.wakachiku.co.jp/images/technology/list/img2.jpg" alt="港湾施設建設技術" class="w-full h-full object-cover"><div class="absolute inset-0 bg-gradient-to-t from-abyss/80 to-transparent"></div><span class="absolute left-3 bottom-3 text-white font-bold text-[16px]">港湾施設建設技術</span></a>
+      <a href="https://www.wakachiku.co.jp/technology/technology3.html" target="_blank" class="photo-fx relative block h-[150px]"><img src="https://www.wakachiku.co.jp/images/technology/list/img3.jpg" alt="地盤改良技術" class="w-full h-full object-cover"><div class="absolute inset-0 bg-gradient-to-t from-abyss/80 to-transparent"></div><span class="absolute left-3 bottom-3 text-white font-bold text-[16px]">地盤改良技術</span></a>
+      <a href="https://www.wakachiku.co.jp/technology/technology4.html" target="_blank" class="photo-fx relative block h-[150px]"><img src="https://www.wakachiku.co.jp/images/technology/list/img4.jpg" alt="コンクリート関連技術" class="w-full h-full object-cover"><div class="absolute inset-0 bg-gradient-to-t from-abyss/80 to-transparent"></div><span class="absolute left-3 bottom-3 text-white font-bold text-[16px]">コンクリート関連技術</span></a>
+      <a href="https://www.wakachiku.co.jp/technology/technology5.html" target="_blank" class="photo-fx relative block h-[150px]"><img src="https://www.wakachiku.co.jp/images/technology/list/img5.jpg" alt="維持管理・リニューアル" class="w-full h-full object-cover"><div class="absolute inset-0 bg-gradient-to-t from-abyss/80 to-transparent"></div><span class="absolute left-3 bottom-3 text-white font-bold text-[16px]">維持管理・リニューアル</span></a>
+      <a href="https://www.wakachiku.co.jp/technology/technology6.html" target="_blank" class="photo-fx relative block h-[150px]"><img src="https://www.wakachiku.co.jp/images/technology/list/img6.jpg" alt="環境保全技術" class="w-full h-full object-cover"><div class="absolute inset-0 bg-gradient-to-t from-abyss/80 to-transparent"></div><span class="absolute left-3 bottom-3 text-white font-bold text-[16px]">環境保全技術</span></a>
+      <a href="https://www.wakachiku.co.jp/technology/technology10.html" target="_blank" class="photo-fx relative block h-[150px]"><img src="https://www.wakachiku.co.jp/images/technology/list/img10.jpg" alt="エネルギー施設建設技術" class="w-full h-full object-cover"><div class="absolute inset-0 bg-gradient-to-t from-abyss/80 to-transparent"></div><span class="absolute left-3 bottom-3 text-white font-bold text-[16px]">エネルギー施設建設技術</span></a>
+      <a href="https://www.wakachiku.co.jp/technology/technology7.html" target="_blank" class="photo-fx relative block h-[150px]"><img src="https://www.wakachiku.co.jp/images/technology/list/img7.jpg" alt="ICT活用事例" class="w-full h-full object-cover"><div class="absolute inset-0 bg-gradient-to-t from-abyss/80 to-transparent"></div><span class="absolute left-3 bottom-3 text-white font-bold text-[16px]">ICT活用事例</span></a>
+      <a href="https://www.wakachiku.co.jp/technology/technology8.html" target="_blank" class="photo-fx relative block h-[150px]"><img src="https://www.wakachiku.co.jp/images/technology/list/img8.jpg" alt="その他" class="w-full h-full object-cover"><div class="absolute inset-0 bg-gradient-to-t from-abyss/80 to-transparent"></div><span class="absolute left-3 bottom-3 text-white font-bold text-[16px]">その他</span></a>
+      <a href="https://www.wakachiku.co.jp/technology/technology9.html" target="_blank" class="photo-fx relative block h-[150px]"><img src="https://www.wakachiku.co.jp/images/technology/list/img9.jpg" alt="主要船舶" class="w-full h-full object-cover"><div class="absolute inset-0 bg-gradient-to-t from-abyss/80 to-transparent"></div><span class="absolute left-3 bottom-3 text-white font-bold text-[16px]">主要船舶</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- 若築建設らしさ -->
+<section class="relative py-28 bg-abyss text-white overflow-hidden">
+  <div class="photo-fx absolute inset-0"><img src="../priority/11_workers_deck_cables_crane.jpg" class="w-full h-full object-cover opacity-[0.30]" style="filter:saturate(1.15);"></div>
+  <div class="absolute inset-0" style="background:linear-gradient(180deg, rgba(10,37,64,.35) 0%, rgba(10,37,64,.80) 35%, rgba(10,37,64,.95) 100%);"></div>
+  <div class="relative z-10 max-w-[1320px] mx-auto px-8">
+    <span class="kinetic-label reveal-up eyebrow block text-[64px] md:text-[84px] leading-none text-white/10 mb-2">STORY</span>
+    <h2 class="reveal-up font-serif font-bold text-[40px] mb-10 leading-snug"><span class="sweep-text">ひとりの手では、</span><br><span class="sweep-text delay-1">拓けない。</span></h2>
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+      <div class="reveal-up delay-1 space-y-6 text-[19px] text-white/80 leading-[2.1]">
+        <p>135年前、小さな漁村から始まった仕事は、今も変わらず人の手でできている。潮を読み、鋼を組み、互いに声をかけ合いながら、何人もの職人たちが一つの現場を動かしていく。</p>
+        <p>海に出て、風を受けて、汗をかく。ひとりでは持ち上がらない鋼材も、仲間がいれば、次の一手が見えてくる。その積み重ねの先に、羽田があり、港があり、今日も誰かが渡っている橋がある。</p>
+        <p class="text-white/60">わっくんとちーちゃん、作業船「若鷲丸」は、そんな現場をずっと見てきた、いちばん身近な相棒たちだ。</p>
+      </div>
+      <div class="reveal-up delay-2 grid grid-cols-4 gap-2">
+        <div class="photo-fx relative aspect-[3/4] ring-1 ring-white/10">
+          <img src="../priority/68_interview_worker_young_yellowhelmet_a.jpg" class="w-full h-full object-cover object-top" style="filter:saturate(1.05);">
+          <div class="absolute inset-0 bg-gradient-to-t from-abyss/50 via-transparent to-transparent"></div>
+        </div>
+        <div class="photo-fx relative aspect-[3/4] ring-1 ring-white/10 mt-7">
+          <img src="../priority/36_worker_ladder_cell_interior.jpg" class="w-full h-full object-cover">
+          <div class="absolute inset-0 bg-gradient-to-t from-abyss/50 via-transparent to-transparent"></div>
+        </div>
+        <div class="photo-fx relative aspect-[3/4] ring-1 ring-white/10">
+          <img src="../priority/53_interview_worker_ichimura_jv_a.jpg" class="w-full h-full object-cover object-top">
+          <div class="absolute inset-0 bg-gradient-to-t from-abyss/50 via-transparent to-transparent"></div>
+        </div>
+        <div class="photo-fx relative aspect-[3/4] ring-1 ring-white/10 mt-7">
+          <img src="../priority/60_dockside_two_workers_walking.jpg" class="w-full h-full object-cover">
+          <div class="absolute inset-0 bg-gradient-to-t from-abyss/50 via-transparent to-transparent"></div>
+        </div>
+        <div class="photo-fx relative aspect-[3/4] ring-1 ring-white/10 mt-7">
+          <img src="../priority/11_workers_deck_cables_crane.jpg" class="w-full h-full object-cover" style="filter:saturate(1.1);">
+          <div class="absolute inset-0 bg-gradient-to-t from-abyss/50 via-transparent to-transparent"></div>
+        </div>
+        <div class="photo-fx relative aspect-[3/4] ring-1 ring-white/10">
+          <img src="../priority/57_interview_worker_redcrane_pink_helmet.jpg" class="w-full h-full object-cover object-top">
+          <div class="absolute inset-0 bg-gradient-to-t from-abyss/50 via-transparent to-transparent"></div>
+        </div>
+        <div class="photo-fx relative aspect-[3/4] ring-1 ring-white/10 mt-7">
+          <img src="../priority/66_interview_worker_older_whitehelmet_coast.jpg" class="w-full h-full object-cover object-top">
+          <div class="absolute inset-0 bg-gradient-to-t from-abyss/50 via-transparent to-transparent"></div>
+        </div>
+        <div class="photo-fx relative aspect-[3/4] ring-1 ring-white/10">
+          <img src="../priority/51_portrait_worker_orange_helmet_closeup.jpg" class="w-full h-full object-cover">
+          <div class="absolute inset-0 bg-gradient-to-t from-abyss/50 via-transparent to-transparent"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 2026-09-07（v20）：新規セクション「MOTION」追加（STORY直後・CTA直前）。参照サイトwj-etec.co.jpのフッター直前セクションを
+     curl+実際の共有JSバンドル(script.Dx_YI6yT.js)を解析して調査した結果、動画自体はscrollでcurrentTimeをスクラビングする
+     方式ではなく、通常のミュートループ自動再生を続けたまま、①動画コンテナがGSAP ScrollTriggerのscrubでscale:0.821→1に
+     ズームインし、②手前の暗幕(background)がopacity:0→1でフェードインする、という「動画は普通に流しっぱなしにして、
+     周りの演出だけをスクロール連動させる」設計であることが判明（元コードの該当関数：function Wh(){...Se.to(t,{scale:1,
+     ...scrollTrigger:{trigger:n,start:"top top",end:"bottom bottom",scrub:.4}})...}）。本実装もこの設計思想を踏襲し、
+     動画は.photo-fx（既存のスクロール連動スケール1→1.16＋ホバー時パララックスを合成する仕組み）にそのまま乗せて
+     再現、currentTimeの書き換えは行わない。使用動画：wakachiku_people_at_work_v3.mp4（2560×1440・125.19秒・239MB）を
+     1920×1080・H.264 CRF23に再エンコードし78.3MBに軽量化（mockups/video/people_at_work.mp4）。ヒーローで既に使用中の
+     hero_reel.mp4とは別素材・別ショット（安全確認・測量・操船など人物中心のシーン）。 -->
+<section class="relative h-[760px] overflow-hidden bg-abyss">
+  <div class="photo-fx absolute inset-0" style="border-radius:0;">
+    <video class="w-full h-full object-cover" autoplay muted loop playsinline>
+      <source src="video/people_at_work.mp4" type="video/mp4">
+    </video>
+  </div>
+  <div class="absolute inset-0" style="background:linear-gradient(180deg, rgba(10,37,64,.78) 0%, rgba(10,37,64,.30) 42%, rgba(10,37,64,.82) 100%);"></div>
+  <div class="relative z-10 h-full flex flex-col items-center justify-center text-center px-8">
+    <span class="kinetic-label reveal-up eyebrow text-[56px] md:text-[72px] leading-none text-white/10 mb-4">MOTION</span>
+    <h2 class="reveal-up font-serif font-bold text-white text-[32px] mb-4 leading-snug"><span class="sweep-text">今日も、現場が動いている。</span></h2>
+    <p class="reveal-up delay-1 text-[16px] text-white/70 max-w-[560px] leading-[1.9]">安全確認、測量、操船——一つひとつの小さな動きの積み重ねが、若築建設の現場をつくっている。</p>
+  </div>
+</section>
+
+<!-- 採用ブリッジ：2026-09-07改訂。写真1枚(クレーン+海)→現場で働く人々6枚のモザイクに変更。テキストは色調操作した写真の上ではなく、常に読める紺色の専用パネルに固定。写真は自然な色味のまま(デュオトーン等の色調操作は不使用)、統一感のためsaturate(1.08)のみ軽く適用（サイト内の他写真と同様の手法） -->
+<section class="relative py-24 overflow-hidden">
+  <div class="geo-pattern-contour"></div>
+  <div class="relative max-w-[1320px] mx-auto px-8">
+    <div class="flex h-[460px] overflow-hidden rounded-2xl">
+      <div class="relative bg-abyss text-white flex flex-col justify-center px-12 w-[560px] shrink-0">
+        <h3 class="reveal-up font-serif text-[35px] font-bold mb-4 leading-snug"><span class="sweep-text">新しい港を拓く手に、</span><br><span class="sweep-text delay-1">なりませんか。</span></h3>
+        <p class="text-[17px] text-white/70 mb-8">若築建設で働く、という選択。</p>
+        <a href="#" class="btn-royal-hover inline-flex w-fit items-center gap-2 bg-sea text-white text-[20px] font-semibold px-7 py-3.5">採用情報はこちら</a>
+      </div>
+      <div class="reveal-up delay-1 relative flex-1 grid grid-cols-12 grid-rows-[1.65fr_1fr] gap-[3px] bg-abyss">
+        <div class="photo-fx relative col-span-7"><img src="img/cta_worksite/01_crane_jv_helmets.jpg" class="absolute inset-0 w-full h-full object-cover" style="object-position:55% 40%; filter:saturate(1.08);"></div>
+        <div class="photo-fx relative col-span-5"><img src="img/cta_worksite/02_survey_team.jpg" class="absolute inset-0 w-full h-full object-cover" style="object-position:62% 45%; filter:saturate(1.08);"></div>
+        <div class="photo-fx relative col-span-3"><img src="img/cta_worksite/03_morning_lineup_backlit.jpg" class="absolute inset-0 w-full h-full object-cover" style="object-position:40% 35%; filter:saturate(1.08);"></div>
+        <div class="photo-fx relative col-span-3"><img src="img/cta_worksite/04_deck_huddle_briefing.jpg" class="absolute inset-0 w-full h-full object-cover" style="object-position:45% 30%; filter:saturate(1.08);"></div>
+        <div class="photo-fx relative col-span-3"><img src="img/cta_worksite/05_wheelhouse_interior.jpg" class="absolute inset-0 w-full h-full object-cover" style="object-position:55% 45%; filter:saturate(1.08);"></div>
+        <div class="photo-fx relative col-span-3"><img src="img/cta_worksite/06_wheelhouse_from_behind.jpg" class="absolute inset-0 w-full h-full object-cover" style="object-position:55% 40%; filter:saturate(1.08);"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 動画：現行サイトの実際のCM動画サムネイル・実際のYouTube埋め込み・実コピーをそのまま使用 -->
+<section class="py-24 bg-abyss text-white">
+  <div class="max-w-[1320px] mx-auto px-8">
+    <span class="kinetic-label reveal-up eyebrow block text-[64px] md:text-[84px] leading-none text-white/10 mb-2">MOVIE</span>
+    <h2 class="reveal-up font-serif font-bold text-[32px] mb-3"><span class="sweep-text">止まらない、若築建設のリアル。</span></h2>
+    <p class="text-[16px] text-white/60 mb-12 max-w-[560px] leading-[1.8]">“百聞は一見に如かず”って、よく言ったもの。若築建設を、より深く、より身近に感じてもらいたいから、私たちの活動や取り組みを紹介します。</p>
+    <div class="reveal-up delay-1 grid grid-cols-1 lg:grid-cols-3 gap-8">
+      <a href="https://www.youtube.com/watch?v=hoI70W3rERk" target="_blank" class="photo-fx lg:col-span-2 relative block aspect-video">
+        <img src="https://img.youtube.com/vi/hoI70W3rERk/maxresdefault.jpg" class="w-full h-full object-cover" alt="若築建設・企業イメージ動画">
+        <div class="absolute inset-0 bg-abyss/20 flex items-center justify-center">
+          <span class="w-16 h-16 rounded-full bg-white/95 flex items-center justify-center text-ink text-[22px] shadow-lg">▶</span>
+        </div>
+        <div class="absolute inset-0 bg-gradient-to-t from-abyss/80 via-transparent to-transparent"></div>
+        <span class="absolute left-4 bottom-3 text-white text-[16px] font-semibold drop-shadow">若築建設・企業イメージ動画</span>
+      </a>
+      <div class="space-y-4">
+        <a href="https://www.youtube.com/watch?v=vO0Lcw5BkqI" target="_blank" class="photo-fx relative block aspect-video">
+          <img src="https://www.wakachiku.co.jp/images/about/img5.jpg" class="w-full h-full object-cover">
+          <div class="absolute inset-0 bg-abyss/30 flex items-center justify-center"><span class="w-11 h-11 rounded-full bg-white/95 flex items-center justify-center text-ink text-[16px]">▶</span></div>
+          <span class="absolute left-3 bottom-2 text-white text-[14px] font-semibold drop-shadow">企業イメージCM「あなたへ吹く風－リリック篇－」</span>
+        </a>
+        <a href="https://www.youtube.com/watch?v=oOZDb-mCg0g" target="_blank" class="photo-fx relative block aspect-video">
+          <img src="https://www.wakachiku.co.jp/images/about/img5_2.jpg" class="w-full h-full object-cover">
+          <div class="absolute inset-0 bg-abyss/30 flex items-center justify-center"><span class="w-11 h-11 rounded-full bg-white/95 flex items-center justify-center text-ink text-[16px]">▶</span></div>
+          <span class="absolute left-3 bottom-2 text-white text-[14px] font-semibold drop-shadow">企業イメージCM「ダンス篇」</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SDGs：現行サイトの実際のSDGsマーク画像をそのまま使用 -->
+<section class="relative py-24 overflow-hidden">
+  <div class="geo-pattern-vlines"></div>
+  <div class="relative max-w-[1320px] mx-auto px-8">
+    <div class="flex items-center justify-between mb-10">
+      <div class="reveal-up">
+        <span class="kinetic-label reveal-up eyebrow block text-[56px] md:text-[72px] leading-none text-tide mb-2">SDGs</span>
+        <h2 class="font-serif font-bold text-[32px] text-abyss"><span class="sweep-text sweep-onlight">若築建設とSDGs</span></h2>
+      </div>
+      <a href="https://www.wakachiku.co.jp/csr/sdgs.html" target="_blank" class="cushion text-[16px] font-semibold text-ink">Read More</a>
+    </div>
+    <div class="reveal-up delay-1 grid grid-cols-1 md:grid-cols-2 gap-8 items-center bg-tide/30 p-10 rounded-2xl overflow-hidden">
+      <img src="https://www.wakachiku.co.jp/images/sdgs/img1.png" alt="SUSTAINABLE DEVELOPMENT GOALS" class="w-full">
+      <img src="https://www.wakachiku.co.jp/images/sdgs/img2.png" alt="WAKACHIKU × SDGs" class="w-full">
+    </div>
+  </div>
+</section>
+
+<!-- お知らせ：現行サイトの実際のニュース10件・実リンクをそのまま使用（事実情報は創作しない） -->
+<section class="py-24 bg-tide/40">
+  <div class="max-w-[860px] mx-auto px-8">
+    <span class="kinetic-label reveal-up eyebrow block text-[56px] md:text-[72px] leading-none text-abyss/10 mb-2">NEWS</span>
+    <div class="reveal-up flex items-center justify-between mb-10">
+      <h2 class="font-serif font-bold text-[32px] text-abyss"><span class="sweep-text sweep-onlight">お知らせ</span></h2>
+      <a href="https://www.wakachiku.co.jp/news/" target="_blank" class="cushion text-[16px] font-semibold text-ink">一覧はこちら</a>
+    </div>
+    <div class="reveal-up delay-1 divide-y divide-black/10 border-t border-black/10">
+      <div class="row-cushion flex gap-8 py-4 items-baseline"><span class="text-[16px] text-steel/70 w-[100px]">2026.09.01</span><span class="text-[14px] font-semibold text-steel border border-steel/30 px-2.5 py-0.5 shrink-0">お知らせ</span><span class="text-[17px] ml-2">Japan Wind Farm Construction（株）がWIND EXPO 秋　第18回国際風力発電展に出展します。</span></div>
+      <div class="row-cushion flex gap-8 py-4 items-baseline"><span class="text-[16px] text-steel/70 w-[100px]">2026.08.06</span><span class="text-[14px] font-semibold text-ink border border-ink/30 px-2.5 py-0.5 shrink-0">IR</span><span class="text-[17px] ml-2">2027年3月期第1四半期決算説明資料<span class="text-steel/50 text-[15px]">（PDF 1206KB）</span></span></div>
+      <div class="row-cushion flex gap-8 py-4 items-baseline"><span class="text-[16px] text-steel/70 w-[100px]">2026.07.21</span><span class="text-[14px] font-semibold text-steel border border-steel/30 px-2.5 py-0.5 shrink-0">お知らせ</span><span class="text-[17px] ml-2">【IR情報】長廻社長がラジオ番組に出演しました。<span class="text-steel/50 text-[15px]">（PDF 189KB）</span></span></div>
+      <div class="row-cushion flex gap-8 py-4 items-baseline"><span class="text-[16px] text-steel/70 w-[100px]">2026.06.18</span><span class="text-[14px] font-semibold text-sea border border-sea/30 px-2.5 py-0.5 shrink-0">リリース</span><span class="text-[17px] ml-2">「函館港西防波堤カルシア改質浅場での藻場造成実証研究の紹介」について</span></div>
+      <div class="row-cushion flex gap-8 py-4 items-baseline"><span class="text-[16px] text-steel/70 w-[100px]">2026.06.17</span><span class="text-[14px] font-semibold text-sea border border-sea/30 px-2.5 py-0.5 shrink-0">リリース</span><span class="text-[17px] ml-2">DC-PC桟橋　沿岸技術研究センターより港湾関連民間技術評価証を取得しました。<span class="text-steel/50 text-[15px]">（PDF 1018KB）</span></span></div>
+      <div class="row-cushion flex gap-8 py-4 items-baseline"><span class="text-[16px] text-steel/70 w-[100px]">2026.06.01</span><span class="text-[14px] font-semibold text-ink border border-ink/30 px-2.5 py-0.5 shrink-0">IR</span><span class="text-[17px] ml-2">第210回定時株主総会資料を掲載しました。</span></div>
+      <div class="row-cushion flex gap-8 py-4 items-baseline"><span class="text-[16px] text-steel/70 w-[100px]">2026.05.20</span><span class="text-[14px] font-semibold text-ink border border-ink/30 px-2.5 py-0.5 shrink-0">IR</span><span class="text-[17px] ml-2">2026年3月期決算説明会資料<span class="text-steel/50 text-[15px]">（PDF 4063KB）</span></span></div>
+      <div class="row-cushion flex gap-8 py-4 items-baseline"><span class="text-[16px] text-steel/70 w-[100px]">2026.05.14</span><span class="text-[14px] font-semibold text-steel border border-steel/30 px-2.5 py-0.5 shrink-0">お知らせ</span><span class="text-[17px] ml-2">役員の異動に関するお知らせ<span class="text-steel/50 text-[15px]">（PDF 73KB）</span></span></div>
+      <div class="row-cushion flex gap-8 py-4 items-baseline"><span class="text-[16px] text-steel/70 w-[100px]">2026.03.09</span><span class="text-[14px] font-semibold text-steel border border-steel/30 px-2.5 py-0.5 shrink-0">お知らせ</span><span class="text-[17px] ml-2">日本建設業連合会より2025年度 海洋安全表彰を受賞しました<span class="text-steel/50 text-[15px]">（PDF 299KB）</span></span></div>
+      <div class="row-cushion flex gap-8 py-4 items-baseline"><span class="text-[16px] text-steel/70 w-[100px]">2026.03.06</span><span class="text-[14px] font-semibold text-steel border border-steel/30 px-2.5 py-0.5 shrink-0">お知らせ</span><span class="text-[17px] ml-2">DX認定の取得について<span class="text-steel/50 text-[15px]">（PDF 331KB）</span></span></div>
+    </div>
+  </div>
+</section>
+
+<!-- 下部バナー群：現行サイトの実際の8バナー・実リンクをそのまま使用 -->
+<section class="py-14 bg-white border-t border-black/5">
+  <div class="max-w-[1320px] mx-auto px-8">
+    <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-4 items-center">
+      <a href="https://www.wakachiku.co.jp/shiryo/" target="_blank" class="opacity-80 hover:opacity-100 transition-opacity"><img src="https://www.wakachiku.co.jp/common/images/banner/museum.png" alt=""></a>
+      <a href="https://sekokan-navi.jp/magazine/71507" target="_blank" class="opacity-80 hover:opacity-100 transition-opacity"><img src="https://www.wakachiku.co.jp/common/images/banner/sekokan.png" alt=""></a>
+      <a href="https://xn--y8j8bxc.xn--q9jyb4c/post/171572206948/genba20" target="_blank" class="opacity-80 hover:opacity-100 transition-opacity"><img src="https://www.wakachiku.co.jp/common/images/banner/doboku.png" alt=""></a>
+      <a href="https://www.umeshunkyo.or.jp/kids/index.html" target="_blank" class="opacity-80 hover:opacity-100 transition-opacity"><img src="https://www.wakachiku.co.jp/common/images/banner/kids.png" alt=""></a>
+      <a href="https://www.youtube.com/channel/UCYZuhZxsMQprLQLnSX19M1Q" target="_blank" class="opacity-80 hover:opacity-100 transition-opacity"><img src="https://www.wakachiku.co.jp/common/images/banner/youtube.jpg" alt="YouTube"></a>
+      <a href="https://wakachiku-seawork.jp/" target="_blank" class="opacity-80 hover:opacity-100 transition-opacity"><img src="https://www.wakachiku.co.jp/common/images/banner/shunsetsu.png" alt="グラブ浚渫船「若鷲丸」を体験！浚渫シミュレーター"></a>
+      <a href="https://wakachiku.cloud.vket.com/worlds/quizworld/main.html?worldid=quizworld" target="_blank" class="opacity-80 hover:opacity-100 transition-opacity"><img src="https://www.wakachiku.co.jp/common/images/banner/tanken.png" alt="若築建設 ケンセツたんけん"></a>
+      <a href="https://www.talent-book.jp/wakachiku" target="_blank" class="opacity-80 hover:opacity-100 transition-opacity"><img src="https://www.wakachiku.co.jp/common/images/banner/talentbook.jpg" alt="talentbook"></a>
+    </div>
+  </div>
+</section>
+
+<!-- フッター：現行サイトの実際のナビゲーション構成・電話番号・住所・著作権表記をそのまま使用 -->
+<footer class="bg-abyss text-white pt-16 pb-8">
+  <div class="max-w-[1320px] mx-auto px-8">
+    <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8 pb-12 border-b border-white/10 text-[16px]">
+      <div>
+        <a href="https://www.wakachiku.co.jp/company/" target="_blank" class="font-bold text-white/90 hover:text-sea">企業情報</a>
+        <ul class="mt-3 space-y-2 text-white/50">
+          <li><a href="https://www.wakachiku.co.jp/company/message.html" target="_blank" class="hover:text-white">社長あいさつ</a></li>
+          <li><a href="https://www.wakachiku.co.jp/company/policy.html" target="_blank" class="hover:text-white">経営理念</a></li>
+          <li><a href="https://www.wakachiku.co.jp/company/profile.html" target="_blank" class="hover:text-white">会社概要</a></li>
+          <li><a href="https://www.wakachiku.co.jp/company/history.html" target="_blank" class="hover:text-white">会社沿革</a></li>
+          <li><a href="https://www.wakachiku.co.jp/company/offices.html" target="_blank" class="hover:text-white">事業所</a></li>
+        </ul>
+      </div>
+      <div>
+        <a href="https://www.wakachiku.co.jp/ir/" target="_blank" class="font-bold text-white/90 hover:text-sea">株主・投資家の皆様へ</a>
+        <ul class="mt-3 space-y-2 text-white/50">
+          <li><a href="https://www.wakachiku.co.jp/ir/release.html" target="_blank" class="hover:text-white">IRニュース</a></li>
+          <li><a href="https://www.wakachiku.co.jp/ir/highlights.html" target="_blank" class="hover:text-white">業績ハイライト</a></li>
+          <li><a href="https://www.wakachiku.co.jp/ir/shareholders.html" target="_blank" class="hover:text-white">株式情報</a></li>
+          <li><a href="https://www.wakachiku.co.jp/ir/calendar.html" target="_blank" class="hover:text-white">IRカレンダー</a></li>
+          <li><a href="https://www.wakachiku.co.jp/ir/esg.html" target="_blank" class="hover:text-white">ESG</a></li>
+        </ul>
+      </div>
+      <div>
+        <a href="https://www.wakachiku.co.jp/csr/" target="_blank" class="font-bold text-white/90 hover:text-sea">サステナビリティ</a>
+        <ul class="mt-3 space-y-2 text-white/50">
+          <li><a href="https://www.wakachiku.co.jp/csr/esg-policy.html" target="_blank" class="hover:text-white">ESG経営基本方針</a></li>
+          <li><a href="https://www.wakachiku.co.jp/csr/environment-01.html" target="_blank" class="hover:text-white">E（環境）</a></li>
+          <li><a href="https://www.wakachiku.co.jp/csr/social-01.html" target="_blank" class="hover:text-white">S（社会）</a></li>
+          <li><a href="https://www.wakachiku.co.jp/csr/governance-01.html" target="_blank" class="hover:text-white">G（ガバナンス）</a></li>
+          <li><a href="https://www.wakachiku.co.jp/csr/dx-promotion.html" target="_blank" class="hover:text-white">DX推進</a></li>
+        </ul>
+      </div>
+      <div>
+        <span class="font-bold text-white/90">施工実績・技術紹介</span>
+        <ul class="mt-3 space-y-2 text-white/50">
+          <li><a href="https://www.wakachiku.co.jp/achievement/detail1.html" target="_blank" class="hover:text-white">海上土木</a></li>
+          <li><a href="https://www.wakachiku.co.jp/achievement/detail2.html" target="_blank" class="hover:text-white">陸上土木</a></li>
+          <li><a href="https://www.wakachiku.co.jp/achievement/detail3.html" target="_blank" class="hover:text-white">建築</a></li>
+          <li><a href="https://www.wakachiku.co.jp/technology/" target="_blank" class="hover:text-white">技術紹介</a></li>
+        </ul>
+      </div>
+      <div>
+        <span class="font-bold text-white/90">採用情報</span>
+        <ul class="mt-3 space-y-2 text-white/50">
+          <li><a href="https://www.wakachiku.co.jp/recruit/fresh/" target="_blank" class="hover:text-white">新卒採用情報</a></li>
+          <li><a href="https://www.wakachiku.co.jp/recruit/guidelines.html" target="_blank" class="hover:text-white">キャリア採用情報</a></li>
+          <li><a href="https://www.wakachiku.co.jp/originality/" target="_blank" class="hover:text-white">若築建設の個性</a></li>
+          <li><a href="https://www.wakachiku.co.jp/character/" target="_blank" class="hover:text-white">キャラクター</a></li>
+        </ul>
+      </div>
+      <div>
+        <span class="font-bold text-white/90">その他</span>
+        <ul class="mt-3 space-y-2 text-white/50">
+          <li><a href="http://www.wakakenpo.or.jp/" target="_blank" class="hover:text-white">若築建設健康保険組合</a></li>
+          <li><a href="https://www.wakachiku.co.jp/contact/" target="_blank" class="hover:text-white">お問い合わせ</a></li>
+          <li><a href="https://www.wakachiku.co.jp/profile/information.html" target="_blank" class="hover:text-white">ご利用上の注意</a></li>
+          <li><a href="https://www.wakachiku.co.jp/profile/privacy.html" target="_blank" class="hover:text-white">プライバシーポリシー</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="flex flex-wrap justify-between items-end gap-8 pt-10 pb-8 border-b border-white/10">
+      <div class="flex items-center gap-4">
+        <img src="img/wakachiku_logo_real.svg" class="h-9 brightness-0 invert opacity-90">
+        <div class="text-[16px] text-white/60 leading-relaxed">
+          <p>若築建設株式会社　WAKACHIKU CONSTRUCTION CO.,LTD.</p>
+          <p>本社　東京都目黒区下目黒二丁目23番18号</p>
+        </div>
+      </div>
+      <div class="text-[16px] text-white/60 text-right leading-relaxed">
+        <p>TEL：03-3492-0271（代表）　FAX：03-3490-1019</p>
+      </div>
+    </div>
+    <div class="pt-6 text-[15px] text-white/40">Copyright © WAKACHIKU CONSTRUCTION Co., Ltd. All rights reserved.</div>
+  </div>
+</footer>
+
+<!-- 2026-09-07（v17）：v16の「file://で演出が動かない」再調査・修正。
+     【再調査の結果】鈴木編集長兼社長の使用ブラウザはChrome（Safariではない）とのご指摘を受け、v16のWebKit限定仮説を
+     疑い、python-playwrightで①ヘッドレスChromium②実機インストール済みのGoogle Chrome本体（channel="chrome"、
+     v152）の両方に対し、window.scrollTo()による疑似スクロールではなく実際のマウスホイールイベント
+     （page.mouse.wheel()を連続実行）でfile://を再検証した。結果：スクロールイベントは正しく発火し、
+     コンソールエラーは0件、リビール・ズームとも計算上は正常に動作していることを確認した（DEBUG用console.logを
+     一時的に仕込み、scrollイベント発火のたびにupdate()が実行され、reveal-up要素が1つずつ発火済みに変わっていく
+     ログも実測）。ファイル内の重複<script>・重複イベントリスナー・変数名衝突も全文検索したが該当なし。
+     つまりコード自体に実行を止めるようなバグは見つからなかった。
+     一方で、macOSの「視差効果を減らす」（Reduce Motion）アクセシビリティ設定が有効な環境をエミュレートしたところ、
+     reveal-up要素は最初から常時opacity:1（CSSの@media (prefers-reduced-motion:reduce)により意図的に無効化）に
+     なり、座布団ホバー（::afterのtransition のみ無効化・表示自体はscaleY(1)のまま機能）は見た目に大きな違いが
+     出ない一方、見出しリビールだけが「そもそもフェードインする一瞬が存在しない」状態になることを確認した。
+     これは「座布団は確認できたが見出しリビールとズームは見えなかった」というご報告と矛盾しない挙動である。
+     加えてズーム効果は、要素がビューポートに入ってから完全に通過し終えるまで（vh+要素の高さ分、大きな写真では
+     1700px超）で0→12%に達する設計だったため、通常のスクロール量では変化量が小さすぎて気づきにくかった
+     可能性が高いと判断した。
+     【今回の対応】原因を断定できる決定的な1つのバグは再現できなかったため、以下2点を「気づきやすさ・堅牢性の
+     改善」として実施し、Reduce Motion設定の有無に関わらず体感できる状態にした。
+     ①ズームの発生距離をvh*0.75（画面の3/4スクロール分）に短縮し、最大スケールも12%→16%に強化。通常の
+     スクロール量でも変化がはっきり見えるようにした。
+     ②ズーム効果もprefers-reduced-motionを尊重するよう明示的にJS側でも判定を追加（該当時はズームを行わず
+     scale(1)に固定。これはアクセシビリティ上正しい挙動であり、その場合はご利用のMacの「システム設定→
+     アクセシビリティ→ディスプレイ→視差効果を減らす」がオンになっていないかご確認いただきたい）。 -->
+<!-- 2026-09-07（v18）：インタラクション・ビジュアルの大幅強化。
+     ①スクロール見出しリビール：一度きりの発火(is-inview追加後は監視対象から除外)から、ビューポート内かどうかで
+     is-inviewをtoggleする方式に変更。スクロールダウン・アップどちらでも、視界に入るたび・外れるたびに
+     再発火するようになった。
+     ②キネティックタイポグラフィ：FIELDS/WORKS/TECH/STORY/MOVIE/SDGs/NEWSの英字ラベル(.kinetic-label)を
+     JSで1文字ずつ<span class="k-char">に分割し、リビールと同じ「ビューポート内はis-inview」判定で
+     何度でも踊るように再登場させる(showa-kogyo.comのSplitTextベースの演出を自前再現)。
+     ③写真の統一インタラクション(.photo-fx)：スクロール連動のゆるやかな拡大(旧.js-zoom)と、マウスオーバー時の
+     パララックス的な拡大+視差移動を同じtransformに合成して書き込む。ホバーはmouseenter/mousemove/mouseleaveで
+     カーソル位置に応じた微小な移動量を計算し、スクロールで生じる拡大率と掛け合わせる。旧来Tailwindの
+     group-hover:scale-105を使っていたWORKS/TECH/MOVIEの写真もすべてこの一本化した仕組みに統合し、
+     インラインtransformとクラスベースtransformの競合を解消した。 -->
+<script>
+(function(){
+  var prefersReducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // ① スクロールリビール：ビューポート内かどうかでtoggle（何度でも再発火）
+  var revealEls = Array.prototype.slice.call(document.querySelectorAll('.reveal-up, .sweep-text'));
+  function updateReveal(){
+    var vh = window.innerHeight;
+    revealEls.forEach(function(el){
+      var rect = el.getBoundingClientRect();
+      var inView = rect.top < vh * 0.92 && rect.bottom > 0;
+      el.classList.toggle('is-inview', inView);
+    });
+  }
+
+  // ② キネティックタイポグラフィ：ラベルを1文字ずつspanに分割し、リビールと同じ判定で再発火
+  var kineticEls = Array.prototype.slice.call(document.querySelectorAll('.kinetic-label'));
+  kineticEls.forEach(function(el){
+    var text = el.textContent;
+    el.textContent = '';
+    for (var i = 0; i < text.length; i++) {
+      var span = document.createElement('span');
+      span.className = 'k-char';
+      span.style.transitionDelay = (i * 0.045) + 's';
+      span.textContent = text[i] === ' ' ? ' ' : text[i];
+      el.appendChild(span);
+    }
+  });
+  function updateKinetic(){
+    var vh = window.innerHeight;
+    kineticEls.forEach(function(el){
+      var rect = el.getBoundingClientRect();
+      var inView = rect.top < vh * 0.92 && rect.bottom > 0;
+      el.classList.toggle('is-inview', inView);
+    });
+  }
+
+  // ③ 写真の統一インタラクション：スクロールでのゆるやかな拡大＋ホバーでのパララックス移動を合成
+  var photoEls = Array.prototype.slice.call(document.querySelectorAll('.photo-fx')).map(function(wrap){
+    var img = wrap.querySelector('img, video');
+    return { wrap: wrap, img: img, scrollScale: 1, hoverActive: false, hx: 0, hy: 0 };
+  }).filter(function(entry){ return entry.img; });
+
+  function applyTransform(entry){
+    if (prefersReducedMotion) { entry.img.style.transform = 'scale(1)'; return; }
+    var hoverScale = entry.hoverActive ? 1.06 : 1;
+    var scale = entry.scrollScale * hoverScale;
+    entry.img.style.transform = 'scale(' + scale.toFixed(4) + ') translate(' + entry.hx.toFixed(2) + 'px,' + entry.hy.toFixed(2) + 'px)';
+  }
+
+  function updatePhotoScroll(){
+    if (prefersReducedMotion) return;
+    var vh = window.innerHeight;
+    var span = vh * 0.75;
+    photoEls.forEach(function(entry){
+      var rect = entry.wrap.getBoundingClientRect();
+      var progress = (vh - rect.top) / span;
+      if (progress < 0) progress = 0;
+      if (progress > 1) progress = 1;
+      entry.scrollScale = 1 + progress * 0.16;
+      applyTransform(entry);
+    });
+  }
+
+  photoEls.forEach(function(entry){
+    entry.wrap.addEventListener('mouseenter', function(){ entry.hoverActive = true; applyTransform(entry); });
+    entry.wrap.addEventListener('mousemove', function(e){
+      var rect = entry.wrap.getBoundingClientRect();
+      var relX = (e.clientX - rect.left) / rect.width - 0.5;  // -0.5〜0.5
+      var relY = (e.clientY - rect.top) / rect.height - 0.5;
+      entry.hx = relX * -14; // カーソルと逆方向にわずかに動かす視差
+      entry.hy = relY * -14;
+      applyTransform(entry);
+    });
+    entry.wrap.addEventListener('mouseleave', function(){
+      entry.hoverActive = false; entry.hx = 0; entry.hy = 0; applyTransform(entry);
+    });
+  });
+
+  // ④ 2026-09-15（v28）追加：ヒーロー内コラージュブロック（.parallax-block）のパララックス。
+  //    背景のヒーロー写真は動かさず、ブロックだけをスクロール量×data-speedでtranslateYし、
+  //    速度差で「浮いて見える」現代アート的な奥行きを出す。ヒーローはページ最上部（scrollY基準0）なので
+  //    window.scrollYをそのまま使用。
+  var collageBlocks = Array.prototype.slice.call(document.querySelectorAll('.parallax-block'));
+  function updateCollageParallax(){
+    if (prefersReducedMotion) return;
+    var scrollY = window.scrollY || window.pageYOffset || 0;
+    collageBlocks.forEach(function(el){
+      var speed = parseFloat(el.getAttribute('data-speed')) || 0.2;
+      el.style.transform = 'translateY(' + (scrollY * speed).toFixed(1) + 'px)';
+    });
+  }
+
+  var ticking = false;
+  function update(){
+    updateReveal();
+    updateKinetic();
+    updatePhotoScroll();
+    updateCollageParallax();
+    ticking = false;
+  }
+  function onScroll(){
+    if (!ticking) {
+      window.requestAnimationFrame(update);
+      ticking = true;
+    }
+  }
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll);
+  update();
+  window.addEventListener('load', update);
+})();
+</script>
+
+</body>
+</html>

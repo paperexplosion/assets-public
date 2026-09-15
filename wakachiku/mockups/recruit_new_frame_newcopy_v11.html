@@ -1,0 +1,893 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>init</title>
+<script>window.onload=function(){document.title='H'+document.body.scrollHeight+'H';};</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@500;700;900&family=Noto+Sans+JP:wght@400;500;600;700;900&family=Archivo+Black&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = { theme: { extend: {
+    colors: { ink:'#185aa5', sea:'#0088d2', abyss:'#0a2540', sand:'#f6f4ee', steel:'#4b5a68', tide:'#d7e2ee', royal:'#12151a' },
+    fontFamily: { serif:['"Noto Serif JP"','serif'], sans:['"Noto Sans JP"','sans-serif'], display:['"Archivo Black"','sans-serif'] }
+  } } }
+</script>
+<style>
+  body{font-family:'Noto Sans JP',sans-serif;}
+  .eyebrow{font-family:'Archivo Black',sans-serif; letter-spacing:-0.01em;}
+  .avatar{width:100%;aspect-ratio:4/5;display:flex;align-items:center;justify-content:center;font-family:'Noto Serif JP',serif;font-weight:700;color:#fff;font-size:40px;}
+
+  /* ==== 以下、top_new_frame_newcopy_v23.htmlのデザインシステムをそのまま移植（A案：トップページのトンマナを採用ページにも踏襲） ==== */
+
+  /* パターン1（Vision）：グリッド＋対角線＋交点ドット */
+  .geo-pattern-grid{
+    position:absolute; inset:0; pointer-events:none;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cpath d='M0 70H140M70 0V140M0 0L140 140M140 0L0 140' stroke='%23185aa5' stroke-width='0.6' opacity='0.09'/%3E%3Ccircle cx='70' cy='70' r='1.6' fill='%230088d2' opacity='0.22'/%3E%3C/svg%3E");
+    background-repeat:repeat;
+    -webkit-mask-image:radial-gradient(ellipse 75% 90% at 50% 40%, black 35%, transparent 88%);
+    mask-image:radial-gradient(ellipse 75% 90% at 50% 40%, black 35%, transparent 88%);
+  }
+  /* パターン2（Field）：三角メッシュ（アイソメトリック格子） */
+  .geo-pattern-tri{
+    position:absolute; inset:0; pointer-events:none;
+    background-image:
+      repeating-linear-gradient(30deg, rgba(24,90,165,0.10) 0 0.6px, transparent 0.6px 52px),
+      repeating-linear-gradient(150deg, rgba(24,90,165,0.10) 0 0.6px, transparent 0.6px 52px),
+      repeating-linear-gradient(90deg, rgba(0,136,210,0.08) 0 0.6px, transparent 0.6px 52px);
+    -webkit-mask-image:radial-gradient(ellipse 75% 90% at 50% 45%, black 35%, transparent 88%);
+    mask-image:radial-gradient(ellipse 75% 90% at 50% 45%, black 35%, transparent 88%);
+  }
+  /* パターン3（CTAセクション・白背景の余白部分のみ） */
+  .geo-pattern-contour{
+    position:absolute; inset:0; pointer-events:none;
+    background-image: repeating-radial-gradient(circle at 88% 15%, rgba(255,255,255,0.10) 0 0.7px, transparent 0.7px 32px);
+  }
+  /* パターン4（数字で見る・abyss背景）：縦線パターン */
+  .geo-pattern-vlines{
+    position:absolute; inset:0; pointer-events:none;
+    background-image: repeating-linear-gradient(90deg, rgba(255,255,255,0.08) 0 0.6px, transparent 0.6px 22px);
+    -webkit-mask-image:radial-gradient(ellipse 70% 85% at 50% 55%, transparent 45%, black 78%);
+    mask-image:radial-gradient(ellipse 70% 85% at 50% 55%, transparent 45%, black 78%);
+  }
+  /* 2026-09-07（v3新規）：採用ページ専用パターン。「まだ地図にない場所」というコアコピーに合わせ、
+     地図の踏破ルート（点線の道＋通過点の丸）をモチーフにした新パターンをCareerセクション用に新規デザイン。
+     既存4パターン（grid/tri/contour/vlines）はトップページからの流用だが、これは採用ページのために新規作成。 */
+  .geo-pattern-route{
+    position:absolute; inset:0; pointer-events:none;
+    background-image:
+      repeating-linear-gradient(115deg, rgba(24,90,165,0.16) 0 3px, transparent 3px 16px),
+      radial-gradient(circle at 18% 28%, rgba(61,200,186,0.22) 0 4px, transparent 5px),
+      radial-gradient(circle at 52% 62%, rgba(61,200,186,0.22) 0 4px, transparent 5px),
+      radial-gradient(circle at 84% 22%, rgba(61,200,186,0.22) 0 4px, transparent 5px),
+      radial-gradient(circle at 70% 78%, rgba(61,200,186,0.22) 0 4px, transparent 5px);
+    -webkit-mask-image:radial-gradient(ellipse 78% 90% at 50% 45%, black 30%, transparent 86%);
+    mask-image:radial-gradient(ellipse 78% 90% at 50% 45%, black 30%, transparent 86%);
+  }
+
+  /* 2026-09-15（v11）：座布団・ホバー色を5回目の指定で最終決着。#2f57ff→#32b4a6→#0e9aa2→#15c5ce→#3dc8baと
+     試した末、白文字とのコントラスト比はいずれもWCAG基準未達（最良の旧ロイヤルブルーでも5.35:1、直前の
+     #3dc8baは2.07:1で最低）だった経緯を受け、トップページv28と同じ判断で黒（#12151a）に統一。
+     黒地に白文字は原理的にコントラスト最大級（約18:1超）になるため、これまでの数値検証の問題を全て解消する。
+     Tailwind設定のcolors.royal、および下記rgba直書き部分（row-cushion/dd-panel hover）も合わせて黒系に変更。
+     なお、CAREERセクションの地図風ルートパターン(.geo-pattern-route)の4つの光点は装飾的テクスチャのため
+     ティール系のまま維持（可読性に関わる座布団・ボタンとは区別）。 */
+  :root{ --royal: #12151a; --royal-deep: #05070a; }
+
+  .reveal-up{
+    opacity:0;
+    transform:translateY(28px);
+    transition:opacity .9s cubic-bezier(0,0.55,0.45,1), transform .9s cubic-bezier(0,0.55,0.45,1);
+    will-change:opacity, transform;
+  }
+  .reveal-up.is-inview{ opacity:1; transform:translateY(0); }
+  .delay-1{ transition-delay:.12s; }
+  .delay-2{ transition-delay:.24s; }
+  .delay-3{ transition-delay:.36s; }
+
+  .sweep-text{
+    position:relative;
+    display:inline-block;
+    z-index:0;
+    transition:color .3s ease-out .3s;
+  }
+  .sweep-text::before{
+    content:"";
+    position:absolute;
+    left:-8px; right:-8px; top:-10px; bottom:-13px;
+    background:var(--royal);
+    transform:scaleX(0);
+    transform-origin:left;
+    transition:transform .65s cubic-bezier(0.65,0,0.35,1);
+    z-index:-1;
+    border-radius:4px;
+  }
+  .sweep-text.is-inview{ color:#fff !important; }
+  .sweep-text.is-inview::before{ transform:scaleX(1); }
+  /* 2026-09-15（v11再修正）：直前の対策（座布団があってもなくても濃紺に固定）は誤りだったため撤回。
+     濃紺文字は黒座布団の上に乗ると沈んで見えなくなる（座布団が表示されている状態でご指摘を受けた）。
+     座布団off時=text-abyssの濃紺（明るい背景で読める）／座布団on時=白（黒座布団の上で読める）という
+     元の2状態のシンプルな設計が正しかったため、sweep-onlightクラスの付与を全て外して元の挙動に戻す。 */
+
+  .photo-fx{ overflow:hidden; border-radius:16px; }
+  .photo-fx > img, .photo-fx > video{
+    display:block; width:100%; height:100%; object-fit:cover;
+    transform:scale(1);
+    transition:transform .6s cubic-bezier(0.16,1,0.3,1);
+    will-change:transform;
+  }
+
+  .kinetic-label{ display:inline-block; overflow:hidden; }
+  .kinetic-label .k-char{
+    display:inline-block;
+    transform:translateY(0.7em) rotate(6deg);
+    opacity:0;
+    transition:transform .6s cubic-bezier(0.34,1.56,0.64,1), opacity .5s ease-out;
+  }
+  .kinetic-label.is-inview .k-char{ transform:translateY(0) rotate(0deg); opacity:1; }
+
+  .cushion{
+    position:relative;
+    display:inline-block;
+    z-index:0;
+    transition:color .35s cubic-bezier(0.65,0,0.35,1);
+  }
+  .cushion::after{
+    content:"";
+    position:absolute;
+    left:-.4em; right:-.4em; top:-.14em; bottom:-.1em;
+    background:var(--royal);
+    transform:scaleY(0);
+    transform-origin:bottom;
+    transition:transform .45s cubic-bezier(0.65,0,0.35,1);
+    z-index:-1;
+    border-radius:4px;
+  }
+  .cushion:hover{ color:#fff; }
+  .cushion:hover::after{ transform:scaleY(1); }
+
+  .nav-cushion{
+    position:relative;
+    padding:7px 12px;
+    margin:-7px -12px;
+    z-index:0;
+    border-radius:6px;
+    transition:color .35s cubic-bezier(0.65,0,0.35,1);
+  }
+  .nav-cushion::after{
+    content:"";
+    position:absolute; inset:0;
+    background:var(--royal);
+    transform:scaleY(0);
+    transform-origin:bottom;
+    transition:transform .4s cubic-bezier(0.65,0,0.35,1);
+    z-index:-1;
+    border-radius:6px;
+  }
+  .nav-cushion:hover{ color:#fff !important; }
+  .nav-cushion:hover::after{ transform:scaleY(1); }
+
+  .row-cushion{
+    position:relative;
+    z-index:0;
+    margin:0 -16px;
+    padding:0 16px;
+    border-radius:8px;
+    transition:color .3s ease;
+  }
+  .row-cushion::before{
+    content:"";
+    position:absolute; inset:0;
+    background:rgba(10,15,20,.08);
+    border-left:3px solid var(--royal);
+    transform:scaleX(0);
+    transform-origin:left;
+    transition:transform .4s cubic-bezier(0.65,0,0.35,1);
+    z-index:-1;
+    border-radius:8px;
+  }
+  .row-cushion:hover::before{ transform:scaleX(1); }
+
+  .btn-royal-hover{ border-radius:999px; transition:background-color .3s ease, color .3s ease; }
+  .btn-royal-hover:hover{ background-color:var(--royal) !important; color:#fff !important; }
+
+  .nav-item{ position:relative; }
+  .dd-panel{
+    position:absolute;
+    top:100%;
+    left:50%;
+    transform:translateX(-50%);
+    padding-top:14px;
+    opacity:0;
+    visibility:hidden;
+    pointer-events:none;
+    z-index:60;
+    transition:opacity .35s cubic-bezier(0.16,1,0.3,1), visibility 0s linear .35s;
+  }
+  .nav-item:hover .dd-panel{
+    opacity:1;
+    visibility:visible;
+    pointer-events:auto;
+    transition:opacity .35s cubic-bezier(0.16,1,0.3,1), visibility 0s linear 0s;
+  }
+  .dd-panel-inner{
+    background:#fff;
+    border-radius:16px;
+    box-shadow:0 24px 60px rgba(10,37,64,.20);
+    padding:28px 32px;
+    display:flex;
+    gap:36px;
+    transform:translateY(10px);
+    transition:transform .35s cubic-bezier(0.16,1,0.3,1);
+  }
+  .nav-item:hover .dd-panel .dd-panel-inner{ transform:translateY(0); }
+  .dd-col{ display:flex; flex-direction:column; gap:2px; min-width:150px; }
+  .dd-col-title{ font-family:'Archivo Black',sans-serif; letter-spacing:-0.01em; font-size:12px; color:var(--royal); margin-bottom:8px; white-space:nowrap; }
+  .dd-panel a{
+    display:block;
+    white-space:nowrap;
+    font-size:13.5px;
+    color:#0a2540cc;
+    padding:6px 10px;
+    margin:0 -10px;
+    border-radius:8px;
+    opacity:0;
+    transform:translateY(8px);
+    transition:opacity .4s cubic-bezier(0.16,1,0.3,1), transform .4s cubic-bezier(0.16,1,0.3,1), background-color .2s ease, color .2s ease;
+  }
+  .nav-item:hover .dd-panel a{ opacity:1; transform:translateY(0); }
+  .dd-panel a:hover{ background:rgba(10,15,20,.06); color:var(--royal); }
+  .dd-panel a:nth-child(1){transition-delay:.02s}
+  .dd-panel a:nth-child(2){transition-delay:.05s}
+  .dd-panel a:nth-child(3){transition-delay:.08s}
+  .dd-panel a:nth-child(4){transition-delay:.11s}
+  .dd-panel a:nth-child(5){transition-delay:.14s}
+  .dd-panel a:nth-child(6){transition-delay:.17s}
+  .dd-panel a:nth-child(7){transition-delay:.20s}
+  .dd-panel a:nth-child(8){transition-delay:.23s}
+  @media (prefers-reduced-motion: reduce){
+    .dd-panel, .dd-panel-inner, .dd-panel a{ transition:none !important; }
+  }
+
+  /* 2026-09-15（v11再修正・簡素化）：コラージュブロック・線のパララックスは撤去済み（不要と判断）。
+     関連CSSも削除。 */
+
+  /* 2026-09-15（v11再々修正→再指示で更新）：ヒーローを6枚の実写画像によるカルーセルに変更。
+     当初は「画像6枚・コピー3種を別周期で回す」構成にしたが、鈴木隆文の指示により「各画像ごとに
+     専用のコピーが出る」方式（画像とコピーが1対1でセット、計6組）に変更。位置は左下→右→中央の
+     3パターンを2周させ、画像が変わるたびにコピーも同時にフェード＋わずかなtranslateYで切り替わる。 */
+  .hero-carousel-slide{
+    position:absolute; inset:0; opacity:0;
+    transition:opacity 1.6s ease;
+  }
+  .hero-carousel-slide.active{ opacity:1; z-index:1; }
+  .hero-carousel-slide img{ width:100%; height:100%; object-fit:cover; }
+
+  .hero-caption-wrap{ position:absolute; z-index:10; max-width:560px; }
+  .hero-caption-wrap.pos-bl{ left:64px; bottom:64px; text-align:left; }
+  .hero-caption-wrap.pos-r{ right:64px; top:110px; text-align:right; }
+  .hero-caption-wrap.pos-c{ left:50%; top:50%; transform:translate(-50%,-50%); text-align:center; }
+
+  .hero-caption{
+    display:inline-block;
+    opacity:0; transform:translateY(16px);
+    transition:opacity .9s cubic-bezier(0,0.55,0.45,1), transform .9s cubic-bezier(0,0.55,0.45,1);
+    pointer-events:none;
+  }
+  .hero-caption.active{ opacity:1; transform:translateY(0); pointer-events:auto; }
+  /* 2026-09-15（v11再々修正・上品な体裁に変更）：見出しだけを座布団風に置く形から、見出し＋サブコピーを
+     1枚の暗いカードにまとめる形に変更。サブコピーがないと意味が伝わらず稚拙に見えるとの指摘のため、
+     全6組にサブコピーを追加し、見出しとセットで読ませる。 */
+  .hero-caption-box{
+    display:inline-block;
+    max-width:520px;
+    background:rgba(32,32,36,.65);
+    backdrop-filter:blur(8px);
+    -webkit-backdrop-filter:blur(8px);
+    color:#fff;
+    padding:24px 30px;
+  }
+  .hero-caption-box h2{
+    font-family:'Noto Serif JP',serif;
+    font-weight:700;
+    font-size:37px;
+    line-height:1.45;
+    margin:0 0 12px;
+  }
+  .hero-caption-box p{
+    font-family:'Noto Sans JP',sans-serif;
+    font-size:15px;
+    line-height:1.85;
+    color:rgba(255,255,255,.78);
+    margin:0;
+  }
+  @media (max-width: 900px){
+    .hero-caption-wrap.pos-r{ right:24px; left:24px; top:auto; bottom:64px; text-align:left; max-width:none; }
+    .hero-caption-wrap.pos-c{ left:24px; right:24px; transform:none; top:auto; bottom:64px; text-align:left; max-width:none; }
+    .hero-caption-box{ max-width:none; }
+    .hero-caption-box h2{ font-size:30px; }
+  }
+  @media (prefers-reduced-motion: reduce){
+    .hero-carousel-slide{ transition:none !important; }
+    .hero-caption{ transition:none !important; }
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    .reveal-up{ opacity:1 !important; transform:none !important; transition:none !important; }
+    .photo-fx > img, .photo-fx > video{ transition:none !important; }
+    .kinetic-label .k-char{ opacity:1 !important; transform:none !important; transition:none !important; }
+    .cushion::after, .nav-cushion::after, .row-cushion::before{ transition:none !important; }
+    .sweep-text::before{ transition:none !important; }
+  }
+</style>
+</head>
+<!-- 2026-09-07（v3）：採用ページ本格作り込み。A案（トップページv23のデザインシステムをそのまま踏襲）を採用。
+     理由はエージェント最終報告を参照。ヘッダー・ドロップダウンナビはトップページと完全に共通のものをそのまま流用。
+     文字サイズは全体的にトップページと同水準（本文16〜19px、セクション見出し28〜32px相当）まで拡大。
+     事実情報（募集要項の数値・社員インタビューの実発言等）はv2から一切変更なし。引き続き「※コピー案のイメージです」
+     「数値は現行サイトから未取得のため空欄」等の断り書きをすべて維持し、創作した実績・数字は含めていない。 -->
+<!-- 2026-09-08（v4）：5点修正。①コピー刷新：「地図」モチーフ(大成建設「地図に残る仕事。」との類似リスク)を廃止し、
+     ヒーロー見出し・末尾CTAを「港」モチーフ(トップページv23「未来へ。新しい港を、拓く。」と一貫)に書き換え。
+     ②NUMBERSセクション：wakachiku.co.jp公式サイト（採用サイト「数字で見る若築建設」/csr/health.html/csr/female_employees.html/
+     コーポレートレポート2025 組織の持続性PDF等）を再調査。平均年齢43.8歳・有給休暇取得率50.2%(2024年度実績)の実データを
+     確認できたため大きく太い数字で表示。女性社員比率・平均勤続年数は全社共通の単一指標としての公式データが確認できず
+     （関連指標として「新規採用者に占める女性比率」「総合職の男女別平均勤続年数」は見つかったが、依頼された指標そのものとは
+     定義が異なるため代用せず）、正直に「確認中」の断り書きを維持。③VOICEセクション：A/K/Mの色付きイニシャルを実写真に
+     差し替え（AI生成は不使用）。④CULTUREセクション：マスコット中心から「仲間・温かみ」中心に再構成、実写真2枚を新規使用。
+     ⑤FAQ：wakachiku.co.jp公式の募集要項ページ・福利厚生ページ・教育研修制度ページの一次情報に基づき7問に拡充。 -->
+<body class="bg-sand text-abyss">
+
+<!-- 2026-09-08（v7）：座布団・ホバーのアクセントカラーをロイヤルブルー(#2f57ff)からターコイズティール/シーグリーン
+     (#32b4a6、RGB(50,180,166)、CMYK C68/M2/Y39/K0)に変更。トップページv24と同様、Tailwind設定のroyal色定義と
+     CSS変数--royal/--royal-deepを置き換え、ハードコードされていたrgba(47,87,255,...)（geo-pattern-routeの4箇所含む）も
+     rgba(50,180,166,...)に変換し、影響範囲全体に一括反映。コントラスト確認：新色に白文字を重ねた場合の比率は約2.56:1で
+     WCAG AA基準（通常文字4.5:1、大きな文字3:1）をいずれも下回る旨を報告済み（対応要否は指示待ち、今回は色の置換のみ実施）。 -->
+<!-- 2026-09-08（v8）：座布団・ホバー色を再指定。前回のターコイズティール(#32b4a6、白文字コントラスト比約2.56:1でWCAG AA未達)から、
+     新色#0e9aa2（RGB(14,154,162)、CMYK C91/M5/Y0/K36）に変更。実装前にWCAG相対輝度計算でコントラスト比を検証：
+     白文字(#ffffff)との比率は約3.41:1。大きな文字（18.66px太字/24px以上）の基準3:1はクリアするが、通常文字の基準4.5:1には
+     依然届かない。sweep-textの大半（見出し）は基準を満たす一方、ヘッダーナビ(.nav-cushion)や.cushionのインラインリンク
+     など小さめのテキストは基準未達のまま。鈴木編集長兼社長に数値・内訳を正直に報告し対応案を提示。今回もご指示通り
+     白文字のまま色の置換のみ実施し、独断のデザイン変更はしていない。 -->
+<!-- 2026-09-08（v9）：座布団・ホバー色を再々指定。前回の#0e9aa2（白文字コントラスト比約3.41:1、大きな文字の基準はクリア）から、
+     新色#15c5ce（ブライトシアンティール/ターコイズ、RGB(21,197,206)、CMYK C67/M0/Y23/K0）に変更。実装前にWCAG相対輝度計算で
+     事前検証：白文字(#ffffff)との比率は約2.12:1で、前回より明度が上がった分さらに悪化し、大きな文字の基準3:1・通常文字の
+     基準4.5:1をいずれも下回る（前回#0e9aa2の3.41:1、前々回#32b4a6の2.56:1と比べても最も低い数値）。参考として、新色に
+     abyss色(#0a2540)の濃紺文字を重ねた場合は約7.33:1と非常に高いコントラストが得られることも確認済み（対応案の裏付け）。
+     鈴木編集長兼社長に数値を正直に報告し、対応案（白文字ではなく濃紺系の文字色に変更する等）を提示。今回もご指示通り
+     白文字のまま色の置換自体は実施し、独断のデザイン変更はしていない。 -->
+<!-- 2026-09-08（v10）：座布団・ホバー色を4回目の指定。前回の#15c5ce（白文字コントラスト比約2.12:1、3色中最低）から、
+     新色#3dc8ba（ライトアクアティール/ミントシアン、RGB(61,200,186)、CMYK C62/M0/Y32/K0）に変更。実装前にWCAG相対輝度
+     計算で事前検証：白文字(#ffffff)との比率は約2.07:1で、#15c5ceの2.12:1よりさらにわずかに低下し、これまで検討した
+     4色（#2f57ff旧ロイヤルブルー5.35:1／#32b4a6 2.56:1／#0e9aa2 3.41:1／#15c5ce 2.12:1／#3dc8ba 2.07:1）の中で最も低い。
+     大きな文字の基準3:1・通常文字の基準4.5:1をいずれも下回る。参考として、abyss色(#0a2540)の濃紺文字を重ねた場合は
+     約7.52:1と非常に高いコントラストが得られることも確認済み。鈴木編集長兼社長に数値を正直に報告し、対応案（白文字では
+     なく濃紺系の文字色に変更する等）を改めて提示。今回もご指示通り白文字のまま色の置換自体は実施し、独断のデザイン
+     変更はしていない。 -->
+
+<header class="sticky top-0 z-50 bg-white/95 backdrop-blur border-b border-black/5">
+  <div class="max-w-[1400px] mx-auto px-8 h-[100px] flex items-center justify-between">
+    <img src="img/wakachiku_logo_real.svg" alt="若築建設" class="h-16">
+    <nav class="hidden lg:flex items-center gap-7 text-[17px] font-medium text-abyss/80">
+      <div class="nav-item"><a href="#" class="nav-cushion">企業情報</a>
+        <div class="dd-panel">
+          <div class="dd-panel-inner">
+          <div class="dd-col">
+            <a href="https://www.wakachiku.co.jp/company/message.html" target="_blank">社長あいさつ</a>
+            <a href="https://www.wakachiku.co.jp/company/policy.html" target="_blank">経営理念</a>
+            <a href="https://www.wakachiku.co.jp/company/profile.html" target="_blank">会社概要</a>
+            <a href="https://www.wakachiku.co.jp/company/history.html" target="_blank">会社沿革</a>
+            <a href="https://www.wakachiku.co.jp/company/offices.html" target="_blank">事業所</a>
+            <a href="https://www.wakachiku.co.jp/company/corporate_message.html" target="_blank">コーポレートメッセージ</a>
+            <a href="https://www.wakachiku.co.jp/company/governance.html" target="_blank">コーポレートガバナンス</a>
+          </div>
+        </div>
+          </div>
+      </div>
+      <div class="nav-item"><a href="#" class="nav-cushion">IR情報</a>
+        <div class="dd-panel">
+          <div class="dd-panel-inner">
+          <div class="dd-col">
+            <a href="https://www.wakachiku.co.jp/ir/release.html" target="_blank">IRニュース</a>
+            <a href="https://www.wakachiku.co.jp/company/message.html" target="_blank">トップメッセージ</a>
+            <a href="https://www.wakachiku.co.jp/ir/highlights.html" target="_blank">業績ハイライト</a>
+            <a href="https://www.wakachiku.co.jp/ir/shareholders.html" target="_blank">株式情報</a>
+            <a href="https://www.wakachiku.co.jp/ir/financial.html" target="_blank">IRライブラリー</a>
+          </div>
+          <div class="dd-col">
+            <a href="https://www.wakachiku.co.jp/ir/calendar.html" target="_blank">IRカレンダー</a>
+            <a href="https://www.wakachiku.co.jp/ir/esg.html" target="_blank">ESG</a>
+            <a href="https://www.wakachiku.co.jp/ir/shareholder_meeting.html" target="_blank">株主総会</a>
+            <a href="https://www.pronexus.co.jp/koukoku/1888/1888.html" target="_blank">電子公告</a>
+            <a href="https://www.wakachiku.co.jp/ir/disclaimer.html" target="_blank">免責事項</a>
+          </div>
+        </div>
+          </div>
+      </div>
+      <div class="nav-item"><a href="#" class="nav-cushion">サステナビリティ</a>
+        <div class="dd-panel">
+          <div class="dd-panel-inner">
+          <div class="dd-col">
+            <a href="https://www.wakachiku.co.jp/company/message.html" target="_blank">トップメッセージ</a>
+            <a href="https://www.wakachiku.co.jp/csr/esg-policy.html" target="_blank">ESG経営基本方針</a>
+            <a href="https://www.wakachiku.co.jp/csr/dx-promotion.html" target="_blank">DX推進</a>
+            <a href="https://www.wakachiku.co.jp/csr/report.html" target="_blank">コーポレートレポート</a>
+          </div>
+          <div class="dd-col">
+            <div class="dd-col-title">E（環境）</div>
+            <a href="https://www.wakachiku.co.jp/csr/environment-01.html" target="_blank">環境方針</a>
+            <a href="https://www.wakachiku.co.jp/csr/environment-02.html" target="_blank">環境教育の実施</a>
+            <a href="https://www.wakachiku.co.jp/csr/tcfd.html" target="_blank">TCFD提言による情報開示</a>
+          </div>
+          <div class="dd-col">
+            <div class="dd-col-title">S（社会）</div>
+            <a href="https://www.wakachiku.co.jp/csr/social-01.html" target="_blank">人権方針</a>
+            <a href="https://www.wakachiku.co.jp/csr/next_generation.html" target="_blank">次世代育成支援</a>
+            <a href="https://www.wakachiku.co.jp/csr/female_employees.html" target="_blank">女性活躍推進</a>
+            <a href="https://www.wakachiku.co.jp/csr/health.html" target="_blank">健康経営</a>
+            <a href="https://www.wakachiku.co.jp/csr/activity.html" target="_blank">農村地域振興活動</a>
+          </div>
+          <div class="dd-col">
+            <div class="dd-col-title">G（ガバナンス）</div>
+            <a href="https://www.wakachiku.co.jp/csr/governance-01.html" target="_blank">G（ガバナンス）</a>
+            <a href="https://www.wakachiku.co.jp/company/governance.html" target="_blank">コーポレート・ガバナンス</a>
+            <a href="https://www.wakachiku.co.jp/company/code_of_conduct.html" target="_blank">企業行動規範</a>
+            <a href="https://www.wakachiku.co.jp/csr/security.html" target="_blank">情報セキュリティ方針</a>
+            <a href="https://www.wakachiku.co.jp/csr/whistleblowing.html" target="_blank">内部通報制度</a>
+          </div>
+        </div>
+          </div>
+      </div>
+      <div class="nav-item"><a href="#" class="nav-cushion">施工実績</a>
+        <div class="dd-panel">
+          <div class="dd-panel-inner">
+          <div class="dd-col">
+            <a href="https://www.wakachiku.co.jp/achievement/detail1.html" target="_blank">海上土木</a>
+            <a href="https://www.wakachiku.co.jp/achievement/detail2.html" target="_blank">陸上土木</a>
+            <a href="https://www.wakachiku.co.jp/achievement/detail3.html" target="_blank">建築</a>
+            <a href="https://www.wakachiku.co.jp/achievement/detail4.html" target="_blank">海外</a>
+          </div>
+        </div>
+          </div>
+      </div>
+      <div class="nav-item"><a href="#" class="nav-cushion">技術紹介</a>
+        <div class="dd-panel">
+          <div class="dd-panel-inner">
+          <div class="dd-col">
+            <a href="https://www.wakachiku.co.jp/technology/technology1.html" target="_blank">浚渫・埋立</a>
+            <a href="https://www.wakachiku.co.jp/technology/technology2.html" target="_blank">港湾施設建設技術</a>
+            <a href="https://www.wakachiku.co.jp/technology/technology3.html" target="_blank">地盤改良技術</a>
+            <a href="https://www.wakachiku.co.jp/technology/technology4.html" target="_blank">コンクリート関連技術</a>
+            <a href="https://www.wakachiku.co.jp/technology/technology5.html" target="_blank">維持管理・リニューアル</a>
+          </div>
+          <div class="dd-col">
+            <a href="https://www.wakachiku.co.jp/technology/technology6.html" target="_blank">環境保全技術</a>
+            <a href="https://www.wakachiku.co.jp/technology/technology10.html" target="_blank">エネルギー施設建設技術</a>
+            <a href="https://www.wakachiku.co.jp/technology/technology7.html" target="_blank">ICT活用事例</a>
+            <a href="https://www.wakachiku.co.jp/technology/technology8.html" target="_blank">その他</a>
+            <a href="https://www.wakachiku.co.jp/technology/technology9.html" target="_blank">主要船舶</a>
+          </div>
+        </div>
+          </div>
+      </div>
+      <a href="#" class="nav-cushion">新着情報</a>
+      <a href="https://www.wakachiku.co.jp/en/" target="_blank" class="text-[15px] font-bold text-steel border border-steel/30 rounded-full w-9 h-9 flex items-center justify-center hover:border-ink hover:text-ink transition-colors">EN</a>
+      <a href="#" class="btn-royal-hover ml-1 bg-royal text-white text-[20px] px-7 py-3.5 font-semibold">採用情報</a>
+    </nav>
+  </div>
+</header>
+
+<!-- 1. ヒーロー：2026-09-11 ヒーロー背景を静止画→自動再生動画に変更。トップページMOTIONセクション(people_at_work.mp4)と
+     同じ動画・同じ実装ロジック(autoplay muted loop playsinline、border-radius:0のphoto-fxラッパー)をそのまま踏襲。
+     テキストの可読性維持のため、暗幕グラデーションは元の値のまま維持（動画のトーンが元の静止画39番と近く、
+     左側(テキスト側)は十分に暗いことをスクリーンショットで確認済み）。 -->
+<!-- 2026-09-15（v11再々修正）：6枚の実写画像カルーセル。画像とキャッチコピーは1対1（計6組）で同時に
+     切り替わる。画像の内容に合わせてコピーを書き分けた：①本物の集合写真＝家族的な団結②休憩中の団らん＝
+     笑い合える時間③先輩とのブループリント確認＝技術継承④3人で遠くを指差す＝景色を共有する気づき
+     ⑤タブレットでの若手同士の打ち合わせ＝成長・できることが増えていく⑥先輩後輩の対話＝困った時に聞ける
+     安心感。位置は左下→右→中央を2周。 -->
+<section class="relative h-[760px] flex items-center overflow-hidden" id="hero-carousel">
+  <div class="hero-carousel-slide active"><img src="img/recruit_hero_1.jpg" style="filter:saturate(1.12) brightness(1.05);" alt="クレーン船を背景に並ぶ若築建設の社員たちの集合写真"></div>
+  <div class="hero-carousel-slide"><img src="img/recruit_hero_2.jpg" alt="休憩中に笑い合う社員たち"></div>
+  <div class="hero-carousel-slide"><img src="img/recruit_hero_3.jpg" alt="先輩社員が若手にブループリントを教える様子"></div>
+  <div class="hero-carousel-slide"><img src="img/recruit_hero_4.jpg" alt="3人の社員が遠くの現場を指差す様子"></div>
+  <div class="hero-carousel-slide"><img src="img/recruit_hero_5.jpg" alt="タブレットを見ながら打ち合わせをする若手社員たち"></div>
+  <div class="hero-carousel-slide"><img src="img/recruit_hero_6.jpg" alt="先輩社員と若手社員が語り合う様子"></div>
+
+  <div class="inline-block bg-abyss/85 px-5 py-1.5 absolute z-10 left-16 top-[90px]"><p class="eyebrow text-sea text-[15px] tracking-wide">WORK WITH US / RECRUITMENT 2027-2028</p></div>
+
+  <div class="hero-caption-wrap pos-bl"><div class="hero-caption active"><div class="hero-caption-box">
+    <h2>家族と呼びたい、<br>仲間がいる。</h2>
+    <p>年齢も経験も違う人たちが、<br>同じ現場で、同じ景色を見ている。</p>
+  </div></div></div>
+  <div class="hero-caption-wrap pos-r"><div class="hero-caption"><div class="hero-caption-box">
+    <h2>同じ時間を、<br>重ねてきた。</h2>
+    <p>何気ない一杯の時間にも、<br>積み重ねてきた関係がある。</p>
+  </div></div></div>
+  <div class="hero-caption-wrap pos-c"><div class="hero-caption"><div class="hero-caption-box">
+    <h2>手渡されるのは、<br>技術だけじゃない。</h2>
+    <p>図面の先にあるものを、<br>先輩たちは黙って教えてくれる。</p>
+  </div></div></div>
+  <div class="hero-caption-wrap pos-bl"><div class="hero-caption"><div class="hero-caption-box">
+    <h2>同じ方向を、<br>見ている。</h2>
+    <p>指し示す先に、<br>まだ誰も見たことのない景色がある。</p>
+  </div></div></div>
+  <div class="hero-caption-wrap pos-r"><div class="hero-caption"><div class="hero-caption-box">
+    <h2>わからないと、<br>言えることが力になる。</h2>
+    <p>小さな問いの積み重ねが、<br>確かな仕事をつくっていく。</p>
+  </div></div></div>
+  <div class="hero-caption-wrap pos-c"><div class="hero-caption"><div class="hero-caption-box">
+    <h2>答えは、<br>いつも隣にある。</h2>
+    <p>経験は、ひとりで抱えるものではなく、<br>分け合うものだから。</p>
+  </div></div></div>
+</section>
+
+<!-- 2026-09-15（v11）新設：REELセクション（section 3＝ヒーローから2つ下）。元のヒーローで自動再生していた
+     people_at_work.mp4を、内容は変更せずそのままここに移設。トップページv28のREELセクションと同じ
+     実装（.photo-fxラッパー、autoplay muted loop playsinline）を踏襲。 -->
+<section class="relative h-[640px] overflow-hidden bg-abyss">
+  <div class="photo-fx absolute inset-0" style="border-radius:0;">
+    <video class="w-full h-full object-cover" style="border-radius:0;" autoplay muted loop playsinline>
+      <source src="video/people_at_work.mp4" type="video/mp4">
+    </video>
+  </div>
+  <div class="absolute inset-0" style="background:linear-gradient(180deg, rgba(10,37,64,.72) 0%, rgba(10,37,64,.25) 42%, rgba(10,37,64,.78) 100%);"></div>
+  <div class="relative z-10 h-full flex flex-col items-center justify-center text-center px-8">
+    <span class="kinetic-label eyebrow text-[48px] md:text-[64px] leading-none text-white/10 mb-4">REEL</span>
+    <h2 class="font-serif font-bold text-white text-[30px] mb-4 leading-snug"><span class="sweep-text">毎日の現場に、この仲間たちがいる。</span></h2>
+    <p class="text-[16px] text-white/70 max-w-[560px] leading-[1.9]">安全確認、測量、操船——一つひとつの小さな動きを、支え合いながら。</p>
+  </div>
+</section>
+
+<!-- 2. 働くということ：二面性(堅実×挑戦)を核メッセージから導出 -->
+<section class="relative py-28 overflow-hidden">
+  <div class="geo-pattern-grid"></div>
+  <div class="relative max-w-[1320px] mx-auto px-8 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+    <div class="reveal-up photo-fx h-[400px]"><img src="../priority/68_interview_worker_young_yellowhelmet_a.jpg" class="w-full h-full object-cover object-top"></div>
+    <div class="reveal-up delay-1">
+      <span class="kinetic-label eyebrow block text-[56px] md:text-[72px] leading-none text-tide mb-2">VISION</span>
+      <h2 class="font-serif font-bold text-[32px] text-abyss leading-[1.6] mb-6"><span class="sweep-text">堅実であることと、</span><br><span class="sweep-text delay-1">挑戦すること。</span></h2>
+      <p class="text-[16px] text-steel leading-[1.9]">若築建設にとって、この二つは矛盾しません。135年、官公庁からの信頼を積み重ねてきた堅実さ。そして現場では、若い世代が自分の判断で挑戦できる自由。まだ見ぬ港を拓く仕事には、その両方が必要です。</p>
+    </div>
+  </div>
+</section>
+
+<!-- 3. 数字で見る：2026-09-08(v6)4項目に拡張。平均年齢・有給休暇取得率は引き続きwakachiku.co.jp公式サイトで確認済みの実データ。
+     女性社員比率・平均勤続年数は、全社共通の単一指標としての公式データが未確認のため、実際に確認できた関連データ
+     （2025年度新規採用者に占める女性比率26%、総合職の男女別平均勤続年数：男性19.1年/女性4.9年）から算出した参考値として
+     小さく「(参考値)」の注記付きで掲載。正式な全社員ベースの公式数値ではない旨を明記し、確認済みの2項目とは明確に区別。 -->
+<section class="relative py-20 bg-abyss text-white overflow-hidden">
+  <div class="geo-pattern-vlines"></div>
+  <div class="relative max-w-[1320px] mx-auto px-8">
+    <div class="reveal-up flex items-end gap-6 mb-10 justify-center">
+      <span class="kinetic-label eyebrow text-[48px] md:text-[64px] leading-none text-white/10">NUMBERS</span>
+    </div>
+    <div class="reveal-up delay-1 grid grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+      <div class="rounded-2xl border border-white/15 py-10 text-center">
+        <div class="eyebrow text-[72px] leading-none text-white">43<span class="text-sea">.8</span></div>
+        <div class="text-[16px] text-white/70 mt-3">平均年齢（歳）</div>
+        <div class="text-[11px] text-white/35 mt-1">出典：採用サイト「数字で見る若築建設」</div>
+      </div>
+      <div class="rounded-2xl border border-white/15 py-10 text-center">
+        <div class="eyebrow text-[72px] leading-none text-white">50<span class="text-sea">.2</span><span class="text-[24px] font-sans font-normal align-top ml-1">%</span></div>
+        <div class="text-[16px] text-white/70 mt-3">有給休暇取得率</div>
+        <div class="text-[11px] text-white/35 mt-1">出典：サステナビリティ「健康経営」2024年度実績</div>
+      </div>
+      <div class="rounded-2xl border border-dashed border-white/20 py-10 text-center bg-white/[0.02]">
+        <div class="eyebrow text-[72px] leading-none text-white/70">26<span class="text-sea/70 text-[24px] font-sans font-normal align-top ml-1">%</span></div>
+        <div class="text-[16px] text-white/70 mt-3">女性社員比率 <span class="text-[11px] text-sea/80 align-middle">(参考値)</span></div>
+        <div class="text-[11px] text-white/35 mt-1">2025年度新規採用者に占める女性比率から算出。全社員ベースの公式値ではありません</div>
+      </div>
+      <div class="rounded-2xl border border-dashed border-white/20 py-10 text-center bg-white/[0.02]">
+        <div class="eyebrow text-[72px] leading-none text-white/70">15<span class="text-sea/70 text-[22px] font-sans font-normal align-top ml-1">年</span></div>
+        <div class="text-[16px] text-white/70 mt-3">平均勤続年数 <span class="text-[11px] text-sea/80 align-middle">(参考値)</span></div>
+        <div class="text-[11px] text-white/35 mt-1">総合職の男女別実績（男性19.1年/女性4.9年）から算出した目安です</div>
+      </div>
+    </div>
+    <p class="reveal-up delay-2 text-[13px] text-white/40 text-center leading-[1.8]">「(参考値)」の2項目は、全社員を対象とした公式統計そのものではなく、公開データから算出した目安値です。正式データが提供され次第、確定値に差し替えます。</p>
+  </div>
+</section>
+
+<!-- 4. 社員インタビュー：コピー例（イメージ）であることを明記。実在人物の発言として断定しない -->
+<section class="py-28">
+  <div class="max-w-[1320px] mx-auto px-8">
+    <div class="reveal-up flex items-end gap-6 mb-2">
+      <span class="kinetic-label eyebrow text-[56px] md:text-[72px] leading-none text-tide">VOICE</span>
+      <h2 class="font-serif font-bold text-[32px] text-abyss pb-2"><span class="sweep-text">社員インタビュー</span></h2>
+    </div>
+    <p class="reveal-up text-[14px] text-steel/70 mb-14">※写真は実際の現場で働く社員のものですが、発言はコピー案のイメージです。実際の社員インタビューに差し替え予定（写真の人物と発言内容は結びついていません）</p>
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+      <div class="reveal-up rounded-2xl overflow-hidden border border-black/10">
+        <div class="photo-fx aspect-[4/5]"><img src="../priority/66_interview_worker_older_whitehelmet_coast.jpg" class="w-full h-full object-cover object-top"></div>
+        <div class="p-7"><p class="text-[12px] text-sea font-bold mb-2 tracking-wide">現場監督（イメージ）</p><h4 class="cushion text-[18px] font-bold text-abyss mb-2">「ここにはまだ、誰も歩いていない」</h4><p class="text-[15px] text-steel leading-[1.7]">埋立地に最初の足跡を残す瞬間が、この仕事の醍醐味です。（コピー案）</p></div>
+      </div>
+      <div class="reveal-up delay-1 rounded-2xl overflow-hidden border border-black/10">
+        <div class="photo-fx aspect-[4/5]"><img src="../priority/70_interview_worker_young_yellowhelmet_c.jpg" class="w-full h-full object-cover object-top"></div>
+        <div class="p-7"><p class="text-[12px] text-sea font-bold mb-2 tracking-wide">技術職（イメージ）</p><h4 class="cushion text-[18px] font-bold text-abyss mb-2">「先輩の手つきを、まず覚える」</h4><p class="text-[15px] text-steel leading-[1.7]">技術は言葉より先に、手から手へ伝わっていきます。（コピー案）</p></div>
+      </div>
+      <div class="reveal-up delay-2 rounded-2xl overflow-hidden border border-black/10">
+        <div class="photo-fx aspect-[4/5]"><img src="../priority/64_interview_worker_white_helmet_portside.jpg" class="w-full h-full object-cover object-top"></div>
+        <div class="p-7"><p class="text-[12px] text-sea font-bold mb-2 tracking-wide">事務系総合職（イメージ）</p><h4 class="cushion text-[18px] font-bold text-abyss mb-2">「現場を、数字と書類で支える」</h4><p class="text-[15px] text-steel leading-[1.7]">現場を陰で支える仕事にも、確かな手ごたえがあります。（コピー案）</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 4.5 現場で働くメンバー：実写真。発言の引用は付けず、あくまで実際の現場の空気を伝える写真ギャラリーとして扱う -->
+<section class="pb-28 pt-2">
+  <div class="max-w-[1320px] mx-auto px-8">
+    <div class="reveal-up flex items-center gap-4 mb-6">
+      <span class="h-px flex-1 bg-black/10"></span>
+      <p class="text-[14px] text-steel/70 whitespace-nowrap">実際に現場で働くメンバー（新本牧・湘南）</p>
+      <span class="h-px flex-1 bg-black/10"></span>
+    </div>
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-2">
+      <div class="reveal-up photo-fx aspect-[3/4]"><img src="../priority/53_interview_worker_ichimura_jv_a.jpg" class="w-full h-full object-cover object-top"></div>
+      <div class="reveal-up delay-1 photo-fx aspect-[3/4]"><img src="../priority/57_interview_worker_redcrane_pink_helmet.jpg" class="w-full h-full object-cover object-top"></div>
+      <div class="reveal-up delay-2 photo-fx aspect-[3/4]"><img src="../priority/72_interview_worker_older_glasses_a.jpg" class="w-full h-full object-cover object-top"></div>
+      <div class="reveal-up delay-3 photo-fx aspect-[3/4]"><img src="../priority/51_portrait_worker_orange_helmet_closeup.jpg" class="w-full h-full object-cover object-top"></div>
+    </div>
+  </div>
+</section>
+
+<!-- 5. 現場密着 -->
+<section class="relative py-28 bg-tide/30 overflow-hidden">
+  <div class="geo-pattern-tri"></div>
+  <div class="relative max-w-[1320px] mx-auto px-8 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+    <div class="reveal-up photo-fx h-[360px]"><img src="../priority/36_worker_ladder_cell_interior.jpg" class="w-full h-full object-cover"></div>
+    <div class="reveal-up delay-1">
+      <span class="kinetic-label eyebrow block text-[48px] md:text-[64px] leading-none text-abyss/10 mb-2">FIELD</span>
+      <h2 class="font-serif font-bold text-[28px] text-abyss mb-6"><span class="sweep-text">現場は、</span><br><span class="sweep-text delay-1">まだ見ぬ港を、かたちにする場所。</span></h2>
+      <p class="text-[16px] text-steel leading-[1.9]">一つの役割だけをこなすのではなく、幅広い仕事から何でも経験できるところが若築建設のいいところ。若手でも大きな仕事に携われる機会があります。</p>
+    </div>
+  </div>
+</section>
+
+<!-- 6. キャリアパス -->
+<section class="relative py-28 overflow-hidden">
+  <div class="geo-pattern-route"></div>
+  <div class="relative max-w-[1320px] mx-auto px-8">
+    <div class="reveal-up flex items-end gap-6 mb-2">
+      <span class="kinetic-label eyebrow text-[56px] md:text-[72px] leading-none text-tide">CAREER</span>
+      <h2 class="font-serif font-bold text-[30px] text-abyss pb-2"><span class="sweep-text">手は、少しずつ確かになる。</span></h2>
+    </div>
+    <p class="reveal-up text-[14px] text-steel/70 mb-10">※ステップ名はイメージです。正式なキャリアパス制度は教育研修制度ページをご参照ください</p>
+    <div class="reveal-up delay-1 photo-fx h-[280px] mb-16"><img src="../priority/89_surveying_team_total_station.jpg" class="w-full h-full object-cover"></div>
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 relative">
+      <div class="absolute top-[26px] left-[12%] right-[12%] h-px bg-black/10 hidden lg:block"></div>
+      <div class="reveal-up relative text-center">
+        <div class="w-[56px] h-[56px] rounded-full bg-royal text-white flex items-center justify-center font-bold mx-auto mb-4 relative z-10 text-[18px]">1</div>
+        <h4 class="text-[16px] font-bold text-abyss">現場で覚える</h4>
+        <svg viewBox="0 0 24 24" fill="none" stroke="#4b5a68" stroke-width="1.3" class="w-10 h-10 mx-auto mt-3"><path d="M4 5.5C4 4.7 4.7 4 5.5 4H12v16H5.5A1.5 1.5 0 0 1 4 18.5v-13Z"/><path d="M20 5.5c0-.8-.7-1.5-1.5-1.5H12v16h6.5a1.5 1.5 0 0 0 1.5-1.5v-13Z"/><path d="M9 8h3M9 11h3"/></svg>
+      </div>
+      <div class="reveal-up delay-1 relative text-center">
+        <div class="w-[56px] h-[56px] rounded-full bg-royal text-white flex items-center justify-center font-bold mx-auto mb-4 relative z-10 text-[18px]">2</div>
+        <h4 class="text-[16px] font-bold text-abyss">現場を任される</h4>
+        <svg viewBox="0 0 24 24" fill="none" stroke="#4b5a68" stroke-width="1.3" class="w-10 h-10 mx-auto mt-3"><rect x="6" y="4" width="12" height="17" rx="1.5"/><path d="M9 3.5h6a1 1 0 0 1 1 1V6H8V4.5a1 1 0 0 1 1-1Z"/><path d="m9 13 2 2 4-4.5"/></svg>
+      </div>
+      <div class="reveal-up delay-2 relative text-center">
+        <div class="w-[56px] h-[56px] rounded-full bg-royal text-white flex items-center justify-center font-bold mx-auto mb-4 relative z-10 text-[18px]">3</div>
+        <h4 class="text-[16px] font-bold text-abyss">現場を率いる</h4>
+        <svg viewBox="0 0 24 24" fill="none" stroke="#4b5a68" stroke-width="1.3" class="w-10 h-10 mx-auto mt-3"><path d="M3 10v4h3l5 4V6L6 10H3Z"/><path d="M16 9.5a4 4 0 0 1 0 5M19 7a7.5 7.5 0 0 1 0 10"/></svg>
+      </div>
+      <div class="reveal-up delay-3 relative text-center">
+        <div class="w-[56px] h-[56px] rounded-full bg-royal text-white flex items-center justify-center font-bold mx-auto mb-4 relative z-10 text-[18px]">4</div>
+        <h4 class="text-[16px] font-bold text-abyss">次の手を育てる</h4>
+        <svg viewBox="0 0 24 24" fill="none" stroke="#4b5a68" stroke-width="1.3" class="w-10 h-10 mx-auto mt-3"><path d="M12 21v-7"/><path d="M12 14c-3.5 0-6-2.5-6-6.5C6 6 6.3 5 6.3 5S9 5.2 10.5 7c1 1.2 1.5 2.6 1.5 4"/><path d="M12 11c2.8 0 5-2 5-5.5 0-1.2-.3-2-.3-2S14.3 3.7 13 5.3c-.8 1-1.2 2.2-1.2 3.2"/></svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 7. カルチャー：2026-09-08(v4)再構成。「道連れ」(腐れ縁のようなニュアンス)という言葉、およびマスコット中心の構成を見直し、
+     「仲間がいる」「温かみ」「ファミリーライク」を軸に据えた。マスコット(わっくん・ちーちゃん・若鷲丸)は主役から外し、
+     実際に一緒に働く仲間の実写真を中心に配置。2026-09-08(v6)追加：若手社員の写真2枚を新規追加し計4枚に拡張
+     （68番：若手男性・穏やかな表情／56番：若手男性・現場で会話する様子）。なお、実写真ライブラリ内には満面の笑顔で
+     談笑するようなカット自体は少なく、その中で比較的表情の柔らかいもの・活気のあるものを選定した（誇張はしていない）。 -->
+<section class="relative py-28 bg-abyss text-white overflow-hidden">
+  <div class="geo-pattern-vlines"></div>
+  <div class="relative max-w-[1320px] mx-auto px-8 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+    <div class="reveal-up grid grid-cols-2 gap-3">
+      <div class="photo-fx aspect-[4/5]"><img src="../priority/23_interior_cabin_workers_group_a.jpg" class="w-full h-full object-cover"></div>
+      <div class="photo-fx aspect-[4/5]"><img src="../priority/81_portrait_worker_golden_backlight_a.jpg" class="w-full h-full object-cover"></div>
+      <div class="photo-fx aspect-[4/5]"><img src="../priority/68_interview_worker_young_yellowhelmet_a.jpg" class="w-full h-full object-cover object-top"></div>
+      <div class="photo-fx aspect-[4/5]"><img src="../priority/56_interview_worker_redcrane_orange_vest.jpg" class="w-full h-full object-cover object-top"></div>
+    </div>
+    <div class="reveal-up delay-1">
+      <span class="kinetic-label eyebrow block text-[48px] md:text-[64px] leading-none text-white/10 mb-2">CULTURE</span>
+      <h2 class="font-serif font-bold text-[28px] mb-6"><span class="sweep-text">家族と呼びたい、</span><br><span class="sweep-text delay-1">仲間がいる。</span></h2>
+      <p class="text-[16px] text-white/70 leading-[1.9]">移動の船の中でも、現場に向かう朝でも、そばには一緒に働く仲間がいます。年齢も経験も違う人たちが、同じ潮風の中で肩を並べる。若築建設の現場は、そんな家族のような温かさで支えられています。</p>
+    </div>
+  </div>
+</section>
+
+<!-- 8. 募集要項：2026-09-08(v6)拡充。wakachiku.co.jp公式サイト（新卒採用「募集要項」ページ・「福利厚生」ページ）の
+     一次情報に基づき2行→10行に拡充。数字・制度名の創作はなし。 -->
+<section class="py-28">
+  <div class="max-w-[1320px] mx-auto px-8">
+    <div class="reveal-up flex items-end gap-6 mb-10">
+      <span class="kinetic-label eyebrow text-[48px] md:text-[64px] leading-none text-tide">RECRUITMENT</span>
+      <h2 class="font-serif font-bold text-[30px] text-abyss pb-2"><span class="sweep-text">募集要項</span></h2>
+    </div>
+    <p class="reveal-up delay-1 text-[14px] text-steel/70 mb-8">※若築建設 公式採用サイトの募集要項（新卒）・福利厚生ページに基づく内容です（2027年3月卒業見込みの方を対象とした新卒採用の要項）</p>
+    <div class="reveal-up delay-2 rounded-2xl border border-black/10 overflow-hidden">
+      <table class="w-full border-collapse">
+        <tr class="border-b border-black/10"><th class="text-left text-[13px] text-sea uppercase tracking-wide py-5 px-6 w-[200px] font-semibold bg-tide/20 align-top">対象</th><td class="py-5 px-6 text-[16px]">2027年3月卒業見込みの方／2028年3月卒業見込みの方／※既卒の方／中途採用</td></tr>
+        <tr class="border-b border-black/10"><th class="text-left text-[13px] text-sea uppercase tracking-wide py-5 px-6 font-semibold bg-tide/20 align-top">募集する人・職務内容</th><td class="py-5 px-6 text-[16px] leading-[1.8]">技術職・事務職（学歴・学部・学科不問、人物重視の選考）<br>【総合職】土木：施工管理・設計・積算等／建築：施工管理・意匠構造設計等／機電：船舶技術の企画・開発等／事務：総務・人事・経営企画・経理・工務・営業等<br>【専任職】BIM/CIM：3Dモデル作成等／ICT：ICT機器開発・施工支援等</td></tr>
+        <tr class="border-b border-black/10"><th class="text-left text-[13px] text-sea uppercase tracking-wide py-5 px-6 font-semibold bg-tide/20 align-top">初任給</th><td class="py-5 px-6 text-[16px] leading-[1.8]">2026年4月から<br>（総合職）修士了 320,000円／大学卒・高専専攻科了 300,000円／高専本科卒 283,000円<br>（専任職）修士了 278,000円／大学卒・高専専攻科了 260,000円／高専本科卒 245,000円</td></tr>
+        <tr class="border-b border-black/10"><th class="text-left text-[13px] text-sea uppercase tracking-wide py-5 px-6 font-semibold bg-tide/20 align-top">諸手当・昇給・賞与</th><td class="py-5 px-6 text-[16px] leading-[1.8]">通勤手当・住宅手当・時間外手当・家族手当・寒冷地手当・技術手当・役職手当等<br>昇給：毎年4月／賞与：年2回（6月・11月）※2024年度は本給の7.7ヶ月分の支給実績</td></tr>
+        <tr class="border-b border-black/10"><th class="text-left text-[13px] text-sea uppercase tracking-wide py-5 px-6 font-semibold bg-tide/20 align-top">勤務地・勤務時間</th><td class="py-5 px-6 text-[16px] leading-[1.8]">本社（東京）および支店・営業所・作業所・海外事業所<br>9:00〜18:00（本社・支店・営業所）／8:00〜17:00（作業所）※いずれも休憩1時間を含む</td></tr>
+        <tr class="border-b border-black/10"><th class="text-left text-[13px] text-sea uppercase tracking-wide py-5 px-6 font-semibold bg-tide/20 align-top">休日・休暇</th><td class="py-5 px-6 text-[16px] leading-[1.8]">土曜・日曜・祝日・夏期休暇・年末年始・創立記念日・有給休暇（年間20日付与）・子の看護等休暇・介護休暇・ウェルネス休暇・エル休暇・結婚休暇・忌引休暇・永年勤続休暇等</td></tr>
+        <tr class="border-b border-black/10"><th class="text-left text-[13px] text-sea uppercase tracking-wide py-5 px-6 font-semibold bg-tide/20 align-top">住宅・福利厚生</th><td class="py-5 px-6 text-[16px] leading-[1.8]">独身寮（月額1万円、家具・家電付、初期費用・水光熱費会社負担）／借上社宅（敷金・礼金・仲介手数料・家賃の一部を会社負担）／財形貯蓄・従業員持株会・企業年金・共済会・GLTD保険・帰省旅費・提携ジム等</td></tr>
+        <tr class="border-b border-black/10"><th class="text-left text-[13px] text-sea uppercase tracking-wide py-5 px-6 font-semibold bg-tide/20 align-top">教育・資格支援</th><td class="py-5 px-6 text-[16px] leading-[1.8]">新入社員研修・フォローアップ研修・階層別研修等の教育制度あり／技術士・一級建築士等33資格の取得時に最大100万円の資格取得奨励金を支給</td></tr>
+        <tr class="border-b border-black/10"><th class="text-left text-[13px] text-sea uppercase tracking-wide py-5 px-6 font-semibold bg-tide/20 align-top">採用予定数</th><td class="py-5 px-6 text-[16px] leading-[1.8]">（総合職）土木職40名・建築職30名・機電職2名・事務職8名 計80名<br>（専任職）BIM/CIM職 若干名・ICT職 若干名 計5名　※卒業区分（高校卒・高専卒・大学卒・大学院卒）は不問</td></tr>
+        <tr><th class="text-left text-[13px] text-sea uppercase tracking-wide py-5 px-6 font-semibold bg-tide/20 align-top">応募方法・選考プロセス</th><td class="py-5 px-6 text-[16px] leading-[1.8]">技術職（理系）：自由応募・学校推薦のいずれも可／事務職（文系）：自由応募のみ<br>マイページからエントリー→会社訪問・セミナー参加（任意）→書類選考（エントリーシート・適性検査）→一次面接→最終面接→内々定</td></tr>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- 9. FAQ：2026-09-08(v4)拡充。wakachiku.co.jp公式サイト（新卒採用「募集要項」ページ・「福利厚生」ページ・
+     「教育研修制度」ページ・中途採用ページ）の一次情報に基づき7問に拡充。創作した数値・制度は含まない。 -->
+<section class="relative py-28 bg-tide/30 overflow-hidden">
+  <div class="geo-pattern-grid"></div>
+  <div class="relative max-w-[900px] mx-auto px-8">
+    <div class="reveal-up flex items-end gap-6 mb-2">
+      <span class="kinetic-label eyebrow text-[48px] md:text-[64px] leading-none text-abyss/10">FAQ</span>
+      <h2 class="font-serif font-bold text-[28px] text-abyss pb-2"><span class="sweep-text">よくある質問</span></h2>
+    </div>
+    <p class="reveal-up text-[14px] text-steel/70 mb-10">※若築建設 公式採用サイトの募集要項・福利厚生・教育研修制度ページに基づく内容です</p>
+    <div class="reveal-up delay-1 rounded-2xl bg-white border border-black/10 overflow-hidden divide-y divide-black/10">
+      <div class="row-cushion py-7 px-8"><p class="text-[18px] font-bold text-abyss mb-2">文系出身でも応募できますか？</p><p class="text-[15px] text-steel leading-[1.7]">はい。新卒採用は学歴・学部・学科を問わない人物重視の選考です。総合職には土木・建築・機電に加えて事務（総務・人事・経営企画・経理・工務・営業）の職種があり、事務職は自由応募で受け付けています。</p></div>
+      <div class="row-cushion py-7 px-8"><p class="text-[18px] font-bold text-abyss mb-2">転勤はありますか？</p><p class="text-[15px] text-steel leading-[1.7]">あります。本社（東京）のほか、全国の支店・営業所・作業所、および海外事業所で勤務いただく可能性があります。転勤時には特別休暇制度もあります。</p></div>
+      <div class="row-cushion py-7 px-8"><p class="text-[18px] font-bold text-abyss mb-2">未経験・無資格でも技術職に就けますか？</p><p class="text-[15px] text-steel leading-[1.7]">新卒採用の技術職に入社時点での資格要件はありません。新入社員研修をはじめ、半年後のフォローアップ研修、約6年目のリーダー研修など、段階的な教育制度の中で実務を身につけていきます。</p></div>
+      <div class="row-cushion py-7 px-8"><p class="text-[18px] font-bold text-abyss mb-2">資格取得の支援制度はありますか？</p><p class="text-[15px] text-steel leading-[1.7]">あります。技術士・一級建築士・コンクリート診断士など33の資格取得時に最大100万円の資格取得奨励金を支給するほか、一級土木施工管理技士の合格支援プログラム（WEBラーニング＋短期集中講座）、一級建築士の受験費用貸付（合格で返済免除）などの制度があります。</p></div>
+      <div class="row-cushion py-7 px-8"><p class="text-[18px] font-bold text-abyss mb-2">住まいのサポートはありますか？</p><p class="text-[15px] text-steel leading-[1.7]">独身者向けの寮（家具・家電付、初期費用・水光熱費は会社負担、寮費は月額1万円）と、家族持ちの方向けの借上社宅（敷金・礼金・仲介手数料は会社負担、家賃も地域により月額30,000〜77,000円を会社が負担）を用意しています。</p></div>
+      <div class="row-cushion py-7 px-8"><p class="text-[18px] font-bold text-abyss mb-2">産休・育休や時短勤務など、子育てとの両立はできますか？</p><p class="text-[15px] text-steel leading-[1.7]">若築建設は「くるみん認定企業」です。育児短時間勤務、始業・終業時刻を調整できる時差出勤制度、最長で子が2歳になるまでの育児休業、子の看護等休暇など、子育てと仕事を両立できる制度を整えています。</p></div>
+      <div class="row-cushion py-7 px-8"><p class="text-[18px] font-bold text-abyss mb-2">有給休暇はどのくらい取得できますか？</p><p class="text-[15px] text-steel leading-[1.7]">2026年より、正社員は入社1年目から毎年4月1日に年間20日の有給休暇が付与され、半日単位での取得も可能です。未消化分は翌年度への繰り越しもできます。2024年度の有給休暇取得率は50.2%という実績があります。</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 10. エントリーCTA：2026-09-08(v6)大型エンディング写真を追加。「まだ見ぬ港」というコピーに合わせ、
+     富士山を望む港の夕景（33_aerial_golden_hour_hero.jpg）を選定。コピーは「まだ見ぬ港を、共に作ろう。」に再検討。 -->
+<section class="py-28">
+  <div class="max-w-[1320px] mx-auto px-8">
+    <div class="reveal-up photo-fx h-[440px] mb-4"><img src="../priority/33_aerial_golden_hour_hero.jpg" class="w-full h-full object-cover"></div>
+    <div class="reveal-up delay-1 relative rounded-2xl overflow-hidden bg-abyss text-white text-center py-20 px-10">
+      <div class="geo-pattern-contour"></div>
+      <div class="relative">
+        <h3 class="font-serif font-bold text-[30px] mb-9"><span class="sweep-text">まだ見ぬ港を、共に作ろう。</span></h3>
+        <div class="flex justify-center gap-4 flex-wrap">
+          <a href="#" class="btn-royal-hover bg-royal px-8 py-4 text-[16px] font-semibold">2027年3月卒業見込みの方</a>
+          <a href="#" class="btn-royal-hover border border-white/40 px-8 py-4 text-[16px] font-semibold">2028年3月卒業見込みの方</a>
+          <a href="#" class="btn-royal-hover border border-white/40 px-8 py-4 text-[16px] font-semibold">中途採用応募の方</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="bg-abyss text-white py-7 border-t border-white/10">
+  <div class="max-w-[1320px] mx-auto px-8 text-[13px] text-white/40 text-center">Copyright © WAKACHIKU CONSTRUCTION Co., Ltd. All rights reserved.</div>
+</footer>
+
+<script>
+(function(){
+  var prefersReducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // 0) 2026-09-15追加：ヒーローの画像＋キャッチコピー カルーセル（6組・1対1で同時切り替え）。
+  //    視差効果を減らす設定の場合は、切り替えを行わず最初の1組を静止表示のまま保つ。
+  (function(){
+    var carousel = document.getElementById('hero-carousel');
+    if (!carousel) return;
+    var slides = Array.prototype.slice.call(carousel.querySelectorAll('.hero-carousel-slide'));
+    var captions = Array.prototype.slice.call(carousel.querySelectorAll('.hero-caption'));
+    if (slides.length < 2 || prefersReducedMotion) return;
+    var i = 0;
+    setInterval(function(){
+      slides[i].classList.remove('active');
+      if (captions[i]) captions[i].classList.remove('active');
+      i = (i + 1) % slides.length;
+      slides[i].classList.add('active');
+      if (captions[i]) captions[i].classList.add('active');
+    }, 5000);
+  })();
+
+  // ① スクロールリビール：ビューポート内かどうかでtoggle（何度でも再発火）
+  var revealEls = Array.prototype.slice.call(document.querySelectorAll('.reveal-up, .sweep-text'));
+  function updateReveal(){
+    var vh = window.innerHeight;
+    revealEls.forEach(function(el){
+      var rect = el.getBoundingClientRect();
+      var inView = rect.top < vh * 0.92 && rect.bottom > 0;
+      el.classList.toggle('is-inview', inView);
+    });
+  }
+
+  // ② キネティックタイポグラフィ：ラベルを1文字ずつspanに分割し、リビールと同じ判定で再発火
+  var kineticEls = Array.prototype.slice.call(document.querySelectorAll('.kinetic-label'));
+  kineticEls.forEach(function(el){
+    var text = el.textContent;
+    el.textContent = '';
+    for (var i = 0; i < text.length; i++) {
+      var span = document.createElement('span');
+      span.className = 'k-char';
+      span.style.transitionDelay = (i * 0.045) + 's';
+      span.textContent = text[i] === ' ' ? ' ' : text[i];
+      el.appendChild(span);
+    }
+  });
+  function updateKinetic(){
+    var vh = window.innerHeight;
+    kineticEls.forEach(function(el){
+      var rect = el.getBoundingClientRect();
+      var inView = rect.top < vh * 0.92 && rect.bottom > 0;
+      el.classList.toggle('is-inview', inView);
+    });
+  }
+
+  // ③ 写真の統一インタラクション：スクロールでのゆるやかな拡大＋ホバーでのパララックス移動を合成
+  var photoEls = Array.prototype.slice.call(document.querySelectorAll('.photo-fx')).map(function(wrap){
+    var img = wrap.querySelector('img, video');
+    return { wrap: wrap, img: img, scrollScale: 1, hoverActive: false, hx: 0, hy: 0 };
+  }).filter(function(entry){ return entry.img; });
+
+  function applyTransform(entry){
+    if (prefersReducedMotion) { entry.img.style.transform = 'scale(1)'; return; }
+    var hoverScale = entry.hoverActive ? 1.06 : 1;
+    var scale = entry.scrollScale * hoverScale;
+    entry.img.style.transform = 'scale(' + scale.toFixed(4) + ') translate(' + entry.hx.toFixed(2) + 'px,' + entry.hy.toFixed(2) + 'px)';
+  }
+
+  function updatePhotoScroll(){
+    if (prefersReducedMotion) return;
+    var vh = window.innerHeight;
+    var span = vh * 0.75;
+    photoEls.forEach(function(entry){
+      var rect = entry.wrap.getBoundingClientRect();
+      var progress = (vh - rect.top) / span;
+      if (progress < 0) progress = 0;
+      if (progress > 1) progress = 1;
+      entry.scrollScale = 1 + progress * 0.16;
+      applyTransform(entry);
+    });
+  }
+
+  photoEls.forEach(function(entry){
+    entry.wrap.addEventListener('mouseenter', function(){ entry.hoverActive = true; applyTransform(entry); });
+    entry.wrap.addEventListener('mousemove', function(e){
+      var rect = entry.wrap.getBoundingClientRect();
+      var relX = (e.clientX - rect.left) / rect.width - 0.5;
+      var relY = (e.clientY - rect.top) / rect.height - 0.5;
+      entry.hx = relX * -14;
+      entry.hy = relY * -14;
+      applyTransform(entry);
+    });
+    entry.wrap.addEventListener('mouseleave', function(){
+      entry.hoverActive = false; entry.hx = 0; entry.hy = 0; applyTransform(entry);
+    });
+  });
+
+  var ticking = false;
+  function update(){
+    updateReveal();
+    updateKinetic();
+    updatePhotoScroll();
+    ticking = false;
+  }
+  function onScroll(){
+    if (!ticking) {
+      window.requestAnimationFrame(update);
+      ticking = true;
+    }
+  }
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll);
+  update();
+  window.addEventListener('load', update);
+})();
+</script>
+
+</body>
+</html>
