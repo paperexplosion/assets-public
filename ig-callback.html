@@ -1,0 +1,12 @@
+<!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex"><title>Instagram 接続コード</title>
+<style>body{font-family:system-ui,"Hiragino Sans",sans-serif;max-width:640px;margin:40px auto;padding:0 16px;line-height:1.7;background:#111;color:#eee}code{display:block;word-break:break-all;background:#222;padding:12px;border-radius:6px;margin:12px 0}button{font-size:1rem;padding:8px 16px}</style></head><body>
+<h1>Instagram 接続コード</h1><p id="m">読み込み中…</p><code id="c" hidden></code><button id="b" hidden>コピー</button>
+<p style="color:#999;font-size:.85rem">このページは何も送信・保存しません。コードはこの画面の中だけで表示されます（数分で無効になります）。</p>
+<script>
+var p=new URLSearchParams(location.search),code=p.get("code"),err=p.get("error_description")||p.get("error");
+var m=document.getElementById("m"),c=document.getElementById("c"),b=document.getElementById("b");
+if(code){code=code.replace(/#_$/,"");m.textContent="接続コードです。「コピー」を押して、Claude に「コピーした」と伝えてください。";c.textContent=code;c.hidden=false;b.hidden=false;
+b.onclick=function(){navigator.clipboard.writeText(code).then(function(){b.textContent="コピーしました"},function(){var r=document.createRange();r.selectNode(c);getSelection().removeAllRanges();getSelection().addRange(r)})};
+history.replaceState(null,"",location.pathname)}
+else{m.textContent=err?("エラー: "+err):"コードがありません。許可の画面からやり直してください。"}
+</script></body></html>
